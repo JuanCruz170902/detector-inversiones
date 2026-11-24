@@ -107,6 +107,7 @@ def metricas_serie(s: pd.Series) -> dict | None:
         "ret_1m": r(21),
         "ret_3m": r(63),
         "ret_6m": r(126),
+        "ret_12m": r(252),
         "vol_anual": float(ret.iloc[-63:].std() * np.sqrt(252)),
         "rsi14": float(rsi.iloc[-1]) if not np.isnan(rsi.iloc[-1]) else np.nan,
         "sobre_sma200": bool(s.iloc[-1] > sma200) if not np.isnan(sma200) else None,
@@ -115,9 +116,10 @@ def metricas_serie(s: pd.Series) -> dict | None:
 
 
 def score_renta_variable(m: dict, cfg: dict) -> float:
-    mom = cfg["peso_ret_3m"] * np.nan_to_num(m["ret_3m"]) + cfg["peso_ret_6m"] * np.nan_to_num(m["ret_6m"])
+    mom = (cfg.get("peso_ret_3m", 0) * np.nan_to_num(m["ret_3m"]) + cfg.get("peso_ret_6m", 0) * np.nan_to_num(m["ret_6m"])
+           + cfg.get("peso_ret_12m", 0) * np.nan_to_num(m.get("ret_12m", np.nan)))
     vol = max(m["vol_anual"], 0.10)
-    score = mom / vol
-    if m.get("rsi14") and m["rsi14"] > cfg["penalizar_rsi_mayor_a"] and score > 0:
+    score = mom / vol if cfg.get("ajustar_por_vol", True) else mom
+    if cfg.get("penalizar_rsi_mayor_a") and m.get("rsi14") and m["rsi14"] > cfg["penalizar_rsi_mayor_a"] and score > 0:
         score *= cfg["penalizacion_rsi"]
     return float(score)

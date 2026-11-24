@@ -244,6 +244,28 @@ def correr_backtests(perfiles: dict, series: dict, tasa_liquidez=None) -> dict:
         "riesgoso_acciones_arg": (series["acciones_arg"], filt_rie, 2, None),
     }
     out = {}
+    # comparación de variantes de la regla (para decidir con datos qué parámetros usar)
+    variantes = {
+        "actual (3m+6m / vol)": (cfg_s, None, None),
+        "6m+12m / vol": ({**cfg_s, "peso_ret_3m": 0, "peso_ret_6m": 0.5, "peso_ret_12m": 0.5}, None, None),
+        "12m puro": ({"peso_ret_12m": 1.0, "ajustar_por_vol": False}, None, None),
+        "actual, top 5": (cfg_s, 5, None),
+        "actual, sin filtros": (cfg_s, None, {"vol_max_anual": 9}),
+    }
+    tabla_var = []
+    for nombre, (ser, filt, n, bench) in casos.items():
+        for vn, (cfg_v, n_v, filt_v) in variantes.items():
+            try:
+                r = BT.correr(ser, cfg_v, filt_v or filt, n_v or n, 2 * com, bench, tasa_liquidez=tasa_liquidez)
+                if r:
+                    e, b = r["estrategia"], r["bench"]
+                    tabla_var.append({"caso": nombre, "variante": vn, "anual": e["anual"], "vol": e["vol_anual"],
+                                      "max_dd": e["max_drawdown"], "bench_anual": b["anual"], "bench_dd": b["max_drawdown"],
+                                      "ratio": round(e["anual"] / e["vol_anual"], 2) if e["vol_anual"] else None,
+                                      "bench_ratio": round(b["anual"] / b["vol_anual"], 2) if b["vol_anual"] else None})
+            except Exception:  # noqa: BLE001
+                traceback.print_exc()
+    out["_variantes"] = tabla_var
     for nombre, (ser, filt, n, bench) in casos.items():
         try:
             r = BT.correr(ser, cfg_s, filt, n, 2 * com, bench, tasa_liquidez=tasa_liquidez)  # compra + venta en cada rotación
@@ -332,7 +354,13 @@ def reporte_md(res: dict, estado: dict) -> str:
     if res.get("backtest"):
         L += ["", "## Backtest de la regla de renta variable", "", "| Caso | Período | Estrategia (anual) | Benchmark (anual) | Máx. caída estrategia |", "|---|---|---|---|---|"]
         for k, b in res["backtest"].items():
+            if k.startswith("_"):
+                continue
             L.append(f"| {k} | {b['desde']} a {b['hasta']} | {b['estrategia']['anual']:+.1%} | {b['bench']['anual']:+.1%} ({b['benchmark']}) | {b['estrategia']['max_drawdown']:.1%} |")
+    var = (res.get("backtest") or {}).get("_variantes")
+    if var:
+        L += ["", "### Variantes de la regla", "", "| Caso | Variante | Anual | Vol | Máx. caída | Anual/Vol | Benchmark anual | Bench Anual/Vol |", "|---|---|---|---|---|---|---|---|"]
+        L += [f"| {v['caso']} | {v['variante']} | {v['anual']:+.1%} | {v['vol']:.1%} | {v['max_dd']:.1%} | {v['ratio']} | {v['bench_anual']:+.1%} | {v['bench_ratio']} |" for v in var]
     L += ["", "## Estado de fuentes", ""] + [f"- {k}: {v}" for k, v in res["fuentes"].items()]
     return "\n".join(L) + "\n"
 

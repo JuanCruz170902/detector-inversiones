@@ -199,7 +199,7 @@ function curvas(d) {
 }
 
 function backtest(d) {
-  const bt = d.backtest || {}, casos = Object.keys(bt);
+  const bt = d.backtest || {}, casos = Object.keys(bt).filter(k => !k.startsWith("_"));
   const tabs = document.getElementById("tabsBT");
   if (!casos.length) { document.getElementById("resBT").textContent = "Todavía no hay backtest."; return; }
   const nom = {moderado_cedears_etf: "Moderado · ETFs", riesgoso_cedears: "Riesgoso · CEDEARs", riesgoso_acciones_arg: "Riesgoso · Acciones arg."};
