@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Detector de oportunidades de inversión</title>
+<link rel="icon" href="data:,">
 <style>
 :root{--plane:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#8a8984;--line:#e4e3df;--grid:#ecebe7;
 --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--bench:#8a8984;--good:#0ca30c;--bad:#d03b3b;--chip:#f0efec}
@@ -113,10 +114,10 @@ function verPerfil(d, n) {
   const cand = Object.entries(P.candidatos).filter(([, v]) => v.length).map(([b, v]) => {
     const rv = "score" in v[0];
     const head = rv ? "<th>Ticker</th><th class=n>Precio</th><th class=n>3m</th><th class=n>6m</th><th class=n>Vol.</th><th class=n>RSI</th><th class=n>Score</th><th>Estado</th>"
-                    : "<th>Ticker</th><th class=n>Precio</th><th>Vence</th><th class=n>Días</th><th class=n>TIR</th><th class=n>Volumen</th>";
+                    : "<th>Ticker</th><th class=n>Precio</th><th>Vence</th><th class=n>Días</th><th class=n>Rendimiento</th><th class=n>Volumen</th>";
     const body = v.map(r => rv
       ? `<tr><td>${r.ticker}</td><td class=n>${num(r.precio)}</td><td class=n>${pct(r.ret_3m)}</td><td class=n>${pct(r.ret_6m)}</td><td class=n>${pct(r.vol_anual,0)}</td><td class=n>${num(r.rsi14,0)}</td><td class=n>${num(r.score)}</td><td>${r.apto ? "apto" : "<span class=sub>" + r.motivo_descarte + "</span>"}</td></tr>`
-      : `<tr><td>${r.ticker}</td><td class=n>${num(r.precio)}</td><td>${r.vencimiento && r.vencimiento !== "None" ? r.vencimiento : ""}</td><td class=n>${r.dias ?? ""}</td><td class=n>${r.tir != null ? num(r.tir,1) + "%" : ""}</td><td class=n>${num(r.volumen,0)}</td></tr>`).join("");
+      : `<tr><td>${r.ticker}</td><td class=n>${num(r.precio)}</td><td>${r.vencimiento && r.vencimiento !== "None" ? r.vencimiento : ""}</td><td class=n>${r.dias ?? ""}</td><td class=n>${(r.tir ?? r.tea) != null ? num(r.tir ?? r.tea,1) + "%" : (r.devaluacion_be_mensual != null ? "dev. " + num(r.devaluacion_be_mensual) + "%/mes" : "")}</td><td class=n>${r.vol_ars != null ? ars(r.vol_ars) : num(r.volumen,0)}</td></tr>`).join("");
     return `<h3 style="font-size:14px;margin:16px 0 6px">${NOMBRE[b] || b}</h3><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
   }).join("");
   document.getElementById("perfil").innerHTML = `
