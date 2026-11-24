@@ -118,7 +118,7 @@ def bcra_principales() -> dict:
 
 def bcra_serie(id_variable: int, dias: int = 60) -> list[dict]:
     """Serie diaria [{fecha, valor}] de los últimos `dias`."""
-    params = {"desde": hace(dias), "hasta": hoy()}
+    params = {"desde": hace(dias), "hasta": hoy(), "limit": 3000}
     for url in (f"{BCRA}/v4.0/Monetarias/{id_variable}", f"{BCRA}/v3.0/monetarias/{id_variable}"):
         try:
             data = _get(url, params=params)

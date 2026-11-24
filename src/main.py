@@ -225,13 +225,15 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         }
 
     if con_historia and not solo_perfil:
-        resultado["backtest"] = correr_backtests(perfiles, series)
+        badlar = reg.tomar("bcra_badlar_serie", F.bcra_serie, 7, 1600)
+        tasa = pd.Series({pd.Timestamp(x["fecha"]): x["valor"] for x in badlar}).sort_index() if badlar else None
+        resultado["backtest"] = correr_backtests(perfiles, series, tasa)
     if guardar and not solo_perfil:
         guardar_salidas(resultado, paneles, macro)
     return resultado
 
 
-def correr_backtests(perfiles: dict, series: dict) -> dict:
+def correr_backtests(perfiles: dict, series: dict, tasa_liquidez=None) -> dict:
     cfg_s = perfiles["scoring_renta_variable"]
     com = perfiles["broker"]["comision_acciones"] * (1 + perfiles["broker"]["iva_sobre_comision"]) + perfiles["broker"]["derechos_mercado"]
     filt_mod = perfiles["perfiles"]["moderado"]["filtros_renta_variable"]
@@ -244,7 +246,7 @@ def correr_backtests(perfiles: dict, series: dict) -> dict:
     out = {}
     for nombre, (ser, filt, n, bench) in casos.items():
         try:
-            r = BT.correr(ser, cfg_s, filt, n, 2 * com, bench)  # compra + venta en cada rotación
+            r = BT.correr(ser, cfg_s, filt, n, 2 * com, bench, tasa_liquidez=tasa_liquidez)  # compra + venta en cada rotación
             if r:
                 out[nombre] = r
         except Exception:  # noqa: BLE001

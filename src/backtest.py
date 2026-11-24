@@ -15,7 +15,9 @@ from .metricas import metricas_serie, score_renta_variable
 
 
 def correr(series: dict[str, pd.Series], cfg_score: dict, filtros: dict, n: int, comision: float,
-           benchmark: str | None = None, min_hist: int = 130, anios_max: int = 4) -> dict | None:
+           benchmark: str | None = None, min_hist: int = 130, anios_max: int = 4,
+           tasa_liquidez: pd.Series | None = None) -> dict | None:
+    """tasa_liquidez: TNA en % (ej. BADLAR) indexada por fecha; los meses sin candidatos rinden TNA/12."""
     series = {t: s for t, s in series.items() if s is not None and len(s) > min_hist}
     if len(series) < n + 1:
         return None
@@ -56,7 +58,11 @@ def correr(series: dict[str, pd.Series], cfg_score: dict, filtros: dict, n: int,
             rets = [(p1[t] / p0[t] - 1) for t in elegidos if p0[t] > 0 and not math.isnan(p1[t]) and not math.isnan(p0[t])]
             r = float(np.mean(rets)) if rets else 0.0
         else:
-            r = 0.0  # sin candidatos: queda en liquidez (se asume 0 real, conservador)
+            r = 0.0  # sin candidatos: queda en liquidez
+            if tasa_liquidez is not None and not tasa_liquidez.empty:
+                previas = tasa_liquidez[tasa_liquidez.index <= f0]
+                if not previas.empty:
+                    r = float(previas.iloc[-1]) / 100 / 12
         rotacion = len(elegidos ^ cartera) / max(len(elegidos | cartera), 1)
         valor *= (1 + r) * (1 - comision * rotacion)
         cartera = elegidos
