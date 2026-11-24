@@ -1,0 +1,502 @@
+{
+ "/finanzas/indices/inflacion": {
+  "status": 200,
+  "body": [
+   {
+    "fecha": "2026-08-31",
+    "valor": 1.7
+   },
+   {
+    "fecha": "2026-09-30",
+    "valor": 1.9
+   },
+   {
+    "fecha": "2026-10-31",
+    "valor": 2.2
+   }
+  ]
+ },
+ "/finanzas/letras": {
+  "status": 200,
+  "body": {
+   "fechaActualizacion": "2026-11-24T06:12:22.068Z",
+   "letras": [
+    {
+     "ticker": "S30N6",
+     "precioArs": 129.4,
+     "tnaPorcentaje": 22.99,
+     "teaPorcentaje": 25.79,
+     "temPorcentaje": 1.93,
+     "fechaVencimiento": "2026-11-30",
+     "cierreArs": 129.4,
+     "variacionPorcentaje": 0.22,
+     "volumen": 121066376696,
+     "volumenEfectivoArs": 156650148110.91,
+     "diasAlVencimiento": 6,
+     "paridadPorcentaje": 129.4,
+     "monedaCupon": "ARS",
+     "isin": "AR0451031345"
+    },
+    {
+     "ticker": "TTD26",
+     "precioArs": 178.2,
+     "tnaPorcentaje": 26.57,
+     "teaPorcentaje": 30.18,
+     "temPorcentaje": 2.22,
+     "fechaVencimiento": "2026-12-15",
+     "cierreArs": 178.2,
+     "variacionPorcentaje": 0.11,
+     "volumen": 299849506,
+     "volumenEfectivoArs": 534420622.67,
+     "diasAlVencimiento": 21,
+     "paridadPorcentaje": 112.27,
+     "monedaCupon": "ARS",
+     "isin": "AR0021930364"
+    },
+    {
+     "ticker": "T15E7",
+     "precioArs": 155.41,
+     "tnaPorcentaje": 25.72,
+     "teaPorcentaje": 28.73,
+     "temPorcentaje": 2.13,
+     "fechaVencimiento": "2027-01-15",
+     "cierreArs": 155.41,
+     "variacionPorcentaje": 0.05,
+     "volumen": 24354177244,
+     "volumenEfectivoArs": 37864544777,
+     "diasAlVencimiento": 52,
+     "paridadPorcentaje": 99.85,
+     "monedaCupon": "ARS",
+     "isin": "AR0350916307"
+    },
+    {
+     "ticker": "S29E7",
+     "precioArs": 106.8,
+     "tnaPorcentaje": 25.29,
+     "teaPorcentaje": 28.06,
+     "temPorcentaje": 2.08,
+     "fechaVencimiento": "2027-01-29",
+     "cierreArs": 106.8,
+     "variacionPorcentaje": 0.09,
+     "volumen": 17614970035,
+     "volumenEfectivoArs": 18807754761.5,
+     "diasAlVencimiento": 66,
+     "paridadPorcentaje": 100.35,
+     "monedaCupon": "ARS",
+     "isin": "AR0048313164"
+    },
+    {
+     "ticker": "S26F7",
+     "precioArs": 101.36,
+     "tnaPorcentaje": 26.85,
+     "teaPorcentaje": 29.64,
+     "temPorcentaje": 2.19,
+     "fechaVencimiento": "2027-02-26",
+     "cierreArs": 101.36,
+     "variacionPorcentaje": 0,
+     "volumen": 15563389658,
+     "volumenEfectivoArs": 15781918673.48,
+     "diasAlVencimiento": 94,
+     "paridadPorcentaje": 99.69,
+     "monedaCupon": "ARS"
+    },
+    {
+     "ticker": "T30A7",
+     "precioArs": 139.65,
+     "tnaPorcentaje": 29.45,
+     "teaPorcentaje": 31.95,
+     "temPorcentaje": 2.34,
+     "fechaVencimiento": "2027-04-30",
+     "cierreArs": 139.65,
+     "variacionPorcentaje": -0.36,
+     "volumen": 14818788068,
+     "volumenEfectivoArs": 20691292142.73,
+     "diasAlVencimiento": 157,
+     "paridadPorcentaje": 139.65,
+     "monedaCupon": "ARS",
+     "isin": "AR0224546884"
+    },
+    {
+     "ticker": "T31Y7",
+     "precioArs": 130.9,
+     "tnaPorcentaje": 30.65,
+     "teaPorcentaje": 32.92,
+     "temPorcentaje": 2.4,
+     "fechaVencimiento": "2027-05-31",
+     "cierreArs": 130.9,
+     "variacionPorcentaje": -0.49,
+     "volumen": 29960560256,
+     "volumenEfectivoArs": 39223692824.27,
+     "diasAlVencimiento": 188,
+     "paridadPorcentaje": 100.13,
+     "monedaCupon": "ARS",
+     "isin": "AR0571277315"
+    },
+    {
+     "ticker": "T30J7",
+     "precioArs": 131.95,
+     "tnaPorcentaje": 30.56,
+     "teaPorcentaje": 32.41,
+     "temPorcentaje": 2.37,
+     "fechaVencimiento": "2027-06-30",
+     "cierreArs": 131.95,
+     "variacionPorcentaje": -0.26,
+     "volumen": 4273331097,
+     "volumenEfectivoArs": 5632898960.24,
+     "diasAlVencimiento": 218,
+     "paridadPorcentaje": 101.59,
+     "monedaCupon": "ARS",
+     "isin": "AR0987861058"
+    },
+    {
+     "ticker": "TY30P",
+     "precioArs": 113.6,
+     "tnaPorcentaje": 47.1,
+     "teaPorcentaje": 32.03,
+     "temPorcentaje": 2.34,
+     "fechaVencimiento": "2030-05-30",
+     "cierreArs": 113.6,
+     "variacionPorcentaje": -0.26,
+     "volumen": 6051051408,
+     "volumenEfectivoArs": 6874026449.1,
+     "diasAlVencimiento": 1283,
+     "paridadPorcentaje": 99.5,
+     "monedaCupon": "ARS",
+     "isin": "AR0193433734"
+    }
+   ]
+  }
+ },
+ "/finanzas/lecaps": {
+  "status": 404,
+  "body": {
+   "error": "Not found"
+  }
+ },
+ "/finanzas/bonos-cer": {
+  "status": 200,
+  "body": {
+   "fechaActualizacion": "2026-11-24T06:12:39.729Z",
+   "bonos": [
+    {
+     "ticker": "X30N6",
+     "precioArs": 131.36,
+     "tirPorcentaje": 24.4,
+     "fechaVencimiento": "2026-11-30",
+     "volumen": 2999044294
+    },
+    {
+     "ticker": "TZXD6",
+     "precioArs": 319.5,
+     "tirPorcentaje": 32.73,
+     "fechaVencimiento": "2026-12-15",
+     "volumen": 81422220
+    },
+    {
+     "ticker": "X29E7",
+     "precioArs": 106.27,
+     "tirPorcentaje": -1.06,
+     "fechaVencimiento": "2027-01-29",
+     "volumen": 4496980
+    },
+    {
+     "ticker": "TZXM7",
+     "precioArs": 238.1,
+     "tirPorcentaje": 1.54,
+     "fechaVencimiento": "2027-03-31",
+     "volumen": 174351704
+    },
+    {
+     "ticker": "TZXA7",
+     "precioArs": 131.35,
+     "tirPorcentaje": 2.36,
+     "fechaVencimiento": "2027-04-30",
+     "volumen": 129025
+    },
+    {
+     "ticker": "TZXY7",
+     "precioArs": 130,
+     "tirPorcentaje": 1.66,
+     "fechaVencimiento": "2027-05-31",
+     "volumen": 375578378
+    },
+    {
+     "ticker": "TZX27",
+     "precioArs": 425.15,
+     "tirPorcentaje": 2.56,
+     "fechaVencimiento": "2027-06-30",
+     "volumen": 1644227
+    },
+    {
+     "ticker": "TZXS7",
+     "precioArs": 113.9,
+     "tirPorcentaje": 5.94,
+     "fechaVencimiento": "2027-09-30",
+     "volumen": 0
+    },
+    {
+     "ticker": "TZXO7",
+     "precioArs": 103.25,
+     "tirPorcentaje": 6.3,
+     "fechaVencimiento": "2027-10-29",
+     "volumen": 569431360
+    },
+    {
+     "ticker": "TZXD7",
+     "precioArs": 291.35,
+     "tirPorcentaje": 8.98,
+     "fechaVencimiento": "2027-12-15",
+     "volumen": 3380343
+    },
+    {
+     "ticker": "TZXM8",
+     "precioArs": 104.15,
+     "tirPorcentaje": 10.55,
+     "fechaVencimiento": "2028-03-31",
+     "volumen": 4528085
+    },
+    {
+     "ticker": "TXMJ8",
+     "precioArs": 103.8,
+     "tirPorcentaje": 6.08,
+     "fechaVencimiento": "2028-06-30",
+     "volumen": 144972951
+    },
+    {
+     "ticker": "TZX28",
+     "precioArs": 361.95,
+     "tirPorcentaje": 11.63,
+     "fechaVencimiento": "2028-06-30",
+     "volumen": 2153457
+    },
+    {
+     "ticker": "TZXS8",
+     "precioArs": 98.21,
+     "tirPorcentaje": 11.23,
+     "fechaVencimiento": "2028-09-30",
+     "volumen": 1800000
+    },
+    {
+     "ticker": "TX28",
+     "precioArs": 1414.5,
+     "tirPorcentaje": 9.63,
+     "fechaVencimiento": "2028-11-09",
+     "volumen": 11929
+    },
+    {
+     "ticker": "TXMD8",
+     "precioArs": 95.45,
+     "tirPorcentaje": 7.55,
+     "fechaVencimiento": "2028-12-15",
+     "volumen": 249000000
+    },
+    {
+     "ticker": "TZXD8",
+     "precioArs": 88.15,
+     "tirPorcentaje": 10.99,
+     "fechaVencimiento": "2028-12-15",
+     "volumen": 3532757
+    },
+    {
+     "ticker": "TZXM9",
+     "precioArs": 93.6,
+     "tirPorcentaje": 10.85,
+     "fechaVencimiento": "2029-03-28",
+     "volumen": 0
+    },
+    {
+     "ticker": "TXMJ9",
+     "precioArs": 92.75,
+     "tirPorcentaje": 8.95,
+     "fechaVencimiento": "2029-06-29",
+     "volumen": 2000000
+    },
+    {
+     "ticker": "TXMD9",
+     "precioArs": 86.7,
+     "tirPorcentaje": 8.38,
+     "fechaVencimiento": "2029-12-14",
+     "volumen": 19990000
+    },
+    {
+     "ticker": "TXMJ0",
+     "precioArs": 83.75,
+     "tirPorcentaje": 8.13,
+     "fechaVencimiento": "2030-06-28",
+     "volumen": 245995015
+    },
+    {
+     "ticker": "TX31",
+     "precioArs": 1463,
+     "tirPorcentaje": 12.84,
+     "fechaVencimiento": "2031-12-01",
+     "volumen": 25235
+    },
+    {
+     "ticker": "DIP0",
+     "precioArs": 47800,
+     "tirPorcentaje": 12.98,
+     "fechaVencimiento": "2033-12-31",
+     "volumen": 0
+    },
+    {
+     "ticker": "DICP",
+     "precioArs": 48500,
+     "tirPorcentaje": 12.4,
+     "fechaVencimiento": "2034-01-02",
+     "volumen": 2000
+    },
+    {
+     "ticker": "PAP0",
+     "precioArs": 32465,
+     "tirPorcentaje": 12.34,
+     "fechaVencimiento": "2038-12-31",
+     "volumen": 4
+    },
+    {
+     "ticker": "PARP",
+     "precioArs": 31830,
+     "tirPorcentaje": 12.68,
+     "fechaVencimiento": "2038-12-31",
+     "volumen": 18210
+    },
+    {
+     "ticker": "CUAP",
+     "precioArs": 39150,
+     "tirPorcentaje": 11.18,
+     "fechaVencimiento": "2045-12-31",
+     "volumen": 790
+    }
+   ]
+  }
+ },
+ "/finanzas/indices/rem": {
+  "status": 404,
+  "body": {
+   "error": "Not found"
+  }
+ },
+ "/finanzas/tasas/plazoFijo": {
+  "status": 200,
+  "body": [
+   {
+    "entidad": "Brubank",
+    "logo": "https://www.tuplazofijo.com.ar/img/bancos/brubank-round-65x65.png",
+    "tnaClientes": 0.17,
+    "tnaNoClientes": 0.17,
+    "enlace": "https://www.tuplazofijo.com.ar/plazos-fijos/bancos/brubank/",
+    "tasas": [
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 30,
+      "plazoMaxDias": 30,
+      "tna": 0.17
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 60,
+      "plazoMaxDias": 60,
+      "tna": 0.165
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 90,
+      "plazoMaxDias": 90,
+      "tna": 0.155
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 365,
+      "plazoMaxDias": 365,
+      "tna": 0.135
+     }
+    ]
+   },
+   {
+    "entidad": "UALA",
+    "logo": "https://icons.com.ar/icons/bancos-apps/uala.svg",
+    "tnaClientes": 0.22,
+    "tnaNoClientes": 0.22,
+    "enlace": "https://www.uala.com.ar/inversiones/plazo-fijo",
+    "tasas": [
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 30,
+      "plazoMaxDias": 30,
+      "tna": 0.22
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 60,
+      "plazoMaxDias": 60,
+      "tna": 0.22
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 90,
+      "plazoMaxDias": 90,
+      "tna": 0.23
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 180,
+      "plazoMaxDias": 180,
+      "tna": 0.25
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 270,
+      "plazoMaxDias": 270,
+      "tna": 0.27
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 365,
+      "plazoMaxDias": 365,
+      "tna": 0.28
+     }
+    ]
+   },
+   {
+    "entidad": "Cocos",
+    "logo": "https://api.argentinadatos.com/static/logos/cocos.png",
+    "tnaClientes": 0.24,
+    "tnaNoClientes": 0.24,
+    "enlace": "https://cocos.capital/",
+    "tasas": [
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 30,
+      "plazoMaxDias": 30,
+      "tna": 0.24
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 60,
+      "plazoMaxDias": 60,
+      "tna": 0.245
+     },
+     {
+      "montoMinimo": null,
+      "montoMaximo": null,
+      "plazoMinDias": 90,
+      "plazoMaxDias": 90,
+      "tna": 0.2475
+     }
+    ]
+   }
+  ]
+ }
+}

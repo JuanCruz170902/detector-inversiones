@@ -1,0 +1,56 @@
+{
+ "S30A7|{\"symbol\": \"S30A7\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d595b0>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "S30A7|{\"symbol\": \"S30A7 24HS\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d59c40>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "S30A7|{\"symbol\": \"S30A7\", \"Content-Type\": \"application/json\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d10290>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "T15E7|{\"symbol\": \"T15E7\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d59a90>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "T15E7|{\"symbol\": \"T15E7 24HS\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5a2a0>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "T15E7|{\"symbol\": \"T15E7\", \"Content-Type\": \"application/json\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5a960>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "D15E7|{\"symbol\": \"D15E7\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5b080>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "D15E7|{\"symbol\": \"D15E7 24HS\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5b830>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "D15E7|{\"symbol\": \"D15E7\", \"Content-Type\": \"application/json\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d6a0dbef0>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "TZXA7|{\"symbol\": \"TZXA7\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5ad50>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "TZXA7|{\"symbol\": \"TZXA7 24HS\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5a690>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "TZXA7|{\"symbol\": \"TZXA7\", \"Content-Type\": \"application/json\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5a240>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "AL30|{\"symbol\": \"AL30\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d59e80>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "AL30|{\"symbol\": \"AL30 24HS\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d94140>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "AL30|{\"symbol\": \"AL30\", \"Content-Type\": \"application/json\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d695e3cb0>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "S26F7|{\"symbol\": \"S26F7\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d59ac0>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "S26F7|{\"symbol\": \"S26F7 24HS\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5a240>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ },
+ "S26F7|{\"symbol\": \"S26F7\", \"Content-Type\": \"application/json\"}": {
+  "error": "HTTPSConnectionPool(host='open.bymadata.com.ar', port=443): Max retries exceeded with url: /vanoms-be-core/rest/api/bymadata/free/bnown/fichatecnica/especies/general (Caused by ConnectTimeoutError(<HTTPSConnection(host='open.bymadata.com.ar', port=443) at 0x734d68d5acf0>, 'Connection to open.bymadata.com.ar timed out. (connect timeout=30)'))"
+ }
+}
