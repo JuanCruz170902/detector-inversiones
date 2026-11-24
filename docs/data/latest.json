@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-24T16:12:11+00:00",
+ "generado": "2026-11-24T16:14:09+00:00",
  "fuentes": {
   "argdatos_inflacion": "ok",
   "argdatos_plazo_fijo": "ok",
@@ -57,15 +57,15 @@
      {
       "bucket": "cer",
       "ticker": "TZXA7",
-      "monto": 100000.0,
+      "monto": 80000.0,
       "precio": 130.7,
       "score": null,
       "tir": 2.36,
       "vencimiento": "2027-04-30",
-      "cantidad": 76311,
+      "cantidad": 61049,
       "unidad": "VN",
-      "monto_bruto": 99738.48,
-      "costo": 260.82
+      "monto_bruto": 79791.04,
+      "costo": 208.65
      },
      {
       "bucket": "dollar_linked",
@@ -96,14 +96,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 30297.52,
+      "monto_bruto": 50297.12,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 169259.86,
-    "liquidez": 30297.52,
-    "costos": 442.61
+    "invertido": 149312.43,
+    "liquidez": 50297.12,
+    "costos": 390.45
    },
    "candidatos": {
     "tasa_fija": [
@@ -112,16 +112,16 @@
       "tipo": "tasa_fija",
       "precio": 155.46,
       "var_dia": 0.03,
-      "volumen": 9713948014.0,
+      "volumen": 9713958014.0,
       "vencimiento": "2027-01-15",
       "dias": 52.0
      },
      {
       "ticker": "S26F7",
       "tipo": "tasa_fija",
-      "precio": 101.205,
+      "precio": 101.2,
       "var_dia": -0.15,
-      "volumen": 3411858605.0,
+      "volumen": 3447278249.0,
       "vencimiento": "2027-02-26",
       "dias": 94.0
      },
@@ -130,7 +130,7 @@
       "tipo": "tasa_fija",
       "precio": 106.67,
       "var_dia": -0.12,
-      "volumen": 3387047984.0,
+      "volumen": 3387228146.0,
       "vencimiento": "2027-01-29",
       "dias": 66.0
      },
@@ -148,7 +148,7 @@
       "tipo": "tasa_fija",
       "precio": 129.489,
       "var_dia": 0.06,
-      "volumen": 39927189615.0,
+      "volumen": 40428319419.0,
       "vencimiento": "2026-11-30",
       "dias": 6.0
      }
@@ -159,7 +159,7 @@
       "tipo": "dollar_linked",
       "precio": 158400.0,
       "var_dia": 0.5,
-      "volumen": 25617143.0,
+      "volumen": 27117143.0,
       "vencimiento": "2027-01-15",
       "dias": 52.0
      },
@@ -184,9 +184,9 @@
      {
       "ticker": "D30N6",
       "tipo": "dollar_linked",
-      "precio": 158980.0,
-      "var_dia": 0.18,
-      "volumen": 13667281.0,
+      "precio": 159080.0,
+      "var_dia": 0.24,
+      "volumen": 13669787.0,
       "vencimiento": "2026-11-30",
       "dias": 6.0
      }
@@ -205,9 +205,9 @@
      {
       "ticker": "TZXM7",
       "tipo": "cer",
-      "precio": 237.65,
-      "var_dia": -0.18,
-      "volumen": 7661848940.0,
+      "precio": 237.6,
+      "var_dia": -0.2,
+      "volumen": 7911849327.0,
       "vencimiento": "2027-03-31",
       "dias": 127,
       "tir": 1.54
@@ -225,9 +225,9 @@
      {
       "ticker": "TX31",
       "tipo": "cer",
-      "precio": 1451.0,
-      "var_dia": -0.82,
-      "volumen": 15572538.0,
+      "precio": 1459.5,
+      "var_dia": -0.23,
+      "volumen": 19456024.0,
       "vencimiento": "2031-12-01",
       "dias": 1833,
       "tir": 12.84
@@ -273,14 +273,14 @@
       "bucket": "cedears_etf",
       "ticker": "XLF",
       "monto": 60000.0,
-      "precio": 50025.0,
+      "precio": 50125.0,
       "score": 0.9908,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 50025.0,
-      "costo": 312.41
+      "monto_bruto": 50125.0,
+      "costo": 313.03
      },
      {
       "bucket": "cer",
@@ -312,26 +312,26 @@
       "bucket": "hard_dollar",
       "ticker": "AL29",
       "monto": 40000.0,
-      "precio": 81860.0,
+      "precio": 81650.0,
       "score": null,
       "tir": null,
       "vencimiento": null,
       "cantidad": 48,
       "unidad": "VN",
-      "monto_bruto": 39292.8,
-      "costo": 102.75
+      "monto_bruto": 39192.0,
+      "costo": 102.49
      },
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 30269.38,
+      "monto_bruto": 30269.82,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 169106.81,
-    "liquidez": 30269.38,
-    "costos": 623.81
+    "invertido": 169106.01,
+    "liquidez": 30269.82,
+    "costos": 624.17
    },
    "candidatos": {
     "tasa_fija": [
@@ -340,16 +340,16 @@
       "tipo": "tasa_fija",
       "precio": 155.46,
       "var_dia": 0.03,
-      "volumen": 9713948014.0,
+      "volumen": 9713958014.0,
       "vencimiento": "2027-01-15",
       "dias": 52.0
      },
      {
       "ticker": "S26F7",
       "tipo": "tasa_fija",
-      "precio": 101.205,
+      "precio": 101.2,
       "var_dia": -0.15,
-      "volumen": 3411858605.0,
+      "volumen": 3447278249.0,
       "vencimiento": "2027-02-26",
       "dias": 94.0
      },
@@ -358,7 +358,7 @@
       "tipo": "tasa_fija",
       "precio": 106.67,
       "var_dia": -0.12,
-      "volumen": 3387047984.0,
+      "volumen": 3387228146.0,
       "vencimiento": "2027-01-29",
       "dias": 66.0
      },
@@ -376,7 +376,7 @@
       "tipo": "tasa_fija",
       "precio": 129.489,
       "var_dia": 0.06,
-      "volumen": 39927189615.0,
+      "volumen": 40428319419.0,
       "vencimiento": "2026-11-30",
       "dias": 6.0
      }
@@ -395,9 +395,9 @@
      {
       "ticker": "TZXM7",
       "tipo": "cer",
-      "precio": 237.65,
-      "var_dia": -0.18,
-      "volumen": 7661848940.0,
+      "precio": 237.6,
+      "var_dia": -0.2,
+      "volumen": 7911849327.0,
       "vencimiento": "2027-03-31",
       "dias": 127,
       "tir": 1.54
@@ -415,9 +415,9 @@
      {
       "ticker": "TX31",
       "tipo": "cer",
-      "precio": 1451.0,
-      "var_dia": -0.82,
-      "volumen": 15572538.0,
+      "precio": 1459.5,
+      "var_dia": -0.23,
+      "volumen": 19456024.0,
       "vencimiento": "2031-12-01",
       "dias": 1833,
       "tir": 12.84
@@ -436,9 +436,9 @@
     "hard_dollar": [
      {
       "ticker": "AL29",
-      "precio": 81860.0,
-      "var_dia": -1.01,
-      "volumen": 744111.0
+      "precio": 81650.0,
+      "var_dia": -1.26,
+      "volumen": 751322.0
      },
      {
       "ticker": "GD29",
@@ -448,46 +448,46 @@
      },
      {
       "ticker": "AL30",
-      "precio": 80390.0,
-      "var_dia": -0.5,
-      "volumen": 208230388.0
+      "precio": 80280.0,
+      "var_dia": -0.64,
+      "volumen": 219174013.0
      },
      {
       "ticker": "GD30",
-      "precio": 83290.0,
-      "var_dia": -0.46,
-      "volumen": 6243291.0
+      "precio": 83200.0,
+      "var_dia": -0.57,
+      "volumen": 6243993.0
      },
      {
       "ticker": "AL35",
-      "precio": 100390.0,
-      "var_dia": -2.95,
+      "precio": 100190.0,
+      "var_dia": -3.15,
       "volumen": 1968723.0
      },
      {
       "ticker": "GD35",
-      "precio": 108150.0,
-      "var_dia": -1.89,
-      "volumen": 4345934.0
+      "precio": 108100.0,
+      "var_dia": -1.94,
+      "volumen": 4387819.0
      },
      {
       "ticker": "AE38",
-      "precio": 105070.0,
-      "var_dia": -3.02,
-      "volumen": 2191524.0
+      "precio": 105100.0,
+      "var_dia": -2.99,
+      "volumen": 2195809.0
      },
      {
       "ticker": "GD38",
-      "precio": 115700.0,
-      "var_dia": -0.95,
-      "volumen": 301280.0
+      "precio": 115500.0,
+      "var_dia": -1.12,
+      "volumen": 301870.0
      }
     ],
     "cedears_etf": [
      {
       "ticker": "XLF",
-      "precio": 50025.0,
-      "volumen": 168534225.0,
+      "precio": 50125.0,
+      "volumen": 169021500.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -502,7 +502,7 @@
      {
       "ticker": "DIA",
       "precio": 44440.0,
-      "volumen": 832983360.0,
+      "volumen": 834183240.0,
       "ret_1m": 0.0107627515,
       "ret_3m": 0.0315186246,
       "ret_6m": 0.1758301579,
@@ -516,8 +516,8 @@
      },
      {
       "ticker": "XLE",
-      "precio": 54100.0,
-      "volumen": 165005000.0,
+      "precio": 54175.0,
+      "volumen": 166642300.0,
       "ret_1m": -0.0198645598,
       "ret_3m": 0.0720987654,
       "ret_6m": 0.1886771792,
@@ -531,8 +531,8 @@
      },
      {
       "ticker": "IWM",
-      "precio": 47520.0,
-      "volumen": 159999840.0,
+      "precio": 47500.0,
+      "volumen": 161025000.0,
       "ret_1m": 0.0008896797,
       "ret_3m": -0.0474174428,
       "ret_6m": 0.1083743842,
@@ -546,8 +546,8 @@
      },
      {
       "ticker": "QQQ",
-      "precio": 56850.0,
-      "volumen": 2527664700.0,
+      "precio": 56725.0,
+      "volumen": 2598912600.0,
       "ret_1m": -0.064957265,
       "ret_3m": -0.0305715552,
       "ret_6m": 0.0473910962,
@@ -561,8 +561,8 @@
      },
      {
       "ticker": "EWZ",
-      "precio": 26440.0,
-      "volumen": 1966104840.0,
+      "precio": 26420.0,
+      "volumen": 2005674300.0,
       "ret_1m": -0.2675814751,
       "ret_3m": -0.0525147929,
       "ret_6m": -0.0433159074,
@@ -577,7 +577,7 @@
      {
       "ticker": "EEM",
       "precio": 20170.0,
-      "volumen": 104218390.0,
+      "volumen": 104480600.0,
       "ret_1m": -0.0605033882,
       "ret_3m": -0.0787850024,
       "ret_6m": 0.0125195618,
@@ -591,8 +591,8 @@
      },
      {
       "ticker": "SPY",
-      "precio": 21360.0,
-      "volumen": 7998465600.0,
+      "precio": 21290.0,
+      "volumen": 8080385310.0,
       "ret_1m": -0.0086124402,
       "ret_3m": 0.0267591675,
       "ret_6m": -0.6213796254,
@@ -632,54 +632,54 @@
      {
       "bucket": "acciones_arg",
       "ticker": "TXAR",
-      "monto": 80000.0,
-      "precio": 707.0,
+      "monto": 50000.0,
+      "precio": 710.0,
       "score": 0.22,
       "tir": null,
       "vencimiento": null,
-      "cantidad": 112,
+      "cantidad": 69,
       "unidad": "acciones",
-      "monto_bruto": 79184.0,
-      "costo": 494.5
+      "monto_bruto": 48990.0,
+      "costo": 305.94
      },
      {
       "bucket": "cedears",
       "ticker": "MSFT",
       "monto": 30000.0,
-      "precio": 29420.0,
+      "precio": 29400.0,
       "score": 0.9046,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 29420.0,
-      "costo": 183.73
+      "monto_bruto": 29400.0,
+      "costo": 183.6
      },
      {
       "bucket": "cedears",
       "ticker": "CVX",
       "monto": 30000.0,
-      "precio": 23450.0,
+      "precio": 23480.0,
       "score": 0.6577,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 23450.0,
-      "costo": 146.45
+      "monto_bruto": 23480.0,
+      "costo": 146.63
      },
      {
       "bucket": "cedears",
       "ticker": "WMT",
       "monto": 30000.0,
-      "precio": 13160.0,
+      "precio": 13170.0,
       "score": 0.5217,
       "tir": null,
       "vencimiento": null,
       "cantidad": 2,
       "unidad": "acciones",
-      "monto_bruto": 26320.0,
-      "costo": 164.37
+      "monto_bruto": 26340.0,
+      "costo": 164.49
      },
      {
       "bucket": "tasa_fija",
@@ -697,14 +697,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 10637.32,
+      "monto_bruto": 40989.7,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 188295.39,
-    "liquidez": 10637.32,
-    "costos": 1067.29
+    "invertido": 158131.39,
+    "liquidez": 40989.7,
+    "costos": 878.92
    },
    "candidatos": {
     "tasa_fija": [
@@ -713,16 +713,16 @@
       "tipo": "tasa_fija",
       "precio": 155.46,
       "var_dia": 0.03,
-      "volumen": 9713948014.0,
+      "volumen": 9713958014.0,
       "vencimiento": "2027-01-15",
       "dias": 52.0
      },
      {
       "ticker": "S26F7",
       "tipo": "tasa_fija",
-      "precio": 101.205,
+      "precio": 101.2,
       "var_dia": -0.15,
-      "volumen": 3411858605.0,
+      "volumen": 3447278249.0,
       "vencimiento": "2027-02-26",
       "dias": 94.0
      },
@@ -731,7 +731,7 @@
       "tipo": "tasa_fija",
       "precio": 106.67,
       "var_dia": -0.12,
-      "volumen": 3387047984.0,
+      "volumen": 3387228146.0,
       "vencimiento": "2027-01-29",
       "dias": 66.0
      },
@@ -749,7 +749,7 @@
       "tipo": "tasa_fija",
       "precio": 129.489,
       "var_dia": 0.06,
-      "volumen": 39927189615.0,
+      "volumen": 40428319419.0,
       "vencimiento": "2026-11-30",
       "dias": 6.0
      }
@@ -757,8 +757,8 @@
     "cedears": [
      {
       "ticker": "V",
-      "precio": 41180.0,
-      "volumen": 313997500.0,
+      "precio": 41220.0,
+      "volumen": 315003240.0,
       "ret_1m": 0.0886351278,
       "ret_3m": 0.2427063935,
       "ret_6m": 0.4645208486,
@@ -772,8 +772,8 @@
      },
      {
       "ticker": "AAPL",
-      "precio": 31500.0,
-      "volumen": 970704000.0,
+      "precio": 31480.0,
+      "volumen": 977013280.0,
       "ret_1m": 0.1172214182,
       "ret_3m": 0.2522303325,
       "ret_6m": 0.3859964093,
@@ -787,8 +787,8 @@
      },
      {
       "ticker": "JNJ",
-      "precio": 33020.0,
-      "volumen": 198945500.0,
+      "precio": 32960.0,
+      "volumen": 201056000.0,
       "ret_1m": 0.1437677054,
       "ret_3m": 0.1381254405,
       "ret_6m": 0.4104803493,
@@ -802,8 +802,8 @@
      },
      {
       "ticker": "XLF",
-      "precio": 50025.0,
-      "volumen": 168534225.0,
+      "precio": 50125.0,
+      "volumen": 169021500.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -817,8 +817,8 @@
      },
      {
       "ticker": "BRKB",
-      "precio": 47200.0,
-      "volumen": 854508800.0,
+      "precio": 47120.0,
+      "volumen": 919169840.0,
       "ret_1m": 0.1597396094,
       "ret_3m": 0.2931323283,
       "ret_6m": 0.4217311234,
@@ -832,8 +832,8 @@
      },
      {
       "ticker": "MSFT",
-      "precio": 29420.0,
-      "volumen": 819905980.0,
+      "precio": 29400.0,
+      "volumen": 825228600.0,
       "ret_1m": 0.0027739251,
       "ret_3m": 0.1367924528,
       "ret_6m": 0.3917228104,
@@ -848,7 +848,7 @@
      {
       "ticker": "KO",
       "precio": 35180.0,
-      "volumen": 921716000.0,
+      "volumen": 923756440.0,
       "ret_1m": 0.1439842209,
       "ret_3m": 0.2142358688,
       "ret_6m": 0.4227309894,
@@ -862,8 +862,8 @@
      },
      {
       "ticker": "CVX",
-      "precio": 23450.0,
-      "volumen": 92908900.0,
+      "precio": 23480.0,
+      "volumen": 93074720.0,
       "ret_1m": 0.0152439024,
       "ret_3m": 0.1443298969,
       "ret_6m": 0.268226333,
@@ -879,8 +879,8 @@
     "acciones_arg": [
      {
       "ticker": "TXAR",
-      "precio": 707.0,
-      "volumen": 121318372.0,
+      "precio": 710.0,
+      "volumen": 123317770.0,
       "ret_1m": -0.018815331,
       "ret_3m": 0.042962963,
       "ret_6m": 0.1465798046,
@@ -895,7 +895,7 @@
      {
       "ticker": "ALUA",
       "precio": 848.0,
-      "volumen": 135203424.0,
+      "volumen": 135208512.0,
       "ret_1m": 0.0432399513,
       "ret_3m": -0.0011661808,
       "ret_6m": -0.0587912088,
@@ -909,8 +909,8 @@
      },
      {
       "ticker": "LOMA",
-      "precio": 2945.0,
-      "volumen": 558536920.0,
+      "precio": 2947.5,
+      "volumen": 562114777.5,
       "ret_1m": -0.0978520286,
       "ret_3m": -0.0389830508,
       "ret_6m": -0.0928,
@@ -924,8 +924,8 @@
      },
      {
       "ticker": "CRES",
-      "precio": 1440.0,
-      "volumen": 121350240.0,
+      "precio": 1435.0,
+      "volumen": 121072385.0,
       "ret_1m": -0.2263942573,
       "ret_3m": -0.1934369603,
       "ret_6m": -0.1047923323,
@@ -939,8 +939,8 @@
      },
      {
       "ticker": "CEPU",
-      "precio": 1856.0,
-      "volumen": 458261248.0,
+      "precio": 1853.0,
+      "volumen": 459112251.0,
       "ret_1m": -0.1239337682,
       "ret_3m": -0.1399014778,
       "ret_6m": -0.1625899281,
@@ -954,8 +954,8 @@
      },
      {
       "ticker": "PAMP",
-      "precio": 4407.5,
-      "volumen": 1440102142.5,
+      "precio": 4402.5,
+      "volumen": 1499698417.5,
       "ret_1m": -0.1432086614,
       "ret_3m": -0.1364087302,
       "ret_6m": -0.1121876594,
@@ -969,8 +969,8 @@
      },
      {
       "ticker": "BMA",
-      "precio": 9150.0,
-      "volumen": 5534679450.0,
+      "precio": 9185.0,
+      "volumen": 5682006330.0,
       "ret_1m": -0.132751938,
       "ret_3m": -0.2244367418,
       "ret_6m": -0.1190944882,
@@ -985,7 +985,7 @@
      {
       "ticker": "TGSU2",
       "precio": 7060.0,
-      "volumen": 194178240.0,
+      "volumen": 194460640.0,
       "ret_1m": -0.1748666271,
       "ret_3m": -0.2240802676,
       "ret_6m": -0.2266666667,
