@@ -138,6 +138,7 @@ def proponer(perfil_nombre: str, perfil: dict, buckets: dict, candidatos: dict[s
         n = 1
         if bucket in ("cedears", "acciones_arg", "cedears_etf"):
             n = max(1, min(3, int(monto_b // ticket_min)))
+        n = min(n, len(cand))
         for _, fila in cand.head(n).iterrows():
             asignaciones.append({"bucket": bucket, "ticker": fila["ticker"], "monto": monto_b / n,
                                  "precio": float(fila["precio"]), "score": _num(fila.get("score")),
@@ -169,6 +170,7 @@ def proponer(perfil_nombre: str, perfil: dict, buckets: dict, candidatos: dict[s
         a_liquidez += a["monto"] - bruto - costo
         total_costos += costo
         invertido += bruto
+    finales = [a for a in finales if a["cantidad"] > 0]  # no alcanzó para 1 unidad: quedó en liquidez
     finales.append({"bucket": "liquidez", "ticker": "CAUCION/FCI MM", "monto_bruto": round(a_liquidez, 2),
                     "cantidad": None, "costo": 0})
     return {
