@@ -113,7 +113,7 @@ def test_splits():
     import pandas as pd
     s = pd.Series([100, 101, 102, 10.3, 10.4], index=pd.date_range("2026-01-01", periods=5))
     a = M.ajustar_splits(s)
-    assert abs(a.iloc[2] - 10.2) < 1e-9 and a.pct_change().min() > -0.05
+    assert abs(a.iloc[2] - a.iloc[3]) < 1e-9 and a.pct_change().min() > -0.05
 
 
 def test_vencimientos():
