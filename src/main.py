@@ -187,6 +187,9 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         for grupo, tipo in (("cedears_etf", "cedears"), ("cedears", "cedears"), ("acciones_arg", "stocks")):
             for t in universo[grupo]:
                 barras = reg.tomar(f"hist_{t}", F.historia, tipo, t)
+                if not isinstance(barras, list) or not barras or not isinstance(barras[0], dict):
+                    reg.estado[f"hist_{t}"] = "sin historia"  # ticker fuera de la lista de data912
+                    barras = None
                 met[grupo][t] = M.metricas_historia(barras) if barras else None
                 if barras:
                     series[grupo][t] = M.serie(barras)
