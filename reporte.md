@@ -11,7 +11,7 @@
 - Dólar CCL: 1806.2
 - Riesgo país (pb): 1035.0
 - Inflación esperada mensual (%): 1.66
-- Devaluación A3500 último mes (%): 2.77
+- Devaluación A3500 último mes (%): 3.46
 
 ## Curva en pesos: inflación implícita
 
@@ -25,24 +25,24 @@
 
 ## Soberanos en dólares
 
-- AL30: TIR 20.24% · duration 1.63 · paridad 74.6% · precio USD 47.766
-- AL29: TIR 19.35% · duration 1.24 · paridad 80.8% · precio USD 48.474
-- GD30: TIR 17.63% · duration 1.66 · paridad 77.4% · precio USD 49.523
-- GD29: TIR 16.54% · duration 1.26 · paridad 83.2% · precio USD 49.937
-- AE38: TIR 17.26% · duration 3.88 · paridad 63.0% · precio USD 63.03
-- AL35: TIR 15.87% · duration 4.99 · paridad 60.4% · precio USD 60.41
-- AL41: TIR 15.74% · duration 5.03 · paridad 56.0% · precio USD 56.04
-- GD38: TIR 14.71% · duration 4.07 · paridad 68.8% · precio USD 68.79
-- GD35: TIR 14.38% · duration 5.05 · paridad 64.5% · precio USD 64.48
-- GD41: TIR 14.03% · duration 5.23 · paridad 60.5% · precio USD 60.48
-- GD46: TIR 13.26% · duration 5.46 · paridad 62.3% · precio USD 56.62
+- AL30: TIR 20.58% · duration 1.63 · paridad 74.3% · precio USD 47.55
+- GD30: TIR 18.09% · duration 1.65 · paridad 76.9% · precio USD 49.2
+- AL29: TIR 17.36% · duration 1.25 · paridad 82.5% · precio USD 49.5
+- GD29: TIR 15.93% · duration 1.26 · paridad 83.8% · precio USD 50.27
+- AE38: TIR 17.38% · duration 3.87 · paridad 62.8% · precio USD 62.78
+- AL35: TIR 16.14% · duration 4.97 · paridad 59.7% · precio USD 59.71
+- AL41: TIR 15.69% · duration 5.04 · paridad 56.2% · precio USD 56.16
+- GD38: TIR 14.77% · duration 4.06 · paridad 68.7% · precio USD 68.65
+- GD35: TIR 14.51% · duration 5.05 · paridad 64.1% · precio USD 64.1
+- GD41: TIR 13.75% · duration 5.26 · paridad 61.3% · precio USD 61.28
+- GD46: TIR 13.22% · duration 5.47 · paridad 62.4% · precio USD 56.74
 
 ## Perfil conservador
 
 Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
 
 - Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.39% mensual vs 2.77% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 8.9%.
 - Riesgo país 1035 pb.
 
@@ -51,18 +51,18 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 57136 VN | $ 79.790 | $ 209 |
-| dollar_linked | D31M7 | 37 VN | $ 58.275 | $ 152 |
+| dollar_linked | D15E7 | 37 VN | $ 58.590 | $ 153 |
 | cer | TZXM7 | 16755 VN | $ 39.894 | $ 104 |
-| liquidez | CAUCION/FCI MM |  | $ 21.576 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 21.260 | $ 0 |
 
-Paper trading: valor $ 199.837 sobre $ 200.000 aportados (-0.08%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.663 sobre $ 200.000 aportados (-0.17%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil moderado
 
 Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
 
 - Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.39% mensual vs 2.77% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 8.9%.
 - Riesgo país 1035 pb.
 
@@ -71,19 +71,20 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 42852 VN | $ 59.843 | $ 156 |
-| cedears_etf | IWM | 1 acciones | $ 47.960 | $ 300 |
-| hard_dollar | AL30 | 49 VN | $ 39.357 | $ 103 |
+| hard_dollar | AL30 | 49 VN | $ 39.391 | $ 103 |
+| cedears_etf | SPY | 1 acciones | $ 21.550 | $ 135 |
+| cedears_etf | EEM | 1 acciones | $ 20.450 | $ 128 |
 | cer | TZXM7 | 8377 VN | $ 19.946 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 32.284 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 38.246 | $ 0 |
 
-Paper trading: valor $ 199.615 sobre $ 200.000 aportados (-0.19%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 200.892 sobre $ 200.000 aportados (+0.45%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil riesgoso
 
 Busca retorno en renta variable; acepta caídas fuertes.
 
 - Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.39% mensual vs 2.77% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 8.9%.
 - Riesgo país 1035 pb.
 
@@ -91,43 +92,43 @@ Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| cedears | XOM | 1 acciones | $ 28.360 | $ 177 |
-| cedears | PBR | 1 acciones | $ 28.520 | $ 178 |
-| cedears | WMT | 2 acciones | $ 26.160 | $ 163 |
+| cedears | XOM | 1 acciones | $ 28.420 | $ 177 |
+| cedears | WMT | 2 acciones | $ 26.240 | $ 164 |
+| cedears | PBR | 1 acciones | $ 28.100 | $ 175 |
 | tasa_fija | T30A7 | 21426 VN | $ 29.921 | $ 78 |
-| acciones_arg | YPFD | 4 acciones | $ 23.100 | $ 144 |
-| acciones_arg | PAMP | 5 acciones | $ 22.275 | $ 139 |
-| liquidez | CAUCION/FCI MM |  | $ 40.783 | $ 0 |
+| acciones_arg | YPFD | 4 acciones | $ 22.940 | $ 143 |
+| acciones_arg | PAMP | 6 acciones | $ 26.490 | $ 165 |
+| liquidez | CAUCION/FCI MM |  | $ 36.985 | $ 0 |
 
-Paper trading: valor $ 199.572 sobre $ 200.000 aportados (-0.21%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 198.271 sobre $ 200.000 aportados (-0.86%); mismos aportes en MEP: $ 200.000.
 
 ## Backtest de la regla de renta variable
 
 | Caso | Período | Estrategia (anual) | Benchmark (anual) | Máx. caída estrategia |
 |---|---|---|---|---|
-| moderado_cedears_etf | 2023-09-30 a 2026-11-30 | +42.2% | +47.3% (SPY) | -17.6% |
-| riesgoso_cedears | 2023-02-28 a 2026-11-30 | +82.3% | +73.6% (SPY) | -17.6% |
-| riesgoso_acciones_arg | 2022-12-31 a 2026-11-30 | +34.8% | +88.0% (igual peso del universo) | -58.0% |
+| moderado_cedears_etf | 2023-09-30 a 2026-11-30 | +44.8% | +49.1% (SPY) | -17.6% |
+| riesgoso_cedears | 2023-02-28 a 2026-11-30 | +81.6% | +75.4% (SPY) | -17.6% |
+| riesgoso_acciones_arg | 2022-12-31 a 2026-11-30 | +34.6% | +88.3% (igual peso del universo) | -58.3% |
 
 ### Variantes de la regla
 
 | Caso | Variante | Anual | Vol | Máx. caída | Anual/Vol | Benchmark anual | Bench Anual/Vol |
 |---|---|---|---|---|---|---|---|
-| moderado_cedears_etf | actual (12m) | +42.2% | 23.2% | -17.6% | 1.82 | +47.3% | 1.62 |
-| moderado_cedears_etf | v0.1 (3m+6m / vol, RSI) | +31.2% | 22.0% | -27.4% | 1.42 | +47.3% | 1.62 |
-| moderado_cedears_etf | 6m+12m / vol | +39.3% | 22.2% | -18.9% | 1.77 | +47.3% | 1.62 |
-| moderado_cedears_etf | actual, top 5 | +57.8% | 20.3% | -13.6% | 2.85 | +73.6% | 2.19 |
-| moderado_cedears_etf | actual, sin filtros | +41.7% | 24.8% | -16.3% | 1.68 | +47.3% | 1.62 |
-| riesgoso_cedears | actual (12m) | +82.3% | 45.5% | -17.6% | 1.81 | +73.6% | 2.19 |
-| riesgoso_cedears | v0.1 (3m+6m / vol, RSI) | +41.1% | 39.6% | -25.8% | 1.04 | +73.6% | 2.19 |
-| riesgoso_cedears | 6m+12m / vol | +63.5% | 34.2% | -15.8% | 1.85 | +73.6% | 2.19 |
-| riesgoso_cedears | actual, top 5 | +76.9% | 44.5% | -15.4% | 1.73 | +73.6% | 2.19 |
-| riesgoso_cedears | actual, sin filtros | +83.0% | 45.9% | -17.6% | 1.81 | +73.6% | 2.19 |
-| riesgoso_acciones_arg | actual (12m) | +34.8% | 63.5% | -58.0% | 0.55 | +88.0% | 1.4 |
-| riesgoso_acciones_arg | v0.1 (3m+6m / vol, RSI) | +18.6% | 51.7% | -64.6% | 0.36 | +88.0% | 1.4 |
-| riesgoso_acciones_arg | 6m+12m / vol | +39.4% | 53.6% | -56.7% | 0.73 | +88.0% | 1.4 |
-| riesgoso_acciones_arg | actual, top 5 | +46.6% | 57.0% | -59.9% | 0.82 | +88.0% | 1.4 |
-| riesgoso_acciones_arg | actual, sin filtros | +37.1% | 58.0% | -58.9% | 0.64 | +88.0% | 1.4 |
+| moderado_cedears_etf | actual (12m) | +44.8% | 22.8% | -17.6% | 1.96 | +49.1% | 1.68 |
+| moderado_cedears_etf | v0.1 (3m+6m / vol, RSI) | +32.8% | 21.9% | -27.4% | 1.5 | +49.1% | 1.68 |
+| moderado_cedears_etf | 6m+12m / vol | +41.1% | 22.1% | -18.9% | 1.86 | +49.1% | 1.68 |
+| moderado_cedears_etf | actual, top 5 | +59.9% | 20.0% | -13.6% | 2.99 | +75.4% | 2.25 |
+| moderado_cedears_etf | actual, sin filtros | +44.2% | 24.4% | -16.3% | 1.81 | +49.1% | 1.68 |
+| riesgoso_cedears | actual (12m) | +81.6% | 45.6% | -17.6% | 1.79 | +75.4% | 2.25 |
+| riesgoso_cedears | v0.1 (3m+6m / vol, RSI) | +41.9% | 39.6% | -25.8% | 1.06 | +75.4% | 2.25 |
+| riesgoso_cedears | 6m+12m / vol | +64.1% | 34.2% | -15.8% | 1.87 | +75.4% | 2.25 |
+| riesgoso_cedears | actual, top 5 | +76.7% | 44.6% | -15.4% | 1.72 | +75.4% | 2.25 |
+| riesgoso_cedears | actual, sin filtros | +82.3% | 46.0% | -17.6% | 1.79 | +75.4% | 2.25 |
+| riesgoso_acciones_arg | actual (12m) | +34.6% | 63.6% | -58.3% | 0.54 | +88.3% | 1.4 |
+| riesgoso_acciones_arg | v0.1 (3m+6m / vol, RSI) | +18.2% | 51.8% | -65.0% | 0.35 | +88.3% | 1.4 |
+| riesgoso_acciones_arg | 6m+12m / vol | +39.4% | 53.6% | -56.7% | 0.74 | +88.3% | 1.4 |
+| riesgoso_acciones_arg | actual, top 5 | +46.7% | 57.0% | -59.8% | 0.82 | +88.3% | 1.4 |
+| riesgoso_acciones_arg | actual, sin filtros | +36.9% | 58.1% | -59.2% | 0.63 | +88.3% | 1.4 |
 
 ## Estado de fuentes
 
