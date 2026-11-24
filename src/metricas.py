@@ -66,14 +66,25 @@ def renta_fija_pesos(df_bonos: pd.DataFrame, df_letras: pd.DataFrame, horizonte:
 def metricas_historia(barras: list[dict]) -> dict | None:
     if not barras or len(barras) < 60:
         return None
-    s = pd.Series([b["c"] for b in barras], index=pd.to_datetime([b["date"] for b in barras])).sort_index()
-    return metricas_serie(s[s > 0])
+    return metricas_serie(serie(barras))
 
 
 def serie(barras: list[dict]) -> pd.Series:
     s = pd.Series([b["c"] for b in barras], index=pd.to_datetime([b["date"] for b in barras])).sort_index()
     s = s[s > 0]
-    return s[~s.index.duplicated(keep="last")]
+    return ajustar_splits(s[~s.index.duplicated(keep="last")])
+
+
+def ajustar_splits(s: pd.Series, bajada: float = -0.45, suba: float = 0.9) -> pd.Series:
+    """Detecta saltos de un día imposibles para el activo (splits, cambios de ratio de CEDEAR)
+    y reescala la historia anterior para que la serie sea continua."""
+    s = s.copy()
+    r = s.pct_change()
+    for fecha in r[(r < bajada) | (r > suba)].index:
+        i = s.index.get_loc(fecha)
+        factor = s.iloc[i] / s.iloc[i - 1]
+        s.iloc[:i] = s.iloc[:i] * factor
+    return s
 
 
 def metricas_serie(s: pd.Series) -> dict | None:

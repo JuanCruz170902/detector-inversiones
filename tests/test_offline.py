@@ -109,6 +109,13 @@ def test_hard_dollar():
     assert HD.tir("GD30", 62, date(2026, 11, 24))["tir"] > 0
 
 
+def test_splits():
+    import pandas as pd
+    s = pd.Series([100, 101, 102, 10.3, 10.4], index=pd.date_range("2026-01-01", periods=5))
+    a = M.ajustar_splits(s)
+    assert abs(a.iloc[2] - 10.2) < 1e-9 and a.pct_change().min() > -0.05
+
+
 def test_vencimientos():
     assert M.vencimiento_desde_ticker("S30A7") == date(2027, 4, 30)
     assert M.clasificar_renta_fija("TZXM7") == "cer"
