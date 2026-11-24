@@ -25,9 +25,9 @@
 
 ## Soberanos en dólares
 
-- AL30: TIR 20.59% · duration 1.63 · precio USD 47.54
-- AL29: TIR 17.89% · duration 1.25 · precio USD 49.222
-- GD30: TIR 17.86% · duration 1.65 · precio USD 49.361
+- AL30: TIR 20.67% · duration 1.62 · precio USD 47.488
+- AL29: TIR 18.11% · duration 1.25 · precio USD 49.109
+- GD30: TIR 17.94% · duration 1.65 · precio USD 49.305
 - GD29: TIR 15.71% · duration 1.26 · precio USD 50.39
 
 ## Perfil conservador
@@ -48,7 +48,7 @@ Propuesta para $ 200.000:
 | cer | TZXM7 | 16755 VN | $ 39.894 | $ 104 |
 | liquidez | CAUCION/FCI MM |  | $ 21.538 | $ 0 |
 
-Paper trading: valor $ 199.614 sobre $ 200.000 aportados (-0.19%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.613 sobre $ 200.000 aportados (-0.19%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil moderado
 
@@ -64,12 +64,12 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 42852 VN | $ 59.843 | $ 156 |
-| cedears_etf | XLE | 1 acciones | $ 54.100 | $ 338 |
-| hard_dollar | AL30 | 49 VN | $ 39.332 | $ 103 |
+| cedears_etf | IWM | 1 acciones | $ 47.900 | $ 299 |
+| hard_dollar | AL30 | 49 VN | $ 39.298 | $ 103 |
 | cer | TZXM7 | 8377 VN | $ 19.946 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 26.130 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 32.403 | $ 0 |
 
-Paper trading: valor $ 200.331 sobre $ 200.000 aportados (+0.17%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 200.262 sobre $ 200.000 aportados (+0.13%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil riesgoso
 
@@ -85,20 +85,20 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | cedears | XOM | 1 acciones | $ 28.520 | $ 178 |
-| cedears | PBR | 1 acciones | $ 28.700 | $ 179 |
-| cedears | WMT | 2 acciones | $ 26.340 | $ 164 |
+| cedears | PBR | 1 acciones | $ 28.740 | $ 179 |
+| cedears | WMT | 2 acciones | $ 26.260 | $ 164 |
 | tasa_fija | T30A7 | 21426 VN | $ 29.921 | $ 78 |
-| acciones_arg | GGAL | 5 acciones | $ 23.550 | $ 147 |
+| acciones_arg | GGAL | 5 acciones | $ 23.562 | $ 147 |
 | acciones_arg | BMA | 2 acciones | $ 18.440 | $ 115 |
-| liquidez | CAUCION/FCI MM |  | $ 43.666 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 43.694 | $ 0 |
 
-Paper trading: valor $ 199.274 sobre $ 200.000 aportados (-0.36%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.181 sobre $ 200.000 aportados (-0.41%); mismos aportes en MEP: $ 200.000.
 
 ## Backtest de la regla de renta variable
 
 | Caso | Período | Estrategia (anual) | Benchmark (anual) | Máx. caída estrategia |
 |---|---|---|---|---|
-| moderado_cedears_etf | 2023-09-30 a 2026-11-30 | +43.3% | +47.3% (SPY) | -12.8% |
+| moderado_cedears_etf | 2023-09-30 a 2026-11-30 | +42.2% | +47.3% (SPY) | -17.6% |
 | riesgoso_cedears | 2023-02-28 a 2026-11-30 | +82.3% | +73.6% (SPY) | -17.6% |
 | riesgoso_acciones_arg | 2022-12-31 a 2026-11-30 | +34.8% | +88.0% (igual peso del universo) | -58.0% |
 
@@ -106,11 +106,11 @@ Paper trading: valor $ 199.274 sobre $ 200.000 aportados (-0.36%); mismos aporte
 
 | Caso | Variante | Anual | Vol | Máx. caída | Anual/Vol | Benchmark anual | Bench Anual/Vol |
 |---|---|---|---|---|---|---|---|
-| moderado_cedears_etf | actual (12m) | +43.3% | 22.1% | -12.8% | 1.96 | +47.3% | 1.62 |
-| moderado_cedears_etf | v0.1 (3m+6m / vol, RSI) | +31.5% | 22.1% | -15.0% | 1.43 | +47.3% | 1.62 |
-| moderado_cedears_etf | 6m+12m / vol | +35.9% | 22.5% | -14.4% | 1.59 | +47.3% | 1.62 |
-| moderado_cedears_etf | actual, top 5 | +44.7% | 20.6% | -11.8% | 2.17 | +48.8% | 1.65 |
-| moderado_cedears_etf | actual, sin filtros | +41.5% | 23.5% | -12.8% | 1.76 | +47.3% | 1.62 |
+| moderado_cedears_etf | actual (12m) | +42.2% | 23.2% | -17.6% | 1.82 | +47.3% | 1.62 |
+| moderado_cedears_etf | v0.1 (3m+6m / vol, RSI) | +31.2% | 22.0% | -27.4% | 1.42 | +47.3% | 1.62 |
+| moderado_cedears_etf | 6m+12m / vol | +39.3% | 22.2% | -18.9% | 1.77 | +47.3% | 1.62 |
+| moderado_cedears_etf | actual, top 5 | +57.8% | 20.3% | -13.6% | 2.85 | +73.6% | 2.19 |
+| moderado_cedears_etf | actual, sin filtros | +41.7% | 24.8% | -16.3% | 1.68 | +47.3% | 1.62 |
 | riesgoso_cedears | actual (12m) | +82.3% | 45.5% | -17.6% | 1.81 | +73.6% | 2.19 |
 | riesgoso_cedears | v0.1 (3m+6m / vol, RSI) | +41.1% | 39.6% | -25.8% | 1.04 | +73.6% | 2.19 |
 | riesgoso_cedears | 6m+12m / vol | +63.5% | 34.2% | -15.8% | 1.85 | +73.6% | 2.19 |
