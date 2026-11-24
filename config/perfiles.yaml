@@ -1,0 +1,62 @@
+# Reglas por perfil de riesgo.
+# Todos los porcentajes son sobre el monto a invertir en el mes.
+# Editá este archivo para cambiar el comportamiento del detector: el código no tiene reglas "escondidas".
+
+monto_default: 200000        # ARS a invertir por mes si no se indica otro
+horizonte_meses: [1, 6]      # horizonte corto: se priorizan instrumentos que vencen en este rango
+
+broker:
+  nombre: Cocos (plan base)
+  comision_acciones: 0.0045  # acciones y CEDEARs, por operación
+  comision_bonos: 0.0015     # bonos y letras, por operación
+  derechos_mercado: 0.0008   # BYMA, aprox.
+  iva_sobre_comision: 0.21
+  ticket_minimo: 20000       # no abrir posiciones más chicas que esto (ARS)
+
+perfiles:
+  conservador:
+    descripcion: Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
+    max_posiciones: 4
+    buckets:
+      cer: 0.35              # bonos ajustados por inflación
+      tasa_fija: 0.30        # LECAP / BONCAP
+      dollar_linked: 0.20    # cobertura contra devaluación oficial
+      liquidez: 0.15         # caución / FCI money market (se deja en pesos)
+    ajustes:
+      # si la tasa real esperada es negativa, se pasa peso de tasa fija a CER (y al revés)
+      rotacion_cer_tasa_fija: 0.15
+      # si la brecha MEP/oficial supera este umbral, se pasa peso de liquidez a dollar linked
+      brecha_alerta: 0.15
+      rotacion_dl: 0.10
+
+  moderado:
+    descripcion: Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
+    max_posiciones: 5
+    buckets:
+      cer: 0.20
+      tasa_fija: 0.20
+      hard_dollar: 0.20      # soberanos en dólares de corta duration
+      cedears_etf: 0.30      # ETFs amplios vía CEDEAR (SPY, QQQ, DIA, EEM...)
+      liquidez: 0.10
+    filtros_renta_variable:
+      solo_tendencia_alcista: true   # precio por encima de su media de 200 ruedas
+      vol_max_anual: 0.35
+
+  riesgoso:
+    descripcion: Busca retorno en renta variable; acepta caídas fuertes.
+    max_posiciones: 6
+    buckets:
+      tasa_fija: 0.15
+      cedears: 0.45          # CEDEARs individuales y ETFs
+      acciones_arg: 0.40     # panel líder del Merval
+    filtros_renta_variable:
+      solo_tendencia_alcista: false
+      vol_max_anual: 0.80
+
+scoring_renta_variable:
+  # score = momentum ajustado por riesgo, penalizado si está sobrecomprado
+  peso_ret_3m: 0.5
+  peso_ret_6m: 0.5
+  penalizar_rsi_mayor_a: 75
+  penalizacion_rsi: 0.5      # multiplica el score
+  volumen_min_ars: 5000000   # liquidez mínima diaria en BYMA
