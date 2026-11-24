@@ -18,6 +18,7 @@ import pandas as pd
 import yaml
 
 from . import backtest as BT
+from . import balances as BAL
 from . import curva as C
 from . import fuentes as F
 from . import hard_dollar as HD
@@ -120,6 +121,10 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         "bcra": reg.tomar("bcra", F.bcra_principales),
         "mep": reg.tomar("data912_mep", F.mep),
     }
+    cal = reg.tomar("calendario_balances", BAL.proximos, perfiles.get("dias_sin_balance", 7))
+    balances, fuente_bal = cal if cal else ({}, None)
+    if fuente_bal:
+        reg.estado["calendario_balances"] = f"ok ({fuente_bal}, {len(balances)} empresas)"
     paneles = {n: M.panel_a_df(reg.tomar(f"data912_{n}", F.panel, n) or []) for n in F.PANELES}
     macro = armar_macro(reg, raw)
 
@@ -173,10 +178,16 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
                           "vol_ars": (vol.get(t) or 0) * px[t] / 100, **(info or {})})
         hd = pd.DataFrame(filas)
         if not hd.empty:
-            hd["apto"] = hd["vol_ars"] >= C.VOL_MIN_ARS
-            hd["motivo_descarte"] = hd["apto"].map(lambda x: "" if x else "poca liquidez")
             if "tir" not in hd:
                 hd["tir"] = float("nan")
+            if "duration" not in hd:
+                hd["duration"] = float("nan")
+            dmax = perfiles.get("hard_dollar_duration_max", 3)
+            liq = hd["vol_ars"] >= C.VOL_MIN_ARS
+            corta = hd["duration"].fillna(99) <= dmax
+            hd["apto"] = liq & corta
+            hd["motivo_descarte"] = [", ".join(m for m, c in (("poca liquidez", not a), (f"duration > {dmax}", not b)) if c)
+                                     for a, b in zip(liq, corta)]
             hd["_c"] = hd["tir"].notna()
             hd = hd.sort_values(["apto", "_c", "tir"], ascending=[False, False, False]).drop(columns="_c")
 
@@ -215,6 +226,8 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
             "cedears": motor.ranking_renta_variable({**met["cedears_etf"], **met["cedears"]}, paneles["cedears"], cfg_s, filtros, M.score_renta_variable),
             "acciones_arg": motor.ranking_renta_variable(met["acciones_arg"], paneles["acciones"], cfg_s, filtros, M.score_renta_variable),
         }
+        for k in rv:
+            rv[k] = filtrar_balances(rv[k], balances)
         if perfiles.get("modo_por_bucket", {}).get("acciones_arg") == "liquidez":
             rv["acciones_arg"] = por_liquidez(rv["acciones_arg"], cfg_s)
         candidatos = {**rank_rf, "hard_dollar": hd, **rv}
@@ -235,13 +248,30 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
     return resultado
 
 
+def filtrar_balances(df: pd.DataFrame, balances: dict[str, str]) -> pd.DataFrame:
+    """Marca como no apto todo papel que presenta resultados en los próximos días."""
+    if df is None or df.empty or not balances:
+        return df
+    d = df.copy()
+    fechas = d["ticker"].map(lambda t: balances.get(BAL.a_eeuu(t) or "", None))
+    d["balance"] = fechas
+    hay = fechas.notna()
+    d.loc[hay, "apto"] = False
+    d.loc[hay, "motivo_descarte"] = [", ".join(x for x in (m, f"balance el {f}") if x)
+                                     for m, f in zip(d.loc[hay, "motivo_descarte"], fechas[hay])]
+    return d
+
+
 def por_liquidez(df: pd.DataFrame, cfg_s: dict) -> pd.DataFrame:
     """Canasta diversificada: ordena por volumen operado, ignora el momentum."""
     if df is None or df.empty:
         return df
     d = df.copy()
-    d["apto"] = d["volumen"].fillna(0) >= cfg_s["volumen_min_ars"]
-    d["motivo_descarte"] = d["apto"].map(lambda x: "" if x else "poca liquidez")
+    liq = d["volumen"].fillna(0) >= cfg_s["volumen_min_ars"]
+    bal = d["balance"].notna() if "balance" in d else pd.Series(False, index=d.index)
+    d["apto"] = liq & ~bal
+    d["motivo_descarte"] = [", ".join(m for m, c in (("poca liquidez", not a), (f"balance el {f}", b)) if c)
+                            for a, b, f in zip(liq, bal, d["balance"] if "balance" in d else [None] * len(d))]
     d["score"] = d["volumen"]
     return d.sort_values(["apto", "volumen"], ascending=[False, False])
 
@@ -294,7 +324,8 @@ def tabla(df: pd.DataFrame | None, n: int = 8) -> list[dict]:
         return []
     cols = [c for c in ("ticker", "tipo", "precio", "var_dia", "volumen", "vol_ars", "vencimiento", "dias", "tir",
                         "tea", "tem", "ajuste", "residuo_pb", "liquido", "precio_usd", "duration", "proximo_pago",
-                        "tea_fija_equiv", "a3500_breakeven", "devaluacion_be_mensual",
+                        "tea_fija_equiv", "a3500_breakeven", "devaluacion_be_mensual", "md", "residual", "paridad",
+                        "monto_proximo_pago", "balance",
                         "fija", "cer", "tea_fija", "tir_real_cer", "inflacion_be_anual", "inflacion_be_mensual",
                         "ret_1m", "ret_3m", "ret_6m", "vol_anual", "rsi14", "sobre_sma200", "max_dd_6m",
                         "score", "apto", "motivo_descarte") if c in df.columns]
@@ -349,7 +380,7 @@ def reporte_md(res: dict, estado: dict) -> str:
         L += [f"| {b['fija']} | {b['tea_fija']}% | {b['cer']} | {b['tir_real_cer']}% | {b['inflacion_be_mensual']}% |" for b in cv["breakevens"]]
     if cv.get("hard_dollar"):
         L += ["", "## Soberanos en dólares", ""]
-        L += [f"- {h['ticker']}: TIR {h.get('tir', '–')}% · duration {h.get('duration', '–')} · precio USD {h.get('precio_usd')}" for h in cv["hard_dollar"] if h.get("tir") is not None]
+        L += [f"- {h['ticker']}: TIR {h.get('tir', '–')}% · duration {h.get('duration', '–')} · paridad {h.get('paridad', '–')}% · precio USD {h.get('precio_usd')}" for h in cv["hard_dollar"] if h.get("tir") is not None]
     for nombre, p in res["perfiles"].items():
         pr = p["propuesta"]
         L += ["", f"## Perfil {nombre}", "", p["descripcion"], ""]

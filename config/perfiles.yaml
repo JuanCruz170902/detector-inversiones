@@ -4,6 +4,8 @@
 
 monto_default: 200000        # ARS a invertir por mes si no se indica otro
 horizonte_meses: [1, 6]      # horizonte corto: se priorizan instrumentos que vencen en este rango
+dias_sin_balance: 7          # no comprar acciones/CEDEARs que presentan resultados en los próximos N días hábiles
+hard_dollar_duration_max: 3  # soberanos en USD: solo duration corta (más sensibles al riesgo país los largos)
 
 broker:
   nombre: Cocos (plan base)

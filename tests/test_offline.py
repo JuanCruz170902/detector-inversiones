@@ -67,6 +67,11 @@ def falsos(monkeypatch=None):
         "cedears": [{"symbol": "SPY", "c": 40000, "v": 9e9}, {"symbol": "AAPL", "c": 20000, "v": 9e9}],
     }
     set_("panel", lambda n: paneles[n])
+    from src import balances as BAL
+    if monkeypatch:
+        monkeypatch.setattr(BAL, "proximos", lambda dias=7: ({"AAPL": "2026-11-27", "GGAL": "2026-11-26"}, "test"))
+    else:
+        BAL.proximos = lambda dias=7: ({"AAPL": "2026-11-27", "GGAL": "2026-11-26"}, "test")
     set_("historia", lambda tipo, t: barras(hash(t) % 1000, 0.002 if t in ("SPY", "AAPL", "GGAL") else -0.0005))
 
 
@@ -85,6 +90,9 @@ def test_punta_a_punta(monkeypatch):
     assert res["curvas"]["breakevens"], "debería haber breakevens"
     hd = {r["ticker"]: r for r in res["curvas"]["hard_dollar"]}
     assert 0 < hd["AL30"]["tir"] < 30, hd["AL30"]
+    # balances próximos: AAPL y GGAL no pueden aparecer en ninguna propuesta
+    for p in res["perfiles"].values():
+        assert not any(x["ticker"] in ("AAPL", "GGAL") for x in p["propuesta"]["posiciones"])
     # TZXA7 no es líquido: no debe elegirse
     assert all(p["ticker"] != "TZXA7" for p in res["perfiles"]["conservador"]["propuesta"]["posiciones"])
     est = paper.actualizar({"perfiles": {}}, {n: v["propuesta"] for n, v in res["perfiles"].items()},
@@ -103,10 +111,20 @@ def test_backtest():
     assert r and r["meses"] >= 4 and "anual" in r["estrategia"]
 
 
-def test_hard_dollar():
+def test_hard_dollar_validacion():
+    """Flujos contra el pago real del 9-ene-2026 y TIRs contra PPI (liquidación 08/09/2025)."""
     from src import hard_dollar as HD
-    assert abs(sum(f for _, f in HD.flujos("AL30")) - 100 - 0) < 6  # 100 de capital + cupones chicos
-    assert HD.tir("GD30", 62, date(2026, 11, 24))["tir"] > 0
+    d = date(2026, 1, 9)
+    pagos = {"AL29": (0.40, 10.0), "AL30": (0.30, 8.0), "AL35": (2.0625, 0), "AE38": (2.50, 0), "AL41": (1.75, 0),
+             "GD46": (1.97, 2.27)}
+    for t, (renta, amort) in pagos.items():
+        a = HD.BONOS[HD._serie(t)]["amort"].get(d, 0)
+        total = dict(HD.flujos(t))[d]
+        assert abs(a - amort) < 0.01 and abs(total - a - renta) < 0.01, t
+    ppi = {"GD29": (58.33, 19.0), "GD30": (55.30, 18.2), "GD35": (57.29, 15.1), "GD38": (61.33, 15.6),
+           "GD41": (53.88, 14.6), "GD46": (53.66, 14.5), "AL30": (52.40, 21.1)}
+    for t, (sucio, y) in ppi.items():
+        assert abs(HD.tir(t, sucio, date(2025, 9, 8))["tir"] - y) < 0.6, t
 
 
 def test_splits():

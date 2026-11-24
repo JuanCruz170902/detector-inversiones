@@ -54,7 +54,7 @@ details summary{cursor:pointer;color:var(--ink2);font-size:13px;margin-top:8px}
   </div>
   <div class="card"><div class="sub">Inflación implícita: lo que tendría que dar la inflación para que tasa fija y CER rindan igual.</div><div id="tablaBE"></div></div>
   <div class="card"><div class="sub">Dollar linked: devaluación mensual a partir de la cual conviene más que la tasa fija del mismo plazo.</div><div id="tablaDL"></div></div>
-  <div class="card"><div class="sub">Soberanos en dólares (TIR en USD, precio MEP).</div><div id="tablaHD"></div></div>
+  <div class="card"><div class="sub">Soberanos en dólares: TIR en USD con los flujos del canje 2020 (precio MEP, por 100 VN originales). Para el perfil moderado solo se usan los de duration ≤ 3.</div><div id="tablaHD"></div></div>
 
   <h2>Backtest de la regla de renta variable</h2>
   <div class="card">
@@ -195,7 +195,7 @@ function curvas(d) {
   leyenda("legCer", sC); lineChart(document.getElementById("chCer"), sC.filter(s => s.pts.length), fx);
   document.getElementById("tablaBE").innerHTML = (cv.breakevens || []).length ? tablaHTML([["Tasa fija", r => r.fija], ["TEA", r => num(r.tea_fija, 1) + "%", "n"], ["CER", r => r.cer], ["TIR real", r => num(r.tir_real_cer, 1) + "%", "n"], ["Días", r => r.dias, "n"], ["Inflación implícita anual", r => num(r.inflacion_be_anual, 1) + "%", "n"], ["Mensual", r => num(r.inflacion_be_mensual) + "%", "n"]], cv.breakevens) : "<div class=sub>Sin datos</div>";
   document.getElementById("tablaDL").innerHTML = (cv.dollar_linked || []).length ? tablaHTML([["Letra", r => r.ticker], ["Vence", r => r.vencimiento], ["Días", r => r.dias, "n"], ["Precio", r => num(r.precio), "n"], ["TEA fija equiv.", r => num(r.tea_fija_equiv, 1) + "%", "n"], ["A3500 breakeven", r => num(r.a3500_breakeven), "n"], ["Devaluación breakeven mensual", r => num(r.devaluacion_be_mensual) + "%", "n"], ["Líquida", r => r.liquido ? "sí" : "no"]], cv.dollar_linked) : "<div class=sub>Sin datos</div>";
-  document.getElementById("tablaHD").innerHTML = (cv.hard_dollar || []).length ? tablaHTML([["Bono", r => r.ticker], ["Precio USD", r => num(r.precio_usd), "n"], ["TIR", r => r.tir != null ? num(r.tir, 1) + "%" : "–", "n"], ["Duration", r => r.duration != null ? num(r.duration, 1) : "–", "n"], ["Próximo pago", r => r.proximo_pago || "–"], ["Líquido", r => r.apto ? "sí" : "no"]], cv.hard_dollar) : "<div class=sub>Sin datos</div>";
+  document.getElementById("tablaHD").innerHTML = (cv.hard_dollar || []).length ? tablaHTML([["Bono", r => r.ticker], ["Precio USD", r => num(r.precio_usd), "n"], ["TIR", r => r.tir != null ? num(r.tir, 1) + "%" : "–", "n"], ["Duration", r => r.duration != null ? num(r.duration, 1) : "–", "n"], ["Paridad", r => r.paridad != null ? num(r.paridad, 1) + "%" : "–", "n"], ["Próximo pago", r => r.proximo_pago ? r.proximo_pago + " (USD " + num(r.monto_proximo_pago, 2) + ")" : "–"], ["Estado", r => r.apto ? "apto" : "<span class=sub>" + (r.motivo_descarte || "") + "</span>"]], cv.hard_dollar) : "<div class=sub>Sin datos</div>";
 }
 
 function backtest(d) {

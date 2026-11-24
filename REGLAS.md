@@ -11,7 +11,7 @@ Todas las reglas viven en [`config/perfiles.yaml`](config/perfiles.yaml). Este d
 | `cer` | Bonos y letras ajustados por inflación | ArgentinaDatos `/finanzas/bonos-cer` (TIR real) | líquido → dentro del horizonte → **más barato contra la curva** → mayor TIR real |
 | `tasa_fija` | LECAP y BONCAP | ArgentinaDatos `/finanzas/letras` (TEA/TEM) | líquido → dentro del horizonte → más barato contra la curva → mayor TEA |
 | `dollar_linked` | Letras atadas al A3500 (D…) | panel data912 + A3500 del BCRA | líquido → dentro del horizonte → **menor devaluación breakeven** |
-| `hard_dollar` | Soberanos en USD (AL/GD), especie en pesos | lista en `universo.yaml` | líquido → **mayor TIR en USD** (flujos AL29/GD29/AL30/GD30) |
+| `hard_dollar` | Soberanos en USD (AL/AE/GD del canje 2020), especie en pesos | lista en `universo.yaml` | líquido → duration ≤ 3 → **mayor TIR en USD** |
 | `cedears_etf` | CEDEARs de ETFs amplios | lista en `universo.yaml` | score de momentum ajustado por riesgo |
 | `cedears` | CEDEARs individuales + ETFs | lista | ídem |
 | `acciones_arg` | Panel líder Merval | lista | ídem |
@@ -61,6 +61,8 @@ Filtros (descartan, no penalizan):
 - **Moderado:** además, precio arriba de la media de 200 ruedas y volatilidad < 35%.
 - **Riesgoso:** además, volatilidad < 80%.
 
+**Balances.** Ninguna acción ni CEDEAR se propone si la empresa presenta resultados en los próximos 7 días hábiles (`dias_sin_balance`). El precio puede moverse ±10% en un día y no hay forma de anticiparlo. Fuente: calendario de Nasdaq (para acciones argentinas, el ADR); si falla, Alpha Vantage, siempre que haya clave cargada como secreto. Si no hay calendario, el informe avisa que el filtro quedó inactivo.
+
 **Acciones argentinas: canasta por liquidez.** Las más operadas del panel líder con igual peso, sin intentar elegir ganadoras. Ver el porqué en §7.
 
 > En la v0.1 la regla era `0,5·ret 3m + 0,5·ret 6m`, ajustada por volatilidad y penalizada con RSI > 75. El backtest mostró que rendía peor (§7).
@@ -102,14 +104,17 @@ Conclusiones:
 
 ## 8. Limitaciones conocidas
 
-- **Flujos de los hard dollar:** están cargados a mano según las condiciones del canje 2020 (solo AL29/GD29/AL30/GD30). Hay que verificarlos contra el prospecto.
+- **Flujos de los hard dollar:** cargados según las condiciones del canje 2020 para los seis bonos (29, 30, 35, 38, 41, 46). Se verificaron así:
+  - **Pago del 9-ene-2026:** coinciden los seis (AL29 0,40% + 10 de amortización; AL30 0,30% + 8; AL35 2,06%; AE38 2,50%; AL41 1,75%; GD46 1,97% + 2,27).
+  - **TIRs de PPI al 08/09/2025:** diferencia menor a 0,3 pp.
+  - Quedan como test automático. Supuesto: el precio de pantalla es sucio (incluye cupón corrido).
 - **TIR real de los CER:** cerca del vencimiento distorsiona por el rezago del CER, por eso se descartan los que vencen en menos de 30 días.
 - **BYMA:** no responde desde los servidores de GitHub (fuera de Argentina), así que no se usa.
 - **Fuentes gratuitas:** pueden tener demoras o caídas, y el informe muestra el estado de cada una.
 
 ## 9. Próximas mejoras propuestas
 
-1. **Noticias con sentimiento** como filtro duro: no comprar un CEDEAR con balance en los próximos 5 días. Hoy solo se avisa en el mail.
+1. **Noticias con sentimiento** como filtro: hoy solo se avisa en el mail.
 2. **Rebalanceo y stop de pérdidas** en la cartera simulada, no solo aportes.
 3. **Duales y TAMAR** como bucket propio para el perfil conservador.
 4. **Comisiones de IEB** cuando migres (un parámetro).
