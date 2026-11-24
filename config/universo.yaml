@@ -1,10 +1,10 @@
 # Instrumentos de renta variable que se analizan con historia de precios.
 # La renta fija se toma completa de los paneles (se clasifica por ticker).
 
-cedears_etf: [SPY, QQQ, DIA, IWM, EEM, EWZ, XLE, XLF, GLD]
+cedears_etf: [SPY, QQQ, DIA, IWM, EEM, EWZ, XLE, XLF]
 
-cedears: [AAPL, MSFT, GOOGL, AMZN, NVDA, META, TSLA, AMD, MELI, KO, PG, JNJ,
-          JPM, V, WMT, XOM, CVX, BRKB, NU, VIST, PBR, BABA]
+cedears: [AAPL, MSFT, GOOGL, AMZN, NVDA, META, TSLA, AMD, MELI, KO, JNJ,
+          JPM, V, WMT, XOM, CVX, BRKB, PBR, BABA]
 
 acciones_arg: [GGAL, YPFD, PAMP, TXAR, ALUA, BMA, BBAR, CEPU, TGSU2, TGNO4,
                LOMA, CRES, EDN, SUPV, BYMA, COME, TRAN, VALO, MIRG]

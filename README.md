@@ -11,10 +11,12 @@ Sistema automático que todos los días hábiles baja datos del mercado argentin
 ```
 17:45 ART (lun–vie)  GitHub Actions
   ├─ data912 ........ paneles de bonos, letras, acciones, CEDEARs + historia diaria
-  ├─ ArgentinaDatos . inflación, dólares, riesgo país, plazo fijo, TIR de bonos CER
-  └─ BCRA ........... A3500, CER, TAMAR, BADLAR
+  ├─ ArgentinaDatos . letras (TEA), bonos CER (TIR real), inflación, dólares, riesgo país, plazo fijo
+  └─ BCRA ........... A3500 (y su serie), REM, CER, TAMAR, BADLAR
         ↓
-  src/motor.py  señales macro → reparto por bucket → ranking → propuesta con cantidades y costos
+  src/curva.py  curvas de tasa fija y CER, valor relativo, inflación y devaluación implícitas
+  src/motor.py  señales → reparto por bucket → ranking → propuesta con cantidades y costos
+  src/backtest.py  backtest mensual de la regla de renta variable
         ↓
   docs/data/latest.json · docs/data/paper.json · reporte.md   (commit automático)
         ↓
@@ -29,7 +31,10 @@ Sistema automático que todos los días hábiles baja datos del mercado argentin
 | `config/universo.yaml` | CEDEARs, acciones y bonos en dólares que se analizan |
 | `src/fuentes.py` | Descarga de datos con reintentos |
 | `src/metricas.py` | Clasificación de renta fija por ticker y métricas de renta variable (momentum, volatilidad, RSI, SMA200) |
-| `src/motor.py` | Señales macro, rankings y armado de la propuesta |
+| `src/curva.py` | Curvas en pesos, valor relativo, breakevens de inflación y de devaluación |
+| `src/hard_dollar.py` | TIR en USD de los soberanos cortos |
+| `src/backtest.py` | Backtest mensual de la regla de momentum vs SPY / igual peso |
+| `src/motor.py` | Señales, rankings y armado de la propuesta |
 | `src/paper.py` | Cartera simulada mes a mes, con benchmark en dólar MEP |
 | `REGLAS.md` | Explicación de cada regla, limitaciones y próximas mejoras |
 

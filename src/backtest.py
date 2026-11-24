@@ -15,13 +15,20 @@ from .metricas import metricas_serie, score_renta_variable
 
 
 def correr(series: dict[str, pd.Series], cfg_score: dict, filtros: dict, n: int, comision: float,
-           benchmark: str | None = None, min_hist: int = 130) -> dict | None:
+           benchmark: str | None = None, min_hist: int = 130, anios_max: int = 4) -> dict | None:
     series = {t: s for t, s in series.items() if s is not None and len(s) > min_hist}
     if len(series) < n + 1:
         return None
     precios = pd.DataFrame(series).sort_index().ffill()
-    fines = precios.resample("ME").last().index
-    fines = [f for f in fines if (precios.index <= f).sum() > min_hist]
+    # ventana común: últimos `anios_max` años, desde que hay benchmark y al menos n+2 papeles con historia suficiente
+    inicio = precios.index.max() - pd.DateOffset(years=anios_max)
+    if benchmark and benchmark in precios:
+        inicio = max(inicio, precios[benchmark].first_valid_index())
+    con_hist = precios.notna().cumsum()
+    listo = (con_hist > min_hist).sum(axis=1)
+    if (listo >= n + 2).any():
+        inicio = max(inicio, listo[listo >= n + 2].index[0])
+    fines = [f for f in precios.resample("ME").last().index if f >= inicio]
     if len(fines) < 6:
         return None
     valor, bench, cartera = 1.0, 1.0, set()
@@ -46,14 +53,14 @@ def correr(series: dict[str, pd.Series], cfg_score: dict, filtros: dict, n: int,
         p0 = precios[precios.index <= f0].iloc[-1]
         p1 = precios[precios.index <= f1].iloc[-1]
         if elegidos:
-            rets = [(p1[t] / p0[t] - 1) for t in elegidos if p0[t] > 0 and not math.isnan(p1[t])]
+            rets = [(p1[t] / p0[t] - 1) for t in elegidos if p0[t] > 0 and not math.isnan(p1[t]) and not math.isnan(p0[t])]
             r = float(np.mean(rets)) if rets else 0.0
         else:
             r = 0.0  # sin candidatos: queda en liquidez (se asume 0 real, conservador)
         rotacion = len(elegidos ^ cartera) / max(len(elegidos | cartera), 1)
         valor *= (1 + r) * (1 - comision * rotacion)
         cartera = elegidos
-        if benchmark and benchmark in precios:
+        if benchmark and benchmark in precios and p0[benchmark] > 0:
             rb = p1[benchmark] / p0[benchmark] - 1
         else:
             rb = float(np.nanmean((p1 / p0 - 1).values))
