@@ -31,6 +31,9 @@ jobs:
         run: python -m pytest -q tests
       - name: Corrida
         run: python -m src.main
+      - name: Prueba semanal (valuación al cierre)
+        if: github.event_name == 'schedule'
+        run: python -m src.prueba valuar || true
       - name: Guardar resultados
         run: |
           git config user.name "detector-bot"

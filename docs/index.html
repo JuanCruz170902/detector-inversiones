@@ -36,6 +36,18 @@ details summary{cursor:pointer;color:var(--ink2);font-size:13px;margin-top:8px}
   <div class="disc">Herramienta personal de análisis con datos gratuitos (data912, ArgentinaDatos, BCRA). No es asesoramiento financiero.</div>
   <div class="tiles" id="tiles"></div>
 
+  <div id="secPrueba" style="display:none">
+    <h2>Prueba semanal: $200.000 por perfil</h2>
+    <div class="sub" id="pruebaInfo"></div>
+    <div class="tiles" id="tilesPrueba"></div>
+    <div class="card">
+      <div class="sub">Rendimiento acumulado (valor si se vendiera todo ese día, neto de comisiones de compra y venta).</div>
+      <div class="legend" id="legPrueba"></div>
+      <div class="chart" id="chPrueba"><svg width="100%" height="240" role="img" aria-label="Prueba semanal por perfil"></svg><div class="tip"></div></div>
+    </div>
+    <div class="card"><div class="tabs" id="tabsPrueba" style="margin-bottom:8px"></div><div id="tablaPrueba"></div></div>
+  </div>
+
   <h2>Propuesta del día</h2>
   <div class="tabs" role="tablist" id="tabs"></div>
   <div id="perfil"></div>
@@ -84,8 +96,10 @@ const COL = {conservador: "var(--s1)", moderado: "var(--s2)", riesgoso: "var(--s
 const NOMBRE = {cer:"CER",tasa_fija:"Tasa fija",dollar_linked:"Dollar linked",hard_dollar:"Hard dollar",cedears_etf:"CEDEARs ETF",cedears:"CEDEARs",acciones_arg:"Acciones arg.",liquidez:"Liquidez",tamar:"TAMAR"};
 
 async function cargar() {
-  const [d, p] = await Promise.all([fetch("data/latest.json?" + Date.now()).then(r => r.json()),
-                                    fetch("data/paper.json?" + Date.now()).then(r => r.json()).catch(() => null)]);
+  const [d, p, ps] = await Promise.all([fetch("data/latest.json?" + Date.now()).then(r => r.json()),
+                                    fetch("data/paper.json?" + Date.now()).then(r => r.json()).catch(() => null),
+                                    fetch("data/prueba_semanal.json?" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null)]);
+  if (ps && ps.entrada) prueba(ps);
   document.getElementById("fecha").textContent = "Actualizado " + new Date(d.generado).toLocaleString("es-AR") + " · monto de referencia " + ars(d.monto);
   const m = d.macro;
   const tiles = [["Inflación último mes", m.inflacion_mensual != null ? num(m.inflacion_mensual,1) + "%" : "–"],
@@ -213,6 +227,34 @@ function backtest(d) {
   };
   tabs.onclick = e => { const x = e.target.closest("button"); if (!x) return; tabs.querySelectorAll("button").forEach(y => y.setAttribute("aria-selected", y === x)); ver(x.dataset.c); };
   ver(casos[0]);
+}
+
+function prueba(ps) {
+  document.getElementById("secPrueba").style.display = "";
+  const ent = ps.entrada, dias = ps.dias || [], u = dias[dias.length - 1];
+  document.getElementById("pruebaInfo").textContent = `Del ${ps.inicio} al ${ps.fin}. Entrada: ${ent.fecha_hora.replace("T", " ")} (${ent.nota}). Comisiones de Cocos incluidas.` + (u ? ` Última valuación: ${u.fecha} ${u.hora}.` : "");
+  const t = Object.keys(ps.carteras).map(n => { const v = u && u.perfiles[n]; return [n[0].toUpperCase() + n.slice(1), v ? ars(v.valor) + ` <span class="sub">(${pct(v.rend, 2)})</span>` : "–"]; });
+  if (u && u.bench) { t.push(["Mismo monto en MEP", u.bench.mep ? ars(u.bench.mep) + ` <span class="sub">(${pct(u.bench.mep / ps.monto - 1, 2)})</span>` : "–"]);
+    t.push(["En plazo fijo", ars(u.bench.plazo_fijo) + ` <span class="sub">(${pct(u.bench.plazo_fijo / ps.monto - 1, 2)})</span>`]); }
+  document.getElementById("tilesPrueba").innerHTML = t.map(([k, v]) => `<div class="tile"><div class="k">${k}</div><div class="v" style="font-size:17px">${v}</div></div>`).join("");
+  const X = d => d.fecha + "T" + d.hora, base = [{x: ent.fecha_hora.slice(0, 16), y: 0}];
+  const ser = Object.keys(ps.carteras).map(n => ({n, col: COL[n], pts: [...base, ...dias.map(d => ({x: X(d), y: d.perfiles[n].rend}))]}));
+  ser.push({n: "Dólar MEP", col: "var(--bench)", dash: true, pts: [...base, ...dias.filter(d => d.bench.mep).map(d => ({x: X(d), y: d.bench.mep / ps.monto - 1}))]});
+  ser.push({n: "Plazo fijo", col: "var(--ink2)", dash: true, pts: [...base, ...dias.map(d => ({x: X(d), y: d.bench.plazo_fijo / ps.monto - 1}))]});
+  leyenda("legPrueba", ser);
+  lineChart(document.getElementById("chPrueba"), ser, {xNum: false, zero: true, xFmt: (v, l) => v.slice(8, 10) + "/" + v.slice(5, 7) + (l ? " " + v.slice(11, 16) : ""), yFmt: (v, l) => pct(v, 2)});
+  const tabs = document.getElementById("tabsPrueba"), nombres = Object.keys(ps.carteras);
+  tabs.innerHTML = nombres.map((n, i) => `<button aria-selected="${i === 0}" data-p="${n}">${n[0].toUpperCase() + n.slice(1)}</button>`).join("");
+  const ver = n => {
+    const c = ps.carteras[n], det = u ? Object.fromEntries(u.perfiles[n].detalle.map(x => [x.ticker, x])) : {};
+    const filas = c.posiciones.map(pz => ({...pz, ...(det[pz.ticker] || {})}));
+    document.getElementById("tablaPrueba").innerHTML = tablaHTML([["Instrumento", r => `<b>${r.ticker}</b> <span class="chip">${NOMBRE[r.bucket] || r.bucket}</span>`], ["Cantidad", r => num(r.cantidad, 0), "n"],
+      ["Precio entrada", r => num(r.precio_entrada), "n"], ["Precio actual", r => r.precio != null ? num(r.precio) : "–", "n"], ["Var. precio", r => r.var_precio != null ? pct(r.var_precio, 2) : "–", "n"],
+      ["Invertido", r => ars(r.monto + r.costo_compra), "n"], ["Resultado neto", r => r.resultado != null ? ars(r.resultado) : "–", "n"]], filas) +
+      `<div class="sub" style="margin-top:8px">Liquidez inicial (caución/FCI MM): ${ars(c.liquidez_inicial)}</div>`;
+  };
+  tabs.onclick = e => { const x = e.target.closest("button"); if (!x) return; tabs.querySelectorAll("button").forEach(y => y.setAttribute("aria-selected", y === x)); ver(x.dataset.p); };
+  ver(nombres[0]);
 }
 
 function grafico(p) {

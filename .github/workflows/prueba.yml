@@ -1,0 +1,36 @@
+name: Prueba semanal - entrada
+
+on:
+  schedule:
+    # 25-nov-2026, 11:40 hora Argentina (14:40 UTC): 40 minutos después de la apertura de BYMA
+    - cron: "40 14 25 11 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: corrida-diaria
+  cancel-in-progress: false
+
+jobs:
+  entrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m src.prueba entrar
+      - run: python -m src.prueba valuar
+      - name: Guardar
+        run: |
+          git config user.name "detector-bot"
+          git config user.email "detector-bot@users.noreply.github.com"
+          git add docs/data/prueba_semanal.json
+          git diff --cached --quiet || git commit -m "Prueba semanal: entrada $(date -u +%F)"
+          git pull --rebase --autostash || true
+          git push

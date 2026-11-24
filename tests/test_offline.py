@@ -146,3 +146,24 @@ if __name__ == "__main__":
     test_vencimientos()
     res = MAIN.correr(200000, guardar=False)
     print(MAIN.reporte_md(res, {"perfiles": {}}))
+
+
+def test_prueba_semanal(monkeypatch, tmp_path):
+    from datetime import datetime
+    from src import prueba as P
+    falsos(monkeypatch)
+    monkeypatch.setattr(P, "RUTA", tmp_path / "prueba.json")
+    monkeypatch.setattr(P, "ahora_art", lambda: datetime(2026, 11, 25, 11, 40, tzinfo=P.ART))
+    est = P.entrar()
+    for n, c in est["carteras"].items():
+        gastado = sum(p["monto"] + p["costo_compra"] for p in c["posiciones"])
+        assert abs(gastado + c["liquidez_inicial"] - 200000) < 1, n
+        assert c["liquidez_inicial"] >= 0
+    monkeypatch.setattr(P, "ahora_art", lambda: datetime(2026, 11, 26, 17, 50, tzinfo=P.ART))
+    est = P.valuar()
+    d = est["dias"][-1]
+    assert d["fecha"] == "2026-11-26" and set(d["perfiles"]) == {"conservador", "moderado", "riesgoso"}
+    # sin cambio de precios el valor es el aporte menos costos de compra y venta, más la caución
+    for v in d["perfiles"].values():
+        assert 0.97 < v["valor"] / 200000 < 1.01
+    assert P.entrar()["entrada"] == est["entrada"]  # no re-entra
