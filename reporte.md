@@ -25,10 +25,10 @@
 
 ## Soberanos en dólares
 
-- AL30: TIR 20.51% · duration 1.63 · precio USD 47.593
-- AL29: TIR 19.31% · duration 1.24 · precio USD 48.496
-- GD30: TIR 17.79% · duration 1.66 · precio USD 49.407
-- GD29: TIR 15.82% · duration 1.26 · precio USD 50.33
+- AL30: TIR 20.59% · duration 1.63 · precio USD 47.538
+- AL29: TIR 18.97% · duration 1.24 · precio USD 48.67
+- GD30: TIR 17.79% · duration 1.66 · precio USD 49.406
+- GD29: TIR 15.71% · duration 1.26 · precio USD 50.39
 
 ## Perfil conservador
 
@@ -64,12 +64,12 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 42852 VN | $ 59.843 | $ 156 |
-| cedears_etf | XLF | 1 acciones | $ 50.275 | $ 314 |
-| hard_dollar | AL30 | 49 VN | $ 39.367 | $ 103 |
+| cedears_etf | XLF | 1 acciones | $ 50.375 | $ 315 |
+| hard_dollar | AL30 | 49 VN | $ 39.332 | $ 103 |
 | cer | TZXM7 | 8377 VN | $ 19.946 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 29.944 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 29.878 | $ 0 |
 
-Paper trading: valor $ 199.682 sobre $ 200.000 aportados (-0.16%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.854 sobre $ 200.000 aportados (-0.07%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil riesgoso
 
@@ -84,15 +84,15 @@ Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| acciones_arg | TXAR | 56 acciones | $ 39.284 | $ 245 |
+| acciones_arg | TXAR | 56 acciones | $ 39.480 | $ 247 |
 | acciones_arg | MIRG | 23 acciones | $ 39.215 | $ 245 |
 | cedears | CVX | 1 acciones | $ 23.510 | $ 147 |
 | cedears | WMT | 2 acciones | $ 26.300 | $ 164 |
-| cedears | SPY | 1 acciones | $ 21.470 | $ 134 |
+| cedears | SPY | 1 acciones | $ 21.500 | $ 134 |
 | tasa_fija | T30A7 | 21426 VN | $ 29.921 | $ 78 |
-| liquidez | CAUCION/FCI MM |  | $ 19.286 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 19.059 | $ 0 |
 
-Paper trading: valor $ 198.761 sobre $ 200.000 aportados (-0.62%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.233 sobre $ 200.000 aportados (-0.38%); mismos aportes en MEP: $ 200.000.
 
 ## Backtest de la regla de renta variable
 
@@ -101,6 +101,26 @@ Paper trading: valor $ 198.761 sobre $ 200.000 aportados (-0.62%); mismos aporte
 | moderado_cedears_etf | 2023-09-30 a 2026-11-30 | +31.5% | +47.3% (SPY) | -15.0% |
 | riesgoso_cedears | 2023-02-28 a 2026-11-30 | +41.1% | +73.6% (SPY) | -25.8% |
 | riesgoso_acciones_arg | 2022-12-31 a 2026-11-30 | +18.6% | +88.0% (igual peso del universo) | -64.6% |
+
+### Variantes de la regla
+
+| Caso | Variante | Anual | Vol | Máx. caída | Anual/Vol | Benchmark anual | Bench Anual/Vol |
+|---|---|---|---|---|---|---|---|
+| moderado_cedears_etf | actual (3m+6m / vol) | +31.5% | 22.1% | -15.0% | 1.43 | +47.3% | 1.62 |
+| moderado_cedears_etf | 6m+12m / vol | +37.6% | 21.9% | -12.0% | 1.71 | +47.3% | 1.62 |
+| moderado_cedears_etf | 12m puro | +43.3% | 22.1% | -12.8% | 1.96 | +47.3% | 1.62 |
+| moderado_cedears_etf | actual, top 5 | +37.9% | 21.4% | -16.4% | 1.77 | +48.8% | 1.65 |
+| moderado_cedears_etf | actual, sin filtros | +20.8% | 28.2% | -17.7% | 0.74 | +47.3% | 1.62 |
+| riesgoso_cedears | actual (3m+6m / vol) | +41.1% | 39.6% | -25.8% | 1.04 | +73.6% | 2.19 |
+| riesgoso_cedears | 6m+12m / vol | +52.8% | 35.8% | -18.6% | 1.47 | +73.6% | 2.19 |
+| riesgoso_cedears | 12m puro | +82.3% | 45.5% | -17.6% | 1.81 | +73.6% | 2.19 |
+| riesgoso_cedears | actual, top 5 | +46.1% | 37.5% | -26.9% | 1.23 | +73.6% | 2.19 |
+| riesgoso_cedears | actual, sin filtros | +41.9% | 40.7% | -25.9% | 1.03 | +73.6% | 2.19 |
+| riesgoso_acciones_arg | actual (3m+6m / vol) | +18.6% | 51.7% | -64.6% | 0.36 | +88.0% | 1.4 |
+| riesgoso_acciones_arg | 6m+12m / vol | +40.1% | 51.9% | -54.7% | 0.77 | +88.0% | 1.4 |
+| riesgoso_acciones_arg | 12m puro | +34.8% | 63.5% | -58.0% | 0.55 | +88.0% | 1.4 |
+| riesgoso_acciones_arg | actual, top 5 | +56.0% | 60.5% | -58.5% | 0.93 | +88.0% | 1.4 |
+| riesgoso_acciones_arg | actual, sin filtros | +14.5% | 49.1% | -62.6% | 0.29 | +88.0% | 1.4 |
 
 ## Estado de fuentes
 
