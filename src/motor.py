@@ -5,6 +5,8 @@ import math
 
 import pandas as pd
 
+BUCKETS_BONO = ("cer", "tasa_fija", "dollar_linked", "tamar", "hard_dollar")
+
 # -------------------------- señales macro --------------------------
 
 def senales_macro(macro: dict, cfg_perfil: dict) -> dict:
@@ -104,6 +106,8 @@ def ranking_renta_variable(metricas: dict[str, dict], panel: pd.DataFrame, cfg_s
             motivos.append("debajo de SMA200")
         if m["vol_anual"] > filtros.get("vol_max_anual", 9):
             motivos.append("volatilidad alta")
+        if fila["score"] <= 0:
+            motivos.append("momentum negativo")
         if not math.isnan(fila["volumen"]) and fila["volumen"] < cfg_score["volumen_min_ars"]:
             motivos.append("poca liquidez")
         fila["apto"] = not motivos
@@ -146,11 +150,21 @@ def proponer(perfil_nombre: str, perfil: dict, buckets: dict, candidatos: dict[s
                 asignaciones.append({"bucket": bucket, "ticker": None, "monto": monto_b, "precio": None,
                                      "nota": "ningún candidato pasó los filtros: queda en liquidez"})
                 continue
-        n = 1
-        if bucket in ("cedears", "acciones_arg", "cedears_etf"):
-            n = max(1, min(3, int(monto_b // ticket_min)))
-        n = min(n, len(cand))
-        for _, fila in cand.head(n).iterrows():
+        es_bono = bucket in BUCKETS_BONO
+        unit = cand["precio"] / (100 if es_bono else 1)
+        n = max(1, min(3, int(monto_b // ticket_min))) if bucket in ("cedears", "acciones_arg", "cedears_etf") else 1
+        elegidos = cand.iloc[0:0]
+        while n >= 1:
+            # sólo candidatos de los que se pueda comprar al menos una unidad con la parte que les toca
+            elegidos = cand[unit <= (monto_b / n) * 0.99].head(n)
+            if len(elegidos) == n:
+                break
+            n -= 1
+        if elegidos.empty:
+            asignaciones.append({"bucket": bucket, "ticker": None, "monto": monto_b, "precio": None,
+                                 "nota": "el monto no alcanza para una unidad: queda en liquidez"})
+            continue
+        for _, fila in elegidos.iterrows():
             asignaciones.append({"bucket": bucket, "ticker": fila["ticker"], "monto": monto_b / n,
                                  "precio": float(fila["precio"]), "score": _num(fila.get("score")),
                                  "tir": _num(fila.get("tir")), "vencimiento": _str(fila.get("vencimiento"))})
@@ -170,7 +184,7 @@ def proponer(perfil_nombre: str, perfil: dict, buckets: dict, candidatos: dict[s
     # cantidades enteras: bonos/letras cotizan cada 100 VN
     total_costos, invertido = 0.0, 0.0
     for a in finales:
-        es_bono = a["bucket"] in ("cer", "tasa_fija", "dollar_linked", "tamar", "hard_dollar")
+        es_bono = a["bucket"] in BUCKETS_BONO
         precio_unit = a["precio"] / 100 if es_bono else a["precio"]
         costo_pct = costo_operacion(1, es_bono, broker)
         cantidad = math.floor(a["monto"] / (precio_unit * (1 + costo_pct)))
