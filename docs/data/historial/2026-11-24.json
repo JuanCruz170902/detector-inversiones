@@ -1,0 +1,930 @@
+{
+ "generado": "2026-11-24T16:03:10+00:00",
+ "fuentes": {
+  "argdatos_inflacion": "ok",
+  "argdatos_plazo_fijo": "error: Fallo https://api.argentinadatos.com/v1/finanzas/tasas/plazo-fijo: 404 Client Error: Not Found for url: https://api.argentinadatos.com/v1/finanzas/tasas/plazo-fijo",
+  "argdatos_dolares": "ok",
+  "argdatos_riesgo_pais": "ok",
+  "argdatos_bonos_cer": "ok",
+  "bcra": "ok",
+  "data912_mep": "ok",
+  "data912_bonos": "ok",
+  "data912_letras": "ok",
+  "data912_ons": "ok",
+  "data912_acciones": "ok",
+  "data912_cedears": "ok",
+  "data912_historia": "ok"
+ },
+ "macro": {
+  "inflacion_mensual": 2.2,
+  "inflacion_fecha": "2026-10-31",
+  "inflacion_3m_prom": 1.93,
+  "dolar_oficial": 1600.0,
+  "dolar_mep": 1743.1,
+  "dolar_ccl": 1806.2,
+  "dolar_blue": 1675.0,
+  "riesgo_pais": 1035.0,
+  "bcra_a3500": 1575.9572,
+  "bcra_cer": 98233306.287,
+  "bcra_tamar": 23.6875,
+  "bcra_badlar": 22.625
+ },
+ "perfiles": {
+  "conservador": {
+   "descripcion": "Preservar poder de compra en pesos con riesgo bajo. Sin acciones.",
+   "senales": {
+    "notas": [
+     "Brecha MEP/oficial 8.9%.",
+     "Riesgo país 1035 pb."
+    ],
+    "brecha": 0.0894,
+    "brecha_alta": false
+   },
+   "propuesta": {
+    "perfil": "conservador",
+    "monto": 200000,
+    "buckets": {
+     "cer": 0.35,
+     "tasa_fija": 0.3,
+     "dollar_linked": 0.2,
+     "liquidez": 0.15
+    },
+    "posiciones": [
+     {
+      "bucket": "cer",
+      "ticker": "TZXD6",
+      "monto": 70000.0,
+      "precio": 319.9,
+      "score": null,
+      "tir": 32.73,
+      "vencimiento": null,
+      "cantidad": 21824,
+      "unidad": "VN",
+      "monto_bruto": 69814.98,
+      "costo": 182.57
+     },
+     {
+      "bucket": "tasa_fija",
+      "ticker": "T15E7",
+      "monto": 60000.0,
+      "precio": 155.455,
+      "score": null,
+      "tir": null,
+      "vencimiento": "2027-01-15",
+      "cantidad": 38495,
+      "unidad": "VN",
+      "monto_bruto": 59842.4,
+      "costo": 156.49
+     },
+     {
+      "bucket": "dollar_linked",
+      "ticker": "D15E7",
+      "monto": 40000.0,
+      "precio": 158350.0,
+      "score": null,
+      "tir": null,
+      "vencimiento": "2027-01-15",
+      "cantidad": 25,
+      "unidad": "VN",
+      "monto_bruto": 39587.5,
+      "costo": 103.52
+     },
+     {
+      "bucket": "liquidez",
+      "ticker": "CAUCION/FCI MM",
+      "monto_bruto": 30312.55,
+      "cantidad": null,
+      "costo": 0
+     }
+    ],
+    "invertido": 169244.88,
+    "liquidez": 30312.55,
+    "costos": 442.58
+   },
+   "candidatos": {
+    "tasa_fija": [
+     {
+      "ticker": "T15E7",
+      "tipo": "tasa_fija",
+      "precio": 155.455,
+      "var_dia": 0.02,
+      "volumen": 7741110586.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52.0
+     },
+     {
+      "ticker": "S26F7",
+      "tipo": "tasa_fija",
+      "precio": 101.288,
+      "var_dia": -0.07,
+      "volumen": 3381758605.0,
+      "vencimiento": "2027-02-26",
+      "dias": 94.0
+     },
+     {
+      "ticker": "T30A7",
+      "tipo": "tasa_fija",
+      "precio": 139.25,
+      "var_dia": -0.28,
+      "volumen": 3164763827.0,
+      "vencimiento": "2027-04-30",
+      "dias": 157.0
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.67,
+      "var_dia": -0.12,
+      "volumen": 2376114988.0,
+      "vencimiento": "2027-01-29",
+      "dias": 66.0
+     },
+     {
+      "ticker": "S30N6",
+      "tipo": "tasa_fija",
+      "precio": 129.486,
+      "var_dia": 0.06,
+      "volumen": 36829308355.0,
+      "vencimiento": "2026-11-30",
+      "dias": 6.0
+     }
+    ],
+    "dollar_linked": [
+     {
+      "ticker": "D15E7",
+      "tipo": "dollar_linked",
+      "precio": 158350.0,
+      "var_dia": 0.47,
+      "volumen": 17085557.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52.0
+     },
+     {
+      "ticker": "D31M7",
+      "tipo": "dollar_linked",
+      "precio": 157750.0,
+      "var_dia": 0.0,
+      "volumen": 150503.0,
+      "vencimiento": "2027-03-31",
+      "dias": 127.0
+     },
+     {
+      "ticker": "D10Y7",
+      "tipo": "dollar_linked",
+      "precio": 160000.0,
+      "var_dia": 0.0,
+      "volumen": 0.0,
+      "vencimiento": "2027-05-10",
+      "dias": 167.0
+     },
+     {
+      "ticker": "D30N6",
+      "tipo": "dollar_linked",
+      "precio": 158950.0,
+      "var_dia": 0.16,
+      "volumen": 11131920.0,
+      "vencimiento": "2026-11-30",
+      "dias": 6.0
+     }
+    ],
+    "cer": [
+     {
+      "ticker": "TZXD6",
+      "tipo": "cer",
+      "precio": 319.9,
+      "var_dia": 0.12,
+      "volumen": 2095614426.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 32.73
+     },
+     {
+      "ticker": "TX31",
+      "tipo": "cer",
+      "precio": 1460.0,
+      "var_dia": -0.2,
+      "volumen": 10002755.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 12.84
+     },
+     {
+      "ticker": "PARP",
+      "tipo": "cer",
+      "precio": 32390.0,
+      "var_dia": 1.75,
+      "volumen": 31047.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 12.68
+     },
+     {
+      "ticker": "DICP",
+      "tipo": "cer",
+      "precio": 48085.0,
+      "var_dia": -0.85,
+      "volumen": 224071.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 12.4
+     },
+     {
+      "ticker": "TZX28",
+      "tipo": "cer",
+      "precio": 361.4,
+      "var_dia": -0.15,
+      "volumen": 113784246.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 11.63
+     }
+    ]
+   }
+  },
+  "moderado": {
+   "descripcion": "Mayormente renta fija, con una parte en dólares y CEDEARs de índices.",
+   "senales": {
+    "notas": [
+     "Brecha MEP/oficial 8.9%.",
+     "Riesgo país 1035 pb."
+    ],
+    "brecha": 0.0894,
+    "brecha_alta": false
+   },
+   "propuesta": {
+    "perfil": "moderado",
+    "monto": 200000,
+    "buckets": {
+     "cer": 0.2,
+     "tasa_fija": 0.2,
+     "hard_dollar": 0.2,
+     "cedears_etf": 0.3,
+     "liquidez": 0.1
+    },
+    "posiciones": [
+     {
+      "bucket": "cer",
+      "ticker": "TZXD6",
+      "monto": 40000.0,
+      "precio": 319.9,
+      "score": null,
+      "tir": 32.73,
+      "vencimiento": null,
+      "cantidad": 12471,
+      "unidad": "VN",
+      "monto_bruto": 39894.73,
+      "costo": 104.32
+     },
+     {
+      "bucket": "tasa_fija",
+      "ticker": "T15E7",
+      "monto": 40000.0,
+      "precio": 155.455,
+      "score": null,
+      "tir": null,
+      "vencimiento": "2027-01-15",
+      "cantidad": 25663,
+      "unidad": "VN",
+      "monto_bruto": 39894.42,
+      "costo": 104.32
+     },
+     {
+      "bucket": "hard_dollar",
+      "ticker": "AL29",
+      "monto": 40000.0,
+      "precio": 81670.0,
+      "score": null,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 48,
+      "unidad": "VN",
+      "monto_bruto": 39201.6,
+      "costo": 102.51
+     },
+     {
+      "bucket": "liquidez",
+      "ticker": "CAUCION/FCI MM",
+      "monto_bruto": 80698.09,
+      "cantidad": null,
+      "costo": 0
+     }
+    ],
+    "invertido": 118990.75,
+    "liquidez": 80698.09,
+    "costos": 311.16
+   },
+   "candidatos": {
+    "tasa_fija": [
+     {
+      "ticker": "T15E7",
+      "tipo": "tasa_fija",
+      "precio": 155.455,
+      "var_dia": 0.02,
+      "volumen": 7741110586.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52.0
+     },
+     {
+      "ticker": "S26F7",
+      "tipo": "tasa_fija",
+      "precio": 101.288,
+      "var_dia": -0.07,
+      "volumen": 3381758605.0,
+      "vencimiento": "2027-02-26",
+      "dias": 94.0
+     },
+     {
+      "ticker": "T30A7",
+      "tipo": "tasa_fija",
+      "precio": 139.25,
+      "var_dia": -0.28,
+      "volumen": 3164763827.0,
+      "vencimiento": "2027-04-30",
+      "dias": 157.0
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.67,
+      "var_dia": -0.12,
+      "volumen": 2376114988.0,
+      "vencimiento": "2027-01-29",
+      "dias": 66.0
+     },
+     {
+      "ticker": "S30N6",
+      "tipo": "tasa_fija",
+      "precio": 129.486,
+      "var_dia": 0.06,
+      "volumen": 36829308355.0,
+      "vencimiento": "2026-11-30",
+      "dias": 6.0
+     }
+    ],
+    "cer": [
+     {
+      "ticker": "TZXD6",
+      "tipo": "cer",
+      "precio": 319.9,
+      "var_dia": 0.12,
+      "volumen": 2095614426.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 32.73
+     },
+     {
+      "ticker": "TX31",
+      "tipo": "cer",
+      "precio": 1460.0,
+      "var_dia": -0.2,
+      "volumen": 10002755.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 12.84
+     },
+     {
+      "ticker": "PARP",
+      "tipo": "cer",
+      "precio": 32390.0,
+      "var_dia": 1.75,
+      "volumen": 31047.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 12.68
+     },
+     {
+      "ticker": "DICP",
+      "tipo": "cer",
+      "precio": 48085.0,
+      "var_dia": -0.85,
+      "volumen": 224071.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 12.4
+     },
+     {
+      "ticker": "TZX28",
+      "tipo": "cer",
+      "precio": 361.4,
+      "var_dia": -0.15,
+      "volumen": 113784246.0,
+      "vencimiento": null,
+      "dias": null,
+      "tir": 11.63
+     }
+    ],
+    "hard_dollar": [
+     {
+      "ticker": "AL29",
+      "precio": 81670.0,
+      "var_dia": -1.24,
+      "volumen": 676706.0
+     },
+     {
+      "ticker": "GD29",
+      "precio": 84120.0,
+      "var_dia": -3.52,
+      "volumen": 162014.0
+     },
+     {
+      "ticker": "AL30",
+      "precio": 80250.0,
+      "var_dia": -0.68,
+      "volumen": 189176930.0
+     },
+     {
+      "ticker": "GD30",
+      "precio": 83170.0,
+      "var_dia": -0.6,
+      "volumen": 6124578.0
+     },
+     {
+      "ticker": "AL35",
+      "precio": 100450.0,
+      "var_dia": -2.89,
+      "volumen": 1953797.0
+     },
+     {
+      "ticker": "GD35",
+      "precio": 107900.0,
+      "var_dia": -2.12,
+      "volumen": 4152896.0
+     },
+     {
+      "ticker": "AE38",
+      "precio": 105050.0,
+      "var_dia": -3.04,
+      "volumen": 2148154.0
+     },
+     {
+      "ticker": "GD38",
+      "precio": 115700.0,
+      "var_dia": -0.95,
+      "volumen": 295778.0
+     }
+    ],
+    "cedears_etf": [
+     {
+      "ticker": "XLF",
+      "precio": 50025.0,
+      "volumen": 3300.0,
+      "ret_1m": 0.0766182299,
+      "ret_3m": 0.0809018568,
+      "ret_6m": 0.2821185107,
+      "vol_anual": 0.1831967991,
+      "rsi14": 62.2784810127,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0817369093,
+      "score": 0.9907934235,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "DIA",
+      "precio": 44460.0,
+      "volumen": 18224.0,
+      "ret_1m": 0.0107627515,
+      "ret_3m": 0.0315186246,
+      "ret_6m": 0.1758301579,
+      "vol_anual": 0.1795972218,
+      "rsi14": 50.518134715,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0470219436,
+      "score": 0.5772605513,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "XLE",
+      "precio": 53750.0,
+      "volumen": 2917.0,
+      "ret_1m": -0.0198645598,
+      "ret_3m": 0.0720987654,
+      "ret_6m": 0.1886771792,
+      "vol_anual": 0.2816682235,
+      "rsi14": 42.2370617696,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1259640103,
+      "score": 0.4629133193,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "IWM",
+      "precio": 47600.0,
+      "volumen": 3155.0,
+      "ret_1m": 0.0008896797,
+      "ret_3m": -0.0474174428,
+      "ret_6m": 0.1083743842,
+      "vol_anual": 0.21394607,
+      "rsi14": 41.5879017013,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0913621262,
+      "score": 0.1424586612,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "QQQ",
+      "precio": 56775.0,
+      "volumen": 44017.0,
+      "ret_1m": -0.064957265,
+      "ret_3m": -0.0305715552,
+      "ret_6m": 0.0473910962,
+      "vol_anual": 0.2535490543,
+      "rsi14": 36.6873065015,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1102490813,
+      "score": 0.0331682189,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "EWZ",
+      "precio": 26480.0,
+      "volumen": 73472.0,
+      "ret_1m": -0.2675814751,
+      "ret_3m": -0.0525147929,
+      "ret_6m": -0.0433159074,
+      "vol_anual": 0.4972029367,
+      "rsi14": 33.9622641509,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.2723138147,
+      "score": -0.0963698052,
+      "apto": false,
+      "motivo_descarte": "debajo de SMA200, volatilidad alta, poca liquidez"
+     },
+     {
+      "ticker": "EEM",
+      "precio": 20170.0,
+      "volumen": 5098.0,
+      "ret_1m": -0.0605033882,
+      "ret_3m": -0.0787850024,
+      "ret_6m": 0.0125195618,
+      "vol_anual": 0.2559202787,
+      "rsi14": 37.1769383698,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.1244925575,
+      "score": -0.1294650055,
+      "apto": false,
+      "motivo_descarte": "debajo de SMA200, poca liquidez"
+     },
+     {
+      "ticker": "SPY",
+      "precio": 21300.0,
+      "volumen": 359015.0,
+      "ret_1m": -0.0086124402,
+      "ret_3m": 0.0267591675,
+      "ret_6m": -0.6213796254,
+      "vol_anual": 0.1651086354,
+      "rsi14": 43.5897435897,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.6735714286,
+      "score": -1.800694605,
+      "apto": false,
+      "motivo_descarte": "debajo de SMA200, poca liquidez"
+     }
+    ]
+   }
+  },
+  "riesgoso": {
+   "descripcion": "Busca retorno en renta variable; acepta caídas fuertes.",
+   "senales": {
+    "notas": [
+     "Brecha MEP/oficial 8.9%.",
+     "Riesgo país 1035 pb."
+    ],
+    "brecha": 0.0894,
+    "brecha_alta": false
+   },
+   "propuesta": {
+    "perfil": "riesgoso",
+    "monto": 200000,
+    "buckets": {
+     "tasa_fija": 0.15,
+     "cedears": 0.45,
+     "acciones_arg": 0.4
+    },
+    "posiciones": [
+     {
+      "bucket": "tasa_fija",
+      "ticker": "T15E7",
+      "monto": 30000.0,
+      "precio": 155.455,
+      "score": null,
+      "tir": null,
+      "vencimiento": "2027-01-15",
+      "cantidad": 19247,
+      "unidad": "VN",
+      "monto_bruto": 29920.42,
+      "costo": 78.24
+     },
+     {
+      "bucket": "liquidez",
+      "ticker": "CAUCION/FCI MM",
+      "monto_bruto": 170001.33,
+      "cantidad": null,
+      "costo": 0
+     }
+    ],
+    "invertido": 29920.42,
+    "liquidez": 170001.33,
+    "costos": 78.24
+   },
+   "candidatos": {
+    "tasa_fija": [
+     {
+      "ticker": "T15E7",
+      "tipo": "tasa_fija",
+      "precio": 155.455,
+      "var_dia": 0.02,
+      "volumen": 7741110586.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52.0
+     },
+     {
+      "ticker": "S26F7",
+      "tipo": "tasa_fija",
+      "precio": 101.288,
+      "var_dia": -0.07,
+      "volumen": 3381758605.0,
+      "vencimiento": "2027-02-26",
+      "dias": 94.0
+     },
+     {
+      "ticker": "T30A7",
+      "tipo": "tasa_fija",
+      "precio": 139.25,
+      "var_dia": -0.28,
+      "volumen": 3164763827.0,
+      "vencimiento": "2027-04-30",
+      "dias": 157.0
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.67,
+      "var_dia": -0.12,
+      "volumen": 2376114988.0,
+      "vencimiento": "2027-01-29",
+      "dias": 66.0
+     },
+     {
+      "ticker": "S30N6",
+      "tipo": "tasa_fija",
+      "precio": 129.486,
+      "var_dia": 0.06,
+      "volumen": 36829308355.0,
+      "vencimiento": "2026-11-30",
+      "dias": 6.0
+     }
+    ],
+    "cedears": [
+     {
+      "ticker": "V",
+      "precio": 41220.0,
+      "volumen": 7254.0,
+      "ret_1m": 0.0886351278,
+      "ret_3m": 0.2427063935,
+      "ret_6m": 0.4645208486,
+      "vol_anual": 0.2330785408,
+      "rsi14": 63.6971046771,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0595794393,
+      "score": 1.5171436195,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "AAPL",
+      "precio": 31360.0,
+      "volumen": 29058.0,
+      "ret_1m": 0.1172214182,
+      "ret_3m": 0.2522303325,
+      "ret_6m": 0.3859964093,
+      "vol_anual": 0.2372802244,
+      "rsi14": 65.306122449,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1156963891,
+      "score": 1.3448797585,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "JNJ",
+      "precio": 32780.0,
+      "volumen": 5464.0,
+      "ret_1m": 0.1437677054,
+      "ret_3m": 0.1381254405,
+      "ret_6m": 0.4104803493,
+      "vol_anual": 0.2597899317,
+      "rsi14": 68.5393258427,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0928184282,
+      "score": 1.0558642252,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "XLF",
+      "precio": 50025.0,
+      "volumen": 3300.0,
+      "ret_1m": 0.0766182299,
+      "ret_3m": 0.0809018568,
+      "ret_6m": 0.2821185107,
+      "vol_anual": 0.1831967991,
+      "rsi14": 62.2784810127,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0817369093,
+      "score": 0.9907934235,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "BRKB",
+      "precio": 47060.0,
+      "volumen": 17171.0,
+      "ret_1m": 0.1597396094,
+      "ret_3m": 0.2931323283,
+      "ret_6m": 0.4217311234,
+      "vol_anual": 0.1932803184,
+      "rsi14": 82.0224719101,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0588544404,
+      "score": 0.9246459462,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "MSFT",
+      "precio": 29560.0,
+      "volumen": 24378.0,
+      "ret_1m": 0.0027739251,
+      "ret_3m": 0.1367924528,
+      "ret_6m": 0.3917228104,
+      "vol_anual": 0.292137599,
+      "rsi14": 48.9260143198,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.2096774194,
+      "score": 0.9045656312,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "KO",
+      "precio": 35040.0,
+      "volumen": 24805.0,
+      "ret_1m": 0.1439842209,
+      "ret_3m": 0.2142358688,
+      "ret_6m": 0.4227309894,
+      "vol_anual": 0.2101467308,
+      "rsi14": 83.5483870968,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0604209097,
+      "score": 0.7577644152,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "CVX",
+      "precio": 23340.0,
+      "volumen": 3928.0,
+      "ret_1m": 0.0152439024,
+      "ret_3m": 0.1443298969,
+      "ret_6m": 0.268226333,
+      "vol_anual": 0.313620341,
+      "rsi14": 46.0750853242,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1043285239,
+      "score": 0.6577319387,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     }
+    ],
+    "acciones_arg": [
+     {
+      "ticker": "TXAR",
+      "precio": 704.0,
+      "volumen": 161996.0,
+      "ret_1m": -0.018815331,
+      "ret_3m": 0.042962963,
+      "ret_6m": 0.1465798046,
+      "vol_anual": 0.4308485469,
+      "rsi14": 43.5126582278,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.162745098,
+      "score": 0.2199644967,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "ALUA",
+      "precio": 849.0,
+      "volumen": 151552.0,
+      "ret_1m": 0.0432399513,
+      "ret_3m": -0.0011661808,
+      "ret_6m": -0.0587912088,
+      "vol_anual": 0.3215213679,
+      "rsi14": 48.7571701721,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.2782063645,
+      "score": -0.093240132,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "LOMA",
+      "precio": 2970.0,
+      "volumen": 187418.0,
+      "ret_1m": -0.0978520286,
+      "ret_3m": -0.0389830508,
+      "ret_6m": -0.0928,
+      "vol_anual": 0.3231241321,
+      "rsi14": 31.1926605505,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.2930019621,
+      "score": -0.2039201622,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "CRES",
+      "precio": 1447.0,
+      "volumen": 84149.0,
+      "ret_1m": -0.2263942573,
+      "ret_3m": -0.1934369603,
+      "ret_6m": -0.1047923323,
+      "vol_anual": 0.4675896926,
+      "rsi14": 25.4,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.3182481752,
+      "score": -0.3189006273,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "CEPU",
+      "precio": 1853.0,
+      "volumen": 245807.0,
+      "ret_1m": -0.1239337682,
+      "ret_3m": -0.1399014778,
+      "ret_6m": -0.1625899281,
+      "vol_anual": 0.4032060816,
+      "rsi14": 42.9980276134,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.315942029,
+      "score": -0.3751076927,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "PAMP",
+      "precio": 4390.0,
+      "volumen": 279357.0,
+      "ret_1m": -0.1432086614,
+      "ret_3m": -0.1364087302,
+      "ret_6m": -0.1121876594,
+      "vol_anual": 0.3143738028,
+      "rsi14": 29.5774647887,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.2723649247,
+      "score": -0.3953834373,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "BMA",
+      "precio": 9170.0,
+      "volumen": 531905.0,
+      "ret_1m": -0.132751938,
+      "ret_3m": -0.2244367418,
+      "ret_6m": -0.1190944882,
+      "vol_anual": 0.3564552071,
+      "rsi14": 27.9296875,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.4169381107,
+      "score": -0.4818715271,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "TGSU2",
+      "precio": 7070.0,
+      "volumen": 24965.0,
+      "ret_1m": -0.1748666271,
+      "ret_3m": -0.2240802676,
+      "ret_6m": -0.2266666667,
+      "vol_anual": 0.3779529925,
+      "rsi14": 25.4174397032,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.3248756219,
+      "score": -0.5963002585,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     }
+    ]
+   }
+  }
+ },
+ "monto": 200000
+}
