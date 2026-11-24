@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-24T17:17:50+00:00",
+ "generado": "2026-11-24T17:20:21+00:00",
  "fuentes": {
   "argdatos_inflacion": "ok",
   "argdatos_plazo_fijo": "ok",
@@ -15,7 +15,8 @@
   "data912_ons": "ok",
   "data912_acciones": "ok",
   "data912_cedears": "ok",
-  "data912_historia": "ok"
+  "data912_historia": "ok",
+  "bcra_badlar_serie": "ok"
  },
  "macro": {
   "inflacion_mensual": 2.2,
@@ -358,8 +359,8 @@
       "tipo": "dollar_linked",
       "precio": 157600.0,
       "var_dia": -0.09,
-      "volumen": 1440589.0,
-      "vol_ars": 2270368264.0,
+      "volumen": 1520589.0,
+      "vol_ars": 2396448264.0,
       "vencimiento": "2027-03-31",
       "dias": 127.0,
       "liquido": true,
@@ -461,14 +462,14 @@
       "bucket": "hard_dollar",
       "ticker": "AL30",
       "monto": 40000.0,
-      "precio": 80380.0,
+      "precio": 80340.0,
       "score": null,
-      "tir": 20.48,
+      "tir": 20.51,
       "vencimiento": null,
       "cantidad": 49,
       "unidad": "VN",
-      "monto_bruto": 39386.2,
-      "costo": 102.99
+      "monto_bruto": 39366.6,
+      "costo": 102.94
      },
      {
       "bucket": "cer",
@@ -486,14 +487,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 29924.74,
+      "monto_bruto": 29944.39,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 169449.65,
-    "liquidez": 29924.74,
-    "costos": 625.61
+    "invertido": 169430.05,
+    "liquidez": 29944.39,
+    "costos": 625.56
    },
    "candidatos": {
     "tasa_fija": [
@@ -735,10 +736,10 @@
     "hard_dollar": [
      {
       "ticker": "AL30",
-      "precio": 80380.0,
-      "vol_ars": 283177318077.8,
-      "tir": 20.48,
-      "precio_usd": 47.61,
+      "precio": 80340.0,
+      "vol_ars": 284396902054.2,
+      "tir": 20.51,
+      "precio_usd": 47.593,
       "duration": 1.63,
       "proximo_pago": "2027-01-09",
       "apto": true,
@@ -746,10 +747,10 @@
      },
      {
       "ticker": "AL29",
-      "precio": 81750.0,
-      "vol_ars": 797844030.0,
-      "tir": 19.28,
-      "precio_usd": 48.509,
+      "precio": 81900.0,
+      "vol_ars": 799829667.0,
+      "tir": 19.31,
+      "precio_usd": 48.496,
       "duration": 1.24,
       "proximo_pago": "2027-01-09",
       "apto": true,
@@ -757,10 +758,10 @@
      },
      {
       "ticker": "GD30",
-      "precio": 83410.0,
-      "vol_ars": 8566741658.1,
-      "tir": 17.76,
-      "precio_usd": 49.428,
+      "precio": 83420.0,
+      "vol_ars": 8571382476.6,
+      "tir": 17.79,
+      "precio_usd": 49.407,
       "duration": 1.66,
       "proximo_pago": "2027-01-09",
       "apto": true,
@@ -768,8 +769,8 @@
      },
      {
       "ticker": "GD29",
-      "precio": 84910.0,
-      "vol_ars": 153298212.2,
+      "precio": 85220.0,
+      "vol_ars": 153956747.6,
       "tir": 15.82,
       "precio_usd": 50.33,
       "duration": 1.26,
@@ -782,7 +783,7 @@
       "precio": 101190.0,
       "vol_ars": 2529626548.2,
       "tir": null,
-      "precio_usd": 59.91,
+      "precio_usd": 59.88,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -790,10 +791,10 @@
      },
      {
       "ticker": "GD35",
-      "precio": 108330.0,
-      "vol_ars": 5621383445.7,
+      "precio": 108310.0,
+      "vol_ars": 5622109989.8,
       "tir": null,
-      "precio_usd": 64.16,
+      "precio_usd": 64.14,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -801,10 +802,10 @@
      },
      {
       "ticker": "AE38",
-      "precio": 105750.0,
-      "vol_ars": 3131619165.0,
+      "precio": 105600.0,
+      "vol_ars": 3153993216.0,
       "tir": null,
-      "precio_usd": 62.64,
+      "precio_usd": 62.6,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -812,8 +813,8 @@
      },
      {
       "ticker": "GD38",
-      "precio": 116160.0,
-      "vol_ars": 618755280.0,
+      "precio": 116110.0,
+      "vol_ars": 618801278.4,
       "tir": null,
       "precio_usd": 68.65,
       "duration": null,
@@ -826,7 +827,7 @@
      {
       "ticker": "XLF",
       "precio": 50275.0,
-      "volumen": 214523425.0,
+      "volumen": 218193500.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -840,8 +841,8 @@
      },
      {
       "ticker": "DIA",
-      "precio": 44760.0,
-      "volumen": 1480302720.0,
+      "precio": 44720.0,
+      "volumen": 1482691600.0,
       "ret_1m": 0.0107627515,
       "ret_3m": 0.0315186246,
       "ret_6m": 0.1758301579,
@@ -855,8 +856,8 @@
      },
      {
       "ticker": "SPY",
-      "precio": 21500.0,
-      "volumen": 19320738500.0,
+      "precio": 21470.0,
+      "volumen": 19323021470.0,
       "ret_1m": -0.0086124402,
       "ret_3m": 0.0267591675,
       "ret_6m": 0.1302100734,
@@ -900,8 +901,8 @@
      },
      {
       "ticker": "QQQ",
-      "precio": 57200.0,
-      "volumen": 3048931600.0,
+      "precio": 57150.0,
+      "volumen": 3077298900.0,
       "ret_1m": -0.064957265,
       "ret_3m": -0.0305715552,
       "ret_6m": 0.0473910962,
@@ -931,7 +932,7 @@
      {
       "ticker": "EEM",
       "precio": 20360.0,
-      "volumen": 157566040.0,
+      "volumen": 157586400.0,
       "ret_1m": -0.0605033882,
       "ret_3m": -0.0787850024,
       "ret_6m": 0.0125195618,
@@ -975,14 +976,14 @@
       "bucket": "acciones_arg",
       "ticker": "TXAR",
       "monto": 40000.0,
-      "precio": 704.0,
+      "precio": 701.5,
       "score": 0.22,
       "tir": null,
       "vencimiento": null,
       "cantidad": 56,
       "unidad": "acciones",
-      "monto_bruto": 39424.0,
-      "costo": 246.2
+      "monto_bruto": 39284.0,
+      "costo": 245.33
      },
      {
       "bucket": "acciones_arg",
@@ -1001,40 +1002,40 @@
       "bucket": "cedears",
       "ticker": "CVX",
       "monto": 30000.0,
-      "precio": 23460.0,
+      "precio": 23510.0,
       "score": 0.6577,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 23460.0,
-      "costo": 146.51
+      "monto_bruto": 23510.0,
+      "costo": 146.82
      },
      {
       "bucket": "cedears",
       "ticker": "WMT",
       "monto": 30000.0,
-      "precio": 13130.0,
+      "precio": 13150.0,
       "score": 0.5217,
       "tir": null,
       "vencimiento": null,
       "cantidad": 2,
       "unidad": "acciones",
-      "monto_bruto": 26260.0,
-      "costo": 163.99
+      "monto_bruto": 26300.0,
+      "costo": 164.24
      },
      {
       "bucket": "cedears",
       "ticker": "SPY",
       "monto": 30000.0,
-      "precio": 21500.0,
+      "precio": 21470.0,
       "score": 0.4754,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 21500.0,
-      "costo": 134.27
+      "monto_bruto": 21470.0,
+      "costo": 134.08
      },
      {
       "bucket": "tasa_fija",
@@ -1052,14 +1053,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 19205.48,
+      "monto_bruto": 19285.98,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 179780.41,
-    "liquidez": 19205.48,
-    "costos": 1014.11
+    "invertido": 179700.41,
+    "liquidez": 19285.98,
+    "costos": 1013.61
    },
    "candidatos": {
     "tasa_fija": [
@@ -1180,7 +1181,7 @@
      {
       "ticker": "V",
       "precio": 41440.0,
-      "volumen": 456005760.0,
+      "volumen": 464086560.0,
       "ret_1m": 0.0886351278,
       "ret_3m": 0.2427063935,
       "ret_6m": 0.4645208486,
@@ -1194,8 +1195,8 @@
      },
      {
       "ticker": "AAPL",
-      "precio": 31560.0,
-      "volumen": 2482635840.0,
+      "precio": 31620.0,
+      "volumen": 2490106620.0,
       "ret_1m": 0.1172214182,
       "ret_3m": 0.2522303325,
       "ret_6m": 0.3859964093,
@@ -1225,7 +1226,7 @@
      {
       "ticker": "XLF",
       "precio": 50275.0,
-      "volumen": 214523425.0,
+      "volumen": 218193500.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -1239,8 +1240,8 @@
      },
      {
       "ticker": "BRKB",
-      "precio": 47100.0,
-      "volumen": 1270993500.0,
+      "precio": 47160.0,
+      "volumen": 1278036000.0,
       "ret_1m": 0.1597396094,
       "ret_3m": 0.2931323283,
       "ret_6m": 0.4217311234,
@@ -1255,7 +1256,7 @@
      {
       "ticker": "MSFT",
       "precio": 29820.0,
-      "volumen": 2421205080.0,
+      "volumen": 2520595140.0,
       "ret_1m": 0.0027739251,
       "ret_3m": 0.1367924528,
       "ret_6m": 0.3917228104,
@@ -1269,8 +1270,8 @@
      },
      {
       "ticker": "KO",
-      "precio": 35180.0,
-      "volumen": 1185495640.0,
+      "precio": 35200.0,
+      "volumen": 1187964800.0,
       "ret_1m": 0.1439842209,
       "ret_3m": 0.2142358688,
       "ret_6m": 0.4227309894,
@@ -1284,8 +1285,8 @@
      },
      {
       "ticker": "CVX",
-      "precio": 23460.0,
-      "volumen": 252195000.0,
+      "precio": 23510.0,
+      "volumen": 252944090.0,
       "ret_1m": 0.0152439024,
       "ret_3m": 0.1443298969,
       "ret_6m": 0.268226333,
@@ -1301,8 +1302,8 @@
     "acciones_arg": [
      {
       "ticker": "TXAR",
-      "precio": 704.0,
-      "volumen": 271369472.0,
+      "precio": 701.5,
+      "volumen": 281544219.0,
       "ret_1m": -0.018815331,
       "ret_3m": 0.042962963,
       "ret_6m": 0.1465798046,
@@ -1331,8 +1332,8 @@
      },
      {
       "ticker": "ALUA",
-      "precio": 847.5,
-      "volumen": 180471735.0,
+      "precio": 848.0,
+      "volumen": 185936720.0,
       "ret_1m": 0.0432399513,
       "ret_3m": -0.0011661808,
       "ret_6m": -0.0587912088,
@@ -1347,7 +1348,7 @@
      {
       "ticker": "LOMA",
       "precio": 2950.0,
-      "volumen": 769955900.0,
+      "volumen": 782505200.0,
       "ret_1m": -0.0978520286,
       "ret_3m": -0.0389830508,
       "ret_6m": -0.0928,
@@ -1361,8 +1362,8 @@
      },
      {
       "ticker": "CRES",
-      "precio": 1460.0,
-      "volumen": 189981040.0,
+      "precio": 1464.0,
+      "volumen": 194987232.0,
       "ret_1m": -0.2263942573,
       "ret_3m": -0.1934369603,
       "ret_6m": -0.1047923323,
@@ -1376,8 +1377,8 @@
      },
      {
       "ticker": "CEPU",
-      "precio": 1864.0,
-      "volumen": 733288280.0,
+      "precio": 1867.0,
+      "volumen": 759798054.0,
       "ret_1m": -0.1239337682,
       "ret_3m": -0.1399014778,
       "ret_6m": -0.1625899281,
@@ -1392,7 +1393,7 @@
      {
       "ticker": "PAMP",
       "precio": 4482.5,
-      "volumen": 2398401967.5,
+      "volumen": 2457683030.0,
       "ret_1m": -0.1432086614,
       "ret_3m": -0.1364087302,
       "ret_6m": -0.1121876594,
@@ -1406,8 +1407,8 @@
      },
      {
       "ticker": "BMA",
-      "precio": 9235.0,
-      "volumen": 7120591340.0,
+      "precio": 9225.0,
+      "volumen": 7280489925.0,
       "ret_1m": -0.132751938,
       "ret_3m": -0.2244367418,
       "ret_6m": -0.1190944882,
@@ -1872,8 +1873,8 @@
     "tipo": "dollar_linked",
     "precio": 157600.0,
     "var_dia": -0.09,
-    "volumen": 1440589.0,
-    "vol_ars": 2270368264.0,
+    "volumen": 1520589.0,
+    "vol_ars": 2396448264.0,
     "vencimiento": "2027-03-31",
     "dias": 127.0,
     "liquido": true,
@@ -1899,10 +1900,10 @@
   "hard_dollar": [
    {
     "ticker": "AL30",
-    "precio": 80380.0,
-    "vol_ars": 283177318077.8,
-    "tir": 20.48,
-    "precio_usd": 47.61,
+    "precio": 80340.0,
+    "vol_ars": 284396902054.2,
+    "tir": 20.51,
+    "precio_usd": 47.593,
     "duration": 1.63,
     "proximo_pago": "2027-01-09",
     "apto": true,
@@ -1910,10 +1911,10 @@
    },
    {
     "ticker": "AL29",
-    "precio": 81750.0,
-    "vol_ars": 797844030.0,
-    "tir": 19.28,
-    "precio_usd": 48.509,
+    "precio": 81900.0,
+    "vol_ars": 799829667.0,
+    "tir": 19.31,
+    "precio_usd": 48.496,
     "duration": 1.24,
     "proximo_pago": "2027-01-09",
     "apto": true,
@@ -1921,10 +1922,10 @@
    },
    {
     "ticker": "GD30",
-    "precio": 83410.0,
-    "vol_ars": 8566741658.1,
-    "tir": 17.76,
-    "precio_usd": 49.428,
+    "precio": 83420.0,
+    "vol_ars": 8571382476.6,
+    "tir": 17.79,
+    "precio_usd": 49.407,
     "duration": 1.66,
     "proximo_pago": "2027-01-09",
     "apto": true,
@@ -1932,8 +1933,8 @@
    },
    {
     "ticker": "GD29",
-    "precio": 84910.0,
-    "vol_ars": 153298212.2,
+    "precio": 85220.0,
+    "vol_ars": 153956747.6,
     "tir": 15.82,
     "precio_usd": 50.33,
     "duration": 1.26,
@@ -1946,7 +1947,7 @@
     "precio": 101190.0,
     "vol_ars": 2529626548.2,
     "tir": null,
-    "precio_usd": 59.91,
+    "precio_usd": 59.88,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1954,10 +1955,10 @@
    },
    {
     "ticker": "GD35",
-    "precio": 108330.0,
-    "vol_ars": 5621383445.7,
+    "precio": 108310.0,
+    "vol_ars": 5622109989.8,
     "tir": null,
-    "precio_usd": 64.16,
+    "precio_usd": 64.14,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1965,10 +1966,10 @@
    },
    {
     "ticker": "AE38",
-    "precio": 105750.0,
-    "vol_ars": 3131619165.0,
+    "precio": 105600.0,
+    "vol_ars": 3153993216.0,
     "tir": null,
-    "precio_usd": 62.64,
+    "precio_usd": 62.6,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1976,8 +1977,8 @@
    },
    {
     "ticker": "GD38",
-    "precio": 116160.0,
-    "vol_ars": 618755280.0,
+    "precio": 116110.0,
+    "vol_ars": 618801278.4,
     "tir": null,
     "precio_usd": 68.65,
     "duration": null,
@@ -1987,10 +1988,10 @@
    },
    {
     "ticker": "AL41",
-    "precio": 94450.0,
-    "vol_ars": 2701859368.0,
+    "precio": 94440.0,
+    "vol_ars": 2754694861.2,
     "tir": null,
-    "precio_usd": 55.88,
+    "precio_usd": 55.96,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1999,9 +2000,9 @@
    {
     "ticker": "GD41",
     "precio": 102000.0,
-    "vol_ars": 3028169880.0,
+    "vol_ars": 3059382900.0,
     "tir": null,
-    "precio_usd": 60.44,
+    "precio_usd": 60.54,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -2088,10 +2089,10 @@
    "n": 2,
    "benchmark": "SPY",
    "estrategia": {
-    "total": 0.3278,
-    "anual": 0.0912,
-    "vol_anual": 0.204,
-    "max_drawdown": -0.1609
+    "total": 1.4341,
+    "anual": 0.3148,
+    "vol_anual": 0.2209,
+    "max_drawdown": -0.1502
    },
    "bench": {
     "total": 2.5223,
@@ -2099,7 +2100,7 @@
     "vol_anual": 0.2928,
     "max_drawdown": -0.1083
    },
-   "meses_le_gana": 18,
+   "meses_le_gana": 22,
    "serie": [
     {
      "fecha": "2023-09-30",
@@ -2125,55 +2126,55 @@
     },
     {
      "fecha": "2023-11-30",
-     "estrategia": 1.0311,
+     "estrategia": 1.1415,
      "benchmark": 1.0864,
-     "ret_mes": 0.0,
+     "ret_mes": 0.1071,
      "ret_bench": 0.0568,
      "cartera": []
     },
     {
      "fecha": "2023-12-31",
-     "estrategia": 1.0311,
+     "estrategia": 1.2651,
      "benchmark": 1.3182,
-     "ret_mes": 0.0,
+     "ret_mes": 0.1082,
      "ret_bench": 0.2134,
      "cartera": []
     },
     {
      "fecha": "2024-01-31",
-     "estrategia": 1.0311,
+     "estrategia": 1.3808,
      "benchmark": 1.7273,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0915,
      "ret_bench": 0.3103,
      "cartera": []
     },
     {
      "fecha": "2024-02-29",
-     "estrategia": 1.0311,
+     "estrategia": 1.507,
      "benchmark": 1.5503,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0914,
      "ret_bench": -0.1025,
      "cartera": []
     },
     {
      "fecha": "2024-03-31",
-     "estrategia": 1.0311,
+     "estrategia": 1.6438,
      "benchmark": 1.6183,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0908,
      "ret_bench": 0.0439,
      "cartera": []
     },
     {
      "fecha": "2024-04-30",
-     "estrategia": 1.0311,
+     "estrategia": 1.7409,
      "benchmark": 1.5662,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0591,
      "ret_bench": -0.0322,
      "cartera": []
     },
     {
      "fecha": "2024-05-31",
-     "estrategia": 1.2087,
+     "estrategia": 2.0408,
      "benchmark": 1.877,
      "ret_mes": 0.1871,
      "ret_bench": 0.1984,
@@ -2184,7 +2185,7 @@
     },
     {
      "fecha": "2024-06-30",
-     "estrategia": 1.2917,
+     "estrategia": 2.1809,
      "benchmark": 2.1012,
      "ret_mes": 0.0821,
      "ret_bench": 0.1194,
@@ -2195,7 +2196,7 @@
     },
     {
      "fecha": "2024-07-31",
-     "estrategia": 1.2061,
+     "estrategia": 2.0364,
      "benchmark": 2.0159,
      "ret_mes": -0.0544,
      "ret_bench": -0.0406,
@@ -2206,7 +2207,7 @@
     },
     {
      "fecha": "2024-08-31",
-     "estrategia": 1.2475,
+     "estrategia": 2.1063,
      "benchmark": 2.08,
      "ret_mes": 0.043,
      "ret_bench": 0.0318,
@@ -2217,7 +2218,7 @@
     },
     {
      "fecha": "2024-09-30",
-     "estrategia": 1.2215,
+     "estrategia": 2.0625,
      "benchmark": 2.0273,
      "ret_mes": -0.0084,
      "ret_bench": -0.0253,
@@ -2228,7 +2229,7 @@
     },
     {
      "fecha": "2024-10-31",
-     "estrategia": 1.1398,
+     "estrategia": 1.9244,
      "benchmark": 1.8736,
      "ret_mes": -0.0551,
      "ret_bench": -0.0758,
@@ -2239,7 +2240,7 @@
     },
     {
      "fecha": "2024-11-30",
-     "estrategia": 1.1686,
+     "estrategia": 1.9732,
      "benchmark": 1.9106,
      "ret_mes": 0.034,
      "ret_bench": 0.0198,
@@ -2250,7 +2251,7 @@
     },
     {
      "fecha": "2024-12-31",
-     "estrategia": 1.15,
+     "estrategia": 1.9417,
      "benchmark": 1.9974,
      "ret_mes": -0.0077,
      "ret_bench": 0.0455,
@@ -2261,7 +2262,7 @@
     },
     {
      "fecha": "2025-01-31",
-     "estrategia": 1.2113,
+     "estrategia": 2.0452,
      "benchmark": 2.0316,
      "ret_mes": 0.0599,
      "ret_bench": 0.0171,
@@ -2271,7 +2272,7 @@
     },
     {
      "fecha": "2025-02-28",
-     "estrategia": 1.2363,
+     "estrategia": 2.0874,
      "benchmark": 2.0587,
      "ret_mes": 0.0271,
      "ret_bench": 0.0133,
@@ -2282,7 +2283,7 @@
     },
     {
      "fecha": "2025-03-31",
-     "estrategia": 1.2429,
+     "estrategia": 2.0985,
      "benchmark": 2.0985,
      "ret_mes": 0.0137,
      "ret_bench": 0.0194,
@@ -2293,7 +2294,7 @@
     },
     {
      "fecha": "2025-04-30",
-     "estrategia": 1.0977,
+     "estrategia": 1.8533,
      "benchmark": 1.8807,
      "ret_mes": -0.1057,
      "ret_bench": -0.1038,
@@ -2304,15 +2305,15 @@
     },
     {
      "fecha": "2025-05-31",
-     "estrategia": 1.0839,
+     "estrategia": 1.8805,
      "benchmark": 2.0216,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0275,
      "ret_bench": 0.0749,
      "cartera": []
     },
     {
      "fecha": "2025-06-30",
-     "estrategia": 1.1434,
+     "estrategia": 1.9836,
      "benchmark": 2.1298,
      "ret_mes": 0.0682,
      "ret_bench": 0.0535,
@@ -2322,7 +2323,7 @@
     },
     {
      "fecha": "2025-07-31",
-     "estrategia": 1.2821,
+     "estrategia": 2.2242,
      "benchmark": 2.4544,
      "ret_mes": 0.1213,
      "ret_bench": 0.1524,
@@ -2332,7 +2333,7 @@
     },
     {
      "fecha": "2025-08-31",
-     "estrategia": 1.295,
+     "estrategia": 2.2466,
      "benchmark": 2.4943,
      "ret_mes": 0.0229,
      "ret_bench": 0.0162,
@@ -2343,7 +2344,7 @@
     },
     {
      "fecha": "2025-09-30",
-     "estrategia": 1.5354,
+     "estrategia": 2.6637,
      "benchmark": 2.9271,
      "ret_mes": 0.1956,
      "ret_bench": 0.1735,
@@ -2354,7 +2355,7 @@
     },
     {
      "fecha": "2025-10-31",
-     "estrategia": 1.5478,
+     "estrategia": 2.6852,
      "benchmark": 2.9171,
      "ret_mes": 0.0165,
      "ret_bench": -0.0034,
@@ -2365,23 +2366,23 @@
     },
     {
      "fecha": "2025-11-30",
-     "estrategia": 1.5284,
+     "estrategia": 2.7338,
      "benchmark": 2.9641,
-     "ret_mes": 0.0,
+     "ret_mes": 0.031,
      "ret_bench": 0.0161,
      "cartera": []
     },
     {
      "fecha": "2025-12-31",
-     "estrategia": 1.5284,
+     "estrategia": 2.802,
      "benchmark": 2.9784,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0249,
      "ret_bench": 0.0048,
      "cartera": []
     },
     {
      "fecha": "2026-01-31",
-     "estrategia": 1.5515,
+     "estrategia": 2.8444,
      "benchmark": 2.9599,
      "ret_mes": 0.028,
      "ret_bench": -0.0062,
@@ -2392,7 +2393,7 @@
     },
     {
      "fecha": "2026-02-28",
-     "estrategia": 1.5359,
+     "estrategia": 2.8156,
      "benchmark": 2.8517,
      "ret_mes": -0.0018,
      "ret_bench": -0.0366,
@@ -2403,7 +2404,7 @@
     },
     {
      "fecha": "2026-03-31",
-     "estrategia": 1.5385,
+     "estrategia": 2.8205,
      "benchmark": 2.7312,
      "ret_mes": 0.0102,
      "ret_bench": -0.0422,
@@ -2414,7 +2415,7 @@
     },
     {
      "fecha": "2026-04-30",
-     "estrategia": 1.5612,
+     "estrategia": 2.862,
      "benchmark": 3.0652,
      "ret_mes": 0.0232,
      "ret_bench": 0.1223,
@@ -2425,7 +2426,7 @@
     },
     {
      "fecha": "2026-05-31",
-     "estrategia": 1.4298,
+     "estrategia": 2.6211,
      "benchmark": 3.1891,
      "ret_mes": -0.0842,
      "ret_bench": 0.0404,
@@ -2436,7 +2437,7 @@
     },
     {
      "fecha": "2026-06-30",
-     "estrategia": 1.4793,
+     "estrategia": 2.712,
      "benchmark": 3.3234,
      "ret_mes": 0.0477,
      "ret_bench": 0.0421,
@@ -2447,7 +2448,7 @@
     },
     {
      "fecha": "2026-07-31",
-     "estrategia": 1.4403,
+     "estrategia": 2.6404,
      "benchmark": 3.3438,
      "ret_mes": -0.0264,
      "ret_bench": 0.0061,
@@ -2458,7 +2459,7 @@
     },
     {
      "fecha": "2026-08-31",
-     "estrategia": 1.4763,
+     "estrategia": 2.7064,
      "benchmark": 3.4781,
      "ret_mes": 0.0336,
      "ret_bench": 0.0402,
@@ -2469,7 +2470,7 @@
     },
     {
      "fecha": "2026-09-30",
-     "estrategia": 1.4201,
+     "estrategia": 2.6034,
      "benchmark": 3.4985,
      "ret_mes": -0.03,
      "ret_bench": 0.0059,
@@ -2480,7 +2481,7 @@
     },
     {
      "fecha": "2026-10-31",
-     "estrategia": 1.3914,
+     "estrategia": 2.5507,
      "benchmark": 3.5563,
      "ret_mes": -0.012,
      "ret_bench": 0.0165,
@@ -2491,7 +2492,7 @@
     },
     {
      "fecha": "2026-11-30",
-     "estrategia": 1.3278,
+     "estrategia": 2.4341,
      "benchmark": 3.5223,
      "ret_mes": -0.0377,
      "ret_bench": -0.0096,
@@ -3083,10 +3084,10 @@
    "n": 2,
    "benchmark": "igual peso del universo",
    "estrategia": {
-    "total": 0.9236,
-    "anual": 0.1777,
-    "vol_anual": 0.5171,
-    "max_drawdown": -0.6556
+    "total": 0.9749,
+    "anual": 0.1855,
+    "vol_anual": 0.5168,
+    "max_drawdown": -0.6464
    },
    "bench": {
     "total": 11.5039,
@@ -3439,15 +3440,15 @@
     },
     {
      "fecha": "2025-07-31",
-     "estrategia": 3.2085,
+     "estrategia": 3.2941,
      "benchmark": 13.8915,
-     "ret_mes": 0.0,
+     "ret_mes": 0.0267,
      "ret_bench": 0.1589,
      "cartera": []
     },
     {
      "fecha": "2025-08-31",
-     "estrategia": 2.7462,
+     "estrategia": 2.8195,
      "benchmark": 11.7192,
      "ret_mes": -0.1333,
      "ret_bench": -0.1564,
@@ -3458,7 +3459,7 @@
     },
     {
      "fecha": "2025-09-30",
-     "estrategia": 2.394,
+     "estrategia": 2.4578,
      "benchmark": 10.0104,
      "ret_mes": -0.1228,
      "ret_bench": -0.1458,
@@ -3468,7 +3469,7 @@
     },
     {
      "fecha": "2025-10-31",
-     "estrategia": 3.1119,
+     "estrategia": 3.1949,
      "benchmark": 17.316,
      "ret_mes": 0.3163,
      "ret_bench": 0.7298,
@@ -3478,7 +3479,7 @@
     },
     {
      "fecha": "2025-11-30",
-     "estrategia": 3.2365,
+     "estrategia": 3.3228,
      "benchmark": 18.08,
      "ret_mes": 0.0532,
      "ret_bench": 0.0441,
@@ -3489,7 +3490,7 @@
     },
     {
      "fecha": "2025-12-31",
-     "estrategia": 3.1188,
+     "estrategia": 3.202,
      "benchmark": 18.1398,
      "ret_mes": -0.0364,
      "ret_bench": 0.0033,
@@ -3500,7 +3501,7 @@
     },
     {
      "fecha": "2026-01-31",
-     "estrategia": 2.8635,
+     "estrategia": 2.9399,
      "benchmark": 18.6372,
      "ret_mes": -0.0702,
      "ret_bench": 0.0274,
@@ -3511,7 +3512,7 @@
     },
     {
      "fecha": "2026-02-28",
-     "estrategia": 2.3609,
+     "estrategia": 2.4239,
      "benchmark": 15.4022,
      "ret_mes": -0.1651,
      "ret_bench": -0.1736,
@@ -3522,7 +3523,7 @@
     },
     {
      "fecha": "2026-03-31",
-     "estrategia": 2.4729,
+     "estrategia": 2.5388,
      "benchmark": 17.3932,
      "ret_mes": 0.0562,
      "ret_bench": 0.1293,
@@ -3533,7 +3534,7 @@
     },
     {
      "fecha": "2026-04-30",
-     "estrategia": 2.2902,
+     "estrategia": 2.3512,
      "benchmark": 16.2757,
      "ret_mes": -0.0661,
      "ret_bench": -0.0643,
@@ -3544,7 +3545,7 @@
     },
     {
      "fecha": "2026-05-31",
-     "estrategia": 2.4899,
+     "estrategia": 2.5563,
      "benchmark": 17.5916,
      "ret_mes": 0.0963,
      "ret_bench": 0.0809,
@@ -3555,7 +3556,7 @@
     },
     {
      "fecha": "2026-06-30",
-     "estrategia": 2.5102,
+     "estrategia": 2.5771,
      "benchmark": 17.4304,
      "ret_mes": 0.0166,
      "ret_bench": -0.0092,
@@ -3566,7 +3567,7 @@
     },
     {
      "fecha": "2026-07-31",
-     "estrategia": 2.639,
+     "estrategia": 2.7094,
      "benchmark": 17.7136,
      "ret_mes": 0.0601,
      "ret_bench": 0.0163,
@@ -3577,7 +3578,7 @@
     },
     {
      "fecha": "2026-08-31",
-     "estrategia": 2.5637,
+     "estrategia": 2.6321,
      "benchmark": 16.4693,
      "ret_mes": -0.0204,
      "ret_bench": -0.0702,
@@ -3588,7 +3589,7 @@
     },
     {
      "fecha": "2026-09-30",
-     "estrategia": 2.4875,
+     "estrategia": 2.5538,
      "benchmark": 15.224,
      "ret_mes": -0.0297,
      "ret_bench": -0.0756,
@@ -3599,7 +3600,7 @@
     },
     {
      "fecha": "2026-10-31",
-     "estrategia": 2.2644,
+     "estrategia": 2.3248,
      "benchmark": 13.9639,
      "ret_mes": -0.0821,
      "ret_bench": -0.0828,
@@ -3610,7 +3611,7 @@
     },
     {
      "fecha": "2026-11-30",
-     "estrategia": 1.9236,
+     "estrategia": 1.9749,
      "benchmark": 12.5039,
      "ret_mes": -0.1434,
      "ret_bench": -0.1046,
