@@ -23,12 +23,12 @@ Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| cer | TZXA7 | 61049 VN | $ 79.791 | $ 209 |
+| cer | TZXA7 | 61002 VN | $ 79.791 | $ 209 |
 | dollar_linked | D15E7 | 25 VN | $ 39.600 | $ 104 |
-| tasa_fija | T15E7 | 19247 VN | $ 29.921 | $ 78 |
-| liquidez | CAUCION/FCI MM |  | $ 50.297 | $ 0 |
+| tasa_fija | S29E7 | 28058 VN | $ 29.921 | $ 78 |
+| liquidez | CAUCION/FCI MM |  | $ 50.298 | $ 0 |
 
-Paper trading: valor $ 199.557 sobre $ 200.000 aportados (-0.22%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.640 sobre $ 200.000 aportados (-0.18%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil moderado
 
@@ -42,13 +42,13 @@ Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| cedears_etf | XLF | 1 acciones | $ 50.125 | $ 313 |
-| cer | TZXA7 | 30524 VN | $ 39.895 | $ 104 |
-| tasa_fija | T15E7 | 25662 VN | $ 39.894 | $ 104 |
-| hard_dollar | AL29 | 48 VN | $ 39.192 | $ 102 |
-| liquidez | CAUCION/FCI MM |  | $ 30.270 | $ 0 |
+| cedears_etf | XLF | 1 acciones | $ 50.100 | $ 313 |
+| cer | TZXA7 | 30501 VN | $ 39.895 | $ 104 |
+| tasa_fija | S29E7 | 37411 VN | $ 39.895 | $ 104 |
+| hard_dollar | AL29 | 48 VN | $ 39.245 | $ 103 |
+| liquidez | CAUCION/FCI MM |  | $ 30.241 | $ 0 |
 
-Paper trading: valor $ 199.375 sobre $ 200.000 aportados (-0.31%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 199.442 sobre $ 200.000 aportados (-0.28%); mismos aportes en MEP: $ 200.000.
 
 ## Perfil riesgoso
 
@@ -62,14 +62,14 @@ Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| acciones_arg | TXAR | 69 acciones | $ 48.990 | $ 306 |
-| cedears | MSFT | 1 acciones | $ 29.400 | $ 184 |
-| cedears | CVX | 1 acciones | $ 23.480 | $ 147 |
-| cedears | WMT | 2 acciones | $ 26.340 | $ 164 |
-| tasa_fija | T15E7 | 19247 VN | $ 29.921 | $ 78 |
-| liquidez | CAUCION/FCI MM |  | $ 40.990 | $ 0 |
+| acciones_arg | TXAR | 70 acciones | $ 49.385 | $ 308 |
+| cedears | MSFT | 1 acciones | $ 29.640 | $ 185 |
+| cedears | CVX | 1 acciones | $ 23.450 | $ 146 |
+| cedears | WMT | 2 acciones | $ 26.180 | $ 163 |
+| tasa_fija | S29E7 | 28058 VN | $ 29.921 | $ 78 |
+| liquidez | CAUCION/FCI MM |  | $ 40.542 | $ 0 |
 
-Paper trading: valor $ 199.299 sobre $ 200.000 aportados (-0.35%); mismos aportes en MEP: $ 200.000.
+Paper trading: valor $ 198.851 sobre $ 200.000 aportados (-0.57%); mismos aportes en MEP: $ 200.000.
 
 ## Estado de fuentes
 
