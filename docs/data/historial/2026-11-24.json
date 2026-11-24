@@ -1,11 +1,13 @@
 {
- "generado": "2026-11-24T16:59:42+00:00",
+ "generado": "2026-11-24T17:04:48+00:00",
  "fuentes": {
   "argdatos_inflacion": "ok",
   "argdatos_plazo_fijo": "ok",
   "argdatos_dolares": "ok",
   "argdatos_riesgo_pais": "ok",
   "argdatos_bonos_cer": "ok",
+  "argdatos_letras": "ok",
+  "bcra_a3500_serie": "ok",
   "bcra": "ok",
   "data912_mep": "ok",
   "data912_bonos": "ok",
@@ -13,7 +15,7 @@
   "data912_ons": "ok",
   "data912_acciones": "ok",
   "data912_cedears": "ok",
-  "data912_historia": "ok"
+  "data912_historia": "fallaron 4: GLD, PG, NU, VIST"
  },
  "macro": {
   "inflacion_mensual": 2.2,
@@ -26,21 +28,29 @@
   "dolar_blue": 1675.0,
   "riesgo_pais": 1035.0,
   "bcra_a3500": 1575.9572,
-  "bcra_cer": 98233306.287,
+  "bcra_badlar": 22.625,
+  "bcra_inflacion_mensual": 2.2,
+  "bcra_rem_12m": 21.8,
+  "bcra_cer": 876.39620001101,
   "bcra_tamar": 23.6875,
-  "bcra_badlar": 22.625
+  "inflacion_esperada_fuente": "REM BCRA (mediana 12 meses)",
+  "inflacion_esperada_mensual": 1.66,
+  "devaluacion_reciente_mensual": 2.77
  },
  "perfiles": {
   "conservador": {
    "descripcion": "Preservar poder de compra en pesos con riesgo bajo. Sin acciones.",
    "senales": {
     "notas": [
-     "Plazo fijo rinde 1.71% mensual vs inflación 2.20% → tasa real NEGATIVA: conviene CER.",
+     "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+     "Dollar linked: devaluación implícita 2.41% mensual vs 2.77% del último mes → cobertura barata.",
      "Brecha MEP/oficial 8.9%.",
      "Riesgo país 1035 pb."
     ],
+    "prefiere": "tasa_fija",
     "tasa_real_mensual": -0.49,
     "tasa_real_negativa": true,
+    "dl": "barata",
     "brecha": 0.0894,
     "brecha_alta": false
    },
@@ -48,129 +58,332 @@
     "perfil": "conservador",
     "monto": 200000,
     "buckets": {
-     "cer": 0.5,
-     "tasa_fija": 0.15,
-     "dollar_linked": 0.2,
-     "liquidez": 0.15
+     "cer": 0.2,
+     "tasa_fija": 0.45,
+     "dollar_linked": 0.3,
+     "liquidez": 0.05
     },
     "posiciones": [
      {
-      "bucket": "cer",
-      "ticker": "TZXA7",
+      "bucket": "tasa_fija",
+      "ticker": "T30A7",
       "monto": 80000.0,
-      "precio": 130.8,
+      "precio": 139.65,
       "score": null,
-      "tir": 2.36,
+      "tir": 31.95,
       "vencimiento": "2027-04-30",
-      "cantidad": 61002,
+      "cantidad": 57136,
       "unidad": "VN",
-      "monto_bruto": 79790.62,
+      "monto_bruto": 79790.42,
       "costo": 208.65
      },
      {
       "bucket": "dollar_linked",
-      "ticker": "D15E7",
-      "monto": 40000.0,
-      "precio": 158400.0,
+      "ticker": "D31M7",
+      "monto": 60000.0,
+      "precio": 157600.0,
       "score": null,
       "tir": null,
-      "vencimiento": "2027-01-15",
-      "cantidad": 25,
+      "vencimiento": "2027-03-31",
+      "cantidad": 37,
       "unidad": "VN",
-      "monto_bruto": 39600.0,
-      "costo": 103.55
+      "monto_bruto": 58312.0,
+      "costo": 152.49
      },
      {
-      "bucket": "tasa_fija",
-      "ticker": "S29E7",
-      "monto": 30000.0,
-      "precio": 106.64,
+      "bucket": "cer",
+      "ticker": "TZXM7",
+      "monto": 40000.0,
+      "precio": 238.1,
       "score": null,
-      "tir": null,
-      "vencimiento": "2027-01-29",
-      "cantidad": 28058,
+      "tir": 1.54,
+      "vencimiento": "2027-03-31",
+      "cantidad": 16755,
       "unidad": "VN",
-      "monto_bruto": 29921.05,
-      "costo": 78.24
+      "monto_bruto": 39893.65,
+      "costo": 104.32
      },
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 50297.88,
+      "monto_bruto": 21538.46,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 149311.67,
-    "liquidez": 50297.88,
-    "costos": 390.45
+    "invertido": 177996.08,
+    "liquidez": 21538.46,
+    "costos": 465.46
    },
    "candidatos": {
     "tasa_fija": [
      {
-      "ticker": "S29E7",
-      "tipo": "tasa_fija",
-      "precio": 106.64,
-      "var_dia": -0.14,
-      "volumen": 17122340336.0,
-      "vencimiento": "2027-01-29",
-      "dias": 66.0
-     },
-     {
-      "ticker": "T15E7",
-      "tipo": "tasa_fija",
-      "precio": 155.494,
-      "var_dia": 0.05,
-      "volumen": 16236402340.0,
-      "vencimiento": "2027-01-15",
-      "dias": 52.0
-     },
-     {
       "ticker": "T30A7",
       "tipo": "tasa_fija",
-      "precio": 139.25,
-      "var_dia": -0.28,
-      "volumen": 6763178225.0,
+      "precio": 139.65,
+      "volumen": 14818788068,
+      "vol_ars": 20691292142.73,
       "vencimiento": "2027-04-30",
-      "dias": 157.0
+      "dias": 157,
+      "tea": 31.95,
+      "tem": 2.34,
+      "ajuste": 30.7970499124,
+      "residuo_pb": 115.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "S26F7",
       "tipo": "tasa_fija",
-      "precio": 101.16,
-      "var_dia": -0.19,
-      "volumen": 4698487805.0,
+      "precio": 101.36,
+      "volumen": 15563389658,
+      "vol_ars": 15781918673.48,
       "vencimiento": "2027-02-26",
-      "dias": 94.0
+      "dias": 94,
+      "tea": 29.64,
+      "tem": 2.19,
+      "ajuste": 30.1357490113,
+      "residuo_pb": -50.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
-      "ticker": "S30N6",
+      "ticker": "T15E7",
       "tipo": "tasa_fija",
-      "precio": 129.51,
-      "var_dia": 0.08,
-      "volumen": 42692133590.0,
-      "vencimiento": "2026-11-30",
-      "dias": 6.0
+      "precio": 155.41,
+      "volumen": 24354177244,
+      "vol_ars": 37864544777.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52,
+      "tea": 28.73,
+      "tem": 2.13,
+      "ajuste": 29.3724716527,
+      "residuo_pb": -64.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.8,
+      "volumen": 17614970035,
+      "vol_ars": 18807754761.5,
+      "vencimiento": "2027-01-29",
+      "dias": 66,
+      "tea": 28.06,
+      "tem": 2.08,
+      "ajuste": 29.6798332088,
+      "residuo_pb": -162.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T31Y7",
+      "tipo": "tasa_fija",
+      "precio": 130.9,
+      "volumen": 29960560256,
+      "vol_ars": 39223692824.27,
+      "vencimiento": "2027-05-31",
+      "dias": 188,
+      "tea": 32.92,
+      "tem": 2.4,
+      "ajuste": 31.0293603592,
+      "residuo_pb": 189.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T30J7",
+      "tipo": "tasa_fija",
+      "precio": 131.95,
+      "volumen": 4273331097,
+      "vol_ars": 5632898960.24,
+      "vencimiento": "2027-06-30",
+      "dias": 218,
+      "tea": 32.41,
+      "tem": 2.37,
+      "ajuste": 31.2202316978,
+      "residuo_pb": 119.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TY30P",
+      "tipo": "tasa_fija",
+      "precio": 113.6,
+      "volumen": 6051051408,
+      "vol_ars": 6874026449.1,
+      "vencimiento": "2030-05-30",
+      "dias": 1283,
+      "tea": 32.03,
+      "tem": 2.34,
+      "ajuste": 33.5053041578,
+      "residuo_pb": -148.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     }
+    ],
+    "cer": [
+     {
+      "ticker": "TZXM7",
+      "tipo": "cer",
+      "precio": 238.1,
+      "volumen": 174351704,
+      "vol_ars": 415131407.22400004,
+      "vencimiento": "2027-03-31",
+      "dias": 127,
+      "tir": 1.54,
+      "ajuste": 1.5838580035,
+      "residuo_pb": -4.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXO7",
+      "tipo": "cer",
+      "precio": 103.25,
+      "volumen": 569431360,
+      "vol_ars": 587937879.2,
+      "vencimiento": "2027-10-29",
+      "dias": 339,
+      "tir": 6.3,
+      "ajuste": 4.6295993629,
+      "residuo_pb": 167.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMD8",
+      "tipo": "cer",
+      "precio": 95.45,
+      "volumen": 249000000,
+      "vol_ars": 237670500.0,
+      "vencimiento": "2028-12-15",
+      "dias": 752,
+      "tir": 7.55,
+      "ajuste": 7.1012028104,
+      "residuo_pb": 45.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ8",
+      "tipo": "cer",
+      "precio": 103.8,
+      "volumen": 144972951,
+      "vol_ars": 150481923.13799998,
+      "vencimiento": "2028-06-30",
+      "dias": 584,
+      "tir": 6.08,
+      "ajuste": 6.3168670569,
+      "residuo_pb": -24.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ0",
+      "tipo": "cer",
+      "precio": 83.75,
+      "volumen": 245995015,
+      "vol_ars": 206020825.0625,
+      "vencimiento": "2030-06-28",
+      "dias": 1312,
+      "tir": 8.13,
+      "ajuste": 8.8277772643,
+      "residuo_pb": -70.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXY7",
+      "tipo": "cer",
+      "precio": 130.0,
+      "volumen": 375578378,
+      "vol_ars": 488251891.4,
+      "vencimiento": "2027-05-31",
+      "dias": 188,
+      "tir": 1.66,
+      "ajuste": 2.800695502,
+      "residuo_pb": -114.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXA7",
+      "tipo": "cer",
+      "precio": 131.35,
+      "volumen": 129025,
+      "vol_ars": 169474.3375,
+      "vencimiento": "2027-04-30",
+      "dias": 157,
+      "tir": 2.36,
+      "ajuste": 2.241698139,
+      "residuo_pb": 12.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "X29E7",
+      "tipo": "cer",
+      "precio": 106.27,
+      "volumen": 4496980,
+      "vol_ars": 4778940.646,
+      "vencimiento": "2027-01-29",
+      "dias": 66,
+      "tir": -1.06,
+      "ajuste": -0.4466062398,
+      "residuo_pb": -61.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
      }
     ],
     "dollar_linked": [
      {
-      "ticker": "D15E7",
-      "tipo": "dollar_linked",
-      "precio": 158400.0,
-      "var_dia": 0.5,
-      "volumen": 47867035.0,
-      "vencimiento": "2027-01-15",
-      "dias": 52.0
-     },
-     {
       "ticker": "D31M7",
       "tipo": "dollar_linked",
-      "precio": 157700.0,
-      "var_dia": -0.03,
-      "volumen": 1440300.0,
+      "precio": 157600.0,
+      "var_dia": -0.09,
+      "volumen": 1440589.0,
+      "vol_ars": 2270368264.0,
       "vencimiento": "2027-03-31",
-      "dias": 127.0
+      "dias": 127.0,
+      "liquido": true,
+      "tea_fija_equiv": 31.0,
+      "a3500_breakeven": 1731.23,
+      "devaluacion_be_mensual": 2.24,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "D15E7",
+      "tipo": "dollar_linked",
+      "precio": 158380.0,
+      "var_dia": 0.49,
+      "volumen": 48042485.0,
+      "vol_ars": 76089687743.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52.0,
+      "liquido": true,
+      "tea_fija_equiv": 28.73,
+      "a3500_breakeven": 1641.82,
+      "devaluacion_be_mensual": 2.39,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "D10Y7",
@@ -178,69 +391,15 @@
       "precio": 160000.0,
       "var_dia": 0.0,
       "volumen": 100.0,
+      "vol_ars": 160000.0,
       "vencimiento": "2027-05-10",
-      "dias": 167.0
-     },
-     {
-      "ticker": "D30N6",
-      "tipo": "dollar_linked",
-      "precio": 158900.0,
-      "var_dia": 0.13,
-      "volumen": 14089300.0,
-      "vencimiento": "2026-11-30",
-      "dias": 6.0
-     }
-    ],
-    "cer": [
-     {
-      "ticker": "TZXA7",
-      "tipo": "cer",
-      "precio": 130.8,
-      "var_dia": -0.41,
-      "volumen": 54546876.0,
-      "vencimiento": "2027-04-30",
-      "dias": 157,
-      "tir": 2.36
-     },
-     {
-      "ticker": "TZXM7",
-      "tipo": "cer",
-      "precio": 237.55,
-      "var_dia": -0.23,
-      "volumen": 8669233646.0,
-      "vencimiento": "2027-03-31",
-      "dias": 127,
-      "tir": 1.54
-     },
-     {
-      "ticker": "TZXD6",
-      "tipo": "cer",
-      "precio": 319.85,
-      "var_dia": 0.1,
-      "volumen": 3503484073.0,
-      "vencimiento": "2026-12-15",
-      "dias": 21,
-      "tir": 32.73
-     },
-     {
-      "ticker": "TX31",
-      "tipo": "cer",
-      "precio": 1454.0,
-      "var_dia": -0.61,
-      "volumen": 31167154.0,
-      "vencimiento": "2031-12-01",
-      "dias": 1833,
-      "tir": 12.84
-     },
-     {
-      "ticker": "PARP",
-      "tipo": "cer",
-      "precio": 31990.0,
-      "var_dia": 0.5,
-      "volumen": 41093.0,
-      "vencimiento": "2038-12-31",
-      "dias": 4420,
-      "tir": 12.68
+      "dias": 167.0,
+      "liquido": false,
+      "tea_fija_equiv": 32.28,
+      "a3500_breakeven": 1818.49,
+      "devaluacion_be_mensual": 2.6,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
      }
     ]
    }
@@ -249,12 +408,15 @@
    "descripcion": "Mayormente renta fija, con una parte en dólares y CEDEARs de índices.",
    "senales": {
     "notas": [
-     "Plazo fijo rinde 1.71% mensual vs inflación 2.20% → tasa real NEGATIVA: conviene CER.",
+     "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+     "Dollar linked: devaluación implícita 2.41% mensual vs 2.77% del último mes → cobertura barata.",
      "Brecha MEP/oficial 8.9%.",
      "Riesgo país 1035 pb."
     ],
+    "prefiere": "tasa_fija",
     "tasa_real_mensual": -0.49,
     "tasa_real_negativa": true,
+    "dl": "barata",
     "brecha": 0.0894,
     "brecha_alta": false
    },
@@ -262,232 +424,409 @@
     "perfil": "moderado",
     "monto": 200000,
     "buckets": {
-     "cer": 0.2,
-     "tasa_fija": 0.2,
+     "cer": 0.1,
+     "tasa_fija": 0.3,
      "hard_dollar": 0.2,
      "cedears_etf": 0.3,
      "liquidez": 0.1
     },
     "posiciones": [
      {
+      "bucket": "tasa_fija",
+      "ticker": "T30A7",
+      "monto": 60000.0,
+      "precio": 139.65,
+      "score": null,
+      "tir": 31.95,
+      "vencimiento": "2027-04-30",
+      "cantidad": 42852,
+      "unidad": "VN",
+      "monto_bruto": 59842.82,
+      "costo": 156.49
+     },
+     {
       "bucket": "cedears_etf",
       "ticker": "XLF",
       "monto": 60000.0,
-      "precio": 50100.0,
+      "precio": 50250.0,
       "score": 0.9908,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 50100.0,
-      "costo": 312.87
-     },
-     {
-      "bucket": "cer",
-      "ticker": "TZXA7",
-      "monto": 40000.0,
-      "precio": 130.8,
-      "score": null,
-      "tir": 2.36,
-      "vencimiento": "2027-04-30",
-      "cantidad": 30501,
-      "unidad": "VN",
-      "monto_bruto": 39895.31,
-      "costo": 104.33
-     },
-     {
-      "bucket": "tasa_fija",
-      "ticker": "S29E7",
-      "monto": 40000.0,
-      "precio": 106.64,
-      "score": null,
-      "tir": null,
-      "vencimiento": "2027-01-29",
-      "cantidad": 37411,
-      "unidad": "VN",
-      "monto_bruto": 39895.09,
-      "costo": 104.33
+      "monto_bruto": 50250.0,
+      "costo": 313.81
      },
      {
       "bucket": "hard_dollar",
-      "ticker": "AL29",
+      "ticker": "AL30",
       "monto": 40000.0,
-      "precio": 81760.0,
+      "precio": 80390.0,
       "score": null,
-      "tir": null,
+      "tir": 20.55,
       "vencimiento": null,
-      "cantidad": 48,
+      "cantidad": 49,
       "unidad": "VN",
-      "monto_bruto": 39244.8,
-      "costo": 102.63
+      "monto_bruto": 39391.1,
+      "costo": 103.01
+     },
+     {
+      "bucket": "cer",
+      "ticker": "TZXM7",
+      "monto": 20000.0,
+      "precio": 238.1,
+      "score": null,
+      "tir": 1.54,
+      "vencimiento": "2027-03-31",
+      "cantidad": 8377,
+      "unidad": "VN",
+      "monto_bruto": 19945.64,
+      "costo": 52.16
      },
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 30240.65,
+      "monto_bruto": 29944.98,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 169135.2,
-    "liquidez": 30240.65,
-    "costos": 624.15
+    "invertido": 169429.55,
+    "liquidez": 29944.98,
+    "costos": 625.47
    },
    "candidatos": {
     "tasa_fija": [
      {
-      "ticker": "S29E7",
-      "tipo": "tasa_fija",
-      "precio": 106.64,
-      "var_dia": -0.14,
-      "volumen": 17122340336.0,
-      "vencimiento": "2027-01-29",
-      "dias": 66.0
-     },
-     {
-      "ticker": "T15E7",
-      "tipo": "tasa_fija",
-      "precio": 155.494,
-      "var_dia": 0.05,
-      "volumen": 16236402340.0,
-      "vencimiento": "2027-01-15",
-      "dias": 52.0
-     },
-     {
       "ticker": "T30A7",
       "tipo": "tasa_fija",
-      "precio": 139.25,
-      "var_dia": -0.28,
-      "volumen": 6763178225.0,
+      "precio": 139.65,
+      "volumen": 14818788068,
+      "vol_ars": 20691292142.73,
       "vencimiento": "2027-04-30",
-      "dias": 157.0
+      "dias": 157,
+      "tea": 31.95,
+      "tem": 2.34,
+      "ajuste": 30.7970499124,
+      "residuo_pb": 115.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "S26F7",
       "tipo": "tasa_fija",
-      "precio": 101.16,
-      "var_dia": -0.19,
-      "volumen": 4698487805.0,
+      "precio": 101.36,
+      "volumen": 15563389658,
+      "vol_ars": 15781918673.48,
       "vencimiento": "2027-02-26",
-      "dias": 94.0
+      "dias": 94,
+      "tea": 29.64,
+      "tem": 2.19,
+      "ajuste": 30.1357490113,
+      "residuo_pb": -50.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
-      "ticker": "S30N6",
+      "ticker": "T15E7",
       "tipo": "tasa_fija",
-      "precio": 129.51,
-      "var_dia": 0.08,
-      "volumen": 42692133590.0,
-      "vencimiento": "2026-11-30",
-      "dias": 6.0
+      "precio": 155.41,
+      "volumen": 24354177244,
+      "vol_ars": 37864544777.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52,
+      "tea": 28.73,
+      "tem": 2.13,
+      "ajuste": 29.3724716527,
+      "residuo_pb": -64.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.8,
+      "volumen": 17614970035,
+      "vol_ars": 18807754761.5,
+      "vencimiento": "2027-01-29",
+      "dias": 66,
+      "tea": 28.06,
+      "tem": 2.08,
+      "ajuste": 29.6798332088,
+      "residuo_pb": -162.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T31Y7",
+      "tipo": "tasa_fija",
+      "precio": 130.9,
+      "volumen": 29960560256,
+      "vol_ars": 39223692824.27,
+      "vencimiento": "2027-05-31",
+      "dias": 188,
+      "tea": 32.92,
+      "tem": 2.4,
+      "ajuste": 31.0293603592,
+      "residuo_pb": 189.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T30J7",
+      "tipo": "tasa_fija",
+      "precio": 131.95,
+      "volumen": 4273331097,
+      "vol_ars": 5632898960.24,
+      "vencimiento": "2027-06-30",
+      "dias": 218,
+      "tea": 32.41,
+      "tem": 2.37,
+      "ajuste": 31.2202316978,
+      "residuo_pb": 119.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TY30P",
+      "tipo": "tasa_fija",
+      "precio": 113.6,
+      "volumen": 6051051408,
+      "vol_ars": 6874026449.1,
+      "vencimiento": "2030-05-30",
+      "dias": 1283,
+      "tea": 32.03,
+      "tem": 2.34,
+      "ajuste": 33.5053041578,
+      "residuo_pb": -148.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      }
     ],
     "cer": [
      {
-      "ticker": "TZXA7",
-      "tipo": "cer",
-      "precio": 130.8,
-      "var_dia": -0.41,
-      "volumen": 54546876.0,
-      "vencimiento": "2027-04-30",
-      "dias": 157,
-      "tir": 2.36
-     },
-     {
       "ticker": "TZXM7",
       "tipo": "cer",
-      "precio": 237.55,
-      "var_dia": -0.23,
-      "volumen": 8669233646.0,
+      "precio": 238.1,
+      "volumen": 174351704,
+      "vol_ars": 415131407.22400004,
       "vencimiento": "2027-03-31",
       "dias": 127,
-      "tir": 1.54
+      "tir": 1.54,
+      "ajuste": 1.5838580035,
+      "residuo_pb": -4.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
-      "ticker": "TZXD6",
+      "ticker": "TZXO7",
       "tipo": "cer",
-      "precio": 319.85,
-      "var_dia": 0.1,
-      "volumen": 3503484073.0,
-      "vencimiento": "2026-12-15",
-      "dias": 21,
-      "tir": 32.73
+      "precio": 103.25,
+      "volumen": 569431360,
+      "vol_ars": 587937879.2,
+      "vencimiento": "2027-10-29",
+      "dias": 339,
+      "tir": 6.3,
+      "ajuste": 4.6295993629,
+      "residuo_pb": 167.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
-      "ticker": "TX31",
+      "ticker": "TXMD8",
       "tipo": "cer",
-      "precio": 1454.0,
-      "var_dia": -0.61,
-      "volumen": 31167154.0,
-      "vencimiento": "2031-12-01",
-      "dias": 1833,
-      "tir": 12.84
+      "precio": 95.45,
+      "volumen": 249000000,
+      "vol_ars": 237670500.0,
+      "vencimiento": "2028-12-15",
+      "dias": 752,
+      "tir": 7.55,
+      "ajuste": 7.1012028104,
+      "residuo_pb": 45.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
-      "ticker": "PARP",
+      "ticker": "TXMJ8",
       "tipo": "cer",
-      "precio": 31990.0,
-      "var_dia": 0.5,
-      "volumen": 41093.0,
-      "vencimiento": "2038-12-31",
-      "dias": 4420,
-      "tir": 12.68
+      "precio": 103.8,
+      "volumen": 144972951,
+      "vol_ars": 150481923.13799998,
+      "vencimiento": "2028-06-30",
+      "dias": 584,
+      "tir": 6.08,
+      "ajuste": 6.3168670569,
+      "residuo_pb": -24.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ0",
+      "tipo": "cer",
+      "precio": 83.75,
+      "volumen": 245995015,
+      "vol_ars": 206020825.0625,
+      "vencimiento": "2030-06-28",
+      "dias": 1312,
+      "tir": 8.13,
+      "ajuste": 8.8277772643,
+      "residuo_pb": -70.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXY7",
+      "tipo": "cer",
+      "precio": 130.0,
+      "volumen": 375578378,
+      "vol_ars": 488251891.4,
+      "vencimiento": "2027-05-31",
+      "dias": 188,
+      "tir": 1.66,
+      "ajuste": 2.800695502,
+      "residuo_pb": -114.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXA7",
+      "tipo": "cer",
+      "precio": 131.35,
+      "volumen": 129025,
+      "vol_ars": 169474.3375,
+      "vencimiento": "2027-04-30",
+      "dias": 157,
+      "tir": 2.36,
+      "ajuste": 2.241698139,
+      "residuo_pb": 12.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "X29E7",
+      "tipo": "cer",
+      "precio": 106.27,
+      "volumen": 4496980,
+      "vol_ars": 4778940.646,
+      "vencimiento": "2027-01-29",
+      "dias": 66,
+      "tir": -1.06,
+      "ajuste": -0.4466062398,
+      "residuo_pb": -61.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
      }
     ],
     "hard_dollar": [
      {
+      "ticker": "AL30",
+      "precio": 80390.0,
+      "vol_ars": 265131475094.3,
+      "tir": 20.55,
+      "precio_usd": 47.564,
+      "duration": 1.63,
+      "proximo_pago": "2027-01-09",
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
       "ticker": "AL29",
-      "precio": 81760.0,
-      "var_dia": -1.13,
-      "volumen": 957800.0
+      "precio": 81750.0,
+      "vol_ars": 784059345.0,
+      "tir": 19.56,
+      "precio_usd": 48.37,
+      "duration": 1.24,
+      "proximo_pago": "2027-01-09",
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "GD30",
+      "precio": 83400.0,
+      "vol_ars": 8038630764.0,
+      "tir": 17.86,
+      "precio_usd": 49.358,
+      "duration": 1.65,
+      "proximo_pago": "2027-01-09",
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "GD29",
       "precio": 85000.0,
-      "var_dia": -2.51,
-      "volumen": 180427.0
-     },
-     {
-      "ticker": "AL30",
-      "precio": 80350.0,
-      "var_dia": -0.55,
-      "volumen": 312279775.0
-     },
-     {
-      "ticker": "GD30",
-      "precio": 83450.0,
-      "var_dia": -0.27,
-      "volumen": 9633364.0
+      "vol_ars": 153362950.0,
+      "tir": 15.75,
+      "precio_usd": 50.37,
+      "duration": 1.26,
+      "proximo_pago": "2027-01-09",
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "AL35",
-      "precio": 101080.0,
-      "var_dia": -2.29,
-      "volumen": 2374387.0
+      "precio": 101100.0,
+      "vol_ars": 2469031848.0,
+      "tir": null,
+      "precio_usd": 59.83,
+      "duration": null,
+      "proximo_pago": null,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "GD35",
-      "precio": 108160.0,
-      "var_dia": -1.88,
-      "volumen": 4905527.0
+      "precio": 108210.0,
+      "vol_ars": 5572713282.6,
+      "tir": null,
+      "precio_usd": 64.03,
+      "duration": null,
+      "proximo_pago": null,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "AE38",
-      "precio": 105690.0,
-      "var_dia": -2.45,
-      "volumen": 2710788.0
+      "precio": 105460.0,
+      "vol_ars": 2984233258.0,
+      "tir": null,
+      "precio_usd": 62.46,
+      "duration": null,
+      "proximo_pago": null,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "GD38",
-      "precio": 116100.0,
-      "var_dia": -0.61,
-      "volumen": 464119.0
+      "precio": 115790.0,
+      "vol_ars": 556551582.4,
+      "tir": null,
+      "precio_usd": 68.59,
+      "duration": null,
+      "proximo_pago": null,
+      "apto": true,
+      "motivo_descarte": ""
      }
     ],
     "cedears_etf": [
      {
       "ticker": "XLF",
-      "precio": 50100.0,
-      "volumen": 210971100.0,
+      "precio": 50250.0,
+      "volumen": 213763500.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -501,8 +840,8 @@
      },
      {
       "ticker": "DIA",
-      "precio": 44560.0,
-      "volumen": 1455017680.0,
+      "precio": 44580.0,
+      "volumen": 1462357740.0,
       "ret_1m": 0.0107627515,
       "ret_3m": 0.0315186246,
       "ret_6m": 0.1758301579,
@@ -516,8 +855,8 @@
      },
      {
       "ticker": "XLE",
-      "precio": 54150.0,
-      "volumen": 529911900.0,
+      "precio": 54075.0,
+      "volumen": 537018825.0,
       "ret_1m": -0.0198645598,
       "ret_3m": 0.0720987654,
       "ret_6m": 0.1886771792,
@@ -546,8 +885,8 @@
      },
      {
       "ticker": "QQQ",
-      "precio": 56800.0,
-      "volumen": 2846929600.0,
+      "precio": 56825.0,
+      "volumen": 2901086725.0,
       "ret_1m": -0.064957265,
       "ret_3m": -0.0305715552,
       "ret_6m": 0.0473910962,
@@ -561,8 +900,8 @@
      },
      {
       "ticker": "EWZ",
-      "precio": 26400.0,
-      "volumen": 2457206400.0,
+      "precio": 26420.0,
+      "volumen": 2459754840.0,
       "ret_1m": -0.2675814751,
       "ret_3m": -0.0525147929,
       "ret_6m": -0.0433159074,
@@ -577,7 +916,7 @@
      {
       "ticker": "EEM",
       "precio": 20250.0,
-      "volumen": 150741000.0,
+      "volumen": 152199000.0,
       "ret_1m": -0.0605033882,
       "ret_3m": -0.0787850024,
       "ret_6m": 0.0125195618,
@@ -591,8 +930,8 @@
      },
      {
       "ticker": "SPY",
-      "precio": 21390.0,
-      "volumen": 9143647470.0,
+      "precio": 21380.0,
+      "volumen": 9222455420.0,
       "ret_1m": -0.0086124402,
       "ret_3m": 0.0267591675,
       "ret_6m": -0.6213796254,
@@ -611,12 +950,15 @@
    "descripcion": "Busca retorno en renta variable; acepta caídas fuertes.",
    "senales": {
     "notas": [
-     "Plazo fijo rinde 1.71% mensual vs inflación 2.20% → tasa real NEGATIVA: conviene CER.",
+     "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+     "Dollar linked: devaluación implícita 2.41% mensual vs 2.77% del último mes → cobertura barata.",
      "Brecha MEP/oficial 8.9%.",
      "Riesgo país 1035 pb."
     ],
+    "prefiere": "tasa_fija",
     "tasa_real_mensual": -0.49,
     "tasa_real_negativa": true,
+    "dl": "barata",
     "brecha": 0.0894,
     "brecha_alta": false
    },
@@ -633,40 +975,40 @@
       "bucket": "acciones_arg",
       "ticker": "TXAR",
       "monto": 50000.0,
-      "precio": 705.5,
+      "precio": 705.0,
       "score": 0.22,
       "tir": null,
       "vencimiento": null,
       "cantidad": 70,
       "unidad": "acciones",
-      "monto_bruto": 49385.0,
-      "costo": 308.41
+      "monto_bruto": 49350.0,
+      "costo": 308.19
      },
      {
       "bucket": "cedears",
       "ticker": "MSFT",
       "monto": 30000.0,
-      "precio": 29640.0,
+      "precio": 29680.0,
       "score": 0.9046,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 29640.0,
-      "costo": 185.1
+      "monto_bruto": 29680.0,
+      "costo": 185.35
      },
      {
       "bucket": "cedears",
       "ticker": "CVX",
       "monto": 30000.0,
-      "precio": 23450.0,
+      "precio": 23460.0,
       "score": 0.6577,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 23450.0,
-      "costo": 146.45
+      "monto_bruto": 23460.0,
+      "costo": 146.51
      },
      {
       "bucket": "cedears",
@@ -683,82 +1025,149 @@
      },
      {
       "bucket": "tasa_fija",
-      "ticker": "S29E7",
+      "ticker": "T30A7",
       "monto": 30000.0,
-      "precio": 106.64,
+      "precio": 139.65,
       "score": null,
-      "tir": null,
-      "vencimiento": "2027-01-29",
-      "cantidad": 28058,
+      "tir": 31.95,
+      "vencimiento": "2027-04-30",
+      "cantidad": 21426,
       "unidad": "VN",
-      "monto_bruto": 29921.05,
+      "monto_bruto": 29921.41,
       "costo": 78.24
      },
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 40542.25,
+      "monto_bruto": 40526.8,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 158576.05,
-    "liquidez": 40542.25,
-    "costos": 881.69
+    "invertido": 158591.41,
+    "liquidez": 40526.8,
+    "costos": 881.79
    },
    "candidatos": {
     "tasa_fija": [
      {
-      "ticker": "S29E7",
-      "tipo": "tasa_fija",
-      "precio": 106.64,
-      "var_dia": -0.14,
-      "volumen": 17122340336.0,
-      "vencimiento": "2027-01-29",
-      "dias": 66.0
-     },
-     {
-      "ticker": "T15E7",
-      "tipo": "tasa_fija",
-      "precio": 155.494,
-      "var_dia": 0.05,
-      "volumen": 16236402340.0,
-      "vencimiento": "2027-01-15",
-      "dias": 52.0
-     },
-     {
       "ticker": "T30A7",
       "tipo": "tasa_fija",
-      "precio": 139.25,
-      "var_dia": -0.28,
-      "volumen": 6763178225.0,
+      "precio": 139.65,
+      "volumen": 14818788068,
+      "vol_ars": 20691292142.73,
       "vencimiento": "2027-04-30",
-      "dias": 157.0
+      "dias": 157,
+      "tea": 31.95,
+      "tem": 2.34,
+      "ajuste": 30.7970499124,
+      "residuo_pb": 115.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
       "ticker": "S26F7",
       "tipo": "tasa_fija",
-      "precio": 101.16,
-      "var_dia": -0.19,
-      "volumen": 4698487805.0,
+      "precio": 101.36,
+      "volumen": 15563389658,
+      "vol_ars": 15781918673.48,
       "vencimiento": "2027-02-26",
-      "dias": 94.0
+      "dias": 94,
+      "tea": 29.64,
+      "tem": 2.19,
+      "ajuste": 30.1357490113,
+      "residuo_pb": -50.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      },
      {
-      "ticker": "S30N6",
+      "ticker": "T15E7",
       "tipo": "tasa_fija",
-      "precio": 129.51,
-      "var_dia": 0.08,
-      "volumen": 42692133590.0,
-      "vencimiento": "2026-11-30",
-      "dias": 6.0
+      "precio": 155.41,
+      "volumen": 24354177244,
+      "vol_ars": 37864544777.0,
+      "vencimiento": "2027-01-15",
+      "dias": 52,
+      "tea": 28.73,
+      "tem": 2.13,
+      "ajuste": 29.3724716527,
+      "residuo_pb": -64.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.8,
+      "volumen": 17614970035,
+      "vol_ars": 18807754761.5,
+      "vencimiento": "2027-01-29",
+      "dias": 66,
+      "tea": 28.06,
+      "tem": 2.08,
+      "ajuste": 29.6798332088,
+      "residuo_pb": -162.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T31Y7",
+      "tipo": "tasa_fija",
+      "precio": 130.9,
+      "volumen": 29960560256,
+      "vol_ars": 39223692824.27,
+      "vencimiento": "2027-05-31",
+      "dias": 188,
+      "tea": 32.92,
+      "tem": 2.4,
+      "ajuste": 31.0293603592,
+      "residuo_pb": 189.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T30J7",
+      "tipo": "tasa_fija",
+      "precio": 131.95,
+      "volumen": 4273331097,
+      "vol_ars": 5632898960.24,
+      "vencimiento": "2027-06-30",
+      "dias": 218,
+      "tea": 32.41,
+      "tem": 2.37,
+      "ajuste": 31.2202316978,
+      "residuo_pb": 119.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TY30P",
+      "tipo": "tasa_fija",
+      "precio": 113.6,
+      "volumen": 6051051408,
+      "vol_ars": 6874026449.1,
+      "vencimiento": "2030-05-30",
+      "dias": 1283,
+      "tea": 32.03,
+      "tem": 2.34,
+      "ajuste": 33.5053041578,
+      "residuo_pb": -148.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
      }
     ],
     "cedears": [
      {
       "ticker": "V",
-      "precio": 41280.0,
-      "volumen": 371643840.0,
+      "precio": 41300.0,
+      "volumen": 374921400.0,
       "ret_1m": 0.0886351278,
       "ret_3m": 0.2427063935,
       "ret_6m": 0.4645208486,
@@ -772,8 +1181,8 @@
      },
      {
       "ticker": "AAPL",
-      "precio": 31520.0,
-      "volumen": 2417710080.0,
+      "precio": 31460.0,
+      "volumen": 2426069360.0,
       "ret_1m": 0.1172214182,
       "ret_3m": 0.2522303325,
       "ret_6m": 0.3859964093,
@@ -787,8 +1196,8 @@
      },
      {
       "ticker": "JNJ",
-      "precio": 32960.0,
-      "volumen": 224919040.0,
+      "precio": 32920.0,
+      "volumen": 235312160.0,
       "ret_1m": 0.1437677054,
       "ret_3m": 0.1381254405,
       "ret_6m": 0.4104803493,
@@ -802,8 +1211,8 @@
      },
      {
       "ticker": "XLF",
-      "precio": 50100.0,
-      "volumen": 210971100.0,
+      "precio": 50250.0,
+      "volumen": 213763500.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -817,8 +1226,8 @@
      },
      {
       "ticker": "BRKB",
-      "precio": 47060.0,
-      "volumen": 1138334340.0,
+      "precio": 47020.0,
+      "volumen": 1149874100.0,
       "ret_1m": 0.1597396094,
       "ret_3m": 0.2931323283,
       "ret_6m": 0.4217311234,
@@ -832,8 +1241,8 @@
      },
      {
       "ticker": "MSFT",
-      "precio": 29640.0,
-      "volumen": 2343397680.0,
+      "precio": 29680.0,
+      "volumen": 2360034880.0,
       "ret_1m": 0.0027739251,
       "ret_3m": 0.1367924528,
       "ret_6m": 0.3917228104,
@@ -847,8 +1256,8 @@
      },
      {
       "ticker": "KO",
-      "precio": 35200.0,
-      "volumen": 1096057600.0,
+      "precio": 35100.0,
+      "volumen": 1139100300.0,
       "ret_1m": 0.1439842209,
       "ret_3m": 0.2142358688,
       "ret_6m": 0.4227309894,
@@ -862,8 +1271,8 @@
      },
      {
       "ticker": "CVX",
-      "precio": 23450.0,
-      "volumen": 251243300.0,
+      "precio": 23460.0,
+      "volumen": 251585040.0,
       "ret_1m": 0.0152439024,
       "ret_3m": 0.1443298969,
       "ret_6m": 0.268226333,
@@ -879,8 +1288,8 @@
     "acciones_arg": [
      {
       "ticker": "TXAR",
-      "precio": 705.5,
-      "volumen": 257527959.5,
+      "precio": 705.0,
+      "volumen": 265663740.0,
       "ret_1m": -0.018815331,
       "ret_3m": 0.042962963,
       "ret_6m": 0.1465798046,
@@ -894,8 +1303,8 @@
      },
      {
       "ticker": "ALUA",
-      "precio": 847.0,
-      "volumen": 167451900.0,
+      "precio": 847.5,
+      "volumen": 178547910.0,
       "ret_1m": 0.0432399513,
       "ret_3m": -0.0011661808,
       "ret_6m": -0.0587912088,
@@ -910,7 +1319,7 @@
      {
       "ticker": "LOMA",
       "precio": 2950.0,
-      "volumen": 717059450.0,
+      "volumen": 725938950.0,
       "ret_1m": -0.0978520286,
       "ret_3m": -0.0389830508,
       "ret_6m": -0.0928,
@@ -924,8 +1333,8 @@
      },
      {
       "ticker": "CRES",
-      "precio": 1454.0,
-      "volumen": 166514988.0,
+      "precio": 1458.0,
+      "volumen": 169677666.0,
       "ret_1m": -0.2263942573,
       "ret_3m": -0.1934369603,
       "ret_6m": -0.1047923323,
@@ -939,8 +1348,8 @@
      },
      {
       "ticker": "CEPU",
-      "precio": 1866.0,
-      "volumen": 653396694.0,
+      "precio": 1865.0,
+      "volumen": 671709590.0,
       "ret_1m": -0.1239337682,
       "ret_3m": -0.1399014778,
       "ret_6m": -0.1625899281,
@@ -954,8 +1363,8 @@
      },
      {
       "ticker": "PAMP",
-      "precio": 4440.0,
-      "volumen": 2027676960.0,
+      "precio": 4450.0,
+      "volumen": 2133819500.0,
       "ret_1m": -0.1432086614,
       "ret_3m": -0.1364087302,
       "ret_6m": -0.1121876594,
@@ -969,8 +1378,8 @@
      },
      {
       "ticker": "BMA",
-      "precio": 9210.0,
-      "volumen": 6503890170.0,
+      "precio": 9190.0,
+      "volumen": 6512171850.0,
       "ret_1m": -0.132751938,
       "ret_3m": -0.2244367418,
       "ret_6m": -0.1190944882,
@@ -984,8 +1393,8 @@
      },
      {
       "ticker": "TGSU2",
-      "precio": 7090.0,
-      "volumen": 400840240.0,
+      "precio": 7070.0,
+      "volumen": 412089090.0,
       "ret_1m": -0.1748666271,
       "ret_3m": -0.2240802676,
       "ret_6m": -0.2266666667,
@@ -1001,5 +1410,6344 @@
    }
   }
  },
- "monto": 200000
+ "monto": 200000,
+ "curvas": {
+  "tasa_fija": [
+   {
+    "ticker": "T15E7",
+    "tipo": "tasa_fija",
+    "precio": 155.41,
+    "volumen": 24354177244,
+    "vol_ars": 37864544777.0,
+    "vencimiento": "2027-01-15",
+    "dias": 52,
+    "tea": 28.73,
+    "tem": 2.13,
+    "ajuste": 29.3724716527,
+    "residuo_pb": -64.0,
+    "liquido": true
+   },
+   {
+    "ticker": "S29E7",
+    "tipo": "tasa_fija",
+    "precio": 106.8,
+    "volumen": 17614970035,
+    "vol_ars": 18807754761.5,
+    "vencimiento": "2027-01-29",
+    "dias": 66,
+    "tea": 28.06,
+    "tem": 2.08,
+    "ajuste": 29.6798332088,
+    "residuo_pb": -162.0,
+    "liquido": true
+   },
+   {
+    "ticker": "S26F7",
+    "tipo": "tasa_fija",
+    "precio": 101.36,
+    "volumen": 15563389658,
+    "vol_ars": 15781918673.48,
+    "vencimiento": "2027-02-26",
+    "dias": 94,
+    "tea": 29.64,
+    "tem": 2.19,
+    "ajuste": 30.1357490113,
+    "residuo_pb": -50.0,
+    "liquido": true
+   },
+   {
+    "ticker": "T30A7",
+    "tipo": "tasa_fija",
+    "precio": 139.65,
+    "volumen": 14818788068,
+    "vol_ars": 20691292142.73,
+    "vencimiento": "2027-04-30",
+    "dias": 157,
+    "tea": 31.95,
+    "tem": 2.34,
+    "ajuste": 30.7970499124,
+    "residuo_pb": 115.0,
+    "liquido": true
+   },
+   {
+    "ticker": "T31Y7",
+    "tipo": "tasa_fija",
+    "precio": 130.9,
+    "volumen": 29960560256,
+    "vol_ars": 39223692824.27,
+    "vencimiento": "2027-05-31",
+    "dias": 188,
+    "tea": 32.92,
+    "tem": 2.4,
+    "ajuste": 31.0293603592,
+    "residuo_pb": 189.0,
+    "liquido": true
+   },
+   {
+    "ticker": "T30J7",
+    "tipo": "tasa_fija",
+    "precio": 131.95,
+    "volumen": 4273331097,
+    "vol_ars": 5632898960.24,
+    "vencimiento": "2027-06-30",
+    "dias": 218,
+    "tea": 32.41,
+    "tem": 2.37,
+    "ajuste": 31.2202316978,
+    "residuo_pb": 119.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TY30P",
+    "tipo": "tasa_fija",
+    "precio": 113.6,
+    "volumen": 6051051408,
+    "vol_ars": 6874026449.1,
+    "vencimiento": "2030-05-30",
+    "dias": 1283,
+    "tea": 32.03,
+    "tem": 2.34,
+    "ajuste": 33.5053041578,
+    "residuo_pb": -148.0,
+    "liquido": true
+   }
+  ],
+  "cer": [
+   {
+    "ticker": "X29E7",
+    "tipo": "cer",
+    "precio": 106.27,
+    "volumen": 4496980,
+    "vol_ars": 4778940.646,
+    "vencimiento": "2027-01-29",
+    "dias": 66,
+    "tir": -1.06,
+    "ajuste": -0.4466062398,
+    "residuo_pb": -61.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXM7",
+    "tipo": "cer",
+    "precio": 238.1,
+    "volumen": 174351704,
+    "vol_ars": 415131407.22400004,
+    "vencimiento": "2027-03-31",
+    "dias": 127,
+    "tir": 1.54,
+    "ajuste": 1.5838580035,
+    "residuo_pb": -4.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZXA7",
+    "tipo": "cer",
+    "precio": 131.35,
+    "volumen": 129025,
+    "vol_ars": 169474.3375,
+    "vencimiento": "2027-04-30",
+    "dias": 157,
+    "tir": 2.36,
+    "ajuste": 2.241698139,
+    "residuo_pb": 12.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXY7",
+    "tipo": "cer",
+    "precio": 130.0,
+    "volumen": 375578378,
+    "vol_ars": 488251891.4,
+    "vencimiento": "2027-05-31",
+    "dias": 188,
+    "tir": 1.66,
+    "ajuste": 2.800695502,
+    "residuo_pb": -114.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZX27",
+    "tipo": "cer",
+    "precio": 425.15,
+    "volumen": 1644227,
+    "vol_ars": 6990431.0905,
+    "vencimiento": "2027-06-30",
+    "dias": 218,
+    "tir": 2.56,
+    "ajuste": 3.2599799486,
+    "residuo_pb": -70.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXS7",
+    "tipo": "cer",
+    "precio": 113.9,
+    "volumen": 0,
+    "vol_ars": 0.0,
+    "vencimiento": "2027-09-30",
+    "dias": 310,
+    "tir": 5.94,
+    "ajuste": 4.3521799628,
+    "residuo_pb": 159.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXO7",
+    "tipo": "cer",
+    "precio": 103.25,
+    "volumen": 569431360,
+    "vol_ars": 587937879.2,
+    "vencimiento": "2027-10-29",
+    "dias": 339,
+    "tir": 6.3,
+    "ajuste": 4.6295993629,
+    "residuo_pb": 167.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZXD7",
+    "tipo": "cer",
+    "precio": 291.35,
+    "volumen": 3380343,
+    "vol_ars": 9848629.330500001,
+    "vencimiento": "2027-12-15",
+    "dias": 386,
+    "tir": 8.98,
+    "ajuste": 5.0323753607,
+    "residuo_pb": 395.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXM8",
+    "tipo": "cer",
+    "precio": 104.15,
+    "volumen": 4528085,
+    "vol_ars": 4716000.5275,
+    "vencimiento": "2028-03-31",
+    "dias": 493,
+    "tir": 10.55,
+    "ajuste": 5.7913865153,
+    "residuo_pb": 476.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMJ8",
+    "tipo": "cer",
+    "precio": 103.8,
+    "volumen": 144972951,
+    "vol_ars": 150481923.13799998,
+    "vencimiento": "2028-06-30",
+    "dias": 584,
+    "tir": 6.08,
+    "ajuste": 6.3168670569,
+    "residuo_pb": -24.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZX28",
+    "tipo": "cer",
+    "precio": 361.95,
+    "volumen": 2153457,
+    "vol_ars": 7794437.6115,
+    "vencimiento": "2028-06-30",
+    "dias": 584,
+    "tir": 11.63,
+    "ajuste": 6.3168670569,
+    "residuo_pb": 531.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXS8",
+    "tipo": "cer",
+    "precio": 98.21,
+    "volumen": 1800000,
+    "vol_ars": 1767780.0,
+    "vencimiento": "2028-09-30",
+    "dias": 676,
+    "tir": 11.23,
+    "ajuste": 6.7706885783,
+    "residuo_pb": 446.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TX28",
+    "tipo": "cer",
+    "precio": 1414.5,
+    "volumen": 11929,
+    "vol_ars": 168735.705,
+    "vencimiento": "2028-11-09",
+    "dias": 716,
+    "tir": 9.63,
+    "ajuste": 6.9490227486,
+    "residuo_pb": 268.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMD8",
+    "tipo": "cer",
+    "precio": 95.45,
+    "volumen": 249000000,
+    "vol_ars": 237670500.0,
+    "vencimiento": "2028-12-15",
+    "dias": 752,
+    "tir": 7.55,
+    "ajuste": 7.1012028104,
+    "residuo_pb": 45.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZXD8",
+    "tipo": "cer",
+    "precio": 88.15,
+    "volumen": 3532757,
+    "vol_ars": 3114125.2955,
+    "vencimiento": "2028-12-15",
+    "dias": 752,
+    "tir": 10.99,
+    "ajuste": 7.1012028104,
+    "residuo_pb": 389.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXM9",
+    "tipo": "cer",
+    "precio": 93.6,
+    "volumen": 0,
+    "vol_ars": 0.0,
+    "vencimiento": "2029-03-28",
+    "dias": 855,
+    "tir": 10.85,
+    "ajuste": 7.499412065,
+    "residuo_pb": 335.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMJ9",
+    "tipo": "cer",
+    "precio": 92.75,
+    "volumen": 2000000,
+    "vol_ars": 1855000.0,
+    "vencimiento": "2029-06-29",
+    "dias": 948,
+    "tir": 8.95,
+    "ajuste": 7.8197195241,
+    "residuo_pb": 113.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMD9",
+    "tipo": "cer",
+    "precio": 86.7,
+    "volumen": 19990000,
+    "vol_ars": 17331330.0,
+    "vencimiento": "2029-12-14",
+    "dias": 1116,
+    "tir": 8.38,
+    "ajuste": 8.3258420641,
+    "residuo_pb": 5.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMJ0",
+    "tipo": "cer",
+    "precio": 83.75,
+    "volumen": 245995015,
+    "vol_ars": 206020825.0625,
+    "vencimiento": "2030-06-28",
+    "dias": 1312,
+    "tir": 8.13,
+    "ajuste": 8.8277772643,
+    "residuo_pb": -70.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TX31",
+    "tipo": "cer",
+    "precio": 1463.0,
+    "volumen": 25235,
+    "vol_ars": 369188.05,
+    "vencimiento": "2031-12-01",
+    "dias": 1833,
+    "tir": 12.84,
+    "ajuste": 9.8651436287,
+    "residuo_pb": 297.0,
+    "liquido": false
+   },
+   {
+    "ticker": "DIP0",
+    "tipo": "cer",
+    "precio": 47800.0,
+    "volumen": 0,
+    "vol_ars": 0.0,
+    "vencimiento": "2033-12-31",
+    "dias": 2594,
+    "tir": 12.98,
+    "ajuste": 10.9423598438,
+    "residuo_pb": 204.0,
+    "liquido": false
+   },
+   {
+    "ticker": "DICP",
+    "tipo": "cer",
+    "precio": 48500.0,
+    "volumen": 2000,
+    "vol_ars": 970000.0,
+    "vencimiento": "2034-01-02",
+    "dias": 2596,
+    "tir": 12.4,
+    "ajuste": 10.9447507189,
+    "residuo_pb": 146.0,
+    "liquido": false
+   },
+   {
+    "ticker": "PAP0",
+    "tipo": "cer",
+    "precio": 32465.0,
+    "volumen": 4,
+    "vol_ars": 1298.6,
+    "vencimiento": "2038-12-31",
+    "dias": 4420,
+    "tir": 12.34,
+    "ajuste": 12.5956208339,
+    "residuo_pb": -26.0,
+    "liquido": false
+   },
+   {
+    "ticker": "PARP",
+    "tipo": "cer",
+    "precio": 31830.0,
+    "volumen": 18210,
+    "vol_ars": 5796243.0,
+    "vencimiento": "2038-12-31",
+    "dias": 4420,
+    "tir": 12.68,
+    "ajuste": 12.5956208339,
+    "residuo_pb": 8.0,
+    "liquido": false
+   },
+   {
+    "ticker": "CUAP",
+    "tipo": "cer",
+    "precio": 39150.0,
+    "volumen": 790,
+    "vol_ars": 309285.0,
+    "vencimiento": "2045-12-31",
+    "dias": 6977,
+    "tir": 11.18,
+    "ajuste": 14.0116928782,
+    "residuo_pb": -283.0,
+    "liquido": false
+   }
+  ],
+  "dollar_linked": [
+   {
+    "ticker": "D15E7",
+    "tipo": "dollar_linked",
+    "precio": 158380.0,
+    "var_dia": 0.49,
+    "volumen": 48042485.0,
+    "vol_ars": 76089687743.0,
+    "vencimiento": "2027-01-15",
+    "dias": 52.0,
+    "liquido": true,
+    "tea_fija_equiv": 28.73,
+    "a3500_breakeven": 1641.82,
+    "devaluacion_be_mensual": 2.39
+   },
+   {
+    "ticker": "D31M7",
+    "tipo": "dollar_linked",
+    "precio": 157600.0,
+    "var_dia": -0.09,
+    "volumen": 1440589.0,
+    "vol_ars": 2270368264.0,
+    "vencimiento": "2027-03-31",
+    "dias": 127.0,
+    "liquido": true,
+    "tea_fija_equiv": 31.0,
+    "a3500_breakeven": 1731.23,
+    "devaluacion_be_mensual": 2.24
+   },
+   {
+    "ticker": "D10Y7",
+    "tipo": "dollar_linked",
+    "precio": 160000.0,
+    "var_dia": 0.0,
+    "volumen": 100.0,
+    "vol_ars": 160000.0,
+    "vencimiento": "2027-05-10",
+    "dias": 167.0,
+    "liquido": false,
+    "tea_fija_equiv": 32.28,
+    "a3500_breakeven": 1818.49,
+    "devaluacion_be_mensual": 2.6
+   }
+  ],
+  "hard_dollar": [
+   {
+    "ticker": "AL30",
+    "precio": 80390.0,
+    "vol_ars": 265131475094.3,
+    "tir": 20.55,
+    "precio_usd": 47.564,
+    "duration": 1.63,
+    "proximo_pago": "2027-01-09",
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "AL29",
+    "precio": 81750.0,
+    "vol_ars": 784059345.0,
+    "tir": 19.56,
+    "precio_usd": 48.37,
+    "duration": 1.24,
+    "proximo_pago": "2027-01-09",
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD30",
+    "precio": 83400.0,
+    "vol_ars": 8038630764.0,
+    "tir": 17.86,
+    "precio_usd": 49.358,
+    "duration": 1.65,
+    "proximo_pago": "2027-01-09",
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD29",
+    "precio": 85000.0,
+    "vol_ars": 153362950.0,
+    "tir": 15.75,
+    "precio_usd": 50.37,
+    "duration": 1.26,
+    "proximo_pago": "2027-01-09",
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "AL35",
+    "precio": 101100.0,
+    "vol_ars": 2469031848.0,
+    "tir": null,
+    "precio_usd": 59.83,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD35",
+    "precio": 108210.0,
+    "vol_ars": 5572713282.6,
+    "tir": null,
+    "precio_usd": 64.03,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "AE38",
+    "precio": 105460.0,
+    "vol_ars": 2984233258.0,
+    "tir": null,
+    "precio_usd": 62.46,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD38",
+    "precio": 115790.0,
+    "vol_ars": 556551582.4,
+    "tir": null,
+    "precio_usd": 68.59,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "AL41",
+    "precio": 93390.0,
+    "vol_ars": 2010869744.4,
+    "tir": null,
+    "precio_usd": 55.53,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD41",
+    "precio": 101800.0,
+    "vol_ars": 2541522512.0,
+    "tir": null,
+    "precio_usd": 60.26,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD46",
+    "precio": 95720.0,
+    "vol_ars": 27896636.8,
+    "tir": null,
+    "precio_usd": 57.83,
+    "duration": null,
+    "proximo_pago": null,
+    "apto": true,
+    "motivo_descarte": ""
+   }
+  ],
+  "breakevens": [
+   {
+    "dias": 94,
+    "fija": "S26F7",
+    "cer": "TZXM7",
+    "tea_fija": 29.64,
+    "tir_real_cer": 1.54,
+    "inflacion_be_anual": 27.67,
+    "inflacion_be_mensual": 2.06
+   },
+   {
+    "dias": 157,
+    "fija": "T30A7",
+    "cer": "TZXM7",
+    "tea_fija": 31.95,
+    "tir_real_cer": 1.54,
+    "inflacion_be_anual": 29.95,
+    "inflacion_be_mensual": 2.21
+   },
+   {
+    "dias": 188,
+    "fija": "T31Y7",
+    "cer": "TZXY7",
+    "tea_fija": 32.92,
+    "tir_real_cer": 1.66,
+    "inflacion_be_anual": 30.75,
+    "inflacion_be_mensual": 2.26
+   },
+   {
+    "dias": 218,
+    "fija": "T30J7",
+    "cer": "TZXY7",
+    "tea_fija": 32.41,
+    "tir_real_cer": 1.66,
+    "inflacion_be_anual": 30.25,
+    "inflacion_be_mensual": 2.23
+   },
+   {
+    "dias": 1283,
+    "fija": "TY30P",
+    "cer": "TXMJ0",
+    "tea_fija": 32.03,
+    "tir_real_cer": 8.13,
+    "inflacion_be_anual": 22.1,
+    "inflacion_be_mensual": 1.68
+   }
+  ],
+  "senales": {
+   "breakeven": {
+    "inflacion_implicita_mensual": 2.19,
+    "inflacion_esperada_mensual": 1.66,
+    "diferencia_pp": 0.53,
+    "prefiere": "tasa_fija"
+   },
+   "dl": {
+    "implicita_mensual": 2.41,
+    "reciente_mensual": 2.77,
+    "estado": "barata"
+   }
+  }
+ },
+ "backtest": {
+  "moderado_cedears_etf": {
+   "desde": "2023-09-30",
+   "hasta": "2026-11-30",
+   "meses": 39,
+   "n": 2,
+   "benchmark": "SPY",
+   "estrategia": {
+    "total": 0.4503,
+    "anual": 0.1212,
+    "vol_anual": 0.2098,
+    "max_drawdown": -0.1608
+   },
+   "bench": {
+    "total": 0.18,
+    "anual": 0.0522,
+    "vol_anual": 0.4807,
+    "max_drawdown": -0.6515
+   },
+   "meses_le_gana": 18,
+   "serie": [
+    {
+     "fecha": "2023-09-30",
+     "estrategia": 1.0023,
+     "benchmark": 1.0007,
+     "ret_mes": 0.015,
+     "ret_bench": 0.0007,
+     "cartera": [
+      "DIA"
+     ]
+    },
+    {
+     "fecha": "2023-10-31",
+     "estrategia": 1.059,
+     "benchmark": 1.028,
+     "ret_mes": 0.0566,
+     "ret_bench": 0.0273,
+     "cartera": [
+      "DIA"
+     ]
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 1.0458,
+     "benchmark": 1.0864,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0568,
+     "cartera": []
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 1.0458,
+     "benchmark": 1.3182,
+     "ret_mes": 0.0,
+     "ret_bench": 0.2134,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 1.0458,
+     "benchmark": 1.7273,
+     "ret_mes": 0.0,
+     "ret_bench": 0.3103,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 1.0458,
+     "benchmark": 1.5503,
+     "ret_mes": 0.0,
+     "ret_bench": -0.1025,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-03-31",
+     "estrategia": 1.0458,
+     "benchmark": 1.6183,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0439,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-04-30",
+     "estrategia": 1.0458,
+     "benchmark": 1.5662,
+     "ret_mes": 0.0,
+     "ret_bench": -0.0322,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-05-31",
+     "estrategia": 1.2259,
+     "benchmark": 1.877,
+     "ret_mes": 0.1871,
+     "ret_bench": 0.1984,
+     "cartera": [
+      "SPY",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2024-06-30",
+     "estrategia": 1.3101,
+     "benchmark": 2.1012,
+     "ret_mes": 0.0821,
+     "ret_bench": 0.1194,
+     "cartera": [
+      "DIA",
+      "IWM"
+     ]
+    },
+    {
+     "fecha": "2024-07-31",
+     "estrategia": 1.2233,
+     "benchmark": 2.0159,
+     "ret_mes": -0.0544,
+     "ret_bench": -0.0406,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-08-31",
+     "estrategia": 1.2653,
+     "benchmark": 2.08,
+     "ret_mes": 0.043,
+     "ret_bench": 0.0318,
+     "cartera": [
+      "SPY",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2024-09-30",
+     "estrategia": 1.2389,
+     "benchmark": 2.0273,
+     "ret_mes": -0.0084,
+     "ret_bench": -0.0253,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2024-10-31",
+     "estrategia": 1.156,
+     "benchmark": 1.8736,
+     "ret_mes": -0.0551,
+     "ret_bench": -0.0758,
+     "cartera": [
+      "DIA",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2024-11-30",
+     "estrategia": 1.1853,
+     "benchmark": 1.9106,
+     "ret_mes": 0.034,
+     "ret_bench": 0.0198,
+     "cartera": [
+      "SPY",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2024-12-31",
+     "estrategia": 1.1664,
+     "benchmark": 1.9974,
+     "ret_mes": -0.0077,
+     "ret_bench": 0.0455,
+     "cartera": [
+      "IWM",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2025-01-31",
+     "estrategia": 1.2286,
+     "benchmark": 2.0316,
+     "ret_mes": 0.0599,
+     "ret_bench": 0.0171,
+     "cartera": [
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2025-02-28",
+     "estrategia": 1.2539,
+     "benchmark": 2.0587,
+     "ret_mes": 0.0271,
+     "ret_bench": 0.0133,
+     "cartera": [
+      "DIA",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2025-03-31",
+     "estrategia": 1.2606,
+     "benchmark": 2.0985,
+     "ret_mes": 0.0137,
+     "ret_bench": 0.0194,
+     "cartera": [
+      "QQQ",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2025-04-30",
+     "estrategia": 1.1133,
+     "benchmark": 1.8807,
+     "ret_mes": -0.1057,
+     "ret_bench": -0.1038,
+     "cartera": [
+      "DIA",
+      "EEM"
+     ]
+    },
+    {
+     "fecha": "2025-05-31",
+     "estrategia": 1.0994,
+     "benchmark": 2.0216,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0749,
+     "cartera": []
+    },
+    {
+     "fecha": "2025-06-30",
+     "estrategia": 1.1597,
+     "benchmark": 2.1298,
+     "ret_mes": 0.0682,
+     "ret_bench": 0.0535,
+     "cartera": [
+      "EEM"
+     ]
+    },
+    {
+     "fecha": "2025-07-31",
+     "estrategia": 1.3003,
+     "benchmark": 2.4544,
+     "ret_mes": 0.1213,
+     "ret_bench": 0.1524,
+     "cartera": [
+      "EEM"
+     ]
+    },
+    {
+     "fecha": "2025-08-31",
+     "estrategia": 1.3134,
+     "benchmark": 2.4943,
+     "ret_mes": 0.0229,
+     "ret_bench": 0.0162,
+     "cartera": [
+      "SPY",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2025-09-30",
+     "estrategia": 1.5573,
+     "benchmark": 2.9271,
+     "ret_mes": 0.1956,
+     "ret_bench": 0.1735,
+     "cartera": [
+      "EEM",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-10-31",
+     "estrategia": 1.5698,
+     "benchmark": 2.9171,
+     "ret_mes": 0.0165,
+     "ret_bench": -0.0034,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2025-11-30",
+     "estrategia": 1.5502,
+     "benchmark": 2.9641,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0161,
+     "cartera": []
+    },
+    {
+     "fecha": "2025-12-31",
+     "estrategia": 1.5502,
+     "benchmark": 2.9784,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0048,
+     "cartera": []
+    },
+    {
+     "fecha": "2026-01-31",
+     "estrategia": 1.5737,
+     "benchmark": 2.9599,
+     "ret_mes": 0.028,
+     "ret_bench": -0.0062,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-02-28",
+     "estrategia": 1.5577,
+     "benchmark": 2.8517,
+     "ret_mes": -0.0018,
+     "ret_bench": -0.0366,
+     "cartera": [
+      "EEM",
+      "IWM"
+     ]
+    },
+    {
+     "fecha": "2026-03-31",
+     "estrategia": 1.4773,
+     "benchmark": 2.7312,
+     "ret_mes": -0.0437,
+     "ret_bench": -0.0422,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-04-30",
+     "estrategia": 1.6257,
+     "benchmark": 3.0652,
+     "ret_mes": 0.1004,
+     "ret_bench": 0.1223,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-05-31",
+     "estrategia": 1.5921,
+     "benchmark": 1.0683,
+     "ret_mes": -0.0206,
+     "ret_bench": -0.6515,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-06-30",
+     "estrategia": 1.688,
+     "benchmark": 1.1133,
+     "ret_mes": 0.0736,
+     "ret_bench": 0.0421,
+     "cartera": [
+      "IWM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-07-31",
+     "estrategia": 1.6374,
+     "benchmark": 1.1202,
+     "ret_mes": -0.0219,
+     "ret_bench": 0.0061,
+     "cartera": [
+      "DIA",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-08-31",
+     "estrategia": 1.6677,
+     "benchmark": 1.1651,
+     "ret_mes": 0.0271,
+     "ret_bench": 0.0402,
+     "cartera": [
+      "DIA",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2026-09-30",
+     "estrategia": 1.585,
+     "benchmark": 1.172,
+     "ret_mes": -0.0496,
+     "ret_bench": 0.0059,
+     "cartera": [
+      "DIA",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2026-10-31",
+     "estrategia": 1.4848,
+     "benchmark": 1.1913,
+     "ret_mes": -0.0514,
+     "ret_bench": 0.0165,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-11-30",
+     "estrategia": 1.4503,
+     "benchmark": 1.18,
+     "ret_mes": -0.0109,
+     "ret_bench": -0.0096,
+     "cartera": [
+      "XLE",
+      "XLF"
+     ]
+    }
+   ]
+  },
+  "riesgoso_cedears": {
+   "desde": "2013-05-31",
+   "hasta": "2026-11-30",
+   "meses": 163,
+   "n": 3,
+   "benchmark": "SPY",
+   "estrategia": {
+    "total": 359.7238,
+    "anual": 0.5426,
+    "vol_anual": 0.4162,
+    "max_drawdown": -0.2912
+   },
+   "bench": {
+    "total": NaN,
+    "anual": NaN,
+    "vol_anual": 0.492,
+    "max_drawdown": NaN
+   },
+   "meses_le_gana": 19,
+   "serie": [
+    {
+     "fecha": "2013-05-31",
+     "estrategia": 0.8789,
+     "benchmark": NaN,
+     "ret_mes": -0.11,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-06-30",
+     "estrategia": 0.8078,
+     "benchmark": NaN,
+     "ret_mes": -0.0809,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-07-31",
+     "estrategia": 0.851,
+     "benchmark": NaN,
+     "ret_mes": 0.0535,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-08-31",
+     "estrategia": 0.8548,
+     "benchmark": NaN,
+     "ret_mes": 0.0045,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-09-30",
+     "estrategia": 0.8634,
+     "benchmark": NaN,
+     "ret_mes": 0.0164,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-10-31",
+     "estrategia": 0.9412,
+     "benchmark": NaN,
+     "ret_mes": 0.0901,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-11-30",
+     "estrategia": 0.8979,
+     "benchmark": NaN,
+     "ret_mes": -0.042,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2013-12-31",
+     "estrategia": 0.9362,
+     "benchmark": NaN,
+     "ret_mes": 0.047,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2014-01-31",
+     "estrategia": 1.229,
+     "benchmark": NaN,
+     "ret_mes": 0.3182,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-02-28",
+     "estrategia": 1.1345,
+     "benchmark": NaN,
+     "ret_mes": -0.0769,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-03-31",
+     "estrategia": 1.0952,
+     "benchmark": NaN,
+     "ret_mes": -0.0347,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-04-30",
+     "estrategia": 0.9377,
+     "benchmark": NaN,
+     "ret_mes": -0.1438,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-05-31",
+     "estrategia": 1.0354,
+     "benchmark": NaN,
+     "ret_mes": 0.1111,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-06-30",
+     "estrategia": 1.0056,
+     "benchmark": NaN,
+     "ret_mes": -0.0288,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-07-31",
+     "estrategia": 1.0048,
+     "benchmark": NaN,
+     "ret_mes": -0.0008,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-08-31",
+     "estrategia": 1.3471,
+     "benchmark": NaN,
+     "ret_mes": 0.3463,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-09-30",
+     "estrategia": 1.5664,
+     "benchmark": NaN,
+     "ret_mes": 0.1677,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-10-31",
+     "estrategia": 1.3943,
+     "benchmark": NaN,
+     "ret_mes": -0.1099,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-11-30",
+     "estrategia": 1.3759,
+     "benchmark": NaN,
+     "ret_mes": -0.0132,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2014-12-31",
+     "estrategia": 1.2579,
+     "benchmark": NaN,
+     "ret_mes": -0.0858,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-01-31",
+     "estrategia": 1.3818,
+     "benchmark": NaN,
+     "ret_mes": 0.1077,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL"
+     ]
+    },
+    {
+     "fecha": "2015-02-28",
+     "estrategia": 1.4105,
+     "benchmark": NaN,
+     "ret_mes": 0.0293,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-03-31",
+     "estrategia": 1.3803,
+     "benchmark": NaN,
+     "ret_mes": -0.0132,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL"
+     ]
+    },
+    {
+     "fecha": "2015-04-30",
+     "estrategia": 1.3339,
+     "benchmark": NaN,
+     "ret_mes": -0.0336,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL"
+     ]
+    },
+    {
+     "fecha": "2015-05-31",
+     "estrategia": 1.4075,
+     "benchmark": NaN,
+     "ret_mes": 0.0552,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL"
+     ]
+    },
+    {
+     "fecha": "2015-06-30",
+     "estrategia": 1.4996,
+     "benchmark": NaN,
+     "ret_mes": 0.0654,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL"
+     ]
+    },
+    {
+     "fecha": "2015-07-31",
+     "estrategia": 1.6283,
+     "benchmark": NaN,
+     "ret_mes": 0.0949,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-08-31",
+     "estrategia": 1.6855,
+     "benchmark": NaN,
+     "ret_mes": 0.0352,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-09-30",
+     "estrategia": 1.6358,
+     "benchmark": NaN,
+     "ret_mes": -0.0234,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-10-31",
+     "estrategia": 1.8877,
+     "benchmark": NaN,
+     "ret_mes": 0.154,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-11-30",
+     "estrategia": 2.0718,
+     "benchmark": NaN,
+     "ret_mes": 0.0975,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2015-12-31",
+     "estrategia": 1.9778,
+     "benchmark": NaN,
+     "ret_mes": -0.0454,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-01-31",
+     "estrategia": 1.9463,
+     "benchmark": NaN,
+     "ret_mes": -0.0159,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-02-29",
+     "estrategia": 2.0652,
+     "benchmark": NaN,
+     "ret_mes": 0.0611,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-03-31",
+     "estrategia": 2.1218,
+     "benchmark": NaN,
+     "ret_mes": 0.0274,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-04-30",
+     "estrategia": 1.9714,
+     "benchmark": NaN,
+     "ret_mes": -0.0709,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-05-31",
+     "estrategia": 1.9006,
+     "benchmark": NaN,
+     "ret_mes": -0.0359,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-06-30",
+     "estrategia": 1.8768,
+     "benchmark": NaN,
+     "ret_mes": 0.0,
+     "ret_bench": NaN,
+     "cartera": []
+    },
+    {
+     "fecha": "2016-07-31",
+     "estrategia": 1.8396,
+     "benchmark": NaN,
+     "ret_mes": -0.0075,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2016-08-31",
+     "estrategia": 1.8413,
+     "benchmark": NaN,
+     "ret_mes": 0.0094,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-09-30",
+     "estrategia": 1.8988,
+     "benchmark": NaN,
+     "ret_mes": 0.0377,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-10-31",
+     "estrategia": 1.9328,
+     "benchmark": NaN,
+     "ret_mes": 0.0179,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-11-30",
+     "estrategia": 1.9554,
+     "benchmark": NaN,
+     "ret_mes": 0.0117,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2016-12-31",
+     "estrategia": 2.0025,
+     "benchmark": NaN,
+     "ret_mes": 0.0241,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-01-31",
+     "estrategia": 2.1053,
+     "benchmark": NaN,
+     "ret_mes": 0.0513,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-02-28",
+     "estrategia": 2.166,
+     "benchmark": NaN,
+     "ret_mes": 0.0289,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-03-31",
+     "estrategia": 2.2272,
+     "benchmark": NaN,
+     "ret_mes": 0.0282,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-04-30",
+     "estrategia": 2.3713,
+     "benchmark": NaN,
+     "ret_mes": 0.0647,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-05-31",
+     "estrategia": 2.5269,
+     "benchmark": NaN,
+     "ret_mes": 0.0656,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-06-30",
+     "estrategia": 2.5692,
+     "benchmark": NaN,
+     "ret_mes": 0.0167,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-07-31",
+     "estrategia": 2.7394,
+     "benchmark": NaN,
+     "ret_mes": 0.073,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-08-31",
+     "estrategia": 2.7674,
+     "benchmark": NaN,
+     "ret_mes": 0.0166,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2017-09-30",
+     "estrategia": 2.6686,
+     "benchmark": NaN,
+     "ret_mes": -0.0297,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-10-31",
+     "estrategia": 2.9192,
+     "benchmark": NaN,
+     "ret_mes": 0.1008,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-11-30",
+     "estrategia": 2.9341,
+     "benchmark": NaN,
+     "ret_mes": 0.0051,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2017-12-31",
+     "estrategia": 3.141,
+     "benchmark": NaN,
+     "ret_mes": 0.0705,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-01-31",
+     "estrategia": 3.442,
+     "benchmark": NaN,
+     "ret_mes": 0.0958,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-02-28",
+     "estrategia": 3.6663,
+     "benchmark": NaN,
+     "ret_mes": 0.0652,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-03-31",
+     "estrategia": 3.5286,
+     "benchmark": NaN,
+     "ret_mes": -0.0315,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-04-30",
+     "estrategia": 3.5227,
+     "benchmark": NaN,
+     "ret_mes": 0.0046,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-05-31",
+     "estrategia": 4.6208,
+     "benchmark": NaN,
+     "ret_mes": 0.32,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-06-30",
+     "estrategia": 5.4396,
+     "benchmark": NaN,
+     "ret_mes": 0.1846,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-07-31",
+     "estrategia": 5.6518,
+     "benchmark": NaN,
+     "ret_mes": 0.0455,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2018-08-31",
+     "estrategia": 8.2302,
+     "benchmark": NaN,
+     "ret_mes": 0.4654,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-09-30",
+     "estrategia": 9.1033,
+     "benchmark": NaN,
+     "ret_mes": 0.113,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-10-31",
+     "estrategia": 7.383,
+     "benchmark": NaN,
+     "ret_mes": -0.1839,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-11-30",
+     "estrategia": 7.3579,
+     "benchmark": NaN,
+     "ret_mes": 0.0029,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2018-12-31",
+     "estrategia": 6.9593,
+     "benchmark": NaN,
+     "ret_mes": -0.0482,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-01-31",
+     "estrategia": 7.3601,
+     "benchmark": NaN,
+     "ret_mes": 0.0642,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-02-28",
+     "estrategia": 8.4082,
+     "benchmark": NaN,
+     "ret_mes": 0.1424,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-03-31",
+     "estrategia": 9.8756,
+     "benchmark": NaN,
+     "ret_mes": 0.1819,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2019-04-30",
+     "estrategia": 10.1303,
+     "benchmark": NaN,
+     "ret_mes": 0.0322,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-05-31",
+     "estrategia": 10.2316,
+     "benchmark": NaN,
+     "ret_mes": 0.0164,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-06-30",
+     "estrategia": 10.2739,
+     "benchmark": NaN,
+     "ret_mes": 0.0104,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-07-31",
+     "estrategia": 10.9603,
+     "benchmark": NaN,
+     "ret_mes": 0.0735,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-08-31",
+     "estrategia": 16.7396,
+     "benchmark": NaN,
+     "ret_mes": 0.5369,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-09-30",
+     "estrategia": 15.3779,
+     "benchmark": NaN,
+     "ret_mes": -0.0813,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2019-10-31",
+     "estrategia": 20.0392,
+     "benchmark": NaN,
+     "ret_mes": 0.3163,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2019-11-30",
+     "estrategia": 19.6245,
+     "benchmark": NaN,
+     "ret_mes": -0.0207,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2019-12-31",
+     "estrategia": 20.1606,
+     "benchmark": NaN,
+     "ret_mes": 0.0338,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-01-31",
+     "estrategia": 25.0989,
+     "benchmark": NaN,
+     "ret_mes": 0.245,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-02-29",
+     "estrategia": 21.2206,
+     "benchmark": NaN,
+     "ret_mes": -0.1492,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2020-03-31",
+     "estrategia": 20.9715,
+     "benchmark": NaN,
+     "ret_mes": -0.0055,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-04-30",
+     "estrategia": 31.5281,
+     "benchmark": NaN,
+     "ret_mes": 0.5034,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-05-31",
+     "estrategia": 34.1697,
+     "benchmark": NaN,
+     "ret_mes": 0.0838,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-06-30",
+     "estrategia": 33.7796,
+     "benchmark": NaN,
+     "ret_mes": -0.0114,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-07-31",
+     "estrategia": 43.3463,
+     "benchmark": NaN,
+     "ret_mes": 0.2913,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-08-31",
+     "estrategia": 48.1316,
+     "benchmark": NaN,
+     "ret_mes": 0.1174,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-09-30",
+     "estrategia": 49.8901,
+     "benchmark": NaN,
+     "ret_mes": 0.043,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2020-10-31",
+     "estrategia": 52.5639,
+     "benchmark": NaN,
+     "ret_mes": 0.0602,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2020-11-30",
+     "estrategia": 59.0668,
+     "benchmark": NaN,
+     "ret_mes": 0.1308,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2020-12-31",
+     "estrategia": 60.1179,
+     "benchmark": NaN,
+     "ret_mes": 0.0178,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2021-01-31",
+     "estrategia": 67.4799,
+     "benchmark": NaN,
+     "ret_mes": 0.1295,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2021-02-28",
+     "estrategia": 59.7868,
+     "benchmark": NaN,
+     "ret_mes": -0.114,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2021-03-31",
+     "estrategia": 56.9021,
+     "benchmark": NaN,
+     "ret_mes": -0.0423,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "MELI",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2021-04-30",
+     "estrategia": 65.6921,
+     "benchmark": NaN,
+     "ret_mes": 0.1661,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2021-05-31",
+     "estrategia": 70.1291,
+     "benchmark": NaN,
+     "ret_mes": 0.0675,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2021-06-30",
+     "estrategia": 76.1973,
+     "benchmark": NaN,
+     "ret_mes": 0.0865,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2021-07-31",
+     "estrategia": 80.0982,
+     "benchmark": NaN,
+     "ret_mes": 0.0578,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2021-08-31",
+     "estrategia": 82.4191,
+     "benchmark": NaN,
+     "ret_mes": 0.0354,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2021-09-30",
+     "estrategia": 82.8688,
+     "benchmark": NaN,
+     "ret_mes": 0.0118,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2021-10-31",
+     "estrategia": 100.1152,
+     "benchmark": NaN,
+     "ret_mes": 0.2081,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2021-11-30",
+     "estrategia": 101.6473,
+     "benchmark": NaN,
+     "ret_mes": 0.0217,
+     "ret_bench": NaN,
+     "cartera": [
+      "GOOGL",
+      "MSFT",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2021-12-31",
+     "estrategia": 93.1267,
+     "benchmark": NaN,
+     "ret_mes": -0.0781,
+     "ret_bench": NaN,
+     "cartera": [
+      "AMD",
+      "MSFT",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2022-01-31",
+     "estrategia": 89.728,
+     "benchmark": NaN,
+     "ret_mes": -0.0304,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "AMD",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2022-02-28",
+     "estrategia": 78.1382,
+     "benchmark": NaN,
+     "ret_mes": -0.1237,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2022-03-31",
+     "estrategia": 76.728,
+     "benchmark": NaN,
+     "ret_mes": -0.0119,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2022-04-30",
+     "estrategia": 79.2745,
+     "benchmark": NaN,
+     "ret_mes": 0.0332,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2022-05-31",
+     "estrategia": 80.3656,
+     "benchmark": NaN,
+     "ret_mes": 0.018,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2022-06-30",
+     "estrategia": 88.9177,
+     "benchmark": NaN,
+     "ret_mes": 0.111,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "PBR",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2022-07-31",
+     "estrategia": 101.9318,
+     "benchmark": NaN,
+     "ret_mes": 0.1536,
+     "ret_bench": NaN,
+     "cartera": [
+      "BABA",
+      "KO",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2022-08-31",
+     "estrategia": 100.1954,
+     "benchmark": NaN,
+     "ret_mes": -0.0109,
+     "ret_bench": NaN,
+     "cartera": [
+      "KO",
+      "PBR",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2022-09-30",
+     "estrategia": 93.5404,
+     "benchmark": NaN,
+     "ret_mes": -0.0606,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2022-10-31",
+     "estrategia": 98.3145,
+     "benchmark": NaN,
+     "ret_mes": 0.0576,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2022-11-30",
+     "estrategia": 81.3042,
+     "benchmark": NaN,
+     "ret_mes": -0.1678,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2022-12-31",
+     "estrategia": 79.8683,
+     "benchmark": NaN,
+     "ret_mes": -0.0115,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2023-01-31",
+     "estrategia": 98.6872,
+     "benchmark": NaN,
+     "ret_mes": 0.2356,
+     "ret_bench": NaN,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2023-02-28",
+     "estrategia": 91.4496,
+     "benchmark": NaN,
+     "ret_mes": -0.0675,
+     "ret_bench": -0.0248,
+     "cartera": [
+      "BABA",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2023-03-31",
+     "estrategia": 110.7918,
+     "benchmark": NaN,
+     "ret_mes": 0.2115,
+     "ret_bench": 0.1411,
+     "cartera": [
+      "BABA",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2023-04-30",
+     "estrategia": 124.5016,
+     "benchmark": NaN,
+     "ret_mes": 0.1308,
+     "ret_bench": 0.1375,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2023-05-31",
+     "estrategia": 135.775,
+     "benchmark": NaN,
+     "ret_mes": 0.0974,
+     "ret_bench": 0.0822,
+     "cartera": [
+      "GOOGL",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2023-06-30",
+     "estrategia": 146.3039,
+     "benchmark": NaN,
+     "ret_mes": 0.0884,
+     "ret_bench": 0.1109,
+     "cartera": [
+      "MELI",
+      "META",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2023-07-31",
+     "estrategia": 164.0231,
+     "benchmark": NaN,
+     "ret_mes": 0.1324,
+     "ret_bench": 0.1119,
+     "cartera": [
+      "AMZN",
+      "META",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2023-08-31",
+     "estrategia": 226.4743,
+     "benchmark": NaN,
+     "ret_mes": 0.3807,
+     "ret_bench": 0.3896,
+     "cartera": [
+      "AMZN",
+      "META",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2023-09-30",
+     "estrategia": 221.5348,
+     "benchmark": NaN,
+     "ret_mes": -0.0119,
+     "ret_bench": 0.0007,
+     "cartera": [
+      "AAPL",
+      "AMD",
+      "AMZN"
+     ]
+    },
+    {
+     "fecha": "2023-10-31",
+     "estrategia": 229.0222,
+     "benchmark": NaN,
+     "ret_mes": 0.0403,
+     "ret_bench": 0.0273,
+     "cartera": [
+      "AAPL",
+      "AMZN",
+      "BABA"
+     ]
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 233.3739,
+     "benchmark": NaN,
+     "ret_mes": 0.019,
+     "ret_bench": 0.0568,
+     "cartera": [
+      "AAPL",
+      "AMZN",
+      "BABA"
+     ]
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 281.7807,
+     "benchmark": NaN,
+     "ret_mes": 0.2196,
+     "ret_bench": 0.2134,
+     "cartera": [
+      "AMZN",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 386.6438,
+     "benchmark": NaN,
+     "ret_mes": 0.3721,
+     "ret_bench": 0.3103,
+     "cartera": [
+      "AMZN",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 383.294,
+     "benchmark": NaN,
+     "ret_mes": -0.0024,
+     "ret_bench": -0.1025,
+     "cartera": [
+      "AMD",
+      "AMZN",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2024-03-31",
+     "estrategia": 384.0266,
+     "benchmark": NaN,
+     "ret_mes": 0.0019,
+     "ret_bench": 0.0439,
+     "cartera": [
+      "AMD",
+      "AMZN",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2024-04-30",
+     "estrategia": 354.7815,
+     "benchmark": NaN,
+     "ret_mes": -0.0762,
+     "ret_bench": -0.0322,
+     "cartera": [
+      "AMD",
+      "AMZN",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2024-05-31",
+     "estrategia": 417.242,
+     "benchmark": NaN,
+     "ret_mes": 0.1834,
+     "ret_bench": 0.1984,
+     "cartera": [
+      "AMZN",
+      "META",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2024-06-30",
+     "estrategia": 461.0064,
+     "benchmark": NaN,
+     "ret_mes": 0.116,
+     "ret_bench": 0.1194,
+     "cartera": [
+      "AMZN",
+      "DIA",
+      "IWM"
+     ]
+    },
+    {
+     "fecha": "2024-07-31",
+     "estrategia": 416.8002,
+     "benchmark": NaN,
+     "ret_mes": -0.0845,
+     "ret_bench": -0.0406,
+     "cartera": [
+      "GOOGL",
+      "META",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-08-31",
+     "estrategia": 420.9962,
+     "benchmark": NaN,
+     "ret_mes": 0.0203,
+     "ret_bench": 0.0318,
+     "cartera": [
+      "AAPL",
+      "IWM",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-09-30",
+     "estrategia": 398.5966,
+     "benchmark": NaN,
+     "ret_mes": -0.0412,
+     "ret_bench": -0.0253,
+     "cartera": [
+      "MELI",
+      "QQQ",
+      "XOM"
+     ]
+    },
+    {
+     "fecha": "2024-10-31",
+     "estrategia": 366.6639,
+     "benchmark": NaN,
+     "ret_mes": -0.0708,
+     "ret_bench": -0.0758,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2024-11-30",
+     "estrategia": 363.8663,
+     "benchmark": NaN,
+     "ret_mes": -0.0014,
+     "ret_bench": 0.0198,
+     "cartera": [
+      "MELI",
+      "META",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2024-12-31",
+     "estrategia": 405.9514,
+     "benchmark": NaN,
+     "ret_mes": 0.1269,
+     "ret_bench": 0.0455,
+     "cartera": [
+      "TSLA",
+      "WMT",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2025-01-31",
+     "estrategia": 419.6439,
+     "benchmark": NaN,
+     "ret_mes": 0.0402,
+     "ret_bench": 0.0171,
+     "cartera": [
+      "TSLA",
+      "V",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-02-28",
+     "estrategia": 374.5998,
+     "benchmark": NaN,
+     "ret_mes": -0.1017,
+     "ret_bench": 0.0133,
+     "cartera": [
+      "AMZN",
+      "TSLA",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-03-31",
+     "estrategia": 375.5986,
+     "benchmark": NaN,
+     "ret_mes": 0.0153,
+     "ret_bench": 0.0194,
+     "cartera": [
+      "BABA",
+      "META",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2025-04-30",
+     "estrategia": 326.7751,
+     "benchmark": NaN,
+     "ret_mes": -0.1245,
+     "ret_bench": -0.1038,
+     "cartera": [
+      "BABA",
+      "KO",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2025-05-31",
+     "estrategia": 333.942,
+     "benchmark": NaN,
+     "ret_mes": 0.0284,
+     "ret_bench": 0.0749,
+     "cartera": [
+      "BABA",
+      "KO",
+      "MELI"
+     ]
+    },
+    {
+     "fecha": "2025-06-30",
+     "estrategia": 331.344,
+     "benchmark": NaN,
+     "ret_mes": -0.0015,
+     "ret_bench": 0.0535,
+     "cartera": [
+      "KO",
+      "MELI",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2025-07-31",
+     "estrategia": 353.66,
+     "benchmark": NaN,
+     "ret_mes": 0.0781,
+     "ret_bench": 0.1524,
+     "cartera": [
+      "EWZ",
+      "MELI",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2025-08-31",
+     "estrategia": 352.8495,
+     "benchmark": NaN,
+     "ret_mes": 0.004,
+     "ret_bench": 0.0162,
+     "cartera": [
+      "MELI",
+      "META",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-09-30",
+     "estrategia": 426.9635,
+     "benchmark": NaN,
+     "ret_mes": 0.2253,
+     "ret_bench": 0.1735,
+     "cartera": [
+      "EEM",
+      "GOOGL",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2025-10-31",
+     "estrategia": 449.6777,
+     "benchmark": NaN,
+     "ret_mes": 0.0638,
+     "ret_bench": -0.0034,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2025-11-30",
+     "estrategia": 422.6213,
+     "benchmark": NaN,
+     "ret_mes": -0.0507,
+     "ret_bench": 0.0161,
+     "cartera": [
+      "AAPL",
+      "AMD",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2025-12-31",
+     "estrategia": 413.1805,
+     "benchmark": NaN,
+     "ret_mes": -0.0162,
+     "ret_bench": 0.0048,
+     "cartera": [
+      "AAPL",
+      "AMD",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-01-31",
+     "estrategia": 418.7367,
+     "benchmark": NaN,
+     "ret_mes": 0.0198,
+     "ret_bench": -0.0062,
+     "cartera": [
+      "AAPL",
+      "EEM",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-02-28",
+     "estrategia": 410.2662,
+     "benchmark": NaN,
+     "ret_mes": -0.0141,
+     "ret_bench": -0.0366,
+     "cartera": [
+      "EEM",
+      "GOOGL",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2026-03-31",
+     "estrategia": 410.4063,
+     "benchmark": NaN,
+     "ret_mes": 0.0066,
+     "ret_bench": -0.0422,
+     "cartera": [
+      "EEM",
+      "WMT",
+      "XOM"
+     ]
+    },
+    {
+     "fecha": "2026-04-30",
+     "estrategia": 415.0459,
+     "benchmark": NaN,
+     "ret_mes": 0.0215,
+     "ret_bench": 0.1223,
+     "cartera": [
+      "EWZ",
+      "PBR",
+      "XOM"
+     ]
+    },
+    {
+     "fecha": "2026-05-31",
+     "estrategia": 369.9651,
+     "benchmark": NaN,
+     "ret_mes": -0.1086,
+     "ret_bench": -0.6515,
+     "cartera": [
+      "EWZ",
+      "PBR",
+      "XOM"
+     ]
+    },
+    {
+     "fecha": "2026-06-30",
+     "estrategia": 386.4844,
+     "benchmark": NaN,
+     "ret_mes": 0.0579,
+     "ret_bench": 0.0421,
+     "cartera": [
+      "AMD",
+      "AMZN",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-07-31",
+     "estrategia": 356.0768,
+     "benchmark": NaN,
+     "ret_mes": -0.0729,
+     "ret_bench": 0.0061,
+     "cartera": [
+      "AMD",
+      "DIA",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-08-31",
+     "estrategia": 361.7567,
+     "benchmark": NaN,
+     "ret_mes": 0.0262,
+     "ret_bench": 0.0402,
+     "cartera": [
+      "DIA",
+      "JPM",
+      "KO"
+     ]
+    },
+    {
+     "fecha": "2026-09-30",
+     "estrategia": 338.1342,
+     "benchmark": NaN,
+     "ret_mes": -0.0559,
+     "ret_bench": 0.0059,
+     "cartera": [
+      "JPM",
+      "V",
+      "XLF"
+     ]
+    },
+    {
+     "fecha": "2026-10-31",
+     "estrategia": 340.8968,
+     "benchmark": NaN,
+     "ret_mes": 0.0209,
+     "ret_bench": 0.0165,
+     "cartera": [
+      "AAPL",
+      "MSFT",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-11-30",
+     "estrategia": 360.7238,
+     "benchmark": NaN,
+     "ret_mes": 0.0648,
+     "ret_bench": -0.0096,
+     "cartera": [
+      "AAPL",
+      "KO",
+      "MSFT"
+     ]
+    }
+   ]
+  },
+  "riesgoso_acciones_arg": {
+   "desde": "2001-08-31",
+   "hasta": "2026-11-30",
+   "meses": 304,
+   "n": 2,
+   "benchmark": "igual peso del universo",
+   "estrategia": {
+    "total": 243.7443,
+    "anual": 0.2425,
+    "vol_anual": 0.4568,
+    "max_drawdown": -0.7917
+   },
+   "bench": {
+    "total": 22538.4049,
+    "anual": 0.4853,
+    "vol_anual": 0.4695,
+    "max_drawdown": -0.6308
+   },
+   "meses_le_gana": 150,
+   "serie": [
+    {
+     "fecha": "2001-08-31",
+     "estrategia": 0.9283,
+     "benchmark": 1.0169,
+     "ret_mes": -0.06,
+     "ret_bench": 0.0169,
+     "cartera": [
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2001-09-30",
+     "estrategia": 0.8009,
+     "benchmark": 0.7801,
+     "ret_mes": -0.1318,
+     "ret_bench": -0.2329,
+     "cartera": [
+      "COME",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2001-10-31",
+     "estrategia": 0.6247,
+     "benchmark": 0.6708,
+     "ret_mes": -0.2151,
+     "ret_bench": -0.1401,
+     "cartera": [
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2001-11-30",
+     "estrategia": 0.6169,
+     "benchmark": 0.594,
+     "ret_mes": 0.0,
+     "ret_bench": -0.1146,
+     "cartera": []
+    },
+    {
+     "fecha": "2001-12-31",
+     "estrategia": 0.6169,
+     "benchmark": 0.7275,
+     "ret_mes": 0.0,
+     "ret_bench": 0.2248,
+     "cartera": []
+    },
+    {
+     "fecha": "2002-01-31",
+     "estrategia": 0.9526,
+     "benchmark": 1.2897,
+     "ret_mes": 0.5636,
+     "ret_bench": 0.7728,
+     "cartera": [
+      "TGSU2",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2002-02-28",
+     "estrategia": 0.9407,
+     "benchmark": 1.1549,
+     "ret_mes": 0.0,
+     "ret_bench": -0.1045,
+     "cartera": []
+    },
+    {
+     "fecha": "2002-03-31",
+     "estrategia": 0.9407,
+     "benchmark": 1.2098,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0475,
+     "cartera": []
+    },
+    {
+     "fecha": "2002-04-30",
+     "estrategia": 0.9407,
+     "benchmark": 1.0993,
+     "ret_mes": 0.0,
+     "ret_bench": -0.0913,
+     "cartera": []
+    },
+    {
+     "fecha": "2002-05-31",
+     "estrategia": 0.8711,
+     "benchmark": 0.9232,
+     "ret_mes": -0.0622,
+     "ret_bench": -0.1602,
+     "cartera": [
+      "CRES",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2002-06-30",
+     "estrategia": 0.8913,
+     "benchmark": 0.8618,
+     "ret_mes": 0.0231,
+     "ret_bench": -0.0665,
+     "cartera": [
+      "CRES",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2002-07-31",
+     "estrategia": 1.0391,
+     "benchmark": 1.0857,
+     "ret_mes": 0.1757,
+     "ret_bench": 0.2598,
+     "cartera": [
+      "CRES",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2002-08-31",
+     "estrategia": 0.9988,
+     "benchmark": 1.3227,
+     "ret_mes": -0.0307,
+     "ret_bench": 0.2183,
+     "cartera": [
+      "COME",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2002-09-30",
+     "estrategia": 1.0386,
+     "benchmark": 1.3907,
+     "ret_mes": 0.053,
+     "ret_bench": 0.0514,
+     "cartera": [
+      "TGSU2",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2002-10-31",
+     "estrategia": 1.1694,
+     "benchmark": 1.9218,
+     "ret_mes": 0.126,
+     "ret_bench": 0.3819,
+     "cartera": [
+      "TGSU2",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2002-11-30",
+     "estrategia": 1.164,
+     "benchmark": 2.2286,
+     "ret_mes": 0.008,
+     "ret_bench": 0.1596,
+     "cartera": [
+      "BMA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2002-12-31",
+     "estrategia": 1.1798,
+     "benchmark": 2.2672,
+     "ret_mes": 0.0221,
+     "ret_bench": 0.0173,
+     "cartera": [
+      "CEPU",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2003-01-31",
+     "estrategia": 1.2005,
+     "benchmark": 2.5185,
+     "ret_mes": 0.026,
+     "ret_bench": 0.1108,
+     "cartera": [
+      "BMA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2003-02-28",
+     "estrategia": 1.3397,
+     "benchmark": 2.7417,
+     "ret_mes": 0.1301,
+     "ret_bench": 0.0886,
+     "cartera": [
+      "BBAR",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2003-03-31",
+     "estrategia": 1.2,
+     "benchmark": 2.6521,
+     "ret_mes": -0.0929,
+     "ret_bench": -0.0327,
+     "cartera": [
+      "COME",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2003-04-30",
+     "estrategia": 1.269,
+     "benchmark": 2.9802,
+     "ret_mes": 0.0664,
+     "ret_bench": 0.1237,
+     "cartera": [
+      "GGAL",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2003-05-31",
+     "estrategia": 1.3344,
+     "benchmark": 3.1541,
+     "ret_mes": 0.0515,
+     "ret_bench": 0.0583,
+     "cartera": [
+      "GGAL",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2003-06-30",
+     "estrategia": 1.3263,
+     "benchmark": 3.4859,
+     "ret_mes": 0.0023,
+     "ret_bench": 0.1052,
+     "cartera": [
+      "TXAR",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2003-07-31",
+     "estrategia": 1.3187,
+     "benchmark": 3.3858,
+     "ret_mes": 0.0026,
+     "ret_bench": -0.0287,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2003-08-31",
+     "estrategia": 1.2411,
+     "benchmark": 3.1548,
+     "ret_mes": -0.0588,
+     "ret_bench": -0.0682,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2003-09-30",
+     "estrategia": 1.3965,
+     "benchmark": 3.7734,
+     "ret_mes": 0.1346,
+     "ret_bench": 0.1961,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2003-10-31",
+     "estrategia": 1.6645,
+     "benchmark": 4.281,
+     "ret_mes": 0.1919,
+     "ret_bench": 0.1345,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2003-11-30",
+     "estrategia": 1.7191,
+     "benchmark": 4.7758,
+     "ret_mes": 0.0328,
+     "ret_bench": 0.1156,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2003-12-31",
+     "estrategia": 2.0565,
+     "benchmark": 5.4192,
+     "ret_mes": 0.2063,
+     "ret_bench": 0.1347,
+     "cartera": [
+      "ALUA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2004-01-31",
+     "estrategia": 2.1689,
+     "benchmark": 5.7586,
+     "ret_mes": 0.0635,
+     "ret_bench": 0.0626,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2004-02-29",
+     "estrategia": 1.9943,
+     "benchmark": 5.8537,
+     "ret_mes": -0.0689,
+     "ret_bench": 0.0165,
+     "cartera": [
+      "CEPU",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2004-03-31",
+     "estrategia": 1.893,
+     "benchmark": 5.8217,
+     "ret_mes": -0.0388,
+     "ret_bench": -0.0055,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2004-04-30",
+     "estrategia": 1.736,
+     "benchmark": 5.2547,
+     "ret_mes": -0.0753,
+     "ret_bench": -0.0974,
+     "cartera": [
+      "ALUA",
+      "BMA"
+     ]
+    },
+    {
+     "fecha": "2004-05-31",
+     "estrategia": 1.46,
+     "benchmark": 4.6478,
+     "ret_mes": -0.1519,
+     "ret_bench": -0.1155,
+     "cartera": [
+      "BMA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2004-06-30",
+     "estrategia": 1.5067,
+     "benchmark": 4.5831,
+     "ret_mes": 0.0451,
+     "ret_bench": -0.0139,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2004-07-31",
+     "estrategia": 1.5587,
+     "benchmark": 4.7528,
+     "ret_mes": 0.0345,
+     "ret_bench": 0.037,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2004-08-31",
+     "estrategia": 1.5458,
+     "benchmark": 4.8216,
+     "ret_mes": -0.0083,
+     "ret_bench": 0.0145,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2004-09-30",
+     "estrategia": 1.6184,
+     "benchmark": 5.4083,
+     "ret_mes": 0.0536,
+     "ret_bench": 0.1217,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2004-10-31",
+     "estrategia": 1.6994,
+     "benchmark": 5.6096,
+     "ret_mes": 0.0633,
+     "ret_bench": 0.0372,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2004-11-30",
+     "estrategia": 1.648,
+     "benchmark": 5.5385,
+     "ret_mes": -0.0303,
+     "ret_bench": -0.0127,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2004-12-31",
+     "estrategia": 1.6741,
+     "benchmark": 5.9545,
+     "ret_mes": 0.0244,
+     "ret_bench": 0.0751,
+     "cartera": [
+      "CRES",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2005-01-31",
+     "estrategia": 1.6387,
+     "benchmark": 6.1673,
+     "ret_mes": -0.0129,
+     "ret_bench": 0.0357,
+     "cartera": [
+      "GGAL",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2005-02-28",
+     "estrategia": 1.9014,
+     "benchmark": 6.7435,
+     "ret_mes": 0.17,
+     "ret_bench": 0.0934,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2005-03-31",
+     "estrategia": 1.6283,
+     "benchmark": 6.3288,
+     "ret_mes": -0.1436,
+     "ret_bench": -0.0615,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2005-04-30",
+     "estrategia": 1.7123,
+     "benchmark": 6.0344,
+     "ret_mes": 0.0649,
+     "ret_bench": -0.0465,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2005-05-31",
+     "estrategia": 1.9285,
+     "benchmark": 6.6985,
+     "ret_mes": 0.1262,
+     "ret_bench": 0.11,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2005-06-30",
+     "estrategia": 1.9103,
+     "benchmark": 6.2439,
+     "ret_mes": -0.0094,
+     "ret_bench": -0.0679,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2005-07-31",
+     "estrategia": 1.8087,
+     "benchmark": 6.6538,
+     "ret_mes": -0.0452,
+     "ret_bench": 0.0656,
+     "cartera": [
+      "COME",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2005-08-31",
+     "estrategia": 1.9094,
+     "benchmark": 6.9941,
+     "ret_mes": 0.0645,
+     "ret_bench": 0.0511,
+     "cartera": [
+      "COME",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2005-09-30",
+     "estrategia": 2.1191,
+     "benchmark": 7.5969,
+     "ret_mes": 0.1192,
+     "ret_bench": 0.0862,
+     "cartera": [
+      "BMA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2005-10-31",
+     "estrategia": 2.0104,
+     "benchmark": 7.4122,
+     "ret_mes": -0.0433,
+     "ret_bench": -0.0243,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2005-11-30",
+     "estrategia": 1.9439,
+     "benchmark": 7.1454,
+     "ret_mes": -0.025,
+     "ret_bench": -0.036,
+     "cartera": [
+      "BMA",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2005-12-31",
+     "estrategia": 2.1789,
+     "benchmark": 7.21,
+     "ret_mes": 0.1303,
+     "ret_bench": 0.009,
+     "cartera": [
+      "MIRG",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2006-01-31",
+     "estrategia": 2.2115,
+     "benchmark": 7.8136,
+     "ret_mes": 0.0235,
+     "ret_bench": 0.0837,
+     "cartera": [
+      "BMA",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2006-02-28",
+     "estrategia": 2.2155,
+     "benchmark": 7.7372,
+     "ret_mes": 0.0018,
+     "ret_bench": -0.0098,
+     "cartera": [
+      "BMA",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2006-03-31",
+     "estrategia": 2.3213,
+     "benchmark": 7.8872,
+     "ret_mes": 0.0566,
+     "ret_bench": 0.0194,
+     "cartera": [
+      "MIRG",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2006-04-30",
+     "estrategia": 2.6813,
+     "benchmark": 8.0661,
+     "ret_mes": 0.1648,
+     "ret_bench": 0.0227,
+     "cartera": [
+      "CRES",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2006-05-31",
+     "estrategia": 2.3466,
+     "benchmark": 7.1931,
+     "ret_mes": -0.1175,
+     "ret_bench": -0.1082,
+     "cartera": [
+      "BMA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2006-06-30",
+     "estrategia": 2.1964,
+     "benchmark": 7.1721,
+     "ret_mes": -0.0561,
+     "ret_bench": -0.0029,
+     "cartera": [
+      "BMA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2006-07-31",
+     "estrategia": 2.3937,
+     "benchmark": 7.4175,
+     "ret_mes": 0.099,
+     "ret_bench": 0.0342,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2006-08-31",
+     "estrategia": 2.2265,
+     "benchmark": 7.2098,
+     "ret_mes": -0.0699,
+     "ret_bench": -0.028,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2006-09-30",
+     "estrategia": 2.223,
+     "benchmark": 7.2783,
+     "ret_mes": 0.0068,
+     "ret_bench": 0.0095,
+     "cartera": [
+      "ALUA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2006-10-31",
+     "estrategia": 2.5619,
+     "benchmark": 7.8614,
+     "ret_mes": 0.1524,
+     "ret_bench": 0.0801,
+     "cartera": [
+      "ALUA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2006-11-30",
+     "estrategia": 2.5502,
+     "benchmark": 8.7353,
+     "ret_mes": 0.0038,
+     "ret_bench": 0.1112,
+     "cartera": [
+      "MIRG",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2006-12-31",
+     "estrategia": 2.9357,
+     "benchmark": 9.5794,
+     "ret_mes": 0.1608,
+     "ret_bench": 0.0966,
+     "cartera": [
+      "GGAL",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2007-01-31",
+     "estrategia": 3.2199,
+     "benchmark": 9.7274,
+     "ret_mes": 0.1107,
+     "ret_bench": 0.0154,
+     "cartera": [
+      "BMA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2007-02-28",
+     "estrategia": 3.4821,
+     "benchmark": 9.8901,
+     "ret_mes": 0.0951,
+     "ret_bench": 0.0167,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2007-03-31",
+     "estrategia": 3.573,
+     "benchmark": 10.046,
+     "ret_mes": 0.0347,
+     "ret_bench": 0.0158,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2007-04-30",
+     "estrategia": 3.4173,
+     "benchmark": 10.6847,
+     "ret_mes": -0.0356,
+     "ret_bench": 0.0636,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2007-05-31",
+     "estrategia": 3.209,
+     "benchmark": 11.2035,
+     "ret_mes": -0.0491,
+     "ret_bench": 0.0486,
+     "cartera": [
+      "COME",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2007-06-30",
+     "estrategia": 3.5942,
+     "benchmark": 11.35,
+     "ret_mes": 0.1342,
+     "ret_bench": 0.0131,
+     "cartera": [
+      "ALUA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2007-07-31",
+     "estrategia": 3.9252,
+     "benchmark": 11.4538,
+     "ret_mes": 0.0921,
+     "ret_bench": 0.0091,
+     "cartera": [
+      "ALUA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2007-08-31",
+     "estrategia": 3.8885,
+     "benchmark": 10.855,
+     "ret_mes": -0.0094,
+     "ret_bench": -0.0523,
+     "cartera": [
+      "ALUA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2007-09-30",
+     "estrategia": 3.9926,
+     "benchmark": 11.2806,
+     "ret_mes": 0.0268,
+     "ret_bench": 0.0392,
+     "cartera": [
+      "ALUA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2007-10-31",
+     "estrategia": 4.4108,
+     "benchmark": 12.3493,
+     "ret_mes": 0.1047,
+     "ret_bench": 0.0947,
+     "cartera": [
+      "ALUA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2007-11-30",
+     "estrategia": 4.1093,
+     "benchmark": 11.3153,
+     "ret_mes": -0.0605,
+     "ret_bench": -0.0837,
+     "cartera": [
+      "CEPU",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2007-12-31",
+     "estrategia": 3.7914,
+     "benchmark": 11.0082,
+     "ret_mes": -0.0696,
+     "ret_bench": -0.0271,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2008-01-31",
+     "estrategia": 3.5984,
+     "benchmark": 10.2513,
+     "ret_mes": -0.043,
+     "ret_bench": -0.0688,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2008-02-29",
+     "estrategia": 3.7091,
+     "benchmark": 10.9269,
+     "ret_mes": 0.0394,
+     "ret_bench": 0.0659,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2008-03-31",
+     "estrategia": 3.4979,
+     "benchmark": 10.5524,
+     "ret_mes": -0.0569,
+     "ret_bench": -0.0343,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2008-04-30",
+     "estrategia": 3.3442,
+     "benchmark": 10.1233,
+     "ret_mes": -0.0318,
+     "ret_bench": -0.0407,
+     "cartera": [
+      "CEPU",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-05-31",
+     "estrategia": 3.6208,
+     "benchmark": 10.2203,
+     "ret_mes": 0.0827,
+     "ret_bench": 0.0096,
+     "cartera": [
+      "CEPU",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-06-30",
+     "estrategia": 3.5685,
+     "benchmark": 9.2145,
+     "ret_mes": -0.0062,
+     "ret_bench": -0.0984,
+     "cartera": [
+      "MIRG",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-07-31",
+     "estrategia": 3.2489,
+     "benchmark": 9.0741,
+     "ret_mes": -0.0819,
+     "ret_bench": -0.0152,
+     "cartera": [
+      "TXAR",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-08-31",
+     "estrategia": 3.111,
+     "benchmark": 8.3385,
+     "ret_mes": -0.0344,
+     "ret_bench": -0.0811,
+     "cartera": [
+      "MIRG",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-09-30",
+     "estrategia": 3.1019,
+     "benchmark": 7.6052,
+     "ret_mes": 0.0033,
+     "ret_bench": -0.0879,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-10-31",
+     "estrategia": 3.1639,
+     "benchmark": 4.9841,
+     "ret_mes": 0.02,
+     "ret_bench": -0.3446,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-11-30",
+     "estrategia": 3.3295,
+     "benchmark": 4.9909,
+     "ret_mes": 0.0523,
+     "ret_bench": 0.0014,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2008-12-31",
+     "estrategia": 3.3088,
+     "benchmark": 5.3077,
+     "ret_mes": -0.0062,
+     "ret_bench": 0.0635,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2009-01-31",
+     "estrategia": 3.1329,
+     "benchmark": 5.1942,
+     "ret_mes": -0.0532,
+     "ret_bench": -0.0214,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2009-02-28",
+     "estrategia": 2.3863,
+     "benchmark": 4.5593,
+     "ret_mes": -0.2335,
+     "ret_bench": -0.1222,
+     "cartera": [
+      "TGSU2",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2009-03-31",
+     "estrategia": 2.506,
+     "benchmark": 4.5859,
+     "ret_mes": 0.0634,
+     "ret_bench": 0.0058,
+     "cartera": [
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2009-04-30",
+     "estrategia": 2.4747,
+     "benchmark": 4.9687,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0835,
+     "cartera": []
+    },
+    {
+     "fecha": "2009-05-31",
+     "estrategia": 2.9457,
+     "benchmark": 5.8428,
+     "ret_mes": 0.2054,
+     "ret_bench": 0.1759,
+     "cartera": [
+      "BMA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2009-06-30",
+     "estrategia": 3.0294,
+     "benchmark": 7.3279,
+     "ret_mes": 0.037,
+     "ret_bench": 0.2542,
+     "cartera": [
+      "BBAR",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2009-07-31",
+     "estrategia": 3.0572,
+     "benchmark": 8.0658,
+     "ret_mes": 0.0176,
+     "ret_bench": 0.1007,
+     "cartera": [
+      "BBAR",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2009-08-31",
+     "estrategia": 3.4643,
+     "benchmark": 8.6555,
+     "ret_mes": 0.1427,
+     "ret_bench": 0.0731,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2009-09-30",
+     "estrategia": 4.032,
+     "benchmark": 10.1231,
+     "ret_mes": 0.1639,
+     "ret_bench": 0.1696,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2009-10-31",
+     "estrategia": 4.6587,
+     "benchmark": 9.8713,
+     "ret_mes": 0.1651,
+     "ret_bench": -0.0249,
+     "cartera": [
+      "BBAR",
+      "BMA"
+     ]
+    },
+    {
+     "fecha": "2009-11-30",
+     "estrategia": 4.263,
+     "benchmark": 9.5447,
+     "ret_mes": -0.0773,
+     "ret_bench": -0.0331,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2009-12-31",
+     "estrategia": 4.9825,
+     "benchmark": 10.681,
+     "ret_mes": 0.1835,
+     "ret_bench": 0.1191,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-01-31",
+     "estrategia": 4.9,
+     "benchmark": 10.6187,
+     "ret_mes": -0.0083,
+     "ret_bench": -0.0058,
+     "cartera": [
+      "BMA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-02-28",
+     "estrategia": 4.6271,
+     "benchmark": 10.2826,
+     "ret_mes": -0.0478,
+     "ret_bench": -0.0317,
+     "cartera": [
+      "BBAR",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-03-31",
+     "estrategia": 5.157,
+     "benchmark": 11.4715,
+     "ret_mes": 0.1239,
+     "ret_bench": 0.1156,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-04-30",
+     "estrategia": 5.532,
+     "benchmark": 12.0609,
+     "ret_mes": 0.0817,
+     "ret_bench": 0.0514,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2010-05-31",
+     "estrategia": 4.598,
+     "benchmark": 10.8921,
+     "ret_mes": -0.1583,
+     "ret_bench": -0.0969,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-06-30",
+     "estrategia": 4.6185,
+     "benchmark": 10.8275,
+     "ret_mes": 0.0129,
+     "ret_bench": -0.0059,
+     "cartera": [
+      "CEPU",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-07-31",
+     "estrategia": 4.7872,
+     "benchmark": 11.9719,
+     "ret_mes": 0.0365,
+     "ret_bench": 0.1057,
+     "cartera": [
+      "CEPU",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2010-08-31",
+     "estrategia": 4.6815,
+     "benchmark": 11.7987,
+     "ret_mes": -0.0097,
+     "ret_bench": -0.0145,
+     "cartera": [
+      "BMA",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2010-09-30",
+     "estrategia": 5.6496,
+     "benchmark": 13.165,
+     "ret_mes": 0.2169,
+     "ret_bench": 0.1158,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2010-10-31",
+     "estrategia": 6.981,
+     "benchmark": 15.2513,
+     "ret_mes": 0.246,
+     "ret_bench": 0.1585,
+     "cartera": [
+      "CRES",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2010-11-30",
+     "estrategia": 7.429,
+     "benchmark": 18.0225,
+     "ret_mes": 0.0731,
+     "ret_bench": 0.1817,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2010-12-31",
+     "estrategia": 7.3132,
+     "benchmark": 19.8802,
+     "ret_mes": -0.0073,
+     "ret_bench": 0.1031,
+     "cartera": [
+      "GGAL",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2011-01-31",
+     "estrategia": 7.647,
+     "benchmark": 20.5165,
+     "ret_mes": 0.0544,
+     "ret_bench": 0.032,
+     "cartera": [
+      "GGAL",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2011-02-28",
+     "estrategia": 7.3297,
+     "benchmark": 19.7579,
+     "ret_mes": -0.0335,
+     "ret_bench": -0.037,
+     "cartera": [
+      "CEPU",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2011-03-31",
+     "estrategia": 8.4774,
+     "benchmark": 19.497,
+     "ret_mes": 0.1663,
+     "ret_bench": -0.0132,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2011-04-30",
+     "estrategia": 8.1811,
+     "benchmark": 19.6819,
+     "ret_mes": -0.0349,
+     "ret_bench": 0.0095,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2011-05-31",
+     "estrategia": 7.1606,
+     "benchmark": 18.4291,
+     "ret_mes": -0.1247,
+     "ret_bench": -0.0636,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2011-06-30",
+     "estrategia": 7.8167,
+     "benchmark": 19.4665,
+     "ret_mes": 0.0916,
+     "ret_bench": 0.0563,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2011-07-31",
+     "estrategia": 7.2278,
+     "benchmark": 19.0581,
+     "ret_mes": -0.0676,
+     "ret_bench": -0.021,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2011-08-31",
+     "estrategia": 7.0919,
+     "benchmark": 17.2628,
+     "ret_mes": -0.0106,
+     "ret_bench": -0.0942,
+     "cartera": [
+      "COME",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2011-09-30",
+     "estrategia": 5.8747,
+     "benchmark": 14.4856,
+     "ret_mes": -0.1647,
+     "ret_bench": -0.1609,
+     "cartera": [
+      "CEPU",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2011-10-31",
+     "estrategia": 5.8013,
+     "benchmark": 17.0367,
+     "ret_mes": 0.0,
+     "ret_bench": 0.1761,
+     "cartera": []
+    },
+    {
+     "fecha": "2011-11-30",
+     "estrategia": 4.8446,
+     "benchmark": 14.6237,
+     "ret_mes": -0.1544,
+     "ret_bench": -0.1416,
+     "cartera": [
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2011-12-31",
+     "estrategia": 4.4216,
+     "benchmark": 14.238,
+     "ret_mes": -0.0873,
+     "ret_bench": -0.0264,
+     "cartera": [
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2012-01-31",
+     "estrategia": 4.2739,
+     "benchmark": 15.6601,
+     "ret_mes": -0.0212,
+     "ret_bench": 0.0999,
+     "cartera": [
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2012-02-29",
+     "estrategia": 4.7058,
+     "benchmark": 14.9503,
+     "ret_mes": 0.115,
+     "ret_bench": -0.0453,
+     "cartera": [
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2012-03-31",
+     "estrategia": 4.7148,
+     "benchmark": 14.809,
+     "ret_mes": 0.0082,
+     "ret_bench": -0.0095,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2012-04-30",
+     "estrategia": 3.8798,
+     "benchmark": 11.4256,
+     "ret_mes": -0.1702,
+     "ret_bench": -0.2285,
+     "cartera": [
+      "COME",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2012-05-31",
+     "estrategia": 3.2688,
+     "benchmark": 11.5544,
+     "ret_mes": -0.1522,
+     "ret_bench": 0.0113,
+     "cartera": [
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2012-06-30",
+     "estrategia": 3.228,
+     "benchmark": 11.0878,
+     "ret_mes": 0.0,
+     "ret_bench": -0.0404,
+     "cartera": []
+    },
+    {
+     "fecha": "2012-07-31",
+     "estrategia": 3.0049,
+     "benchmark": 11.3746,
+     "ret_mes": -0.0573,
+     "ret_bench": 0.0259,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2012-08-31",
+     "estrategia": 2.8044,
+     "benchmark": 11.1256,
+     "ret_mes": -0.0589,
+     "ret_bench": -0.0219,
+     "cartera": [
+      "ALUA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2012-09-30",
+     "estrategia": 2.7694,
+     "benchmark": 11.2225,
+     "ret_mes": 0.0,
+     "ret_bench": 0.0087,
+     "cartera": []
+    },
+    {
+     "fecha": "2012-10-31",
+     "estrategia": 2.6307,
+     "benchmark": 10.3495,
+     "ret_mes": -0.0381,
+     "ret_bench": -0.0778,
+     "cartera": [
+      "GGAL",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2012-11-30",
+     "estrategia": 2.7191,
+     "benchmark": 10.3392,
+     "ret_mes": 0.0336,
+     "ret_bench": -0.001,
+     "cartera": [
+      "GGAL",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2012-12-31",
+     "estrategia": 3.3027,
+     "benchmark": 12.4752,
+     "ret_mes": 0.2248,
+     "ret_bench": 0.2066,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2013-01-31",
+     "estrategia": 3.4919,
+     "benchmark": 16.4013,
+     "ret_mes": 0.0662,
+     "ret_bench": 0.3147,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2013-02-28",
+     "estrategia": 3.0424,
+     "benchmark": 14.1555,
+     "ret_mes": -0.1214,
+     "ret_bench": -0.1369,
+     "cartera": [
+      "BBAR",
+      "BMA"
+     ]
+    },
+    {
+     "fecha": "2013-03-31",
+     "estrategia": 3.5749,
+     "benchmark": 15.6767,
+     "ret_mes": 0.1899,
+     "ret_bench": 0.1075,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2013-04-30",
+     "estrategia": 3.8069,
+     "benchmark": 17.023,
+     "ret_mes": 0.0649,
+     "ret_bench": 0.0859,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2013-05-31",
+     "estrategia": 3.3996,
+     "benchmark": 15.5366,
+     "ret_mes": -0.107,
+     "ret_bench": -0.0873,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2013-06-30",
+     "estrategia": 3.0501,
+     "benchmark": 13.2973,
+     "ret_mes": -0.0953,
+     "ret_bench": -0.1441,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2013-07-31",
+     "estrategia": 3.3842,
+     "benchmark": 14.7917,
+     "ret_mes": 0.1095,
+     "ret_bench": 0.1124,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2013-08-31",
+     "estrategia": 3.6199,
+     "benchmark": 17.331,
+     "ret_mes": 0.0786,
+     "ret_bench": 0.1717,
+     "cartera": [
+      "MIRG",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2013-09-30",
+     "estrategia": 4.0776,
+     "benchmark": 22.3407,
+     "ret_mes": 0.1407,
+     "ret_bench": 0.2891,
+     "cartera": [
+      "BMA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2013-10-31",
+     "estrategia": 4.3489,
+     "benchmark": 25.2137,
+     "ret_mes": 0.0755,
+     "ret_bench": 0.1286,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2013-11-30",
+     "estrategia": 5.3968,
+     "benchmark": 29.3339,
+     "ret_mes": 0.2514,
+     "ret_bench": 0.1634,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2013-12-31",
+     "estrategia": 5.5288,
+     "benchmark": 25.7196,
+     "ret_mes": 0.0245,
+     "ret_bench": -0.1232,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2014-01-31",
+     "estrategia": 5.8362,
+     "benchmark": 28.9637,
+     "ret_mes": 0.0645,
+     "ret_bench": 0.1261,
+     "cartera": [
+      "COME",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2014-02-28",
+     "estrategia": 5.8514,
+     "benchmark": 29.1741,
+     "ret_mes": 0.011,
+     "ret_bench": 0.0073,
+     "cartera": [
+      "COME",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2014-03-31",
+     "estrategia": 5.7629,
+     "benchmark": 31.7247,
+     "ret_mes": -0.0069,
+     "ret_bench": 0.0874,
+     "cartera": [
+      "COME",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2014-04-30",
+     "estrategia": 6.9765,
+     "benchmark": 36.0114,
+     "ret_mes": 0.2208,
+     "ret_bench": 0.1351,
+     "cartera": [
+      "CEPU",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2014-05-31",
+     "estrategia": 7.7591,
+     "benchmark": 43.051,
+     "ret_mes": 0.1215,
+     "ret_bench": 0.1955,
+     "cartera": [
+      "EDN",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2014-06-30",
+     "estrategia": 8.8503,
+     "benchmark": 42.5067,
+     "ret_mes": 0.1502,
+     "ret_bench": -0.0126,
+     "cartera": [
+      "BBAR",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2014-07-31",
+     "estrategia": 9.7788,
+     "benchmark": 44.7699,
+     "ret_mes": 0.1189,
+     "ret_bench": 0.0532,
+     "cartera": [
+      "CEPU",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2014-08-31",
+     "estrategia": 10.9852,
+     "benchmark": 52.1019,
+     "ret_mes": 0.1234,
+     "ret_bench": 0.1638,
+     "cartera": [
+      "CEPU",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2014-09-30",
+     "estrategia": 14.6379,
+     "benchmark": 72.1837,
+     "ret_mes": 0.3325,
+     "ret_bench": 0.3854,
+     "cartera": [
+      "CEPU",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2014-10-31",
+     "estrategia": 14.081,
+     "benchmark": 65.9199,
+     "ret_mes": -0.0259,
+     "ret_bench": -0.0868,
+     "cartera": [
+      "COME",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2014-11-30",
+     "estrategia": 12.326,
+     "benchmark": 61.6071,
+     "ret_mes": -0.1173,
+     "ret_bench": -0.0654,
+     "cartera": [
+      "ALUA",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2014-12-31",
+     "estrategia": 11.2848,
+     "benchmark": 56.0107,
+     "ret_mes": -0.0845,
+     "ret_bench": -0.0908,
+     "cartera": [
+      "ALUA",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2015-01-31",
+     "estrategia": 11.174,
+     "benchmark": 60.4014,
+     "ret_mes": -0.0015,
+     "ret_bench": 0.0784,
+     "cartera": [
+      "ALUA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2015-02-28",
+     "estrategia": 13.8807,
+     "benchmark": 70.9769,
+     "ret_mes": 0.2422,
+     "ret_bench": 0.1751,
+     "cartera": [
+      "ALUA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2015-03-31",
+     "estrategia": 15.2632,
+     "benchmark": 84.4816,
+     "ret_mes": 0.1088,
+     "ret_bench": 0.1903,
+     "cartera": [
+      "ALUA",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2015-04-30",
+     "estrategia": 14.0686,
+     "benchmark": 82.2841,
+     "ret_mes": -0.0705,
+     "ret_bench": -0.026,
+     "cartera": [
+      "ALUA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2015-05-31",
+     "estrategia": 12.9522,
+     "benchmark": 75.2334,
+     "ret_mes": -0.0677,
+     "ret_bench": -0.0857,
+     "cartera": [
+      "CEPU",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2015-06-30",
+     "estrategia": 13.0477,
+     "benchmark": 76.5284,
+     "ret_mes": 0.0074,
+     "ret_bench": 0.0172,
+     "cartera": [
+      "CEPU",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2015-07-31",
+     "estrategia": 13.6049,
+     "benchmark": 77.6555,
+     "ret_mes": 0.0427,
+     "ret_bench": 0.0147,
+     "cartera": [
+      "CEPU",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2015-08-31",
+     "estrategia": 13.6112,
+     "benchmark": 77.7088,
+     "ret_mes": 0.0089,
+     "ret_bench": 0.0007,
+     "cartera": [
+      "COME",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2015-09-30",
+     "estrategia": 14.51,
+     "benchmark": 74.7592,
+     "ret_mes": 0.075,
+     "ret_bench": -0.038,
+     "cartera": [
+      "MIRG",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2015-10-31",
+     "estrategia": 21.2543,
+     "benchmark": 101.802,
+     "ret_mes": 0.4648,
+     "ret_bench": 0.3617,
+     "cartera": [
+      "MIRG",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2015-11-30",
+     "estrategia": 22.6394,
+     "benchmark": 113.9723,
+     "ret_mes": 0.0652,
+     "ret_bench": 0.1195,
+     "cartera": [
+      "MIRG",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2015-12-31",
+     "estrategia": 25.4696,
+     "benchmark": 111.6173,
+     "ret_mes": 0.1345,
+     "ret_bench": -0.0207,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2016-01-31",
+     "estrategia": 32.0037,
+     "benchmark": 114.1222,
+     "ret_mes": 0.2565,
+     "ret_bench": 0.0224,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2016-02-29",
+     "estrategia": 34.5141,
+     "benchmark": 129.9508,
+     "ret_mes": 0.0784,
+     "ret_bench": 0.1387,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2016-03-31",
+     "estrategia": 42.2147,
+     "benchmark": 122.0375,
+     "ret_mes": 0.2231,
+     "ret_bench": -0.0609,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2016-04-30",
+     "estrategia": 45.3301,
+     "benchmark": 121.3169,
+     "ret_mes": 0.0738,
+     "ret_bench": -0.0059,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2016-05-31",
+     "estrategia": 43.9994,
+     "benchmark": 118.6824,
+     "ret_mes": -0.0294,
+     "ret_bench": -0.0217,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2016-06-30",
+     "estrategia": 43.3459,
+     "benchmark": 132.341,
+     "ret_mes": -0.0066,
+     "ret_bench": 0.1151,
+     "cartera": [
+      "CEPU",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2016-07-31",
+     "estrategia": 50.5869,
+     "benchmark": 139.9252,
+     "ret_mes": 0.1769,
+     "ret_bench": 0.0573,
+     "cartera": [
+      "CRES",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2016-08-31",
+     "estrategia": 44.59,
+     "benchmark": 134.8019,
+     "ret_mes": -0.1111,
+     "ret_bench": -0.0366,
+     "cartera": [
+      "MIRG",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2016-09-30",
+     "estrategia": 54.1306,
+     "benchmark": 153.2283,
+     "ret_mes": 0.2293,
+     "ret_bench": 0.1367,
+     "cartera": [
+      "CEPU",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2016-10-31",
+     "estrategia": 51.5297,
+     "benchmark": 161.6663,
+     "ret_mes": -0.048,
+     "ret_bench": 0.0551,
+     "cartera": [
+      "CEPU",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2016-11-30",
+     "estrategia": 51.1702,
+     "benchmark": 162.2188,
+     "ret_mes": 0.0014,
+     "ret_bench": 0.0034,
+     "cartera": [
+      "CEPU",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2016-12-31",
+     "estrategia": 56.9023,
+     "benchmark": 162.0633,
+     "ret_mes": 0.1214,
+     "ret_bench": -0.001,
+     "cartera": [
+      "EDN",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2017-01-31",
+     "estrategia": 70.8529,
+     "benchmark": 187.4632,
+     "ret_mes": 0.2556,
+     "ret_bench": 0.1567,
+     "cartera": [
+      "EDN",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2017-02-28",
+     "estrategia": 78.8144,
+     "benchmark": 192.385,
+     "ret_mes": 0.1217,
+     "ret_bench": 0.0263,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2017-03-31",
+     "estrategia": 99.3854,
+     "benchmark": 209.8861,
+     "ret_mes": 0.2716,
+     "ret_bench": 0.091,
+     "cartera": [
+      "TGNO4",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2017-04-30",
+     "estrategia": 106.6281,
+     "benchmark": 221.1264,
+     "ret_mes": 0.0729,
+     "ret_bench": 0.0536,
+     "cartera": [
+      "TGNO4",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2017-05-31",
+     "estrategia": 121.129,
+     "benchmark": 236.3755,
+     "ret_mes": 0.1455,
+     "ret_bench": 0.069,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2017-06-30",
+     "estrategia": 130.5397,
+     "benchmark": 236.8685,
+     "ret_mes": 0.0867,
+     "ret_bench": 0.0021,
+     "cartera": [
+      "PAMP",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2017-07-31",
+     "estrategia": 120.4297,
+     "benchmark": 231.1949,
+     "ret_mes": -0.0658,
+     "ret_bench": -0.024,
+     "cartera": [
+      "TGSU2",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2017-08-31",
+     "estrategia": 138.8176,
+     "benchmark": 259.7907,
+     "ret_mes": 0.1624,
+     "ret_bench": 0.1237,
+     "cartera": [
+      "TGNO4",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2017-09-30",
+     "estrategia": 158.4896,
+     "benchmark": 296.7499,
+     "ret_mes": 0.1513,
+     "ret_bench": 0.1423,
+     "cartera": [
+      "PAMP",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2017-10-31",
+     "estrategia": 164.8417,
+     "benchmark": 324.4716,
+     "ret_mes": 0.0488,
+     "ret_bench": 0.0934,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2017-11-30",
+     "estrategia": 168.7616,
+     "benchmark": 313.391,
+     "ret_mes": 0.0324,
+     "ret_bench": -0.0341,
+     "cartera": [
+      "GGAL",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2017-12-31",
+     "estrategia": 195.917,
+     "benchmark": 357.4066,
+     "ret_mes": 0.1707,
+     "ret_bench": 0.1404,
+     "cartera": [
+      "EDN",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2018-01-31",
+     "estrategia": 232.089,
+     "benchmark": 408.9494,
+     "ret_mes": 0.1996,
+     "ret_bench": 0.1442,
+     "cartera": [
+      "TGSU2",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2018-02-28",
+     "estrategia": 217.6288,
+     "benchmark": 381.8383,
+     "ret_mes": -0.0504,
+     "ret_bench": -0.0663,
+     "cartera": [
+      "GGAL",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2018-03-31",
+     "estrategia": 207.0873,
+     "benchmark": 365.7549,
+     "ret_mes": -0.0364,
+     "ret_bench": -0.0421,
+     "cartera": [
+      "EDN",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2018-04-30",
+     "estrategia": 203.8592,
+     "benchmark": 357.9407,
+     "ret_mes": -0.0156,
+     "ret_bench": -0.0214,
+     "cartera": [
+      "EDN",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2018-05-31",
+     "estrategia": 204.115,
+     "benchmark": 343.6568,
+     "ret_mes": 0.0097,
+     "ret_bench": -0.0399,
+     "cartera": [
+      "CRES",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2018-06-30",
+     "estrategia": 212.8048,
+     "benchmark": 303.8712,
+     "ret_mes": 0.0513,
+     "ret_bench": -0.1158,
+     "cartera": [
+      "ALUA",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2018-07-31",
+     "estrategia": 216.6678,
+     "benchmark": 350.3178,
+     "ret_mes": 0.0267,
+     "ret_bench": 0.1528,
+     "cartera": [
+      "ALUA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2018-08-31",
+     "estrategia": 254.6394,
+     "benchmark": 340.6764,
+     "ret_mes": 0.1753,
+     "ret_bench": -0.0275,
+     "cartera": [
+      "ALUA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2018-09-30",
+     "estrategia": 258.6811,
+     "benchmark": 390.5744,
+     "ret_mes": 0.0159,
+     "ret_bench": 0.1465,
+     "cartera": [
+      "ALUA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2018-10-31",
+     "estrategia": 201.3547,
+     "benchmark": 330.3688,
+     "ret_mes": -0.2151,
+     "ret_bench": -0.1541,
+     "cartera": [
+      "CRES",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2018-11-30",
+     "estrategia": 215.3849,
+     "benchmark": 353.9333,
+     "ret_mes": 0.0787,
+     "ret_bench": 0.0713,
+     "cartera": [
+      "TGSU2",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2018-12-31",
+     "estrategia": 201.7074,
+     "benchmark": 348.649,
+     "ret_mes": -0.0556,
+     "ret_bench": -0.0149,
+     "cartera": [
+      "BBAR",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2019-01-31",
+     "estrategia": 215.8611,
+     "benchmark": 403.7413,
+     "ret_mes": 0.0792,
+     "ret_bench": 0.158,
+     "cartera": [
+      "BYMA",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2019-02-28",
+     "estrategia": 192.905,
+     "benchmark": 381.8253,
+     "ret_mes": -0.0988,
+     "ret_bench": -0.0543,
+     "cartera": [
+      "GGAL",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2019-03-31",
+     "estrategia": 160.3374,
+     "benchmark": 365.1563,
+     "ret_mes": -0.1583,
+     "ret_bench": -0.0437,
+     "cartera": [
+      "SUPV",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2019-04-30",
+     "estrategia": 149.7675,
+     "benchmark": 319.0097,
+     "ret_mes": -0.0541,
+     "ret_bench": -0.1264,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2019-05-31",
+     "estrategia": 175.6336,
+     "benchmark": 348.136,
+     "ret_mes": 0.1727,
+     "ret_bench": 0.0913,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2019-06-30",
+     "estrategia": 188.8784,
+     "benchmark": 406.1134,
+     "ret_mes": 0.0844,
+     "ret_bench": 0.1665,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2019-07-31",
+     "estrategia": 179.3699,
+     "benchmark": 417.2553,
+     "ret_mes": -0.0424,
+     "ret_bench": 0.0274,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2019-08-31",
+     "estrategia": 71.0906,
+     "benchmark": 247.8885,
+     "ret_mes": -0.6003,
+     "ret_bench": -0.4059,
+     "cartera": [
+      "BMA",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2019-09-30",
+     "estrategia": 71.5399,
+     "benchmark": 302.8934,
+     "ret_mes": 0.019,
+     "ret_bench": 0.2219,
+     "cartera": [
+      "ALUA"
+     ]
+    },
+    {
+     "fecha": "2019-10-31",
+     "estrategia": 109.3502,
+     "benchmark": 363.1995,
+     "ret_mes": 0.5381,
+     "ret_bench": 0.1991,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2019-11-30",
+     "estrategia": 112.3129,
+     "benchmark": 360.1114,
+     "ret_mes": 0.0271,
+     "ret_bench": -0.0085,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2019-12-31",
+     "estrategia": 112.211,
+     "benchmark": 441.6154,
+     "ret_mes": -0.0009,
+     "ret_bench": 0.2263,
+     "cartera": [
+      "ALUA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2020-01-31",
+     "estrategia": 114.2874,
+     "benchmark": 425.6722,
+     "ret_mes": 0.0271,
+     "ret_bench": -0.0361,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2020-02-29",
+     "estrategia": 98.5666,
+     "benchmark": 366.1792,
+     "ret_mes": -0.1303,
+     "ret_bench": -0.1398,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2020-03-31",
+     "estrategia": 58.4019,
+     "benchmark": 253.3037,
+     "ret_mes": -0.4075,
+     "ret_bench": -0.3083,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2020-04-30",
+     "estrategia": 57.6724,
+     "benchmark": 349.9557,
+     "ret_mes": 0.0,
+     "ret_bench": 0.3816,
+     "cartera": []
+    },
+    {
+     "fecha": "2020-05-31",
+     "estrategia": 72.4155,
+     "benchmark": 409.0855,
+     "ret_mes": 0.2715,
+     "ret_bench": 0.169,
+     "cartera": [
+      "BYMA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2020-06-30",
+     "estrategia": 71.52,
+     "benchmark": 408.3936,
+     "ret_mes": -0.0124,
+     "ret_bench": -0.0017,
+     "cartera": [
+      "BYMA",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2020-07-31",
+     "estrategia": 83.9068,
+     "benchmark": 525.8313,
+     "ret_mes": 0.183,
+     "ret_bench": 0.2876,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2020-08-31",
+     "estrategia": 84.8951,
+     "benchmark": 530.2694,
+     "ret_mes": 0.0246,
+     "ret_bench": 0.0084,
+     "cartera": [
+      "BYMA",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2020-09-30",
+     "estrategia": 76.329,
+     "benchmark": 476.7116,
+     "ret_mes": -0.0934,
+     "ret_bench": -0.101,
+     "cartera": [
+      "BYMA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2020-10-31",
+     "estrategia": 80.3357,
+     "benchmark": 522.0968,
+     "ret_mes": 0.0613,
+     "ret_bench": 0.0952,
+     "cartera": [
+      "ALUA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2020-11-30",
+     "estrategia": 82.2037,
+     "benchmark": 612.3807,
+     "ret_mes": 0.0318,
+     "ret_bench": 0.1729,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2020-12-31",
+     "estrategia": 87.3717,
+     "benchmark": 599.2499,
+     "ret_mes": 0.0718,
+     "ret_bench": -0.0214,
+     "cartera": [
+      "MIRG",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2021-01-31",
+     "estrategia": 86.6577,
+     "benchmark": 571.734,
+     "ret_mes": 0.0044,
+     "ret_bench": -0.0459,
+     "cartera": [
+      "CRES",
+      "LOMA"
+     ]
+    },
+    {
+     "fecha": "2021-02-28",
+     "estrategia": 85.2038,
+     "benchmark": 576.4969,
+     "ret_mes": -0.0085,
+     "ret_bench": 0.0083,
+     "cartera": [
+      "CRES",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2021-03-31",
+     "estrategia": 88.2441,
+     "benchmark": 562.416,
+     "ret_mes": 0.0444,
+     "ret_bench": -0.0244,
+     "cartera": [
+      "BYMA",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2021-04-30",
+     "estrategia": 93.418,
+     "benchmark": 584.6436,
+     "ret_mes": 0.0675,
+     "ret_bench": 0.0395,
+     "cartera": [
+      "BYMA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2021-05-31",
+     "estrategia": 108.3225,
+     "benchmark": 689.4115,
+     "ret_mes": 0.1595,
+     "ret_bench": 0.1792,
+     "cartera": [
+      "BYMA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2021-06-30",
+     "estrategia": 107.162,
+     "benchmark": 756.8437,
+     "ret_mes": -0.0107,
+     "ret_bench": 0.0978,
+     "cartera": [
+      "BYMA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2021-07-31",
+     "estrategia": 108.7633,
+     "benchmark": 795.8065,
+     "ret_mes": 0.0278,
+     "ret_bench": 0.0515,
+     "cartera": [
+      "COME",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2021-08-31",
+     "estrategia": 115.9666,
+     "benchmark": 971.1872,
+     "ret_mes": 0.0752,
+     "ret_bench": 0.2204,
+     "cartera": [
+      "COME",
+      "LOMA"
+     ]
+    },
+    {
+     "fecha": "2021-09-30",
+     "estrategia": 114.7242,
+     "benchmark": 1007.0742,
+     "ret_mes": -0.0024,
+     "ret_bench": 0.037,
+     "cartera": [
+      "COME",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2021-10-31",
+     "estrategia": 124.3148,
+     "benchmark": 1100.6654,
+     "ret_mes": 0.0973,
+     "ret_bench": 0.0929,
+     "cartera": [
+      "EDN",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2021-11-30",
+     "estrategia": 108.453,
+     "benchmark": 1038.1073,
+     "ret_mes": -0.1203,
+     "ret_bench": -0.0568,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2021-12-31",
+     "estrategia": 113.3594,
+     "benchmark": 1084.2066,
+     "ret_mes": 0.054,
+     "ret_bench": 0.0444,
+     "cartera": [
+      "MIRG",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2022-01-31",
+     "estrategia": 107.6814,
+     "benchmark": 1178.4079,
+     "ret_mes": -0.0421,
+     "ret_bench": 0.0869,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2022-02-28",
+     "estrategia": 103.7745,
+     "benchmark": 1171.3745,
+     "ret_mes": -0.0363,
+     "ret_bench": -0.006,
+     "cartera": [
+      "MIRG",
+      "TXAR"
+     ]
+    },
+    {
+     "fecha": "2022-03-31",
+     "estrategia": 112.3656,
+     "benchmark": 1207.2613,
+     "ret_mes": 0.0965,
+     "ret_bench": 0.0306,
+     "cartera": [
+      "BYMA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2022-04-30",
+     "estrategia": 119.4597,
+     "benchmark": 1168.3548,
+     "ret_mes": 0.0721,
+     "ret_bench": -0.0322,
+     "cartera": [
+      "COME",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2022-05-31",
+     "estrategia": 125.138,
+     "benchmark": 1221.3716,
+     "ret_mes": 0.0563,
+     "ret_bench": 0.0454,
+     "cartera": [
+      "BYMA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2022-06-30",
+     "estrategia": 132.506,
+     "benchmark": 1155.998,
+     "ret_mes": 0.0589,
+     "ret_bench": -0.0535,
+     "cartera": [
+      "BYMA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2022-07-31",
+     "estrategia": 184.3047,
+     "benchmark": 1627.9329,
+     "ret_mes": 0.4026,
+     "ret_bench": 0.4082,
+     "cartera": [
+      "COME",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2022-08-31",
+     "estrategia": 176.6834,
+     "benchmark": 1800.7608,
+     "ret_mes": -0.0333,
+     "ret_bench": 0.1062,
+     "cartera": [
+      "BYMA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2022-09-30",
+     "estrategia": 159.587,
+     "benchmark": 1821.2512,
+     "ret_mes": -0.0892,
+     "ret_bench": 0.0114,
+     "cartera": [
+      "ALUA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2022-10-31",
+     "estrategia": 179.1405,
+     "benchmark": 1951.2065,
+     "ret_mes": 0.1367,
+     "ret_bench": 0.0714,
+     "cartera": [
+      "EDN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2022-11-30",
+     "estrategia": 199.2425,
+     "benchmark": 2234.965,
+     "ret_mes": 0.1122,
+     "ret_bench": 0.1454,
+     "cartera": [
+      "EDN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2022-12-31",
+     "estrategia": 221.4165,
+     "benchmark": 2729.2468,
+     "ret_mes": 0.1206,
+     "ret_bench": 0.2212,
+     "cartera": [
+      "LOMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-01-31",
+     "estrategia": 261.151,
+     "benchmark": 3333.6215,
+     "ret_mes": 0.1944,
+     "ret_bench": 0.2214,
+     "cartera": [
+      "ALUA",
+      "TGNO4"
+     ]
+    },
+    {
+     "fecha": "2023-02-28",
+     "estrategia": 251.1152,
+     "benchmark": 3337.327,
+     "ret_mes": -0.0304,
+     "ret_bench": 0.0011,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2023-03-31",
+     "estrategia": 220.0021,
+     "benchmark": 3243.4199,
+     "ret_mes": -0.1239,
+     "ret_bench": -0.0281,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2023-04-30",
+     "estrategia": 260.5191,
+     "benchmark": 3928.2737,
+     "ret_mes": 0.1941,
+     "ret_bench": 0.2112,
+     "cartera": [
+      "TRAN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-05-31",
+     "estrategia": 305.5379,
+     "benchmark": 4465.2815,
+     "ret_mes": 0.1827,
+     "ret_bench": 0.1367,
+     "cartera": [
+      "PAMP",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2023-06-30",
+     "estrategia": 325.1742,
+     "benchmark": 5606.7025,
+     "ret_mes": 0.0732,
+     "ret_bench": 0.2556,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2023-07-31",
+     "estrategia": 341.6179,
+     "benchmark": 6003.3515,
+     "ret_mes": 0.0639,
+     "ret_bench": 0.0707,
+     "cartera": [
+      "GGAL",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-08-31",
+     "estrategia": 394.2108,
+     "benchmark": 8247.8222,
+     "ret_mes": 0.1685,
+     "ret_bench": 0.3739,
+     "cartera": [
+      "EDN",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2023-09-30",
+     "estrategia": 339.1161,
+     "benchmark": 7100.7233,
+     "ret_mes": -0.1289,
+     "ret_bench": -0.1391,
+     "cartera": [
+      "ALUA",
+      "BMA"
+     ]
+    },
+    {
+     "fecha": "2023-10-31",
+     "estrategia": 380.2153,
+     "benchmark": 7375.5419,
+     "ret_mes": 0.1306,
+     "ret_bench": 0.0387,
+     "cartera": [
+      "ALUA",
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 527.2689,
+     "benchmark": 10557.8505,
+     "ret_mes": 0.4043,
+     "ret_bench": 0.4315,
+     "cartera": [
+      "BYMA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 594.0609,
+     "benchmark": 12617.0887,
+     "ret_mes": 0.1409,
+     "ret_bench": 0.195,
+     "cartera": [
+      "COME",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 793.4898,
+     "benchmark": 16962.9294,
+     "ret_mes": 0.3469,
+     "ret_bench": 0.3444,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 587.2385,
+     "benchmark": 13523.5674,
+     "ret_mes": -0.2506,
+     "ret_bench": -0.2028,
+     "cartera": [
+      "LOMA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2024-03-31",
+     "estrategia": 651.2855,
+     "benchmark": 16223.7152,
+     "ret_mes": 0.1231,
+     "ret_bench": 0.1997,
+     "cartera": [
+      "COME",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2024-04-30",
+     "estrategia": 754.7647,
+     "benchmark": 17472.3429,
+     "ret_mes": 0.1735,
+     "ret_bench": 0.077,
+     "cartera": [
+      "GGAL",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2024-05-31",
+     "estrategia": 985.7795,
+     "benchmark": 21754.1425,
+     "ret_mes": 0.317,
+     "ret_bench": 0.2451,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-06-30",
+     "estrategia": 920.6456,
+     "benchmark": 21701.008,
+     "ret_mes": -0.0661,
+     "ret_bench": -0.0024,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-07-31",
+     "estrategia": 804.7439,
+     "benchmark": 20114.5893,
+     "ret_mes": -0.1259,
+     "ret_bench": -0.0731,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-08-31",
+     "estrategia": 959.1267,
+     "benchmark": 22533.9258,
+     "ret_mes": 0.2018,
+     "ret_bench": 0.1203,
+     "cartera": [
+      "BMA",
+      "COME"
+     ]
+    },
+    {
+     "fecha": "2024-09-30",
+     "estrategia": 918.136,
+     "benchmark": 22554.8914,
+     "ret_mes": -0.0347,
+     "ret_bench": 0.0009,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2024-10-31",
+     "estrategia": 961.6244,
+     "benchmark": 24504.5885,
+     "ret_mes": 0.0562,
+     "ret_bench": 0.0864,
+     "cartera": [
+      "COME",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-11-30",
+     "estrategia": 1049.4749,
+     "benchmark": 29392.2273,
+     "ret_mes": 0.1005,
+     "ret_bench": 0.1995,
+     "cartera": [
+      "GGAL",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2024-12-31",
+     "estrategia": 1174.8764,
+     "benchmark": 32854.0197,
+     "ret_mes": 0.1336,
+     "ret_bench": 0.1178,
+     "cartera": [
+      "EDN",
+      "LOMA"
+     ]
+    },
+    {
+     "fecha": "2025-01-31",
+     "estrategia": 1074.1991,
+     "benchmark": 33105.6005,
+     "ret_mes": -0.078,
+     "ret_bench": 0.0077,
+     "cartera": [
+      "EDN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2025-02-28",
+     "estrategia": 907.1728,
+     "benchmark": 28236.9594,
+     "ret_mes": -0.1484,
+     "ret_bench": -0.1471,
+     "cartera": [
+      "SUPV",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2025-03-31",
+     "estrategia": 952.3659,
+     "benchmark": 29907.6461,
+     "ret_mes": 0.0586,
+     "ret_bench": 0.0592,
+     "cartera": [
+      "BBAR",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-04-30",
+     "estrategia": 841.0523,
+     "benchmark": 26960.4039,
+     "ret_mes": -0.1095,
+     "ret_bench": -0.0985,
+     "cartera": [
+      "BBAR",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2025-05-31",
+     "estrategia": 783.9276,
+     "benchmark": 28868.8101,
+     "ret_mes": -0.0601,
+     "ret_bench": 0.0708,
+     "cartera": [
+      "BBAR",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-06-30",
+     "estrategia": 683.5181,
+     "benchmark": 24790.059,
+     "ret_mes": -0.1171,
+     "ret_bench": -0.1413,
+     "cartera": [
+      "CRES",
+      "LOMA"
+     ]
+    },
+    {
+     "fecha": "2025-07-31",
+     "estrategia": 674.981,
+     "benchmark": 28729.6494,
+     "ret_mes": 0.0,
+     "ret_bench": 0.1589,
+     "cartera": []
+    },
+    {
+     "fecha": "2025-08-31",
+     "estrategia": 577.7254,
+     "benchmark": 23634.037,
+     "ret_mes": -0.1333,
+     "ret_bench": -0.1774,
+     "cartera": [
+      "LOMA",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2025-09-30",
+     "estrategia": 503.6186,
+     "benchmark": 20187.8284,
+     "ret_mes": -0.1228,
+     "ret_bench": -0.1458,
+     "cartera": [
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2025-10-31",
+     "estrategia": 654.6574,
+     "benchmark": 34921.0202,
+     "ret_mes": 0.3163,
+     "ret_bench": 0.7298,
+     "cartera": [
+      "CRES"
+     ]
+    },
+    {
+     "fecha": "2025-11-30",
+     "estrategia": 680.8724,
+     "benchmark": 36461.8004,
+     "ret_mes": 0.0532,
+     "ret_bench": 0.0441,
+     "cartera": [
+      "ALUA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2025-12-31",
+     "estrategia": 656.1107,
+     "benchmark": 36582.3643,
+     "ret_mes": -0.0364,
+     "ret_bench": 0.0033,
+     "cartera": [
+      "ALUA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2026-01-31",
+     "estrategia": 602.4024,
+     "benchmark": 37585.4723,
+     "ret_mes": -0.0702,
+     "ret_bench": 0.0274,
+     "cartera": [
+      "CEPU",
+      "LOMA"
+     ]
+    },
+    {
+     "fecha": "2026-02-28",
+     "estrategia": 496.6654,
+     "benchmark": 31061.4195,
+     "ret_mes": -0.1651,
+     "ret_bench": -0.1736,
+     "cartera": [
+      "BMA",
+      "BYMA"
+     ]
+    },
+    {
+     "fecha": "2026-03-31",
+     "estrategia": 520.2259,
+     "benchmark": 35076.6789,
+     "ret_mes": 0.0562,
+     "ret_bench": 0.1293,
+     "cartera": [
+      "BYMA",
+      "CEPU"
+     ]
+    },
+    {
+     "fecha": "2026-04-30",
+     "estrategia": 481.7823,
+     "benchmark": 32822.9593,
+     "ret_mes": -0.0661,
+     "ret_bench": -0.0643,
+     "cartera": [
+      "BYMA",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2026-05-31",
+     "estrategia": 523.8021,
+     "benchmark": 35476.8764,
+     "ret_mes": 0.0963,
+     "ret_bench": 0.0809,
+     "cartera": [
+      "TRAN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-06-30",
+     "estrategia": 528.0725,
+     "benchmark": 35151.6429,
+     "ret_mes": 0.0166,
+     "ret_bench": -0.0092,
+     "cartera": [
+      "BBAR",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-07-31",
+     "estrategia": 555.1701,
+     "benchmark": 35722.8595,
+     "ret_mes": 0.0601,
+     "ret_bench": 0.0163,
+     "cartera": [
+      "VALO",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-08-31",
+     "estrategia": 286.3429,
+     "benchmark": 29687.4484,
+     "ret_mes": -0.4799,
+     "ret_bench": -0.169,
+     "cartera": [
+      "PAMP",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-09-30",
+     "estrategia": 280.8331,
+     "benchmark": 27442.6804,
+     "ret_mes": -0.011,
+     "ret_bench": -0.0756,
+     "cartera": [
+      "CRES",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2026-10-31",
+     "estrategia": 256.817,
+     "benchmark": 25171.2849,
+     "ret_mes": -0.0855,
+     "ret_bench": -0.0828,
+     "cartera": [
+      "CRES",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2026-11-30",
+     "estrategia": 244.7443,
+     "benchmark": 22539.4049,
+     "ret_mes": -0.035,
+     "ret_bench": -0.1046,
+     "cartera": [
+      "TXAR"
+     ]
+    }
+   ]
+  }
+ }
 }
