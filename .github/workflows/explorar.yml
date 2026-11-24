@@ -2,16 +2,9 @@ name: Explorar fuentes
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: ["scripts/explorar.py"]
 
 permissions:
   contents: write
-
-concurrency:
-  group: corrida-diaria
-  cancel-in-progress: false
 
 jobs:
   explorar:
@@ -23,7 +16,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
-      - run: python scripts/explorar.py
+      - run: timeout 360 python scripts/explorar.py || true
       - run: |
           git config user.name "detector-bot"
           git config user.email "detector-bot@users.noreply.github.com"

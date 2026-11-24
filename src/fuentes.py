@@ -85,41 +85,52 @@ def plazo_fijo() -> list[dict]:
 
 
 # ---------------- BCRA: variables principales ----------------
+# ids de la API de Estadísticas Monetarias (v4)
+IDS_BCRA = {"a3500": 5, "badlar": 7, "inflacion_mensual": 27, "rem_12m": 29, "cer": 30, "tamar": 44}
 
-BUSCAR_BCRA = {
-    "a3500": ["tipo de cambio mayorista"],
-    "cer": ["cer"],
-    "tamar": ["tamar"],
-    "badlar": ["badlar"],
-    "inflacion_esperada_12m": ["rem", "12 meses"],
-}
+
+def letras() -> dict:
+    """LECAP/BONCAP con TNA, TEA, TEM y vencimiento."""
+    return _get(ARGDATOS + "/finanzas/letras")
 
 
 def bcra_principales() -> dict:
-    """Lista de variables monetarias con su último valor. Prueba v4 y v3."""
+    """Último valor de cada variable de IDS_BCRA. Prueba v4 y v3."""
     for url in (f"{BCRA}/v4.0/Monetarias", f"{BCRA}/v3.0/monetarias"):
         try:
             data = _get(url)
             filas = data.get("results", data) if isinstance(data, dict) else data
-            if filas:
-                return _mapear_bcra(filas)
+            por_id = {int(f["idVariable"]): f for f in filas if "idVariable" in f}
+            out = {}
+            for clave, i in IDS_BCRA.items():
+                f = por_id.get(i)
+                if f:
+                    valor = f.get("ultValorInformado", f.get("valor"))
+                    if valor is not None:
+                        out[clave] = {"valor": float(valor), "fecha": f.get("ultFechaInformada", f.get("fecha")),
+                                      "descripcion": f.get("descripcion")}
+            if out:
+                return out
         except Exception:  # noqa: BLE001
             continue
     raise RuntimeError("BCRA no respondió")
 
 
-def _mapear_bcra(filas: list[dict]) -> dict:
-    out = {}
-    for clave, palabras in BUSCAR_BCRA.items():
-        for f in filas:
-            desc = str(f.get("descripcion", "")).lower()
-            if all(p in desc for p in palabras):
-                valor = f.get("valor", f.get("ultValorInformado"))
-                fecha = f.get("fecha", f.get("ultFechaInformada"))
-                if valor is not None:
-                    out[clave] = {"valor": float(valor), "fecha": fecha, "descripcion": f.get("descripcion")}
-                    break
-    return out
+def bcra_serie(id_variable: int, dias: int = 60) -> list[dict]:
+    """Serie diaria [{fecha, valor}] de los últimos `dias`."""
+    params = {"desde": hace(dias), "hasta": hoy()}
+    for url in (f"{BCRA}/v4.0/Monetarias/{id_variable}", f"{BCRA}/v3.0/monetarias/{id_variable}"):
+        try:
+            data = _get(url, params=params)
+            res = data.get("results", []) if isinstance(data, dict) else data
+            if res and isinstance(res[0], dict) and "detalle" in res[0]:
+                res = res[0]["detalle"]
+            filas = [{"fecha": r["fecha"], "valor": float(r["valor"])} for r in res if "fecha" in r]
+            if filas:
+                return sorted(filas, key=lambda r: r["fecha"])
+        except Exception:  # noqa: BLE001
+            continue
+    raise RuntimeError(f"BCRA serie {id_variable} no respondió")
 
 
 def hoy() -> str:

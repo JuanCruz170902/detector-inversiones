@@ -19,7 +19,7 @@ def guardar(nombre, obj):
 
 def intento(metodo, url, **kw):
     try:
-        r = requests.request(metodo, url, headers=H, timeout=30, verify=False, **kw)
+        r = requests.request(metodo, url, headers=H, timeout=(5, 12), verify=False, **kw)
         try:
             body = r.json()
         except Exception:  # noqa: BLE001
@@ -34,6 +34,7 @@ for t in ["S30A7", "T15E7", "D15E7", "TZXA7", "AL30", "S26F7"]:
     for body in ({"symbol": t}, {"symbol": f"{t} 24HS"}, {"symbol": t, "Content-Type": "application/json"}):
         r = intento("POST", f"{BYMA}/bnown/fichatecnica/especies/general", json=body)
         res[f"{t}|{json.dumps(body)}"] = r
+        guardar("byma_ficha", res)
         if r.get("status") == 200 and r.get("body"):
             break
 guardar("byma_ficha", res)

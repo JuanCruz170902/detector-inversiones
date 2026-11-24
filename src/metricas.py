@@ -67,7 +67,18 @@ def metricas_historia(barras: list[dict]) -> dict | None:
     if not barras or len(barras) < 60:
         return None
     s = pd.Series([b["c"] for b in barras], index=pd.to_datetime([b["date"] for b in barras])).sort_index()
+    return metricas_serie(s[s > 0])
+
+
+def serie(barras: list[dict]) -> pd.Series:
+    s = pd.Series([b["c"] for b in barras], index=pd.to_datetime([b["date"] for b in barras])).sort_index()
     s = s[s > 0]
+    return s[~s.index.duplicated(keep="last")]
+
+
+def metricas_serie(s: pd.Series) -> dict | None:
+    if len(s) < 60:
+        return None
     ret = s.pct_change().dropna()
 
     def r(n):

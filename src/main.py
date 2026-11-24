@@ -17,7 +17,10 @@ from pathlib import Path
 import pandas as pd
 import yaml
 
+from . import backtest as BT
+from . import curva as C
 from . import fuentes as F
+from . import hard_dollar as HD
 from . import metricas as M
 from . import motor
 from . import paper
@@ -112,35 +115,81 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         "dolares": reg.tomar("argdatos_dolares", F.dolares),
         "riesgo_pais": reg.tomar("argdatos_riesgo_pais", F.riesgo_pais),
         "bonos_cer": reg.tomar("argdatos_bonos_cer", F.bonos_cer),
+        "letras": reg.tomar("argdatos_letras", F.letras),
+        "a3500_serie": reg.tomar("bcra_a3500_serie", F.bcra_serie, 5, 60),
         "bcra": reg.tomar("bcra", F.bcra_principales),
         "mep": reg.tomar("data912_mep", F.mep),
     }
     paneles = {n: M.panel_a_df(reg.tomar(f"data912_{n}", F.panel, n) or []) for n in F.PANELES}
     macro = armar_macro(reg, raw)
 
-    # ---- renta fija en pesos ----
-    rf = M.renta_fija_pesos(paneles["bonos"], paneles["letras"], tuple(perfiles["horizonte_meses"]))
-    cer_tir = None
-    if raw["bonos_cer"]:
-        cer_tir = pd.DataFrame(raw["bonos_cer"].get("bonos", []))
-        if not cer_tir.empty:
-            cer_tir = cer_tir.rename(columns={"tirPorcentaje": "tir"})
-    rank_rf = motor.ranking_renta_fija(rf, cer_tir, tuple(perfiles["horizonte_meses"]))
+    # ---- renta fija en pesos: curvas, breakevens, dollar linked ----
+    hz = tuple(perfiles["horizonte_meses"])
+    rf = M.renta_fija_pesos(paneles["bonos"], paneles["letras"], hz)
+    fija = C.curva_tasa_fija(raw["letras"])
+    cer = C.curva_cer(raw["bonos_cer"])
+    a3500 = macro.get("bcra_a3500")
+    dl = C.curva_dollar_linked(rf, a3500, fija)
+    be = C.breakevens_inflacion(fija, cer)
+    infl_esp = None
+    if macro.get("bcra_rem_12m"):
+        infl_esp = ((1 + macro["bcra_rem_12m"] / 100) ** (1 / 12) - 1) * 100
+        macro["inflacion_esperada_fuente"] = "REM BCRA (mediana 12 meses)"
+    elif macro.get("inflacion_3m_prom"):
+        infl_esp = macro["inflacion_3m_prom"]
+        macro["inflacion_esperada_fuente"] = "promedio últimos 3 meses"
+    if infl_esp is not None:
+        macro["inflacion_esperada_mensual"] = round(infl_esp, 2)
+    curvas = {"breakeven": C.senal_breakeven(be, hz, infl_esp)}
+    serie_a = raw.get("a3500_serie") or []
+    if not dl.empty and len(serie_a) > 15:
+        ult, ant = serie_a[-1], next((x for x in serie_a if x["fecha"] >= F.hace(31)), serie_a[0])
+        dias = max((pd.Timestamp(ult["fecha"]) - pd.Timestamp(ant["fecha"])).days, 1)
+        reciente = ((ult["valor"] / ant["valor"]) ** (30 / dias) - 1) * 100
+        tramo = dl[dl["dias"].between(hz[0] * 30, hz[1] * 30)]
+        implicita = float((tramo if not tramo.empty else dl)["devaluacion_be_mensual"].mean())
+        estado = "barata" if implicita < reciente - 0.1 else ("cara" if implicita > reciente + 0.5 else "neutral")
+        curvas["dl"] = {"implicita_mensual": round(implicita, 2), "reciente_mensual": round(reciente, 2), "estado": estado}
+        macro["devaluacion_reciente_mensual"] = round(reciente, 2)
+    if not dl.empty:
+        dl["atractivo"] = -dl["devaluacion_be_mensual"]
+    rank_rf = {"tasa_fija": C.ranking(fija, "tea", hz), "cer": C.ranking(cer, "tir", hz),
+               "dollar_linked": C.ranking(dl, "atractivo", hz) if not dl.empty else dl}
 
-    hd = paneles["bonos"]
-    if not hd.empty:
-        orden = {t: i for i, t in enumerate(universo["hard_dollar"])}
-        hd = hd[hd["ticker"].isin(orden) & (hd["precio"] > 0)].copy()
-        hd["orden"] = hd["ticker"].map(orden)
-        hd = hd.sort_values("orden")
+    # ---- hard dollar: TIR en USD de los cortos ----
+    bonos = paneles["bonos"]
+    hd = pd.DataFrame()
+    if not bonos.empty:
+        px = dict(zip(bonos["ticker"], bonos["precio"]))
+        vol = dict(zip(bonos["ticker"], bonos["volumen"]))
+        filas = []
+        for t in universo["hard_dollar"]:
+            if not px.get(t):
+                continue
+            info = HD.tir(t, px.get(t + "D")) if px.get(t + "D") else None
+            if info and not (-5 < info["tir"] < 40):
+                info = None
+            filas.append({"ticker": t, "precio": float(px[t]), "precio_usd": px.get(t + "D"),
+                          "vol_ars": (vol.get(t) or 0) * px[t] / 100, **(info or {})})
+        hd = pd.DataFrame(filas)
+        if not hd.empty:
+            hd["apto"] = hd["vol_ars"] >= C.VOL_MIN_ARS
+            hd["motivo_descarte"] = hd["apto"].map(lambda x: "" if x else "poca liquidez")
+            if "tir" not in hd:
+                hd["tir"] = float("nan")
+            hd["_c"] = hd["tir"].notna()
+            hd = hd.sort_values(["apto", "_c", "tir"], ascending=[False, False, False]).drop(columns="_c")
 
     # ---- renta variable: historia y métricas ----
     met = {"cedears_etf": {}, "cedears": {}, "acciones_arg": {}}
+    series = {"cedears_etf": {}, "cedears": {}, "acciones_arg": {}}
     if con_historia:
         for grupo, tipo in (("cedears_etf", "cedears"), ("cedears", "cedears"), ("acciones_arg", "stocks")):
             for t in universo[grupo]:
                 barras = reg.tomar(f"hist_{t}", F.historia, tipo, t)
                 met[grupo][t] = M.metricas_historia(barras) if barras else None
+                if barras:
+                    series[grupo][t] = M.serie(barras)
         # resumo el estado de las historias en una sola línea
         fallas = [k for k, v in reg.estado.items() if k.startswith("hist_") and v != "ok"]
         reg.estado = {k: v for k, v in reg.estado.items() if not k.startswith("hist_")}
@@ -148,11 +197,13 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
 
     # ---- por perfil ----
     resultado = {"generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                 "fuentes": reg.estado, "macro": macro, "perfiles": {}, "monto": monto}
+                 "fuentes": reg.estado, "macro": macro, "perfiles": {}, "monto": monto,
+                 "curvas": {"tasa_fija": tabla(fija, 40), "cer": tabla(cer, 40), "dollar_linked": tabla(dl, 20),
+                            "hard_dollar": tabla(hd, 20), "breakevens": tabla(be, 20), "senales": curvas}}
     nombres = [solo_perfil] if solo_perfil else list(perfiles["perfiles"])
     for nombre in nombres:
         p = perfiles["perfiles"][nombre]
-        sen = motor.senales_macro(macro, p)
+        sen = motor.senales_macro(macro, p, curvas)
         buckets = motor.ajustar_buckets(p, sen)
         filtros = p.get("filtros_renta_variable", {"solo_tendencia_alcista": True, "vol_max_anual": 0.35})
         cfg_s = perfiles["scoring_renta_variable"]
@@ -170,15 +221,41 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
             "candidatos": {k: tabla(v) for k, v in candidatos.items() if k in buckets},
         }
 
+    if con_historia and not solo_perfil:
+        resultado["backtest"] = correr_backtests(perfiles, series)
     if guardar and not solo_perfil:
         guardar_salidas(resultado, paneles, macro)
     return resultado
 
 
+def correr_backtests(perfiles: dict, series: dict) -> dict:
+    cfg_s = perfiles["scoring_renta_variable"]
+    com = perfiles["broker"]["comision_acciones"] * (1 + perfiles["broker"]["iva_sobre_comision"]) + perfiles["broker"]["derechos_mercado"]
+    filt_mod = perfiles["perfiles"]["moderado"]["filtros_renta_variable"]
+    filt_rie = perfiles["perfiles"]["riesgoso"]["filtros_renta_variable"]
+    casos = {
+        "moderado_cedears_etf": (series["cedears_etf"], filt_mod, 2, "SPY"),
+        "riesgoso_cedears": ({**series["cedears_etf"], **series["cedears"]}, filt_rie, 3, "SPY"),
+        "riesgoso_acciones_arg": (series["acciones_arg"], filt_rie, 2, None),
+    }
+    out = {}
+    for nombre, (ser, filt, n, bench) in casos.items():
+        try:
+            r = BT.correr(ser, cfg_s, filt, n, 2 * com, bench)  # compra + venta en cada rotación
+            if r:
+                out[nombre] = r
+        except Exception:  # noqa: BLE001
+            traceback.print_exc()
+    return out
+
+
 def tabla(df: pd.DataFrame | None, n: int = 8) -> list[dict]:
     if df is None or df.empty:
         return []
-    cols = [c for c in ("ticker", "tipo", "precio", "var_dia", "volumen", "vencimiento", "dias", "tir",
+    cols = [c for c in ("ticker", "tipo", "precio", "var_dia", "volumen", "vol_ars", "vencimiento", "dias", "tir",
+                        "tea", "tem", "ajuste", "residuo_pb", "liquido", "precio_usd", "duration", "proximo_pago",
+                        "tea_fija_equiv", "a3500_breakeven", "devaluacion_be_mensual",
+                        "fija", "cer", "tea_fija", "tir_real_cer", "inflacion_be_anual", "inflacion_be_mensual",
                         "ret_1m", "ret_3m", "ret_6m", "vol_anual", "rsi14", "sobre_sma200", "max_dd_6m",
                         "score", "apto", "motivo_descarte") if c in df.columns]
     out = df[cols].head(n).copy()
@@ -222,6 +299,17 @@ def reporte_md(res: dict, estado: dict) -> str:
                         ("riesgo_pais", "Riesgo país (pb)")):
         if k in m:
             L.append(f"- {etiqueta}: {m[k]}")
+    for k, etiqueta in (("inflacion_esperada_mensual", "Inflación esperada mensual (%)"),
+                        ("devaluacion_reciente_mensual", "Devaluación A3500 último mes (%)")):
+        if k in m:
+            L.append(f"- {etiqueta}: {m[k]}")
+    cv = res.get("curvas", {})
+    if cv.get("breakevens"):
+        L += ["", "## Curva en pesos: inflación implícita", "", "| Tasa fija | TEA | CER | TIR real | Inflación implícita mensual |", "|---|---|---|---|---|"]
+        L += [f"| {b['fija']} | {b['tea_fija']}% | {b['cer']} | {b['tir_real_cer']}% | {b['inflacion_be_mensual']}% |" for b in cv["breakevens"]]
+    if cv.get("hard_dollar"):
+        L += ["", "## Soberanos en dólares", ""]
+        L += [f"- {h['ticker']}: TIR {h.get('tir', '–')}% · duration {h.get('duration', '–')} · precio USD {h.get('precio_usd')}" for h in cv["hard_dollar"] if h.get("tir") is not None]
     for nombre, p in res["perfiles"].items():
         pr = p["propuesta"]
         L += ["", f"## Perfil {nombre}", "", p["descripcion"], ""]
@@ -236,6 +324,10 @@ def reporte_md(res: dict, estado: dict) -> str:
             u = h[-1]
             L.append(f"\nPaper trading: valor {fmt_ars(u['valor'])} sobre {fmt_ars(u['aportado'])} aportados "
                      f"({u['rend']:+.2%}); mismos aportes en MEP: {fmt_ars(u['bench_mep'])}.")
+    if res.get("backtest"):
+        L += ["", "## Backtest de la regla de renta variable", "", "| Caso | Período | Estrategia (anual) | Benchmark (anual) | Máx. caída estrategia |", "|---|---|---|---|---|"]
+        for k, b in res["backtest"].items():
+            L.append(f"| {k} | {b['desde']} a {b['hasta']} | {b['estrategia']['anual']:+.1%} | {b['bench']['anual']:+.1%} ({b['benchmark']}) | {b['estrategia']['max_drawdown']:.1%} |")
     L += ["", "## Estado de fuentes", ""] + [f"- {k}: {v}" for k, v in res["fuentes"].items()]
     return "\n".join(L) + "\n"
 

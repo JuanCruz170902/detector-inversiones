@@ -9,82 +9,76 @@ BUCKETS_BONO = ("cer", "tasa_fija", "dollar_linked", "tamar", "hard_dollar")
 
 # -------------------------- señales macro --------------------------
 
-def senales_macro(macro: dict, cfg_perfil: dict) -> dict:
-    """Devuelve señales legibles a partir de inflación, tasas y dólar."""
+def senales_macro(macro: dict, cfg_perfil: dict, curvas: dict | None = None) -> dict:
+    """Señales legibles. `curvas` trae el breakeven de inflación y la señal de dollar linked."""
+    curvas = curvas or {}
     s: dict = {"notas": []}
-    infl = macro.get("inflacion_mensual")          # % último mes, ej 2.1
-    tna_pf = macro.get("tna_plazo_fijo")           # % TNA promedio bancos, ej 32
+    be = curvas.get("breakeven") or {}
+    if be:
+        s["prefiere"] = be["prefiere"]
+        texto = {"tasa_fija": "el mercado descuenta MÁS inflación de la esperada → conviene tasa fija",
+                 "cer": "el mercado descuenta MENOS inflación de la esperada → conviene CER",
+                 "neutral": "breakeven alineado con lo esperado → reparto neutral"}[be["prefiere"]]
+        s["notas"].append(f"Inflación implícita {be['inflacion_implicita_mensual']:.2f}% mensual vs esperada "
+                          f"{be['inflacion_esperada_mensual']:.2f}%: {texto}.")
+    infl = macro.get("inflacion_mensual")
+    tna_pf = macro.get("tna_plazo_fijo")
     if infl is not None and tna_pf is not None:
         tem = tna_pf / 12
         s["tasa_real_mensual"] = round(tem - infl, 2)
         s["tasa_real_negativa"] = tem < infl
-        s["notas"].append(
-            f"Plazo fijo rinde {tem:.2f}% mensual vs inflación {infl:.2f}% → tasa real "
-            f"{'NEGATIVA: conviene CER' if tem < infl else 'positiva: conviene tasa fija'}."
-        )
+        if not be:
+            s["notas"].append(
+                f"Plazo fijo rinde {tem:.2f}% mensual vs inflación {infl:.2f}% → tasa real "
+                f"{'NEGATIVA: conviene CER' if tem < infl else 'positiva: conviene tasa fija'}.")
+    dl = curvas.get("dl") or {}
+    if dl:
+        s["dl"] = dl["estado"]
+        s["notas"].append(f"Dollar linked: devaluación implícita {dl['implicita_mensual']:.2f}% mensual vs "
+                          f"{dl['reciente_mensual']:.2f}% del último mes → cobertura {dl['estado']}.")
     oficial, mep = macro.get("dolar_oficial"), macro.get("dolar_mep")
     if oficial and mep:
         brecha = mep / oficial - 1
         s["brecha"] = round(brecha, 4)
         umbral = cfg_perfil.get("ajustes", {}).get("brecha_alerta", 0.15)
         s["brecha_alta"] = brecha > umbral
-        s["notas"].append(f"Brecha MEP/oficial {brecha:.1%}" + (" (alta: sumar cobertura)" if brecha > umbral else "."))
+        s["notas"].append(f"Brecha MEP/oficial {brecha:.1%}" + (" (alta: sumar cobertura)." if brecha > umbral else "."))
     if macro.get("riesgo_pais"):
         s["notas"].append(f"Riesgo país {macro['riesgo_pais']:.0f} pb.")
     return s
 
 
+def _mover(b: dict, desde: str, hacia: str, d: float):
+    if desde in b and hacia in b:
+        d = min(d, b[desde])
+        b[desde] -= d
+        b[hacia] += d
+
+
 def ajustar_buckets(perfil: dict, senales: dict) -> dict:
     b = dict(perfil["buckets"])
     aj = perfil.get("ajustes", {})
-    if "cer" in b and "tasa_fija" in b and "tasa_real_negativa" in senales:
-        d = aj.get("rotacion_cer_tasa_fija", 0)
+    rot = aj.get("rotacion_cer_tasa_fija", 0.10)
+    pref = senales.get("prefiere")
+    if pref == "tasa_fija":
+        _mover(b, "cer", "tasa_fija", rot)
+    elif pref == "cer":
+        _mover(b, "tasa_fija", "cer", rot)
+    elif pref is None and "tasa_real_negativa" in senales:  # respaldo si no hay curvas
         if senales["tasa_real_negativa"]:
-            d = min(d, b["tasa_fija"])
-            b["cer"] += d
-            b["tasa_fija"] -= d
+            _mover(b, "tasa_fija", "cer", rot)
         else:
-            d = min(d, b["cer"])
-            b["tasa_fija"] += d
-            b["cer"] -= d
-    if senales.get("brecha_alta") and "dollar_linked" in b and "liquidez" in b:
-        d = min(aj.get("rotacion_dl", 0), b["liquidez"])
-        b["dollar_linked"] += d
-        b["liquidez"] -= d
-    return {k: round(v, 4) for k, v in b.items() if v > 0}
+            _mover(b, "cer", "tasa_fija", rot)
+    rot_dl = aj.get("rotacion_dl", 0.10)
+    # si la cobertura ya está cara manda eso, aunque la brecha esté alta
+    if senales.get("dl") == "cara":
+        _mover(b, "dollar_linked", "tasa_fija", rot_dl)
+    elif senales.get("dl") == "barata" or senales.get("brecha_alta"):
+        _mover(b, "liquidez", "dollar_linked", rot_dl)
+    return {k: round(v, 4) for k, v in b.items() if v > 1e-9}
 
 
 # -------------------------- rankings --------------------------
-
-def ranking_renta_fija(rf: pd.DataFrame, cer_tir: pd.DataFrame | None, horizonte=(1, 6)) -> dict[str, pd.DataFrame]:
-    out = {}
-    if rf is None or rf.empty:
-        return out
-    for tipo in ("tasa_fija", "dollar_linked", "tamar"):
-        d = rf[rf["tipo"] == tipo].copy()
-        # preferir lo que vence dentro del horizonte y es líquido
-        d["orden"] = (~d["en_horizonte"]).astype(int)
-        out[tipo] = d.sort_values(["orden", "volumen"], ascending=[True, False]).head(5)
-    cer = rf[rf["tipo"] == "cer"].copy()
-    if cer_tir is not None and not cer_tir.empty:
-        cols = [c for c in ("ticker", "tir", "fechaVencimiento") if c in cer_tir.columns]
-        cer = cer.merge(cer_tir[cols], on="ticker", how="left")
-        if "fechaVencimiento" in cer:
-            # los CER no traen el vencimiento en el ticker: lo tomo de ArgentinaDatos
-            venc = pd.to_datetime(cer["fechaVencimiento"], errors="coerce")
-            cer["vencimiento"] = venc.dt.date.where(venc.notna(), cer["vencimiento"])
-            cer["dias"] = (venc - pd.Timestamp.today().normalize()).dt.days.where(venc.notna(), cer["dias"])
-            lo, hi = horizonte
-            cer["en_horizonte"] = cer["dias"].between(lo * 30, hi * 30)
-            cer = cer[~(cer["dias"] < 15)]  # muy cerca del vencimiento: TIR poco confiable
-        cer["orden"] = (~cer["en_horizonte"]).astype(int)
-        # dentro del horizonte, mayor TIR real primero
-        cer = cer.sort_values(["orden", "tir", "volumen"], ascending=[True, False, False])
-    else:
-        cer = cer.sort_values("volumen", ascending=False)
-    out["cer"] = cer.head(5)
-    return out
-
 
 def ranking_renta_variable(metricas: dict[str, dict], panel: pd.DataFrame, cfg_score: dict,
                            filtros: dict, score_fn) -> pd.DataFrame:
@@ -167,7 +161,7 @@ def proponer(perfil_nombre: str, perfil: dict, buckets: dict, candidatos: dict[s
         for _, fila in elegidos.iterrows():
             asignaciones.append({"bucket": bucket, "ticker": fila["ticker"], "monto": monto_b / n,
                                  "precio": float(fila["precio"]), "score": _num(fila.get("score")),
-                                 "tir": _num(fila.get("tir")), "vencimiento": _str(fila.get("vencimiento"))})
+                                 "tir": _num(fila.get("tir", fila.get("tea"))), "vencimiento": _str(fila.get("vencimiento"))})
 
     # tope por posición: lo que exceda va a liquidez (evita concentrar el 40% en una sola acción)
     tope = monto * perfil.get("max_peso_posicion", 1.0)
