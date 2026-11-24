@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-24T17:07:48+00:00",
+ "generado": "2026-11-24T17:17:50+00:00",
  "fuentes": {
   "argdatos_inflacion": "ok",
   "argdatos_plazo_fijo": "ok",
@@ -374,8 +374,8 @@
       "tipo": "dollar_linked",
       "precio": 158300.0,
       "var_dia": 0.44,
-      "volumen": 50329407.0,
-      "vol_ars": 79671451281.0,
+      "volumen": 51368296.0,
+      "vol_ars": 81316012568.0,
       "vencimiento": "2027-01-15",
       "dias": 52.0,
       "liquido": true,
@@ -448,27 +448,27 @@
       "bucket": "cedears_etf",
       "ticker": "XLF",
       "monto": 60000.0,
-      "precio": 50200.0,
+      "precio": 50275.0,
       "score": 0.9908,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 50200.0,
-      "costo": 313.5
+      "monto_bruto": 50275.0,
+      "costo": 313.97
      },
      {
       "bucket": "hard_dollar",
       "ticker": "AL30",
       "monto": 40000.0,
-      "precio": 80420.0,
+      "precio": 80380.0,
       "score": null,
       "tir": 20.48,
       "vencimiento": null,
       "cantidad": 49,
       "unidad": "VN",
-      "monto_bruto": 39405.8,
-      "costo": 103.05
+      "monto_bruto": 39386.2,
+      "costo": 102.99
      },
      {
       "bucket": "cer",
@@ -486,14 +486,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 29980.55,
+      "monto_bruto": 29924.74,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 169394.26,
-    "liquidez": 29980.55,
-    "costos": 625.19
+    "invertido": 169449.65,
+    "liquidez": 29924.74,
+    "costos": 625.61
    },
    "candidatos": {
     "tasa_fija": [
@@ -735,10 +735,10 @@
     "hard_dollar": [
      {
       "ticker": "AL30",
-      "precio": 80420.0,
-      "vol_ars": 269479313664.0,
+      "precio": 80380.0,
+      "vol_ars": 283177318077.8,
       "tir": 20.48,
-      "precio_usd": 47.611,
+      "precio_usd": 47.61,
       "duration": 1.63,
       "proximo_pago": "2027-01-09",
       "apto": true,
@@ -746,10 +746,10 @@
      },
      {
       "ticker": "AL29",
-      "precio": 81770.0,
-      "vol_ars": 784852173.3,
-      "tir": 19.46,
-      "precio_usd": 48.422,
+      "precio": 81750.0,
+      "vol_ars": 797844030.0,
+      "tir": 19.28,
+      "precio_usd": 48.509,
       "duration": 1.24,
       "proximo_pago": "2027-01-09",
       "apto": true,
@@ -757,21 +757,21 @@
      },
      {
       "ticker": "GD30",
-      "precio": 83360.0,
-      "vol_ars": 8035505539.2,
-      "tir": 17.86,
-      "precio_usd": 49.36,
-      "duration": 1.65,
+      "precio": 83410.0,
+      "vol_ars": 8566741658.1,
+      "tir": 17.76,
+      "precio_usd": 49.428,
+      "duration": 1.66,
       "proximo_pago": "2027-01-09",
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "GD29",
-      "precio": 85000.0,
-      "vol_ars": 153362950.0,
-      "tir": 15.73,
-      "precio_usd": 50.38,
+      "precio": 84910.0,
+      "vol_ars": 153298212.2,
+      "tir": 15.82,
+      "precio_usd": 50.33,
       "duration": 1.26,
       "proximo_pago": "2027-01-09",
       "apto": true,
@@ -779,10 +779,10 @@
      },
      {
       "ticker": "AL35",
-      "precio": 100980.0,
-      "vol_ars": 2467678554.0,
+      "precio": 101190.0,
+      "vol_ars": 2529626548.2,
       "tir": null,
-      "precio_usd": 59.8,
+      "precio_usd": 59.91,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -790,10 +790,10 @@
      },
      {
       "ticker": "GD35",
-      "precio": 108200.0,
-      "vol_ars": 5575304714.0,
+      "precio": 108330.0,
+      "vol_ars": 5621383445.7,
       "tir": null,
-      "precio_usd": 64.06,
+      "precio_usd": 64.16,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -801,10 +801,10 @@
      },
      {
       "ticker": "AE38",
-      "precio": 105800.0,
-      "vol_ars": 3027332634.0,
+      "precio": 105750.0,
+      "vol_ars": 3131619165.0,
       "tir": null,
-      "precio_usd": 62.52,
+      "precio_usd": 62.64,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -812,10 +812,10 @@
      },
      {
       "ticker": "GD38",
-      "precio": 115900.0,
-      "vol_ars": 588799816.0,
+      "precio": 116160.0,
+      "vol_ars": 618755280.0,
       "tir": null,
-      "precio_usd": 68.58,
+      "precio_usd": 68.65,
       "duration": null,
       "proximo_pago": null,
       "apto": true,
@@ -825,8 +825,8 @@
     "cedears_etf": [
      {
       "ticker": "XLF",
-      "precio": 50200.0,
-      "volumen": 213952400.0,
+      "precio": 50275.0,
+      "volumen": 214523425.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -840,8 +840,8 @@
      },
      {
       "ticker": "DIA",
-      "precio": 44640.0,
-      "volumen": 1474325280.0,
+      "precio": 44760.0,
+      "volumen": 1480302720.0,
       "ret_1m": 0.0107627515,
       "ret_3m": 0.0315186246,
       "ret_6m": 0.1758301579,
@@ -854,9 +854,24 @@
       "motivo_descarte": ""
      },
      {
+      "ticker": "SPY",
+      "precio": 21500.0,
+      "volumen": 19320738500.0,
+      "ret_1m": -0.0086124402,
+      "ret_3m": 0.0267591675,
+      "ret_6m": 0.1302100734,
+      "vol_anual": 0.1651086354,
+      "rsi14": 43.5897435897,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0446511628,
+      "score": 0.4753513969,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
       "ticker": "XLE",
-      "precio": 54100.0,
-      "volumen": 537321200.0,
+      "precio": 54125.0,
+      "volumen": 543198500.0,
       "ret_1m": -0.0198645598,
       "ret_3m": 0.0720987654,
       "ret_6m": 0.1886771792,
@@ -870,8 +885,8 @@
      },
      {
       "ticker": "IWM",
-      "precio": 47820.0,
-      "volumen": 166700520.0,
+      "precio": 47920.0,
+      "volumen": 167336640.0,
       "ret_1m": 0.0008896797,
       "ret_3m": -0.0474174428,
       "ret_6m": 0.1083743842,
@@ -885,8 +900,8 @@
      },
      {
       "ticker": "QQQ",
-      "precio": 57000.0,
-      "volumen": 2915151000.0,
+      "precio": 57200.0,
+      "volumen": 3048931600.0,
       "ret_1m": -0.064957265,
       "ret_3m": -0.0305715552,
       "ret_6m": 0.0473910962,
@@ -900,8 +915,8 @@
      },
      {
       "ticker": "EWZ",
-      "precio": 26460.0,
-      "volumen": 2468665080.0,
+      "precio": 26500.0,
+      "volumen": 2509815000.0,
       "ret_1m": -0.2675814751,
       "ret_3m": -0.0525147929,
       "ret_6m": -0.0433159074,
@@ -915,8 +930,8 @@
      },
      {
       "ticker": "EEM",
-      "precio": 20240.0,
-      "volumen": 152225040.0,
+      "precio": 20360.0,
+      "volumen": 157566040.0,
       "ret_1m": -0.0605033882,
       "ret_3m": -0.0787850024,
       "ret_6m": 0.0125195618,
@@ -925,21 +940,6 @@
       "sobre_sma200": false,
       "max_dd_6m": -0.1244925575,
       "score": -0.1294650055,
-      "apto": false,
-      "motivo_descarte": "debajo de SMA200, momentum negativo"
-     },
-     {
-      "ticker": "SPY",
-      "precio": 21390.0,
-      "volumen": 9239496060.0,
-      "ret_1m": -0.0086124402,
-      "ret_3m": 0.0267591675,
-      "ret_6m": -0.6213796254,
-      "vol_anual": 0.1651086354,
-      "rsi14": 43.5897435897,
-      "sobre_sma200": false,
-      "max_dd_6m": -0.6735714286,
-      "score": -1.800694605,
       "apto": false,
       "motivo_descarte": "debajo de SMA200, momentum negativo"
      }
@@ -974,54 +974,67 @@
      {
       "bucket": "acciones_arg",
       "ticker": "TXAR",
-      "monto": 50000.0,
-      "precio": 704.5,
+      "monto": 40000.0,
+      "precio": 704.0,
       "score": 0.22,
       "tir": null,
       "vencimiento": null,
-      "cantidad": 70,
+      "cantidad": 56,
       "unidad": "acciones",
-      "monto_bruto": 49315.0,
-      "costo": 307.97
+      "monto_bruto": 39424.0,
+      "costo": 246.2
+     },
+     {
+      "bucket": "acciones_arg",
+      "ticker": "MIRG",
+      "monto": 40000.0,
+      "precio": 1705.0,
+      "score": 0.0295,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 23,
+      "unidad": "acciones",
+      "monto_bruto": 39215.0,
+      "costo": 244.9
      },
      {
       "bucket": "cedears",
       "ticker": "CVX",
       "monto": 30000.0,
-      "precio": 23470.0,
+      "precio": 23460.0,
       "score": 0.6577,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 23470.0,
-      "costo": 146.57
+      "monto_bruto": 23460.0,
+      "costo": 146.51
      },
      {
       "bucket": "cedears",
       "ticker": "WMT",
       "monto": 30000.0,
-      "precio": 13100.0,
+      "precio": 13130.0,
       "score": 0.5217,
       "tir": null,
       "vencimiento": null,
       "cantidad": 2,
       "unidad": "acciones",
-      "monto_bruto": 26200.0,
-      "costo": 163.62
+      "monto_bruto": 26260.0,
+      "costo": 163.99
      },
      {
       "bucket": "cedears",
-      "ticker": "XOM",
+      "ticker": "SPY",
       "monto": 30000.0,
-      "precio": 28480.0,
-      "score": 0.4346,
+      "precio": 21500.0,
+      "score": 0.4754,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 28480.0,
-      "costo": 177.86
+      "monto_bruto": 21500.0,
+      "costo": 134.27
      },
      {
       "bucket": "tasa_fija",
@@ -1039,14 +1052,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 41739.33,
+      "monto_bruto": 19205.48,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 157386.41,
-    "liquidez": 41739.33,
-    "costos": 874.26
+    "invertido": 179780.41,
+    "liquidez": 19205.48,
+    "costos": 1014.11
    },
    "candidatos": {
     "tasa_fija": [
@@ -1166,8 +1179,8 @@
     "cedears": [
      {
       "ticker": "V",
-      "precio": 41360.0,
-      "volumen": 376003760.0,
+      "precio": 41440.0,
+      "volumen": 456005760.0,
       "ret_1m": 0.0886351278,
       "ret_3m": 0.2427063935,
       "ret_6m": 0.4645208486,
@@ -1181,8 +1194,8 @@
      },
      {
       "ticker": "AAPL",
-      "precio": 31500.0,
-      "volumen": 2437375500.0,
+      "precio": 31560.0,
+      "volumen": 2482635840.0,
       "ret_1m": 0.1172214182,
       "ret_3m": 0.2522303325,
       "ret_6m": 0.3859964093,
@@ -1196,8 +1209,8 @@
      },
      {
       "ticker": "JNJ",
-      "precio": 32980.0,
-      "volumen": 235807000.0,
+      "precio": 33000.0,
+      "volumen": 268653000.0,
       "ret_1m": 0.1437677054,
       "ret_3m": 0.1381254405,
       "ret_6m": 0.4104803493,
@@ -1211,8 +1224,8 @@
      },
      {
       "ticker": "XLF",
-      "precio": 50200.0,
-      "volumen": 213952400.0,
+      "precio": 50275.0,
+      "volumen": 214523425.0,
       "ret_1m": 0.0766182299,
       "ret_3m": 0.0809018568,
       "ret_6m": 0.2821185107,
@@ -1226,8 +1239,8 @@
      },
      {
       "ticker": "BRKB",
-      "precio": 47080.0,
-      "volumen": 1153789560.0,
+      "precio": 47100.0,
+      "volumen": 1270993500.0,
       "ret_1m": 0.1597396094,
       "ret_3m": 0.2931323283,
       "ret_6m": 0.4217311234,
@@ -1241,8 +1254,8 @@
      },
      {
       "ticker": "MSFT",
-      "precio": 29760.0,
-      "volumen": 2381663040.0,
+      "precio": 29820.0,
+      "volumen": 2421205080.0,
       "ret_1m": 0.0027739251,
       "ret_3m": 0.1367924528,
       "ret_6m": 0.3917228104,
@@ -1256,8 +1269,8 @@
      },
      {
       "ticker": "KO",
-      "precio": 35140.0,
-      "volumen": 1151713500.0,
+      "precio": 35180.0,
+      "volumen": 1185495640.0,
       "ret_1m": 0.1439842209,
       "ret_3m": 0.2142358688,
       "ret_6m": 0.4227309894,
@@ -1271,8 +1284,8 @@
      },
      {
       "ticker": "CVX",
-      "precio": 23470.0,
-      "volumen": 251903510.0,
+      "precio": 23460.0,
+      "volumen": 252195000.0,
       "ret_1m": 0.0152439024,
       "ret_3m": 0.1443298969,
       "ret_6m": 0.268226333,
@@ -1288,8 +1301,8 @@
     "acciones_arg": [
      {
       "ticker": "TXAR",
-      "precio": 704.5,
-      "volumen": 265483075.5,
+      "precio": 704.0,
+      "volumen": 271369472.0,
       "ret_1m": -0.018815331,
       "ret_3m": 0.042962963,
       "ret_6m": 0.1465798046,
@@ -1302,9 +1315,24 @@
       "motivo_descarte": ""
      },
      {
+      "ticker": "MIRG",
+      "precio": 1705.0,
+      "volumen": 11111485.0,
+      "ret_1m": -0.0087719298,
+      "ret_3m": 0.0495356037,
+      "ret_6m": -0.0281099224,
+      "vol_anual": 0.3629795188,
+      "rsi14": 37.6237623762,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.1534526854,
+      "score": 0.029513623,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
       "ticker": "ALUA",
-      "precio": 848.0,
-      "volumen": 178678688.0,
+      "precio": 847.5,
+      "volumen": 180471735.0,
       "ret_1m": 0.0432399513,
       "ret_3m": -0.0011661808,
       "ret_6m": -0.0587912088,
@@ -1319,7 +1347,7 @@
      {
       "ticker": "LOMA",
       "precio": 2950.0,
-      "volumen": 729673650.0,
+      "volumen": 769955900.0,
       "ret_1m": -0.0978520286,
       "ret_3m": -0.0389830508,
       "ret_6m": -0.0928,
@@ -1333,8 +1361,8 @@
      },
      {
       "ticker": "CRES",
-      "precio": 1462.0,
-      "volumen": 170195806.0,
+      "precio": 1460.0,
+      "volumen": 189981040.0,
       "ret_1m": -0.2263942573,
       "ret_3m": -0.1934369603,
       "ret_6m": -0.1047923323,
@@ -1348,8 +1376,8 @@
      },
      {
       "ticker": "CEPU",
-      "precio": 1855.0,
-      "volumen": 668866625.0,
+      "precio": 1864.0,
+      "volumen": 733288280.0,
       "ret_1m": -0.1239337682,
       "ret_3m": -0.1399014778,
       "ret_6m": -0.1625899281,
@@ -1363,8 +1391,8 @@
      },
      {
       "ticker": "PAMP",
-      "precio": 4465.0,
-      "volumen": 2152402365.0,
+      "precio": 4482.5,
+      "volumen": 2398401967.5,
       "ret_1m": -0.1432086614,
       "ret_3m": -0.1364087302,
       "ret_6m": -0.1121876594,
@@ -1378,8 +1406,8 @@
      },
      {
       "ticker": "BMA",
-      "precio": 9200.0,
-      "volumen": 6749046400.0,
+      "precio": 9235.0,
+      "volumen": 7120591340.0,
       "ret_1m": -0.132751938,
       "ret_3m": -0.2244367418,
       "ret_6m": -0.1190944882,
@@ -1388,21 +1416,6 @@
       "sobre_sma200": false,
       "max_dd_6m": -0.4169381107,
       "score": -0.4818715271,
-      "apto": false,
-      "motivo_descarte": "momentum negativo"
-     },
-     {
-      "ticker": "TGSU2",
-      "precio": 7090.0,
-      "volumen": 416388610.0,
-      "ret_1m": -0.1748666271,
-      "ret_3m": -0.2240802676,
-      "ret_6m": -0.2266666667,
-      "vol_anual": 0.3779529925,
-      "rsi14": 25.4174397032,
-      "sobre_sma200": false,
-      "max_dd_6m": -0.3248756219,
-      "score": -0.5963002585,
       "apto": false,
       "motivo_descarte": "momentum negativo"
      }
@@ -1845,8 +1858,8 @@
     "tipo": "dollar_linked",
     "precio": 158300.0,
     "var_dia": 0.44,
-    "volumen": 50329407.0,
-    "vol_ars": 79671451281.0,
+    "volumen": 51368296.0,
+    "vol_ars": 81316012568.0,
     "vencimiento": "2027-01-15",
     "dias": 52.0,
     "liquido": true,
@@ -1886,10 +1899,10 @@
   "hard_dollar": [
    {
     "ticker": "AL30",
-    "precio": 80420.0,
-    "vol_ars": 269479313664.0,
+    "precio": 80380.0,
+    "vol_ars": 283177318077.8,
     "tir": 20.48,
-    "precio_usd": 47.611,
+    "precio_usd": 47.61,
     "duration": 1.63,
     "proximo_pago": "2027-01-09",
     "apto": true,
@@ -1897,10 +1910,10 @@
    },
    {
     "ticker": "AL29",
-    "precio": 81770.0,
-    "vol_ars": 784852173.3,
-    "tir": 19.46,
-    "precio_usd": 48.422,
+    "precio": 81750.0,
+    "vol_ars": 797844030.0,
+    "tir": 19.28,
+    "precio_usd": 48.509,
     "duration": 1.24,
     "proximo_pago": "2027-01-09",
     "apto": true,
@@ -1908,21 +1921,21 @@
    },
    {
     "ticker": "GD30",
-    "precio": 83360.0,
-    "vol_ars": 8035505539.2,
-    "tir": 17.86,
-    "precio_usd": 49.36,
-    "duration": 1.65,
+    "precio": 83410.0,
+    "vol_ars": 8566741658.1,
+    "tir": 17.76,
+    "precio_usd": 49.428,
+    "duration": 1.66,
     "proximo_pago": "2027-01-09",
     "apto": true,
     "motivo_descarte": ""
    },
    {
     "ticker": "GD29",
-    "precio": 85000.0,
-    "vol_ars": 153362950.0,
-    "tir": 15.73,
-    "precio_usd": 50.38,
+    "precio": 84910.0,
+    "vol_ars": 153298212.2,
+    "tir": 15.82,
+    "precio_usd": 50.33,
     "duration": 1.26,
     "proximo_pago": "2027-01-09",
     "apto": true,
@@ -1930,10 +1943,10 @@
    },
    {
     "ticker": "AL35",
-    "precio": 100980.0,
-    "vol_ars": 2467678554.0,
+    "precio": 101190.0,
+    "vol_ars": 2529626548.2,
     "tir": null,
-    "precio_usd": 59.8,
+    "precio_usd": 59.91,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1941,10 +1954,10 @@
    },
    {
     "ticker": "GD35",
-    "precio": 108200.0,
-    "vol_ars": 5575304714.0,
+    "precio": 108330.0,
+    "vol_ars": 5621383445.7,
     "tir": null,
-    "precio_usd": 64.06,
+    "precio_usd": 64.16,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1952,10 +1965,10 @@
    },
    {
     "ticker": "AE38",
-    "precio": 105800.0,
-    "vol_ars": 3027332634.0,
+    "precio": 105750.0,
+    "vol_ars": 3131619165.0,
     "tir": null,
-    "precio_usd": 62.52,
+    "precio_usd": 62.64,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1963,10 +1976,10 @@
    },
    {
     "ticker": "GD38",
-    "precio": 115900.0,
-    "vol_ars": 588799816.0,
+    "precio": 116160.0,
+    "vol_ars": 618755280.0,
     "tir": null,
-    "precio_usd": 68.58,
+    "precio_usd": 68.65,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1974,10 +1987,10 @@
    },
    {
     "ticker": "AL41",
-    "precio": 94340.0,
-    "vol_ars": 2242483498.2,
+    "precio": 94450.0,
+    "vol_ars": 2701859368.0,
     "tir": null,
-    "precio_usd": 55.73,
+    "precio_usd": 55.88,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1985,10 +1998,10 @@
    },
    {
     "ticker": "GD41",
-    "precio": 101800.0,
-    "vol_ars": 2678825262.0,
+    "precio": 102000.0,
+    "vol_ars": 3028169880.0,
     "tir": null,
-    "precio_usd": 60.34,
+    "precio_usd": 60.44,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -1996,10 +2009,10 @@
    },
    {
     "ticker": "GD46",
-    "precio": 95720.0,
-    "vol_ars": 27900465.6,
+    "precio": 97960.0,
+    "vol_ars": 29427184.0,
     "tir": null,
-    "precio_usd": 57.83,
+    "precio_usd": 56.62,
     "duration": null,
     "proximo_pago": null,
     "apto": true,
@@ -2075,42 +2088,44 @@
    "n": 2,
    "benchmark": "SPY",
    "estrategia": {
-    "total": 0.4503,
-    "anual": 0.1212,
-    "vol_anual": 0.2098,
-    "max_drawdown": -0.1608
+    "total": 0.3278,
+    "anual": 0.0912,
+    "vol_anual": 0.204,
+    "max_drawdown": -0.1609
    },
    "bench": {
-    "total": 0.18,
-    "anual": 0.0522,
-    "vol_anual": 0.4807,
-    "max_drawdown": -0.6515
+    "total": 2.5223,
+    "anual": 0.4732,
+    "vol_anual": 0.2928,
+    "max_drawdown": -0.1083
    },
    "meses_le_gana": 18,
    "serie": [
     {
      "fecha": "2023-09-30",
-     "estrategia": 1.0023,
+     "estrategia": 0.9958,
      "benchmark": 1.0007,
-     "ret_mes": 0.015,
+     "ret_mes": 0.0083,
      "ret_bench": 0.0007,
      "cartera": [
-      "DIA"
+      "DIA",
+      "QQQ"
      ]
     },
     {
      "fecha": "2023-10-31",
-     "estrategia": 1.059,
+     "estrategia": 1.0441,
      "benchmark": 1.028,
-     "ret_mes": 0.0566,
+     "ret_mes": 0.0486,
      "ret_bench": 0.0273,
      "cartera": [
-      "DIA"
+      "DIA",
+      "QQQ"
      ]
     },
     {
      "fecha": "2023-11-30",
-     "estrategia": 1.0458,
+     "estrategia": 1.0311,
      "benchmark": 1.0864,
      "ret_mes": 0.0,
      "ret_bench": 0.0568,
@@ -2118,7 +2133,7 @@
     },
     {
      "fecha": "2023-12-31",
-     "estrategia": 1.0458,
+     "estrategia": 1.0311,
      "benchmark": 1.3182,
      "ret_mes": 0.0,
      "ret_bench": 0.2134,
@@ -2126,7 +2141,7 @@
     },
     {
      "fecha": "2024-01-31",
-     "estrategia": 1.0458,
+     "estrategia": 1.0311,
      "benchmark": 1.7273,
      "ret_mes": 0.0,
      "ret_bench": 0.3103,
@@ -2134,7 +2149,7 @@
     },
     {
      "fecha": "2024-02-29",
-     "estrategia": 1.0458,
+     "estrategia": 1.0311,
      "benchmark": 1.5503,
      "ret_mes": 0.0,
      "ret_bench": -0.1025,
@@ -2142,7 +2157,7 @@
     },
     {
      "fecha": "2024-03-31",
-     "estrategia": 1.0458,
+     "estrategia": 1.0311,
      "benchmark": 1.6183,
      "ret_mes": 0.0,
      "ret_bench": 0.0439,
@@ -2150,7 +2165,7 @@
     },
     {
      "fecha": "2024-04-30",
-     "estrategia": 1.0458,
+     "estrategia": 1.0311,
      "benchmark": 1.5662,
      "ret_mes": 0.0,
      "ret_bench": -0.0322,
@@ -2158,7 +2173,7 @@
     },
     {
      "fecha": "2024-05-31",
-     "estrategia": 1.2259,
+     "estrategia": 1.2087,
      "benchmark": 1.877,
      "ret_mes": 0.1871,
      "ret_bench": 0.1984,
@@ -2169,7 +2184,7 @@
     },
     {
      "fecha": "2024-06-30",
-     "estrategia": 1.3101,
+     "estrategia": 1.2917,
      "benchmark": 2.1012,
      "ret_mes": 0.0821,
      "ret_bench": 0.1194,
@@ -2180,7 +2195,7 @@
     },
     {
      "fecha": "2024-07-31",
-     "estrategia": 1.2233,
+     "estrategia": 1.2061,
      "benchmark": 2.0159,
      "ret_mes": -0.0544,
      "ret_bench": -0.0406,
@@ -2191,7 +2206,7 @@
     },
     {
      "fecha": "2024-08-31",
-     "estrategia": 1.2653,
+     "estrategia": 1.2475,
      "benchmark": 2.08,
      "ret_mes": 0.043,
      "ret_bench": 0.0318,
@@ -2202,7 +2217,7 @@
     },
     {
      "fecha": "2024-09-30",
-     "estrategia": 1.2389,
+     "estrategia": 1.2215,
      "benchmark": 2.0273,
      "ret_mes": -0.0084,
      "ret_bench": -0.0253,
@@ -2213,7 +2228,7 @@
     },
     {
      "fecha": "2024-10-31",
-     "estrategia": 1.156,
+     "estrategia": 1.1398,
      "benchmark": 1.8736,
      "ret_mes": -0.0551,
      "ret_bench": -0.0758,
@@ -2224,7 +2239,7 @@
     },
     {
      "fecha": "2024-11-30",
-     "estrategia": 1.1853,
+     "estrategia": 1.1686,
      "benchmark": 1.9106,
      "ret_mes": 0.034,
      "ret_bench": 0.0198,
@@ -2235,7 +2250,7 @@
     },
     {
      "fecha": "2024-12-31",
-     "estrategia": 1.1664,
+     "estrategia": 1.15,
      "benchmark": 1.9974,
      "ret_mes": -0.0077,
      "ret_bench": 0.0455,
@@ -2246,7 +2261,7 @@
     },
     {
      "fecha": "2025-01-31",
-     "estrategia": 1.2286,
+     "estrategia": 1.2113,
      "benchmark": 2.0316,
      "ret_mes": 0.0599,
      "ret_bench": 0.0171,
@@ -2256,7 +2271,7 @@
     },
     {
      "fecha": "2025-02-28",
-     "estrategia": 1.2539,
+     "estrategia": 1.2363,
      "benchmark": 2.0587,
      "ret_mes": 0.0271,
      "ret_bench": 0.0133,
@@ -2267,7 +2282,7 @@
     },
     {
      "fecha": "2025-03-31",
-     "estrategia": 1.2606,
+     "estrategia": 1.2429,
      "benchmark": 2.0985,
      "ret_mes": 0.0137,
      "ret_bench": 0.0194,
@@ -2278,7 +2293,7 @@
     },
     {
      "fecha": "2025-04-30",
-     "estrategia": 1.1133,
+     "estrategia": 1.0977,
      "benchmark": 1.8807,
      "ret_mes": -0.1057,
      "ret_bench": -0.1038,
@@ -2289,7 +2304,7 @@
     },
     {
      "fecha": "2025-05-31",
-     "estrategia": 1.0994,
+     "estrategia": 1.0839,
      "benchmark": 2.0216,
      "ret_mes": 0.0,
      "ret_bench": 0.0749,
@@ -2297,7 +2312,7 @@
     },
     {
      "fecha": "2025-06-30",
-     "estrategia": 1.1597,
+     "estrategia": 1.1434,
      "benchmark": 2.1298,
      "ret_mes": 0.0682,
      "ret_bench": 0.0535,
@@ -2307,7 +2322,7 @@
     },
     {
      "fecha": "2025-07-31",
-     "estrategia": 1.3003,
+     "estrategia": 1.2821,
      "benchmark": 2.4544,
      "ret_mes": 0.1213,
      "ret_bench": 0.1524,
@@ -2317,7 +2332,7 @@
     },
     {
      "fecha": "2025-08-31",
-     "estrategia": 1.3134,
+     "estrategia": 1.295,
      "benchmark": 2.4943,
      "ret_mes": 0.0229,
      "ret_bench": 0.0162,
@@ -2328,7 +2343,7 @@
     },
     {
      "fecha": "2025-09-30",
-     "estrategia": 1.5573,
+     "estrategia": 1.5354,
      "benchmark": 2.9271,
      "ret_mes": 0.1956,
      "ret_bench": 0.1735,
@@ -2339,7 +2354,7 @@
     },
     {
      "fecha": "2025-10-31",
-     "estrategia": 1.5698,
+     "estrategia": 1.5478,
      "benchmark": 2.9171,
      "ret_mes": 0.0165,
      "ret_bench": -0.0034,
@@ -2350,7 +2365,7 @@
     },
     {
      "fecha": "2025-11-30",
-     "estrategia": 1.5502,
+     "estrategia": 1.5284,
      "benchmark": 2.9641,
      "ret_mes": 0.0,
      "ret_bench": 0.0161,
@@ -2358,7 +2373,7 @@
     },
     {
      "fecha": "2025-12-31",
-     "estrategia": 1.5502,
+     "estrategia": 1.5284,
      "benchmark": 2.9784,
      "ret_mes": 0.0,
      "ret_bench": 0.0048,
@@ -2366,7 +2381,7 @@
     },
     {
      "fecha": "2026-01-31",
-     "estrategia": 1.5737,
+     "estrategia": 1.5515,
      "benchmark": 2.9599,
      "ret_mes": 0.028,
      "ret_bench": -0.0062,
@@ -2377,7 +2392,7 @@
     },
     {
      "fecha": "2026-02-28",
-     "estrategia": 1.5577,
+     "estrategia": 1.5359,
      "benchmark": 2.8517,
      "ret_mes": -0.0018,
      "ret_bench": -0.0366,
@@ -2388,101 +2403,101 @@
     },
     {
      "fecha": "2026-03-31",
-     "estrategia": 1.4773,
+     "estrategia": 1.5385,
      "benchmark": 2.7312,
-     "ret_mes": -0.0437,
+     "ret_mes": 0.0102,
      "ret_bench": -0.0422,
      "cartera": [
       "EEM",
-      "EWZ"
+      "XLE"
      ]
     },
     {
      "fecha": "2026-04-30",
-     "estrategia": 1.6257,
+     "estrategia": 1.5612,
      "benchmark": 3.0652,
-     "ret_mes": 0.1004,
+     "ret_mes": 0.0232,
      "ret_bench": 0.1223,
      "cartera": [
-      "EEM",
-      "EWZ"
+      "EWZ",
+      "XLE"
      ]
     },
     {
      "fecha": "2026-05-31",
-     "estrategia": 1.5921,
-     "benchmark": 1.0683,
-     "ret_mes": -0.0206,
-     "ret_bench": -0.6515,
+     "estrategia": 1.4298,
+     "benchmark": 3.1891,
+     "ret_mes": -0.0842,
+     "ret_bench": 0.0404,
      "cartera": [
-      "EEM",
-      "EWZ"
+      "EWZ",
+      "XLE"
      ]
     },
     {
      "fecha": "2026-06-30",
-     "estrategia": 1.688,
-     "benchmark": 1.1133,
-     "ret_mes": 0.0736,
+     "estrategia": 1.4793,
+     "benchmark": 3.3234,
+     "ret_mes": 0.0477,
      "ret_bench": 0.0421,
      "cartera": [
-      "IWM",
-      "QQQ"
+      "QQQ",
+      "SPY"
      ]
     },
     {
      "fecha": "2026-07-31",
-     "estrategia": 1.6374,
-     "benchmark": 1.1202,
-     "ret_mes": -0.0219,
+     "estrategia": 1.4403,
+     "benchmark": 3.3438,
+     "ret_mes": -0.0264,
      "ret_bench": 0.0061,
      "cartera": [
-      "DIA",
-      "QQQ"
+      "QQQ",
+      "SPY"
      ]
     },
     {
      "fecha": "2026-08-31",
-     "estrategia": 1.6677,
-     "benchmark": 1.1651,
-     "ret_mes": 0.0271,
+     "estrategia": 1.4763,
+     "benchmark": 3.4781,
+     "ret_mes": 0.0336,
      "ret_bench": 0.0402,
      "cartera": [
       "DIA",
-      "XLF"
+      "SPY"
      ]
     },
     {
      "fecha": "2026-09-30",
-     "estrategia": 1.585,
-     "benchmark": 1.172,
-     "ret_mes": -0.0496,
+     "estrategia": 1.4201,
+     "benchmark": 3.4985,
+     "ret_mes": -0.03,
      "ret_bench": 0.0059,
      "cartera": [
-      "DIA",
+      "SPY",
       "XLF"
      ]
     },
     {
      "fecha": "2026-10-31",
-     "estrategia": 1.4848,
-     "benchmark": 1.1913,
-     "ret_mes": -0.0514,
+     "estrategia": 1.3914,
+     "benchmark": 3.5563,
+     "ret_mes": -0.012,
      "ret_bench": 0.0165,
      "cartera": [
-      "EEM",
-      "QQQ"
+      "QQQ",
+      "SPY"
      ]
     },
     {
      "fecha": "2026-11-30",
-     "estrategia": 1.4503,
-     "benchmark": 1.18,
-     "ret_mes": -0.0109,
+     "estrategia": 1.3278,
+     "benchmark": 3.5223,
+     "ret_mes": -0.0377,
      "ret_bench": -0.0096,
      "cartera": [
-      "XLE",
-      "XLF"
+      "SPY",
+      "XLE"
      ]
     }
    ]
@@ -2494,70 +2509,70 @@
    "n": 3,
    "benchmark": "SPY",
    "estrategia": {
-    "total": 2.6323,
-    "anual": 0.4,
-    "vol_anual": 0.3868,
-    "max_drawdown": -0.2912
+    "total": 2.7422,
+    "anual": 0.4109,
+    "vol_anual": 0.3956,
+    "max_drawdown": -0.2584
    },
    "bench": {
-    "total": 1.7743,
-    "anual": 0.305,
-    "vol_anual": 0.492,
-    "max_drawdown": -0.6515
+    "total": 7.2815,
+    "anual": 0.7358,
+    "vol_anual": 0.3364,
+    "max_drawdown": -0.1083
    },
-   "meses_le_gana": 19,
+   "meses_le_gana": 20,
    "serie": [
     {
      "fecha": "2023-02-28",
-     "estrategia": 0.9208,
+     "estrategia": 0.8949,
      "benchmark": 0.9752,
-     "ret_mes": -0.0675,
+     "ret_mes": -0.0938,
      "ret_bench": -0.0248,
      "cartera": [
       "BABA",
       "KO",
-      "MELI"
+      "V"
      ]
     },
     {
      "fecha": "2023-03-31",
-     "estrategia": 1.1156,
+     "estrategia": 1.0826,
      "benchmark": 1.1127,
-     "ret_mes": 0.2115,
+     "ret_mes": 0.222,
      "ret_bench": 0.1411,
      "cartera": [
-      "BABA",
-      "KO",
-      "MELI"
+      "MELI",
+      "META",
+      "V"
      ]
     },
     {
      "fecha": "2023-04-30",
-     "estrategia": 1.2536,
+     "estrategia": 1.2167,
      "benchmark": 1.2657,
-     "ret_mes": 0.1308,
+     "ret_mes": 0.1309,
      "ret_bench": 0.1375,
      "cartera": [
-      "AAPL",
       "KO",
-      "MELI"
+      "MELI",
+      "V"
      ]
     },
     {
      "fecha": "2023-05-31",
-     "estrategia": 1.3672,
+     "estrategia": 1.407,
      "benchmark": 1.3698,
-     "ret_mes": 0.0974,
+     "ret_mes": 0.1637,
      "ret_bench": 0.0822,
      "cartera": [
-      "GOOGL",
-      "KO",
-      "MELI"
+      "AMD",
+      "MELI",
+      "V"
      ]
     },
     {
      "fecha": "2023-06-30",
-     "estrategia": 1.4732,
+     "estrategia": 1.5219,
      "benchmark": 1.5217,
      "ret_mes": 0.0884,
      "ret_bench": 0.1109,
@@ -2569,7 +2584,7 @@
     },
     {
      "fecha": "2023-07-31",
-     "estrategia": 1.6516,
+     "estrategia": 1.7062,
      "benchmark": 1.692,
      "ret_mes": 0.1324,
      "ret_bench": 0.1119,
@@ -2581,9 +2596,9 @@
     },
     {
      "fecha": "2023-08-31",
-     "estrategia": 2.2804,
+     "estrategia": 2.3187,
      "benchmark": 2.3512,
-     "ret_mes": 0.3807,
+     "ret_mes": 0.359,
      "ret_bench": 0.3896,
      "cartera": [
       "AMZN",
@@ -2593,79 +2608,79 @@
     },
     {
      "fecha": "2023-09-30",
-     "estrategia": 2.2307,
+     "estrategia": 2.3362,
      "benchmark": 2.3528,
-     "ret_mes": -0.0119,
+     "ret_mes": 0.0177,
      "ret_bench": 0.0007,
      "cartera": [
       "AAPL",
       "AMD",
-      "AMZN"
-     ]
-    },
-    {
-     "fecha": "2023-10-31",
-     "estrategia": 2.3061,
-     "benchmark": 2.417,
-     "ret_mes": 0.0403,
-     "ret_bench": 0.0273,
-     "cartera": [
-      "AAPL",
-      "AMZN",
-      "BABA"
-     ]
-    },
-    {
-     "fecha": "2023-11-30",
-     "estrategia": 2.3499,
-     "benchmark": 2.5543,
-     "ret_mes": 0.019,
-     "ret_bench": 0.0568,
-     "cartera": [
-      "AAPL",
-      "AMZN",
-      "BABA"
-     ]
-    },
-    {
-     "fecha": "2023-12-31",
-     "estrategia": 2.8373,
-     "benchmark": 3.0994,
-     "ret_mes": 0.2196,
-     "ret_bench": 0.2134,
-     "cartera": [
-      "AMZN",
-      "META",
-      "MSFT"
-     ]
-    },
-    {
-     "fecha": "2024-01-31",
-     "estrategia": 3.8933,
-     "benchmark": 4.0612,
-     "ret_mes": 0.3721,
-     "ret_bench": 0.3103,
-     "cartera": [
-      "AMZN",
-      "META",
-      "MSFT"
-     ]
-    },
-    {
-     "fecha": "2024-02-29",
-     "estrategia": 3.8595,
-     "benchmark": 3.645,
-     "ret_mes": -0.0024,
-     "ret_bench": -0.1025,
-     "cartera": [
-      "AMD",
-      "AMZN",
       "META"
      ]
     },
     {
+     "fecha": "2023-10-31",
+     "estrategia": 2.3861,
+     "benchmark": 2.417,
+     "ret_mes": 0.0316,
+     "ret_bench": 0.0273,
+     "cartera": [
+      "GOOGL",
+      "META",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 2.4966,
+     "benchmark": 2.5543,
+     "ret_mes": 0.0569,
+     "ret_bench": 0.0568,
+     "cartera": [
+      "AMZN",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 3.0718,
+     "benchmark": 3.0994,
+     "ret_mes": 0.2381,
+     "ret_bench": 0.2134,
+     "cartera": [
+      "AMZN",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 4.2206,
+     "benchmark": 4.0612,
+     "ret_mes": 0.374,
+     "ret_bench": 0.3103,
+     "cartera": [
+      "AMZN",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 3.7873,
+     "benchmark": 3.645,
+     "ret_mes": -0.0936,
+     "ret_bench": -0.1025,
+     "cartera": [
+      "AMD",
+      "AMZN",
+      "MELI"
+     ]
+    },
+    {
      "fecha": "2024-03-31",
-     "estrategia": 3.8669,
+     "estrategia": 3.7708,
      "benchmark": 3.805,
      "ret_mes": 0.0019,
      "ret_bench": 0.0439,
@@ -2677,7 +2692,7 @@
     },
     {
      "fecha": "2024-04-30",
-     "estrategia": 3.5724,
+     "estrategia": 3.4837,
      "benchmark": 3.6825,
      "ret_mes": -0.0762,
      "ret_bench": -0.0322,
@@ -2689,7 +2704,7 @@
     },
     {
      "fecha": "2024-05-31",
-     "estrategia": 4.2014,
+     "estrategia": 4.097,
      "benchmark": 4.4132,
      "ret_mes": 0.1834,
      "ret_bench": 0.1984,
@@ -2701,7 +2716,7 @@
     },
     {
      "fecha": "2024-06-30",
-     "estrategia": 4.642,
+     "estrategia": 4.5267,
      "benchmark": 4.9403,
      "ret_mes": 0.116,
      "ret_bench": 0.1194,
@@ -2713,7 +2728,7 @@
     },
     {
      "fecha": "2024-07-31",
-     "estrategia": 4.1969,
+     "estrategia": 4.0926,
      "benchmark": 4.7399,
      "ret_mes": -0.0845,
      "ret_bench": -0.0406,
@@ -2725,31 +2740,31 @@
     },
     {
      "fecha": "2024-08-31",
-     "estrategia": 4.2392,
+     "estrategia": 4.2574,
      "benchmark": 4.8905,
-     "ret_mes": 0.0203,
+     "ret_mes": 0.0534,
      "ret_bench": 0.0318,
      "cartera": [
       "AAPL",
       "IWM",
-      "SPY"
+      "WMT"
      ]
     },
     {
      "fecha": "2024-09-30",
-     "estrategia": 4.0136,
+     "estrategia": 4.0791,
      "benchmark": 4.7667,
-     "ret_mes": -0.0412,
+     "ret_mes": -0.0322,
      "ret_bench": -0.0253,
      "cartera": [
       "MELI",
-      "QQQ",
+      "WMT",
       "XOM"
      ]
     },
     {
      "fecha": "2024-10-31",
-     "estrategia": 3.6921,
+     "estrategia": 3.7665,
      "benchmark": 4.4052,
      "ret_mes": -0.0708,
      "ret_bench": -0.0758,
@@ -2761,7 +2776,7 @@
     },
     {
      "fecha": "2024-11-30",
-     "estrategia": 3.6639,
+     "estrategia": 3.7378,
      "benchmark": 4.4922,
      "ret_mes": -0.0014,
      "ret_bench": 0.0198,
@@ -2773,7 +2788,7 @@
     },
     {
      "fecha": "2024-12-31",
-     "estrategia": 4.0877,
+     "estrategia": 4.1701,
      "benchmark": 4.6964,
      "ret_mes": 0.1269,
      "ret_bench": 0.0455,
@@ -2785,7 +2800,7 @@
     },
     {
      "fecha": "2025-01-31",
-     "estrategia": 4.2255,
+     "estrategia": 4.3107,
      "benchmark": 4.7767,
      "ret_mes": 0.0402,
      "ret_bench": 0.0171,
@@ -2797,7 +2812,7 @@
     },
     {
      "fecha": "2025-02-28",
-     "estrategia": 3.772,
+     "estrategia": 3.848,
      "benchmark": 4.8403,
      "ret_mes": -0.1017,
      "ret_bench": 0.0133,
@@ -2809,7 +2824,7 @@
     },
     {
      "fecha": "2025-03-31",
-     "estrategia": 3.782,
+     "estrategia": 3.8583,
      "benchmark": 4.9341,
      "ret_mes": 0.0153,
      "ret_bench": 0.0194,
@@ -2821,7 +2836,7 @@
     },
     {
      "fecha": "2025-04-30",
-     "estrategia": 3.2904,
+     "estrategia": 3.3568,
      "benchmark": 4.4219,
      "ret_mes": -0.1245,
      "ret_bench": -0.1038,
@@ -2833,7 +2848,7 @@
     },
     {
      "fecha": "2025-05-31",
-     "estrategia": 3.3626,
+     "estrategia": 3.4304,
      "benchmark": 4.7533,
      "ret_mes": 0.0284,
      "ret_bench": 0.0749,
@@ -2845,7 +2860,7 @@
     },
     {
      "fecha": "2025-06-30",
-     "estrategia": 3.3364,
+     "estrategia": 3.4037,
      "benchmark": 5.0077,
      "ret_mes": -0.0015,
      "ret_bench": 0.0535,
@@ -2857,7 +2872,7 @@
     },
     {
      "fecha": "2025-07-31",
-     "estrategia": 3.5611,
+     "estrategia": 3.6329,
      "benchmark": 5.7709,
      "ret_mes": 0.0781,
      "ret_bench": 0.1524,
@@ -2869,7 +2884,7 @@
     },
     {
      "fecha": "2025-08-31",
-     "estrategia": 3.553,
+     "estrategia": 3.6246,
      "benchmark": 5.8646,
      "ret_mes": 0.004,
      "ret_bench": 0.0162,
@@ -2881,7 +2896,7 @@
     },
     {
      "fecha": "2025-09-30",
-     "estrategia": 4.2992,
+     "estrategia": 4.3859,
      "benchmark": 6.8822,
      "ret_mes": 0.2253,
      "ret_bench": 0.1735,
@@ -2893,7 +2908,7 @@
     },
     {
      "fecha": "2025-10-31",
-     "estrategia": 4.528,
+     "estrategia": 4.6193,
      "benchmark": 6.8588,
      "ret_mes": 0.0638,
      "ret_bench": -0.0034,
@@ -2905,7 +2920,7 @@
     },
     {
      "fecha": "2025-11-30",
-     "estrategia": 4.2555,
+     "estrategia": 4.3413,
      "benchmark": 6.9693,
      "ret_mes": -0.0507,
      "ret_bench": 0.0161,
@@ -2917,7 +2932,7 @@
     },
     {
      "fecha": "2025-12-31",
-     "estrategia": 4.1605,
+     "estrategia": 4.2443,
      "benchmark": 7.0027,
      "ret_mes": -0.0162,
      "ret_bench": 0.0048,
@@ -2929,7 +2944,7 @@
     },
     {
      "fecha": "2026-01-31",
-     "estrategia": 4.2164,
+     "estrategia": 4.3014,
      "benchmark": 6.9592,
      "ret_mes": 0.0198,
      "ret_bench": -0.0062,
@@ -2941,7 +2956,7 @@
     },
     {
      "fecha": "2026-02-28",
-     "estrategia": 4.1311,
+     "estrategia": 4.2144,
      "benchmark": 6.7048,
      "ret_mes": -0.0141,
      "ret_bench": -0.0366,
@@ -2953,44 +2968,44 @@
     },
     {
      "fecha": "2026-03-31",
-     "estrategia": 4.1325,
+     "estrategia": 4.3693,
      "benchmark": 6.4216,
-     "ret_mes": 0.0066,
+     "ret_mes": 0.0472,
      "ret_bench": -0.0422,
      "cartera": [
       "EEM",
-      "WMT",
+      "XLE",
       "XOM"
      ]
     },
     {
      "fecha": "2026-04-30",
-     "estrategia": 4.1792,
+     "estrategia": 4.3424,
      "benchmark": 7.2069,
-     "ret_mes": 0.0215,
+     "ret_mes": 0.0001,
      "ret_bench": 0.1223,
      "cartera": [
-      "EWZ",
       "PBR",
+      "XLE",
       "XOM"
      ]
     },
     {
      "fecha": "2026-05-31",
-     "estrategia": 3.7253,
-     "benchmark": 2.5119,
-     "ret_mes": -0.1086,
-     "ret_bench": -0.6515,
+     "estrategia": 3.9288,
+     "benchmark": 7.4982,
+     "ret_mes": -0.0952,
+     "ret_bench": 0.0404,
      "cartera": [
-      "EWZ",
       "PBR",
+      "XLE",
       "XOM"
      ]
     },
     {
      "fecha": "2026-06-30",
-     "estrategia": 3.8916,
-     "benchmark": 2.6177,
+     "estrategia": 4.1043,
+     "benchmark": 7.8139,
      "ret_mes": 0.0579,
      "ret_bench": 0.0421,
      "cartera": [
@@ -3001,20 +3016,20 @@
     },
     {
      "fecha": "2026-07-31",
-     "estrategia": 3.5855,
-     "benchmark": 2.6337,
-     "ret_mes": -0.0729,
+     "estrategia": 3.769,
+     "benchmark": 7.8619,
+     "ret_mes": -0.0759,
      "ret_bench": 0.0061,
      "cartera": [
       "AMD",
-      "DIA",
-      "QQQ"
+      "QQQ",
+      "SPY"
      ]
     },
     {
      "fecha": "2026-08-31",
-     "estrategia": 3.6427,
-     "benchmark": 2.7395,
+     "estrategia": 3.8195,
+     "benchmark": 8.1776,
      "ret_mes": 0.0262,
      "ret_bench": 0.0402,
      "cartera": [
@@ -3025,8 +3040,8 @@
     },
     {
      "fecha": "2026-09-30",
-     "estrategia": 3.4048,
-     "benchmark": 2.7556,
+     "estrategia": 3.5701,
+     "benchmark": 8.2256,
      "ret_mes": -0.0559,
      "ret_bench": 0.0059,
      "cartera": [
@@ -3037,20 +3052,20 @@
     },
     {
      "fecha": "2026-10-31",
-     "estrategia": 3.4326,
-     "benchmark": 2.8011,
-     "ret_mes": 0.0209,
+     "estrategia": 3.5499,
+     "benchmark": 8.3615,
+     "ret_mes": 0.0069,
      "ret_bench": 0.0165,
      "cartera": [
-      "AAPL",
       "MSFT",
-      "QQQ"
+      "QQQ",
+      "SPY"
      ]
     },
     {
      "fecha": "2026-11-30",
-     "estrategia": 3.6323,
-     "benchmark": 2.7743,
+     "estrategia": 3.7422,
+     "benchmark": 8.2815,
      "ret_mes": 0.0648,
      "ret_bench": -0.0096,
      "cartera": [
@@ -3068,18 +3083,18 @@
    "n": 2,
    "benchmark": "igual peso del universo",
    "estrategia": {
-    "total": 0.2232,
-    "anual": 0.0517,
-    "vol_anual": 0.5696,
-    "max_drawdown": -0.7917
+    "total": 0.9236,
+    "anual": 0.1777,
+    "vol_anual": 0.5171,
+    "max_drawdown": -0.6556
    },
    "bench": {
-    "total": 9.0849,
-    "anual": 0.782,
-    "vol_anual": 0.6299,
-    "max_drawdown": -0.4003
+    "total": 11.5039,
+    "anual": 0.8804,
+    "vol_anual": 0.631,
+    "max_drawdown": -0.3584
    },
-   "meses_le_gana": 18,
+   "meses_le_gana": 20,
    "serie": [
     {
      "fecha": "2022-12-31",
@@ -3171,10 +3186,10 @@
     },
     {
      "fecha": "2023-08-31",
-     "estrategia": 1.9702,
-     "benchmark": 3.6904,
-     "ret_mes": 0.1685,
-     "ret_bench": 0.3739,
+     "estrategia": 1.9266,
+     "benchmark": 3.887,
+     "ret_mes": 0.1427,
+     "ret_bench": 0.4471,
      "cartera": [
       "EDN",
       "MIRG"
@@ -3182,8 +3197,8 @@
     },
     {
      "fecha": "2023-09-30",
-     "estrategia": 1.6949,
-     "benchmark": 3.1771,
+     "estrategia": 1.6573,
+     "benchmark": 3.3464,
      "ret_mes": -0.1289,
      "ret_bench": -0.1391,
      "cartera": [
@@ -3193,30 +3208,30 @@
     },
     {
      "fecha": "2023-10-31",
-     "estrategia": 1.9003,
-     "benchmark": 3.3001,
-     "ret_mes": 0.1306,
+     "estrategia": 1.765,
+     "benchmark": 3.4759,
+     "ret_mes": 0.0739,
      "ret_bench": 0.0387,
      "cartera": [
       "ALUA",
-      "CRES"
+      "EDN"
      ]
     },
     {
      "fecha": "2023-11-30",
-     "estrategia": 2.6353,
-     "benchmark": 4.7239,
-     "ret_mes": 0.4043,
+     "estrategia": 2.5064,
+     "benchmark": 4.9756,
+     "ret_mes": 0.432,
      "ret_bench": 0.4315,
      "cartera": [
       "BYMA",
-      "CEPU"
+      "EDN"
      ]
     },
     {
      "fecha": "2023-12-31",
-     "estrategia": 2.9691,
-     "benchmark": 5.6453,
+     "estrategia": 2.8239,
+     "benchmark": 5.9461,
      "ret_mes": 0.1409,
      "ret_bench": 0.195,
      "cartera": [
@@ -3226,8 +3241,8 @@
     },
     {
      "fecha": "2024-01-31",
-     "estrategia": 3.9658,
-     "benchmark": 7.5898,
+     "estrategia": 3.7719,
+     "benchmark": 7.9941,
      "ret_mes": 0.3469,
      "ret_bench": 0.3444,
      "cartera": [
@@ -3237,8 +3252,8 @@
     },
     {
      "fecha": "2024-02-29",
-     "estrategia": 2.935,
-     "benchmark": 6.0509,
+     "estrategia": 2.7914,
+     "benchmark": 6.3733,
      "ret_mes": -0.2506,
      "ret_bench": -0.2028,
      "cartera": [
@@ -3248,8 +3263,8 @@
     },
     {
      "fecha": "2024-03-31",
-     "estrategia": 3.2551,
-     "benchmark": 7.259,
+     "estrategia": 3.0959,
+     "benchmark": 7.6458,
      "ret_mes": 0.1231,
      "ret_bench": 0.1997,
      "cartera": [
@@ -3259,8 +3274,8 @@
     },
     {
      "fecha": "2024-04-30",
-     "estrategia": 3.7723,
-     "benchmark": 7.8177,
+     "estrategia": 3.5878,
+     "benchmark": 8.2342,
      "ret_mes": 0.1735,
      "ret_bench": 0.077,
      "cartera": [
@@ -3270,8 +3285,8 @@
     },
     {
      "fecha": "2024-05-31",
-     "estrategia": 4.9269,
-     "benchmark": 9.7335,
+     "estrategia": 4.6859,
+     "benchmark": 10.2521,
      "ret_mes": 0.317,
      "ret_bench": 0.2451,
      "cartera": [
@@ -3281,8 +3296,8 @@
     },
     {
      "fecha": "2024-06-30",
-     "estrategia": 4.6013,
-     "benchmark": 9.7098,
+     "estrategia": 4.3763,
+     "benchmark": 10.227,
      "ret_mes": -0.0661,
      "ret_bench": -0.0024,
      "cartera": [
@@ -3292,8 +3307,8 @@
     },
     {
      "fecha": "2024-07-31",
-     "estrategia": 4.0221,
-     "benchmark": 9.0,
+     "estrategia": 3.8254,
+     "benchmark": 9.4794,
      "ret_mes": -0.1259,
      "ret_bench": -0.0731,
      "cartera": [
@@ -3303,8 +3318,8 @@
     },
     {
      "fecha": "2024-08-31",
-     "estrategia": 4.7937,
-     "benchmark": 10.0825,
+     "estrategia": 4.5592,
+     "benchmark": 10.6196,
      "ret_mes": 0.2018,
      "ret_bench": 0.1203,
      "cartera": [
@@ -3314,8 +3329,8 @@
     },
     {
      "fecha": "2024-09-30",
-     "estrategia": 4.5888,
-     "benchmark": 10.0918,
+     "estrategia": 4.3644,
+     "benchmark": 10.6295,
      "ret_mes": -0.0347,
      "ret_bench": 0.0009,
      "cartera": [
@@ -3325,8 +3340,8 @@
     },
     {
      "fecha": "2024-10-31",
-     "estrategia": 4.8061,
-     "benchmark": 10.9642,
+     "estrategia": 4.5711,
+     "benchmark": 11.5483,
      "ret_mes": 0.0562,
      "ret_bench": 0.0864,
      "cartera": [
@@ -3336,8 +3351,8 @@
     },
     {
      "fecha": "2024-11-30",
-     "estrategia": 5.2452,
-     "benchmark": 13.1511,
+     "estrategia": 4.9887,
+     "benchmark": 13.8517,
      "ret_mes": 0.1005,
      "ret_bench": 0.1995,
      "cartera": [
@@ -3347,8 +3362,8 @@
     },
     {
      "fecha": "2024-12-31",
-     "estrategia": 5.872,
-     "benchmark": 14.7,
+     "estrategia": 5.5848,
+     "benchmark": 15.4831,
      "ret_mes": 0.1336,
      "ret_bench": 0.1178,
      "cartera": [
@@ -3358,8 +3373,8 @@
     },
     {
      "fecha": "2025-01-31",
-     "estrategia": 5.3688,
-     "benchmark": 14.8126,
+     "estrategia": 5.1062,
+     "benchmark": 15.6017,
      "ret_mes": -0.078,
      "ret_bench": 0.0077,
      "cartera": [
@@ -3369,8 +3384,8 @@
     },
     {
      "fecha": "2025-02-28",
-     "estrategia": 4.534,
-     "benchmark": 12.6342,
+     "estrategia": 4.3122,
+     "benchmark": 13.3072,
      "ret_mes": -0.1484,
      "ret_bench": -0.1471,
      "cartera": [
@@ -3380,8 +3395,8 @@
     },
     {
      "fecha": "2025-03-31",
-     "estrategia": 4.7599,
-     "benchmark": 13.3817,
+     "estrategia": 4.5271,
+     "benchmark": 14.0946,
      "ret_mes": 0.0586,
      "ret_bench": 0.0592,
      "cartera": [
@@ -3391,8 +3406,8 @@
     },
     {
      "fecha": "2025-04-30",
-     "estrategia": 4.2035,
-     "benchmark": 12.063,
+     "estrategia": 3.9979,
+     "benchmark": 12.7056,
      "ret_mes": -0.1095,
      "ret_bench": -0.0985,
      "cartera": [
@@ -3402,10 +3417,10 @@
     },
     {
      "fecha": "2025-05-31",
-     "estrategia": 3.918,
-     "benchmark": 12.9169,
+     "estrategia": 3.7264,
+     "benchmark": 13.9588,
      "ret_mes": -0.0601,
-     "ret_bench": 0.0708,
+     "ret_bench": 0.0986,
      "cartera": [
       "BBAR",
       "SUPV"
@@ -3413,8 +3428,8 @@
     },
     {
      "fecha": "2025-06-30",
-     "estrategia": 3.4162,
-     "benchmark": 11.0919,
+     "estrategia": 3.2491,
+     "benchmark": 11.9866,
      "ret_mes": -0.1171,
      "ret_bench": -0.1413,
      "cartera": [
@@ -3424,18 +3439,18 @@
     },
     {
      "fecha": "2025-07-31",
-     "estrategia": 3.3735,
-     "benchmark": 12.8546,
+     "estrategia": 3.2085,
+     "benchmark": 13.8915,
      "ret_mes": 0.0,
      "ret_bench": 0.1589,
      "cartera": []
     },
     {
      "fecha": "2025-08-31",
-     "estrategia": 2.8874,
-     "benchmark": 10.5747,
+     "estrategia": 2.7462,
+     "benchmark": 11.7192,
      "ret_mes": -0.1333,
-     "ret_bench": -0.1774,
+     "ret_bench": -0.1564,
      "cartera": [
       "LOMA",
       "TGSU2"
@@ -3443,8 +3458,8 @@
     },
     {
      "fecha": "2025-09-30",
-     "estrategia": 2.5171,
-     "benchmark": 9.0327,
+     "estrategia": 2.394,
+     "benchmark": 10.0104,
      "ret_mes": -0.1228,
      "ret_bench": -0.1458,
      "cartera": [
@@ -3453,8 +3468,8 @@
     },
     {
      "fecha": "2025-10-31",
-     "estrategia": 3.2719,
-     "benchmark": 15.6249,
+     "estrategia": 3.1119,
+     "benchmark": 17.316,
      "ret_mes": 0.3163,
      "ret_bench": 0.7298,
      "cartera": [
@@ -3463,8 +3478,8 @@
     },
     {
      "fecha": "2025-11-30",
-     "estrategia": 3.403,
-     "benchmark": 16.3143,
+     "estrategia": 3.2365,
+     "benchmark": 18.08,
      "ret_mes": 0.0532,
      "ret_bench": 0.0441,
      "cartera": [
@@ -3474,8 +3489,8 @@
     },
     {
      "fecha": "2025-12-31",
-     "estrategia": 3.2792,
-     "benchmark": 16.3682,
+     "estrategia": 3.1188,
+     "benchmark": 18.1398,
      "ret_mes": -0.0364,
      "ret_bench": 0.0033,
      "cartera": [
@@ -3485,8 +3500,8 @@
     },
     {
      "fecha": "2026-01-31",
-     "estrategia": 3.0108,
-     "benchmark": 16.817,
+     "estrategia": 2.8635,
+     "benchmark": 18.6372,
      "ret_mes": -0.0702,
      "ret_bench": 0.0274,
      "cartera": [
@@ -3496,8 +3511,8 @@
     },
     {
      "fecha": "2026-02-28",
-     "estrategia": 2.4823,
-     "benchmark": 13.8979,
+     "estrategia": 2.3609,
+     "benchmark": 15.4022,
      "ret_mes": -0.1651,
      "ret_bench": -0.1736,
      "cartera": [
@@ -3507,8 +3522,8 @@
     },
     {
      "fecha": "2026-03-31",
-     "estrategia": 2.6001,
-     "benchmark": 15.6945,
+     "estrategia": 2.4729,
+     "benchmark": 17.3932,
      "ret_mes": 0.0562,
      "ret_bench": 0.1293,
      "cartera": [
@@ -3518,8 +3533,8 @@
     },
     {
      "fecha": "2026-04-30",
-     "estrategia": 2.4079,
-     "benchmark": 14.6861,
+     "estrategia": 2.2902,
+     "benchmark": 16.2757,
      "ret_mes": -0.0661,
      "ret_bench": -0.0643,
      "cartera": [
@@ -3529,8 +3544,8 @@
     },
     {
      "fecha": "2026-05-31",
-     "estrategia": 2.6179,
-     "benchmark": 15.8736,
+     "estrategia": 2.4899,
+     "benchmark": 17.5916,
      "ret_mes": 0.0963,
      "ret_bench": 0.0809,
      "cartera": [
@@ -3540,8 +3555,8 @@
     },
     {
      "fecha": "2026-06-30",
-     "estrategia": 2.6393,
-     "benchmark": 15.7281,
+     "estrategia": 2.5102,
+     "benchmark": 17.4304,
      "ret_mes": 0.0166,
      "ret_bench": -0.0092,
      "cartera": [
@@ -3551,8 +3566,8 @@
     },
     {
      "fecha": "2026-07-31",
-     "estrategia": 2.7747,
-     "benchmark": 15.9836,
+     "estrategia": 2.639,
+     "benchmark": 17.7136,
      "ret_mes": 0.0601,
      "ret_bench": 0.0163,
      "cartera": [
@@ -3562,10 +3577,10 @@
     },
     {
      "fecha": "2026-08-31",
-     "estrategia": 1.4311,
-     "benchmark": 13.2832,
-     "ret_mes": -0.4799,
-     "ret_bench": -0.169,
+     "estrategia": 2.5637,
+     "benchmark": 16.4693,
+     "ret_mes": -0.0204,
+     "ret_bench": -0.0702,
      "cartera": [
       "PAMP",
       "YPFD"
@@ -3573,34 +3588,35 @@
     },
     {
      "fecha": "2026-09-30",
-     "estrategia": 1.4036,
-     "benchmark": 12.2788,
-     "ret_mes": -0.011,
+     "estrategia": 2.4875,
+     "benchmark": 15.224,
+     "ret_mes": -0.0297,
      "ret_bench": -0.0756,
      "cartera": [
-      "CRES",
-      "PAMP"
+      "PAMP",
+      "YPFD"
      ]
     },
     {
      "fecha": "2026-10-31",
-     "estrategia": 1.2836,
-     "benchmark": 11.2625,
-     "ret_mes": -0.0855,
+     "estrategia": 2.2644,
+     "benchmark": 13.9639,
+     "ret_mes": -0.0821,
      "ret_bench": -0.0828,
      "cartera": [
       "CRES",
-      "PAMP"
+      "YPFD"
      ]
     },
     {
      "fecha": "2026-11-30",
-     "estrategia": 1.2232,
-     "benchmark": 10.0849,
-     "ret_mes": -0.035,
+     "estrategia": 1.9236,
+     "benchmark": 12.5039,
+     "ret_mes": -0.1434,
      "ret_bench": -0.1046,
      "cartera": [
-      "TXAR"
+      "TXAR",
+      "YPFD"
      ]
     }
    ]
