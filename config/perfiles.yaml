@@ -57,9 +57,17 @@ perfiles:
       vol_max_anual: 0.80
 
 scoring_renta_variable:
-  # score = momentum ajustado por riesgo, penalizado si está sobrecomprado
-  peso_ret_3m: 0.5
-  peso_ret_6m: 0.5
-  penalizar_rsi_mayor_a: 75
-  penalizacion_rsi: 0.5      # multiplica el score
-  volumen_min_ars: 5000000   # liquidez mínima diaria en BYMA
+  # v0.2: momentum de 12 meses (la versión estándar). En el backtest 2023-2026 superó a la regla
+  # anterior (3m+6m ajustada por volatilidad) en CEDEARs; ver REGLAS.md §7.
+  peso_ret_3m: 0
+  peso_ret_6m: 0
+  peso_ret_12m: 1.0
+  ajustar_por_vol: false
+  penalizar_rsi_mayor_a: 0       # 0 = sin penalización por sobrecompra
+  penalizacion_rsi: 1.0
+  volumen_min_ars: 5000000       # liquidez mínima diaria en BYMA
+
+# Acciones argentinas: ninguna variante de momentum le ganó a una canasta diversificada en el backtest,
+# así que se elige por liquidez (las más operadas del panel líder) con igual peso.
+modo_por_bucket:
+  acciones_arg: liquidez

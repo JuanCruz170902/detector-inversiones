@@ -215,6 +215,8 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
             "cedears": motor.ranking_renta_variable({**met["cedears_etf"], **met["cedears"]}, paneles["cedears"], cfg_s, filtros, M.score_renta_variable),
             "acciones_arg": motor.ranking_renta_variable(met["acciones_arg"], paneles["acciones"], cfg_s, filtros, M.score_renta_variable),
         }
+        if perfiles.get("modo_por_bucket", {}).get("acciones_arg") == "liquidez":
+            rv["acciones_arg"] = por_liquidez(rv["acciones_arg"], cfg_s)
         candidatos = {**rank_rf, "hard_dollar": hd, **rv}
         prop = motor.proponer(nombre, p, buckets, candidatos, monto, perfiles["broker"])
         resultado["perfiles"][nombre] = {
@@ -233,6 +235,17 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
     return resultado
 
 
+def por_liquidez(df: pd.DataFrame, cfg_s: dict) -> pd.DataFrame:
+    """Canasta diversificada: ordena por volumen operado, ignora el momentum."""
+    if df is None or df.empty:
+        return df
+    d = df.copy()
+    d["apto"] = d["volumen"].fillna(0) >= cfg_s["volumen_min_ars"]
+    d["motivo_descarte"] = d["apto"].map(lambda x: "" if x else "poca liquidez")
+    d["score"] = d["volumen"]
+    return d.sort_values(["apto", "volumen"], ascending=[False, False])
+
+
 def correr_backtests(perfiles: dict, series: dict, tasa_liquidez=None) -> dict:
     cfg_s = perfiles["scoring_renta_variable"]
     com = perfiles["broker"]["comision_acciones"] * (1 + perfiles["broker"]["iva_sobre_comision"]) + perfiles["broker"]["derechos_mercado"]
@@ -246,9 +259,9 @@ def correr_backtests(perfiles: dict, series: dict, tasa_liquidez=None) -> dict:
     out = {}
     # comparación de variantes de la regla (para decidir con datos qué parámetros usar)
     variantes = {
-        "actual (3m+6m / vol)": (cfg_s, None, None),
-        "6m+12m / vol": ({**cfg_s, "peso_ret_3m": 0, "peso_ret_6m": 0.5, "peso_ret_12m": 0.5}, None, None),
-        "12m puro": ({"peso_ret_12m": 1.0, "ajustar_por_vol": False}, None, None),
+        "actual (12m)": (cfg_s, None, None),
+        "v0.1 (3m+6m / vol, RSI)": ({"peso_ret_3m": 0.5, "peso_ret_6m": 0.5, "penalizar_rsi_mayor_a": 75, "penalizacion_rsi": 0.5}, None, None),
+        "6m+12m / vol": ({"peso_ret_6m": 0.5, "peso_ret_12m": 0.5}, None, None),
         "actual, top 5": (cfg_s, 5, None),
         "actual, sin filtros": (cfg_s, None, {"vol_max_anual": 9}),
     }

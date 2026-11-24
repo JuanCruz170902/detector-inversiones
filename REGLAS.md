@@ -49,18 +49,21 @@ Un bono solo se considera comprable si operó más de **$20 M** en el día. Con 
    - Breakeven > ritmo + 0,5 pp → cobertura **cara** (−10 pp a tasa fija).
    - Brecha MEP/oficial > 15% también suma cobertura, salvo que esté cara.
 
-## 4. Score de renta variable
+## 4. Selección de renta variable
 
+**CEDEARs (moderado y riesgoso): momentum de 12 meses.**
 ```
-momentum = 0,5 × retorno 3m + 0,5 × retorno 6m
-score    = momentum / max(volatilidad anual 3m, 10%)
-si RSI(14) > 75 → score × 0,5   (sobrecompra)
+score = retorno de los últimos 12 meses
 ```
 
 Filtros (descartan, no penalizan):
-- **Moderado:** precio arriba de la media de 200 ruedas y volatilidad < 35%.
-- **Riesgoso:** volatilidad < 80%.
-- **Todos:** volumen diario > $5 M.
+- **Todos:** score > 0 y volumen diario > $5 M.
+- **Moderado:** además, precio arriba de la media de 200 ruedas y volatilidad < 35%.
+- **Riesgoso:** además, volatilidad < 80%.
+
+**Acciones argentinas: canasta por liquidez.** Las más operadas del panel líder con igual peso, sin intentar elegir ganadoras. Ver el porqué en §7.
+
+> En la v0.1 la regla era `0,5·ret 3m + 0,5·ret 6m`, ajustada por volatilidad y penalizada con RSI > 75. El backtest mostró que rendía peor (§7).
 
 ## 5. Ejecución realista
 
@@ -82,6 +85,20 @@ Cada fin de mes, con la información disponible ese día, se eligen los mejores 
 - Precios en pesos: los CEDEARs incluyen la variación del CCL.
 
 Sirve para saber si la regla agrega valor contra comprar y mantener, no para prometer rendimientos.
+
+**Resultado (corrida del 24/11/2026, en pesos, 2023–2026).** "Anual/Vol" es el rendimiento por unidad de riesgo: más alto es mejor.
+
+| Caso | Regla v0.1 (3m+6m) | Momentum 12m | Comprar y mantener |
+|---|---|---|---|
+| Moderado, ETFs | +31,5% anual · Anual/Vol 1,43 | +43,3% · **1,96** | SPY +47,3% · 1,62 |
+| Riesgoso, CEDEARs | +41,1% · 1,04 | **+82,3%** · 1,81 | SPY +73,6% · 2,19 |
+| Riesgoso, acciones arg. | +18,6% · 0,36 | +34,8% · 0,55 | Igual peso **+88,0%** · 1,40 |
+
+Conclusiones:
+- El momentum de 12 meses mejora claramente a la regla v0.1.
+- En ETFs (moderado), el momentum de 12 meses rinde casi lo mismo que el SPY con menos riesgo.
+- En acciones argentinas, elegir por momentum fue mucho peor que tener la canasta. Por eso ahora se elige por liquidez y se diversifica.
+- Son 4 años de historia en un período muy particular (devaluación de 2023 y rally posterior). Tomarlo como evidencia débil, no como garantía.
 
 ## 8. Limitaciones conocidas
 
