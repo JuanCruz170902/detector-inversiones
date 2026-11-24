@@ -1,0 +1,140 @@
+{
+ "inicio": "2026-11-24",
+ "perfiles": {
+  "conservador": {
+   "posiciones": {
+    "TZXA7": {
+     "cantidad": 76311,
+     "bucket": "cer"
+    },
+    "D15E7": {
+     "cantidad": 25,
+     "bucket": "dollar_linked"
+    },
+    "T15E7": {
+     "cantidad": 19247,
+     "bucket": "tasa_fija"
+    }
+   },
+   "liquidez": 30297.52,
+   "aportes": [
+    {
+     "mes": "2026-11",
+     "fecha": "2026-11-24",
+     "monto": 200000,
+     "mep": 1743.1,
+     "costos": 442.61
+    }
+   ],
+   "historial": [
+    {
+     "fecha": "2026-11-24",
+     "valor": 199557.38,
+     "aportado": 200000,
+     "rend": -0.0022,
+     "bench_mep": 200000.0
+    }
+   ],
+   "ultimo_precio": {
+    "TZXA7": 130.7,
+    "D15E7": 158400.0,
+    "T15E7": 155.46
+   }
+  },
+  "moderado": {
+   "posiciones": {
+    "XLF": {
+     "cantidad": 1,
+     "bucket": "cedears_etf"
+    },
+    "TZXA7": {
+     "cantidad": 30524,
+     "bucket": "cer"
+    },
+    "T15E7": {
+     "cantidad": 25662,
+     "bucket": "tasa_fija"
+    },
+    "AL29": {
+     "cantidad": 48,
+     "bucket": "hard_dollar"
+    }
+   },
+   "liquidez": 30269.38,
+   "aportes": [
+    {
+     "mes": "2026-11",
+     "fecha": "2026-11-24",
+     "monto": 200000,
+     "mep": 1743.1,
+     "costos": 623.81
+    }
+   ],
+   "historial": [
+    {
+     "fecha": "2026-11-24",
+     "valor": 199376.19,
+     "aportado": 200000,
+     "rend": -0.0031,
+     "bench_mep": 200000.0
+    }
+   ],
+   "ultimo_precio": {
+    "XLF": 50025.0,
+    "TZXA7": 130.7,
+    "T15E7": 155.46,
+    "AL29": 81860.0
+   }
+  },
+  "riesgoso": {
+   "posiciones": {
+    "TXAR": {
+     "cantidad": 112,
+     "bucket": "acciones_arg"
+    },
+    "MSFT": {
+     "cantidad": 1,
+     "bucket": "cedears"
+    },
+    "CVX": {
+     "cantidad": 1,
+     "bucket": "cedears"
+    },
+    "WMT": {
+     "cantidad": 2,
+     "bucket": "cedears"
+    },
+    "T15E7": {
+     "cantidad": 19247,
+     "bucket": "tasa_fija"
+    }
+   },
+   "liquidez": 10637.32,
+   "aportes": [
+    {
+     "mes": "2026-11",
+     "fecha": "2026-11-24",
+     "monto": 200000,
+     "mep": 1743.1,
+     "costos": 1067.29
+    }
+   ],
+   "historial": [
+    {
+     "fecha": "2026-11-24",
+     "valor": 198932.71,
+     "aportado": 200000,
+     "rend": -0.0053,
+     "bench_mep": 200000.0
+    }
+   ],
+   "ultimo_precio": {
+    "TXAR": 707.0,
+    "MSFT": 29420.0,
+    "CVX": 23450.0,
+    "WMT": 13160.0,
+    "T15E7": 155.46
+   }
+  }
+ }
+}
