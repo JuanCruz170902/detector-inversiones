@@ -30,6 +30,7 @@ Todas las reglas viven en [`config/perfiles.yaml`](config/perfiles.yaml). Este d
 | Acciones arg. | — | — | 40% |
 | Liquidez | 15% | 10% | — |
 | Máx. posiciones | 4 | 5 | 6 |
+| Máx. por posición | 40% | 30% | 25% |
 
 ## 3. Ajustes automáticos por contexto macro
 

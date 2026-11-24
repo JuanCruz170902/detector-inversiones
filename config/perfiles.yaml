@@ -17,6 +17,7 @@ perfiles:
   conservador:
     descripcion: Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
     max_posiciones: 4
+    max_peso_posicion: 0.40   # renta fija soberana: se tolera más concentración
     buckets:
       cer: 0.35              # bonos ajustados por inflación
       tasa_fija: 0.30        # LECAP / BONCAP
@@ -32,6 +33,7 @@ perfiles:
   moderado:
     descripcion: Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
     max_posiciones: 5
+    max_peso_posicion: 0.30
     buckets:
       cer: 0.20
       tasa_fija: 0.20
@@ -45,6 +47,7 @@ perfiles:
   riesgoso:
     descripcion: Busca retorno en renta variable; acepta caídas fuertes.
     max_posiciones: 6
+    max_peso_posicion: 0.25
     buckets:
       tasa_fija: 0.15
       cedears: 0.45          # CEDEARs individuales y ETFs

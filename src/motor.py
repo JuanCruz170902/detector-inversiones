@@ -169,6 +169,13 @@ def proponer(perfil_nombre: str, perfil: dict, buckets: dict, candidatos: dict[s
                                  "precio": float(fila["precio"]), "score": _num(fila.get("score")),
                                  "tir": _num(fila.get("tir")), "vencimiento": _str(fila.get("vencimiento"))})
 
+    # tope por posición: lo que exceda va a liquidez (evita concentrar el 40% en una sola acción)
+    tope = monto * perfil.get("max_peso_posicion", 1.0)
+    for a in list(asignaciones):
+        if a["ticker"] and a["bucket"] != "liquidez" and a["monto"] > tope:
+            asignaciones.append({"bucket": "liquidez", "ticker": "CAUCION/FCI MM", "monto": a["monto"] - tope, "precio": None})
+            a["monto"] = tope
+
     # limitar posiciones: las más chicas se fusionan en liquidez
     asignaciones.sort(key=lambda a: -a["monto"])
     finales, a_liquidez = [], 0.0
