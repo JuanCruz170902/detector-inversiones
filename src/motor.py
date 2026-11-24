@@ -54,7 +54,7 @@ def ajustar_buckets(perfil: dict, senales: dict) -> dict:
 
 # -------------------------- rankings --------------------------
 
-def ranking_renta_fija(rf: pd.DataFrame, cer_tir: pd.DataFrame | None) -> dict[str, pd.DataFrame]:
+def ranking_renta_fija(rf: pd.DataFrame, cer_tir: pd.DataFrame | None, horizonte=(1, 6)) -> dict[str, pd.DataFrame]:
     out = {}
     if rf is None or rf.empty:
         return out
@@ -65,7 +65,16 @@ def ranking_renta_fija(rf: pd.DataFrame, cer_tir: pd.DataFrame | None) -> dict[s
         out[tipo] = d.sort_values(["orden", "volumen"], ascending=[True, False]).head(5)
     cer = rf[rf["tipo"] == "cer"].copy()
     if cer_tir is not None and not cer_tir.empty:
-        cer = cer.merge(cer_tir[["ticker", "tir"]], on="ticker", how="left")
+        cols = [c for c in ("ticker", "tir", "fechaVencimiento") if c in cer_tir.columns]
+        cer = cer.merge(cer_tir[cols], on="ticker", how="left")
+        if "fechaVencimiento" in cer:
+            # los CER no traen el vencimiento en el ticker: lo tomo de ArgentinaDatos
+            venc = pd.to_datetime(cer["fechaVencimiento"], errors="coerce")
+            cer["vencimiento"] = venc.dt.date.where(venc.notna(), cer["vencimiento"])
+            cer["dias"] = (venc - pd.Timestamp.today().normalize()).dt.days.where(venc.notna(), cer["dias"])
+            lo, hi = horizonte
+            cer["en_horizonte"] = cer["dias"].between(lo * 30, hi * 30)
+            cer = cer[~(cer["dias"] < 15)]  # muy cerca del vencimiento: TIR poco confiable
         cer["orden"] = (~cer["en_horizonte"]).astype(int)
         # dentro del horizonte, mayor TIR real primero
         cer = cer.sort_values(["orden", "tir", "volumen"], ascending=[True, False, False])
@@ -84,9 +93,11 @@ def ranking_renta_variable(metricas: dict[str, dict], panel: pd.DataFrame, cfg_s
     for t, m in metricas.items():
         if not m:
             continue
-        fila = {"ticker": t, **m, "volumen": vol_por_ticker.get(t, math.nan)}
+        fila = {"ticker": t, **m}
         if px_por_ticker.get(t):  # precio de pantalla de hoy si está, si no el último cierre histórico
             fila["precio"] = float(px_por_ticker[t])
+        # data912 informa volumen en cantidad de papeles: lo paso a pesos
+        fila["volumen"] = vol_por_ticker.get(t, math.nan) * fila["precio"]
         fila["score"] = score_fn(m, cfg_score)
         motivos = []
         if filtros.get("solo_tendencia_alcista") and m.get("sobre_sma200") is False:

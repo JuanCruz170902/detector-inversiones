@@ -72,6 +72,13 @@ def armar_macro(reg: Registro, raw: dict) -> dict:
         if tnas:
             tna = statistics.mean(tnas)
             macro["tna_plazo_fijo"] = round(tna * 100 if tna < 1.5 else tna, 2)
+    if "tna_plazo_fijo" not in macro and raw.get("bcra"):
+        # respaldo: TAMAR (tasa mayorista de plazo fijo) del BCRA
+        for k in ("tamar", "badlar"):
+            if k in raw["bcra"]:
+                macro["tna_plazo_fijo"] = round(raw["bcra"][k]["valor"], 2)
+                macro["tna_fuente"] = k.upper()
+                break
     casas = ultimo_por_casa(raw.get("dolares"))
     if "oficial" in casas:
         macro["dolar_oficial"] = float(casas["oficial"]["venta"])
@@ -118,7 +125,7 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         cer_tir = pd.DataFrame(raw["bonos_cer"].get("bonos", []))
         if not cer_tir.empty:
             cer_tir = cer_tir.rename(columns={"tirPorcentaje": "tir"})
-    rank_rf = motor.ranking_renta_fija(rf, cer_tir)
+    rank_rf = motor.ranking_renta_fija(rf, cer_tir, tuple(perfiles["horizonte_meses"]))
 
     hd = paneles["bonos"]
     if not hd.empty:

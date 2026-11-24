@@ -81,7 +81,7 @@ def dolares() -> list[dict]:
 
 
 def plazo_fijo() -> list[dict]:
-    return _get(ARGDATOS + "/finanzas/tasas/plazo-fijo")
+    return _get(ARGDATOS + "/finanzas/tasas/plazoFijo")
 
 
 # ---------------- BCRA: variables principales ----------------
