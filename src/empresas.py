@@ -26,6 +26,7 @@ NAV = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 
 CONCEPTOS = {
     "ventas": [("us-gaap", "Revenues"), ("us-gaap", "RevenueFromContractWithCustomerExcludingAssessedTax"),
+               ("us-gaap", "RevenueFromContractWithCustomerIncludingAssessedTax"),
                ("us-gaap", "SalesRevenueNet"), ("us-gaap", "RevenuesNetOfInterestExpense"), ("ifrs-full", "Revenue"),
                ("ifrs-full", "RevenueFromContractsWithCustomers"), ("ifrs-full", "InterestRevenueCalculatedUsingEffectiveInterestMethod")],
     "resultado": [("us-gaap", "NetIncomeLoss"), ("us-gaap", "ProfitLoss"), ("ifrs-full", "ProfitLossAttributableToOwnersOfParent"),
@@ -39,6 +40,8 @@ CONCEPTOS = {
 }
 STOCK = {"patrimonio", "pasivo"}
 FORMULARIOS = ("10-K", "10-Q", "20-F", "6-K", "40-F")            # saldos (a una fecha), no flujos
+# entidades que cambiaron de registrante en la SEC: se suma la historia de la anterior
+CIK_ANTERIOR = {"XOM": 34088}      # Exxon Mobil Corp → Exxonmobil Holdings Corp (2026)
 FINANCIERAS = {"GGAL", "BMA", "BBAR", "SUPV", "JPM", "V", "BRK.B", "BYMA"}   # deuda/patrimonio no aplica igual
 NOMBRES_AR = {"GGAL": "Grupo Financiero Galicia", "YPF": "YPF", "PAM": "Pampa Energía", "BMA": "Banco Macro",
               "BBAR": "BBVA Argentina", "CEPU": "Central Puerto", "TGS": "Transportadora de Gas del Sur",
@@ -57,6 +60,17 @@ def ciks() -> dict[str, tuple[int, str]]:
         r.raise_for_status()
         _CIKS = {v["ticker"].upper().replace("-", "."): (int(v["cik_str"]), v["title"]) for v in r.json().values()}
     return _CIKS
+
+
+def _unir(viejo: dict, nuevo: dict) -> dict:
+    """Une dos companyfacts concepto por concepto (el nuevo pisa en fechas repetidas)."""
+    out = {tax: {c: {"units": {u: list(v) for u, v in d["units"].items()}} for c, d in cs.items()} for tax, cs in viejo.items()}
+    for tax, cs in nuevo.items():
+        for c, d in cs.items():
+            dst = out.setdefault(tax, {}).setdefault(c, {"units": {}})["units"]
+            for u, v in d["units"].items():
+                dst.setdefault(u, []).extend(v)
+    return out
 
 
 def _dur(e) -> int | None:
@@ -131,6 +145,13 @@ def fundamentals(ticker_local: str, precios_usd: dict[str, float] | None = None)
     r = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json", headers=UA_SEC, timeout=30)
     r.raise_for_status()
     facts = r.json().get("facts", {})
+    if t_us in CIK_ANTERIOR:
+        try:
+            r2 = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{CIK_ANTERIOR[t_us]:010d}.json", headers=UA_SEC, timeout=30)
+            r2.raise_for_status()
+            facts = _unir(r2.json().get("facts", {}), facts)
+        except Exception:  # noqa: BLE001
+            pass
     out = {"ticker": ticker_local, "ticker_eeuu": t_us, "empresa": nombre.title(), "cik": cik}
     ultimo_filed, ultimo_form = "", ""
     for clave in CONCEPTOS:
