@@ -22,7 +22,7 @@ h1{font-size:22px;margin:0 0 2px}h2{font-size:16px;margin:28px 0 10px}.sub{color
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:12px;overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--grid);white-space:nowrap}th{color:var(--ink2);font-weight:500}
-td.n,th.n{text-align:right}.notas li{margin:3px 0}.chip{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 7px;font-size:12px;color:var(--ink2)}
+td.n,th.n{text-align:right}td.wrap{white-space:normal;min-width:200px}.notas li{margin:3px 0}.chip{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 7px;font-size:12px;color:var(--ink2)}
 .ok::before{content:"● ";color:var(--good)}.err::before{content:"▲ ";color:var(--bad)}
 .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2);margin-bottom:6px}.legend i{display:inline-block;width:14px;height:2px;vertical-align:middle;margin-right:6px}
 .chart{position:relative}.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:12.5px;display:none;box-shadow:0 2px 8px #0002}
@@ -282,10 +282,10 @@ function empresas(d) {
     ["ROE", r => r.roe != null ? pct(r.roe, 0) : "–", "n"],
     ["Pasivo/PN", r => r.deuda_patrimonio != null ? num(r.deuda_patrimonio, 1) : "–", "n"],
     ["P/E", r => r.pe != null ? num(r.pe, 1) : "–", "n"],
-    ["Alertas", r => r.alertas && r.alertas.length ? `<span style="color:var(--bad)">▲</span> ${r.alertas.join("; ")}` : `<span class="ok"></span>`]
+    ["Alertas", r => r.alertas && r.alertas.length ? `<span style="color:var(--bad)">▲</span> ${r.alertas.join("; ")}` : `<span class="ok"></span>`, "wrap"]
   ], filas) : "<div class=sub>Sin datos todavía</div>";
   const conNot = [...interes].map(t => E[t]).filter(e => e && e.noticias && e.noticias.length);
-  document.getElementById("noticiasEmp").innerHTML = conNot.map(e => `<details><summary><b>${e.ticker}</b> · ${e.noticias.length} titulares recientes</summary><ul style="margin:6px 0 4px 0;padding-left:18px">` +
+  document.getElementById("noticiasEmp").innerHTML = conNot.map(e => `<details><summary><b>${e.ticker}</b> · ${e.noticias.length} titular${e.noticias.length > 1 ? "es" : ""} reciente${e.noticias.length > 1 ? "s" : ""}</summary><ul style="margin:6px 0 4px 0;padding-left:18px">` +
     e.noticias.map(n => `<li style="margin:3px 0"><a href="${n.link}" target="_blank" rel="noopener" style="color:var(--ink)">${n.titulo.replace(/</g, "&lt;")}</a> <span class="sub">· ${n.fuente}${n.fecha ? " · " + n.fecha : ""}</span></li>`).join("") + "</ul></details>").join("");
 }
 
