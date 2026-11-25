@@ -71,7 +71,8 @@ def guardar(est: dict):
 
 def entrar(forzar: bool = False, tardia: bool = False) -> dict:
     est = cargar()
-    if est.get("entrada") and not forzar:
+    if est.get("entrada") and not (forzar and est["entrada"].get("tardia")):
+        # --forzar solo reemplaza una entrada de respaldo; una entrada en vivo no se pisa nunca
         print("La prueba ya tiene entrada:", est["entrada"]["fecha_hora"])
         return est
     perfiles, _ = MAIN.cargar_config()
@@ -115,11 +116,22 @@ def entrar(forzar: bool = False, tardia: bool = False) -> dict:
     return est
 
 
+def fecha_rueda(t: datetime) -> date:
+    """Rueda a la que corresponde una valuación: antes de la apertura (11:00) es la rueda hábil anterior."""
+    d = t.date()
+    if t.hour < 11:
+        d -= timedelta(days=1)
+        while d.weekday() >= 5:
+            d -= timedelta(days=1)
+    return d
+
+
 def valuar() -> dict | None:
     est = cargar()
-    hoy = ahora_art().date()
+    t = ahora_art()
+    hoy = fecha_rueda(t)
     if not est.get("entrada"):
-        if INICIO <= hoy <= FIN:
+        if INICIO <= hoy <= FIN and t.hour >= 11:   # nunca entra antes de la apertura
             est = entrar(tardia=True)           # respaldo: si el cron de la apertura falló, entra al cierre
         else:
             print("Prueba sin iniciar")
@@ -133,8 +145,12 @@ def valuar() -> dict | None:
     mep = mep_actual()
     ent = est["entrada"]
     dias_corridos = max((hoy - date.fromisoformat(ent["fecha_hora"][:10])).days, 0)
+    if hoy < date.fromisoformat(ent["fecha_hora"][:10]):
+        print("Valuación anterior a la entrada: se omite")
+        return est
     tna_liq = (ent.get("tna_plazo_fijo") or 0) / 100
-    fila = {"fecha": hoy.isoformat(), "hora": ahora_art().strftime("%H:%M"), "perfiles": {}}
+    fila = {"fecha": hoy.isoformat(), "hora": "17:00" if t.hour < 11 or t.hour >= 17 else t.strftime("%H:%M"),
+            "valuado": t.isoformat(timespec="minutes"), "perfiles": {}}
     for nombre, c in est["carteras"].items():
         valor = c["liquidez_inicial"] * (1 + tna_liq * dias_corridos / 365)   # caución / FCI MM
         detalle = []

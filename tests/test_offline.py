@@ -167,3 +167,7 @@ def test_prueba_semanal(monkeypatch, tmp_path):
     for v in d["perfiles"].values():
         assert 0.97 < v["valor"] / 200000 < 1.01
     assert P.entrar()["entrada"] == est["entrada"]  # no re-entra
+    assert P.entrar(forzar=True)["entrada"] == est["entrada"]  # --forzar no pisa una entrada en vivo
+    # una valuación de madrugada corresponde a la rueda anterior
+    monkeypatch.setattr(P, "ahora_art", lambda: datetime(2026, 11, 27, 0, 46, tzinfo=P.ART))
+    assert P.valuar()["dias"][-1]["fecha"] == "2026-11-26"
