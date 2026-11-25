@@ -1,0 +1,286 @@
+{
+ "inicio": "2026-11-25",
+ "fin": "2026-12-01",
+ "monto": 200000,
+ "entrada": {
+  "fecha_hora": "2026-11-25T00:46-03:00",
+  "mep": 1743.1,
+  "tna_plazo_fijo": 20.47,
+  "tardia": true,
+  "nota": "precios de cierre (la entrada a la apertura no corrió)"
+ },
+ "carteras": {
+  "conservador": {
+   "posiciones": [
+    {
+     "ticker": "T30A7",
+     "bucket": "tasa_fija",
+     "cantidad": 57349,
+     "precio_entrada": 139.13,
+     "fuente_precio": "ask",
+     "monto": 79789.66,
+     "costo_compra": 208.65,
+     "tir_entrada": 31.95,
+     "vencimiento": "2027-04-30",
+     "ultimo_precio": 139.07
+    },
+    {
+     "ticker": "D15E7",
+     "bucket": "dollar_linked",
+     "cantidad": 36,
+     "precio_entrada": 158350.0,
+     "fuente_precio": "ask",
+     "monto": 57006.0,
+     "costo_compra": 149.07,
+     "tir_entrada": null,
+     "vencimiento": "2027-01-15",
+     "ultimo_precio": 158100.0
+    },
+    {
+     "ticker": "TZXM7",
+     "bucket": "cer",
+     "cantidad": 16790,
+     "precio_entrada": 237.6,
+     "fuente_precio": "ask",
+     "monto": 39893.04,
+     "costo_compra": 104.32,
+     "tir_entrada": 1.54,
+     "vencimiento": "2027-03-31",
+     "ultimo_precio": 237.3
+    }
+   ],
+   "liquidez_inicial": 22849.26,
+   "senales": [
+    "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+    "Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.",
+    "Brecha MEP/oficial 8.9%.",
+    "Riesgo país 1035 pb."
+   ],
+   "buckets": {
+    "cer": 0.2,
+    "tasa_fija": 0.45,
+    "dollar_linked": 0.3,
+    "liquidez": 0.05
+   }
+  },
+  "moderado": {
+   "posiciones": [
+    {
+     "ticker": "T30A7",
+     "bucket": "tasa_fija",
+     "cantidad": 43012,
+     "precio_entrada": 139.13,
+     "fuente_precio": "ask",
+     "monto": 59842.6,
+     "costo_compra": 156.49,
+     "tir_entrada": 31.95,
+     "vencimiento": "2027-04-30",
+     "ultimo_precio": 139.07
+    },
+    {
+     "ticker": "AL30",
+     "bucket": "hard_dollar",
+     "cantidad": 48,
+     "precio_entrada": 80400.0,
+     "fuente_precio": "ask",
+     "monto": 38592.0,
+     "costo_compra": 100.92,
+     "tir_entrada": 20.61,
+     "vencimiento": null,
+     "ultimo_precio": 80170.0
+    },
+    {
+     "ticker": "TZXM7",
+     "bucket": "cer",
+     "cantidad": 8394,
+     "precio_entrada": 237.6,
+     "fuente_precio": "ask",
+     "monto": 19944.14,
+     "costo_compra": 52.15,
+     "tir_entrada": 1.54,
+     "vencimiento": "2027-03-31",
+     "ultimo_precio": 237.3
+    }
+   ],
+   "liquidez_inicial": 81311.7,
+   "senales": [
+    "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+    "Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.",
+    "Brecha MEP/oficial 8.9%.",
+    "Riesgo país 1035 pb."
+   ],
+   "buckets": {
+    "cer": 0.1,
+    "tasa_fija": 0.3,
+    "hard_dollar": 0.2,
+    "cedears_etf": 0.3,
+    "liquidez": 0.1
+   }
+  },
+  "riesgoso": {
+   "posiciones": [
+    {
+     "ticker": "WMT",
+     "bucket": "cedears",
+     "cantidad": 1,
+     "precio_entrada": 13210.0,
+     "fuente_precio": "ask",
+     "monto": 13210.0,
+     "costo_compra": 82.5,
+     "tir_entrada": null,
+     "vencimiento": null,
+     "ultimo_precio": 13180.0
+    },
+    {
+     "ticker": "T30A7",
+     "bucket": "tasa_fija",
+     "cantidad": 21506,
+     "precio_entrada": 139.13,
+     "fuente_precio": "ask",
+     "monto": 29921.3,
+     "costo_compra": 78.24,
+     "tir_entrada": 31.95,
+     "vencimiento": "2027-04-30",
+     "ultimo_precio": 139.07
+    },
+    {
+     "ticker": "GGAL",
+     "bucket": "acciones_arg",
+     "cantidad": 4,
+     "precio_entrada": 4617.5,
+     "fuente_precio": "ask",
+     "monto": 18470.0,
+     "costo_compra": 115.35,
+     "tir_entrada": null,
+     "vencimiento": null,
+     "ultimo_precio": 4607.5
+    },
+    {
+     "ticker": "YPFD",
+     "bucket": "acciones_arg",
+     "cantidad": 3,
+     "precio_entrada": 5735.0,
+     "fuente_precio": "ask",
+     "monto": 17205.0,
+     "costo_compra": 107.45,
+     "tir_entrada": null,
+     "vencimiento": null,
+     "ultimo_precio": 5720.0
+    }
+   ],
+   "liquidez_inicial": 120810.17,
+   "senales": [
+    "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+    "Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.",
+    "Brecha MEP/oficial 8.9%.",
+    "Riesgo país 1035 pb."
+   ],
+   "buckets": {
+    "tasa_fija": 0.15,
+    "cedears": 0.45,
+    "acciones_arg": 0.4
+   }
+  }
+ },
+ "dias": [
+  {
+   "fecha": "2026-11-25",
+   "hora": "00:46",
+   "perfiles": {
+    "conservador": {
+     "valor": 198901.6,
+     "rend": -0.00549,
+     "detalle": [
+      {
+       "ticker": "T30A7",
+       "precio": 139.07,
+       "valor_neto": 79546.69,
+       "resultado": -451.62,
+       "var_precio": -0.0004
+      },
+      {
+       "ticker": "D15E7",
+       "precio": 158100.0,
+       "valor_neto": 56767.16,
+       "resultado": -387.91,
+       "var_precio": -0.0016
+      },
+      {
+       "ticker": "TZXM7",
+       "precio": 237.3,
+       "valor_neto": 39738.48,
+       "resultado": -258.88,
+       "var_precio": -0.0013
+      }
+     ]
+    },
+    "moderado": {
+     "valor": 199219.91,
+     "rend": -0.0039,
+     "detalle": [
+      {
+       "ticker": "T30A7",
+       "precio": 139.07,
+       "valor_neto": 59660.37,
+       "resultado": -338.72,
+       "var_precio": -0.0004
+      },
+      {
+       "ticker": "AL30",
+       "precio": 80170.0,
+       "valor_neto": 38380.97,
+       "resultado": -311.95,
+       "var_precio": -0.0029
+      },
+      {
+       "ticker": "TZXM7",
+       "precio": 237.3,
+       "valor_neto": 19866.87,
+       "resultado": -129.42,
+       "var_precio": -0.0013
+      }
+     ]
+    },
+    "riesgoso": {
+     "valor": 199105.79,
+     "rend": -0.00447,
+     "detalle": [
+      {
+       "ticker": "WMT",
+       "precio": 13180.0,
+       "valor_neto": 13097.69,
+       "resultado": -194.81,
+       "var_precio": -0.0023
+      },
+      {
+       "ticker": "T30A7",
+       "precio": 139.07,
+       "valor_neto": 29830.18,
+       "resultado": -169.36,
+       "var_precio": -0.0004
+      },
+      {
+       "ticker": "GGAL",
+       "precio": 4607.5,
+       "valor_neto": 18314.9,
+       "resultado": -270.45,
+       "var_precio": -0.0022
+      },
+      {
+       "ticker": "YPFD",
+       "precio": 5720.0,
+       "valor_neto": 17052.84,
+       "resultado": -259.61,
+       "var_precio": -0.0026
+      }
+     ]
+    }
+   },
+   "bench": {
+    "mep": 200000.0,
+    "plazo_fijo": 200000.0,
+    "mep_valor": 1743.1
+   }
+  }
+ ]
+}

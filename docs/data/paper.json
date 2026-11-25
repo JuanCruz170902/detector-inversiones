@@ -16,7 +16,7 @@
      "bucket": "tasa_fija"
     }
    },
-   "liquidez": 30297.52,
+   "liquidez": 30314.60703665607,
    "aportes": [
     {
      "mes": "2026-11",
@@ -32,6 +32,13 @@
      "valor": 199663.39,
      "aportado": 200000,
      "rend": -0.0017,
+     "bench_mep": 200000.0
+    },
+    {
+     "fecha": "2026-11-25",
+     "valor": 199680.48,
+     "aportado": 200000,
+     "rend": -0.0016,
      "bench_mep": 200000.0
     }
    ],
@@ -60,7 +67,7 @@
      "bucket": "hard_dollar"
     }
    },
-   "liquidez": 30269.38,
+   "liquidez": 30286.451166406245,
    "aportes": [
     {
      "mes": "2026-11",
@@ -74,6 +81,13 @@
     {
      "fecha": "2026-11-24",
      "valor": 200891.97,
+     "aportado": 200000,
+     "rend": 0.0045,
+     "bench_mep": 200000.0
+    },
+    {
+     "fecha": "2026-11-25",
+     "valor": 200909.04,
      "aportado": 200000,
      "rend": 0.0045,
      "bench_mep": 200000.0
@@ -109,7 +123,7 @@
      "bucket": "tasa_fija"
     }
    },
-   "liquidez": 10637.32,
+   "liquidez": 10643.319180024053,
    "aportes": [
     {
      "mes": "2026-11",
@@ -123,6 +137,13 @@
     {
      "fecha": "2026-11-24",
      "valor": 198270.75,
+     "aportado": 200000,
+     "rend": -0.0086,
+     "bench_mep": 200000.0
+    },
+    {
+     "fecha": "2026-11-25",
+     "valor": 198276.75,
      "aportado": 200000,
      "rend": -0.0086,
      "bench_mep": 200000.0

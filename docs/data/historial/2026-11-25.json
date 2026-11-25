@@ -1,0 +1,3875 @@
+{
+ "generado": "2026-11-25T03:44:57+00:00",
+ "fuentes": {
+  "argdatos_inflacion": "ok",
+  "argdatos_plazo_fijo": "ok",
+  "argdatos_dolares": "ok",
+  "argdatos_riesgo_pais": "ok",
+  "argdatos_bonos_cer": "ok",
+  "argdatos_letras": "ok",
+  "bcra_a3500_serie": "ok",
+  "bcra": "ok",
+  "data912_mep": "ok",
+  "calendario_balances": "ok (nasdaq, 171 empresas)",
+  "data912_bonos": "ok",
+  "data912_letras": "ok",
+  "data912_ons": "ok",
+  "data912_acciones": "ok",
+  "data912_cedears": "ok",
+  "data912_historia": "ok",
+  "bcra_badlar_serie": "ok"
+ },
+ "macro": {
+  "inflacion_mensual": 2.2,
+  "inflacion_fecha": "2026-10-31",
+  "inflacion_3m_prom": 1.93,
+  "tna_plazo_fijo": 20.47,
+  "dolar_oficial": 1600.0,
+  "dolar_mep": 1743.1,
+  "dolar_ccl": 1806.2,
+  "dolar_blue": 1675.0,
+  "riesgo_pais": 1035.0,
+  "bcra_a3500": 1592.0227,
+  "bcra_badlar": 22.5,
+  "bcra_inflacion_mensual": 2.2,
+  "bcra_rem_12m": 21.8,
+  "bcra_cer": 877.0321535949,
+  "bcra_tamar": 23.75,
+  "inflacion_esperada_fuente": "REM BCRA (mediana 12 meses)",
+  "inflacion_esperada_mensual": 1.66,
+  "devaluacion_reciente_mensual": 3.46
+ },
+ "perfiles": {
+  "conservador": {
+   "descripcion": "Preservar poder de compra en pesos con riesgo bajo. Sin acciones.",
+   "senales": {
+    "notas": [
+     "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+     "Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.",
+     "Brecha MEP/oficial 8.9%.",
+     "Riesgo país 1035 pb."
+    ],
+    "prefiere": "tasa_fija",
+    "tasa_real_mensual": -0.49,
+    "tasa_real_negativa": true,
+    "dl": "barata",
+    "brecha": 0.0894,
+    "brecha_alta": false
+   },
+   "propuesta": {
+    "perfil": "conservador",
+    "monto": 200000,
+    "buckets": {
+     "cer": 0.2,
+     "tasa_fija": 0.45,
+     "dollar_linked": 0.3,
+     "liquidez": 0.05
+    },
+    "posiciones": [
+     {
+      "bucket": "tasa_fija",
+      "ticker": "T30A7",
+      "monto": 80000.0,
+      "precio": 139.65,
+      "score": null,
+      "tir": 31.95,
+      "vencimiento": "2027-04-30",
+      "cantidad": 57136,
+      "unidad": "VN",
+      "monto_bruto": 79790.42,
+      "costo": 208.65
+     },
+     {
+      "bucket": "dollar_linked",
+      "ticker": "D15E7",
+      "monto": 60000.0,
+      "precio": 158350.0,
+      "score": null,
+      "tir": null,
+      "vencimiento": "2027-01-15",
+      "cantidad": 37,
+      "unidad": "VN",
+      "monto_bruto": 58589.5,
+      "costo": 153.21
+     },
+     {
+      "bucket": "cer",
+      "ticker": "TZXM7",
+      "monto": 40000.0,
+      "precio": 238.1,
+      "score": null,
+      "tir": 1.54,
+      "vencimiento": "2027-03-31",
+      "cantidad": 16755,
+      "unidad": "VN",
+      "monto_bruto": 39893.65,
+      "costo": 104.32
+     },
+     {
+      "bucket": "liquidez",
+      "ticker": "CAUCION/FCI MM",
+      "monto_bruto": 21260.24,
+      "cantidad": null,
+      "costo": 0
+     }
+    ],
+    "invertido": 178273.58,
+    "liquidez": 21260.24,
+    "costos": 466.19
+   },
+   "candidatos": {
+    "tasa_fija": [
+     {
+      "ticker": "T30A7",
+      "tipo": "tasa_fija",
+      "precio": 139.65,
+      "volumen": 14818788068,
+      "vol_ars": 20691292142.73,
+      "vencimiento": "2027-04-30",
+      "dias": 156,
+      "tea": 31.95,
+      "tem": 2.34,
+      "ajuste": 30.8003807441,
+      "residuo_pb": 115.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S26F7",
+      "tipo": "tasa_fija",
+      "precio": 101.36,
+      "volumen": 15563389658,
+      "vol_ars": 15781918673.48,
+      "vencimiento": "2027-02-26",
+      "dias": 93,
+      "tea": 29.64,
+      "tem": 2.19,
+      "ajuste": 30.1356043381,
+      "residuo_pb": -50.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T15E7",
+      "tipo": "tasa_fija",
+      "precio": 155.41,
+      "volumen": 24354177244,
+      "vol_ars": 37864544777.0,
+      "vencimiento": "2027-01-15",
+      "dias": 51,
+      "tea": 28.73,
+      "tem": 2.13,
+      "ajuste": 29.3634917077,
+      "residuo_pb": -63.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.8,
+      "volumen": 17614970035,
+      "vol_ars": 18807754761.5,
+      "vencimiento": "2027-01-29",
+      "dias": 65,
+      "tea": 28.06,
+      "tem": 2.08,
+      "ajuste": 29.6752311425,
+      "residuo_pb": -162.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T31Y7",
+      "tipo": "tasa_fija",
+      "precio": 130.9,
+      "volumen": 29960560256,
+      "vol_ars": 39223692824.27,
+      "vencimiento": "2027-05-31",
+      "dias": 187,
+      "tea": 32.92,
+      "tem": 2.4,
+      "ajuste": 31.0333260142,
+      "residuo_pb": 189.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T30J7",
+      "tipo": "tasa_fija",
+      "precio": 131.95,
+      "volumen": 4273331097,
+      "vol_ars": 5632898960.24,
+      "vencimiento": "2027-06-30",
+      "dias": 217,
+      "tea": 32.41,
+      "tem": 2.37,
+      "ajuste": 31.2245488193,
+      "residuo_pb": 119.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TY30P",
+      "tipo": "tasa_fija",
+      "precio": 113.6,
+      "volumen": 6051051408,
+      "vol_ars": 6874026449.1,
+      "vencimiento": "2030-05-30",
+      "dias": 1282,
+      "tea": 32.03,
+      "tem": 2.34,
+      "ajuste": 33.507417234,
+      "residuo_pb": -148.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     }
+    ],
+    "cer": [
+     {
+      "ticker": "TZXM7",
+      "tipo": "cer",
+      "precio": 238.1,
+      "volumen": 174351704,
+      "vol_ars": 415131407.22400004,
+      "vencimiento": "2027-03-31",
+      "dias": 126,
+      "tir": 1.54,
+      "ajuste": 1.5800427992,
+      "residuo_pb": -4.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXO7",
+      "tipo": "cer",
+      "precio": 103.25,
+      "volumen": 569431360,
+      "vol_ars": 587937879.2,
+      "vencimiento": "2027-10-29",
+      "dias": 338,
+      "tir": 6.3,
+      "ajuste": 4.6324249166,
+      "residuo_pb": 167.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMD8",
+      "tipo": "cer",
+      "precio": 95.45,
+      "volumen": 249000000,
+      "vol_ars": 237670500.0,
+      "vencimiento": "2028-12-15",
+      "dias": 751,
+      "tir": 7.55,
+      "ajuste": 7.1020114354,
+      "residuo_pb": 45.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ8",
+      "tipo": "cer",
+      "precio": 103.8,
+      "volumen": 144972951,
+      "vol_ars": 150481923.13799998,
+      "vencimiento": "2028-06-30",
+      "dias": 583,
+      "tir": 6.08,
+      "ajuste": 6.3187243226,
+      "residuo_pb": -24.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ0",
+      "tipo": "cer",
+      "precio": 83.75,
+      "volumen": 245995015,
+      "vol_ars": 206020825.0625,
+      "vencimiento": "2030-06-28",
+      "dias": 1311,
+      "tir": 8.13,
+      "ajuste": 8.8254262335,
+      "residuo_pb": -70.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXY7",
+      "tipo": "cer",
+      "precio": 130.0,
+      "volumen": 375578378,
+      "vol_ars": 488251891.4,
+      "vencimiento": "2027-05-31",
+      "dias": 187,
+      "tir": 1.66,
+      "ajuste": 2.8013702927,
+      "residuo_pb": -114.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXA7",
+      "tipo": "cer",
+      "precio": 131.35,
+      "volumen": 129025,
+      "vol_ars": 169474.3375,
+      "vencimiento": "2027-04-30",
+      "dias": 156,
+      "tir": 2.36,
+      "ajuste": 2.2406969902,
+      "residuo_pb": 12.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "X29E7",
+      "tipo": "cer",
+      "precio": 106.27,
+      "volumen": 4496980,
+      "vol_ars": 4778940.646,
+      "vencimiento": "2027-01-29",
+      "dias": 65,
+      "tir": -1.06,
+      "ajuste": -0.4674126989,
+      "residuo_pb": -59.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     }
+    ],
+    "dollar_linked": [
+     {
+      "ticker": "D15E7",
+      "tipo": "dollar_linked",
+      "precio": 158350.0,
+      "var_dia": 0.48,
+      "volumen": 87639627.0,
+      "vol_ars": 138777349354.5,
+      "vencimiento": "2027-01-15",
+      "dias": 51.0,
+      "liquido": true,
+      "tea_fija_equiv": 28.73,
+      "a3500_breakeven": 1640.38,
+      "devaluacion_be_mensual": 1.78,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "D31M7",
+      "tipo": "dollar_linked",
+      "precio": 157600.0,
+      "var_dia": -0.1,
+      "volumen": 2756269.0,
+      "vol_ars": 4343879944.0,
+      "vencimiento": "2027-03-31",
+      "dias": 126.0,
+      "liquido": true,
+      "tea_fija_equiv": 31.0,
+      "a3500_breakeven": 1729.95,
+      "devaluacion_be_mensual": 2.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "D10Y7",
+      "tipo": "dollar_linked",
+      "precio": 160000.0,
+      "var_dia": 0.0,
+      "volumen": 100.0,
+      "vol_ars": 160000.0,
+      "vencimiento": "2027-05-10",
+      "dias": 166.0,
+      "liquido": false,
+      "tea_fija_equiv": 32.28,
+      "a3500_breakeven": 1817.1,
+      "devaluacion_be_mensual": 2.42,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     }
+    ]
+   }
+  },
+  "moderado": {
+   "descripcion": "Mayormente renta fija, con una parte en dólares y CEDEARs de índices.",
+   "senales": {
+    "notas": [
+     "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+     "Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.",
+     "Brecha MEP/oficial 8.9%.",
+     "Riesgo país 1035 pb."
+    ],
+    "prefiere": "tasa_fija",
+    "tasa_real_mensual": -0.49,
+    "tasa_real_negativa": true,
+    "dl": "barata",
+    "brecha": 0.0894,
+    "brecha_alta": false
+   },
+   "propuesta": {
+    "perfil": "moderado",
+    "monto": 200000,
+    "buckets": {
+     "cer": 0.1,
+     "tasa_fija": 0.3,
+     "hard_dollar": 0.2,
+     "cedears_etf": 0.3,
+     "liquidez": 0.1
+    },
+    "posiciones": [
+     {
+      "bucket": "tasa_fija",
+      "ticker": "T30A7",
+      "monto": 60000.0,
+      "precio": 139.65,
+      "score": null,
+      "tir": 31.95,
+      "vencimiento": "2027-04-30",
+      "cantidad": 42852,
+      "unidad": "VN",
+      "monto_bruto": 59842.82,
+      "costo": 156.49
+     },
+     {
+      "bucket": "hard_dollar",
+      "ticker": "AL30",
+      "monto": 40000.0,
+      "precio": 80390.0,
+      "score": null,
+      "tir": 20.61,
+      "vencimiento": null,
+      "cantidad": 49,
+      "unidad": "VN",
+      "monto_bruto": 39391.1,
+      "costo": 103.01
+     },
+     {
+      "bucket": "cedears_etf",
+      "ticker": "SPY",
+      "monto": 30000.0,
+      "precio": 21550.0,
+      "score": 0.3017,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 1,
+      "unidad": "acciones",
+      "monto_bruto": 21550.0,
+      "costo": 134.58
+     },
+     {
+      "bucket": "cedears_etf",
+      "ticker": "EEM",
+      "monto": 30000.0,
+      "precio": 20450.0,
+      "score": 0.2757,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 1,
+      "unidad": "acciones",
+      "monto_bruto": 20450.0,
+      "costo": 127.71
+     },
+     {
+      "bucket": "cer",
+      "ticker": "TZXM7",
+      "monto": 20000.0,
+      "precio": 238.1,
+      "score": null,
+      "tir": 1.54,
+      "vencimiento": "2027-03-31",
+      "cantidad": 8377,
+      "unidad": "VN",
+      "monto_bruto": 19945.64,
+      "costo": 52.16
+     },
+     {
+      "bucket": "liquidez",
+      "ticker": "CAUCION/FCI MM",
+      "monto_bruto": 38246.5,
+      "cantidad": null,
+      "costo": 0
+     }
+    ],
+    "invertido": 161179.55,
+    "liquidez": 38246.5,
+    "costos": 573.94
+   },
+   "candidatos": {
+    "tasa_fija": [
+     {
+      "ticker": "T30A7",
+      "tipo": "tasa_fija",
+      "precio": 139.65,
+      "volumen": 14818788068,
+      "vol_ars": 20691292142.73,
+      "vencimiento": "2027-04-30",
+      "dias": 156,
+      "tea": 31.95,
+      "tem": 2.34,
+      "ajuste": 30.8003807441,
+      "residuo_pb": 115.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S26F7",
+      "tipo": "tasa_fija",
+      "precio": 101.36,
+      "volumen": 15563389658,
+      "vol_ars": 15781918673.48,
+      "vencimiento": "2027-02-26",
+      "dias": 93,
+      "tea": 29.64,
+      "tem": 2.19,
+      "ajuste": 30.1356043381,
+      "residuo_pb": -50.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T15E7",
+      "tipo": "tasa_fija",
+      "precio": 155.41,
+      "volumen": 24354177244,
+      "vol_ars": 37864544777.0,
+      "vencimiento": "2027-01-15",
+      "dias": 51,
+      "tea": 28.73,
+      "tem": 2.13,
+      "ajuste": 29.3634917077,
+      "residuo_pb": -63.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.8,
+      "volumen": 17614970035,
+      "vol_ars": 18807754761.5,
+      "vencimiento": "2027-01-29",
+      "dias": 65,
+      "tea": 28.06,
+      "tem": 2.08,
+      "ajuste": 29.6752311425,
+      "residuo_pb": -162.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T31Y7",
+      "tipo": "tasa_fija",
+      "precio": 130.9,
+      "volumen": 29960560256,
+      "vol_ars": 39223692824.27,
+      "vencimiento": "2027-05-31",
+      "dias": 187,
+      "tea": 32.92,
+      "tem": 2.4,
+      "ajuste": 31.0333260142,
+      "residuo_pb": 189.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T30J7",
+      "tipo": "tasa_fija",
+      "precio": 131.95,
+      "volumen": 4273331097,
+      "vol_ars": 5632898960.24,
+      "vencimiento": "2027-06-30",
+      "dias": 217,
+      "tea": 32.41,
+      "tem": 2.37,
+      "ajuste": 31.2245488193,
+      "residuo_pb": 119.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TY30P",
+      "tipo": "tasa_fija",
+      "precio": 113.6,
+      "volumen": 6051051408,
+      "vol_ars": 6874026449.1,
+      "vencimiento": "2030-05-30",
+      "dias": 1282,
+      "tea": 32.03,
+      "tem": 2.34,
+      "ajuste": 33.507417234,
+      "residuo_pb": -148.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     }
+    ],
+    "cer": [
+     {
+      "ticker": "TZXM7",
+      "tipo": "cer",
+      "precio": 238.1,
+      "volumen": 174351704,
+      "vol_ars": 415131407.22400004,
+      "vencimiento": "2027-03-31",
+      "dias": 126,
+      "tir": 1.54,
+      "ajuste": 1.5800427992,
+      "residuo_pb": -4.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXO7",
+      "tipo": "cer",
+      "precio": 103.25,
+      "volumen": 569431360,
+      "vol_ars": 587937879.2,
+      "vencimiento": "2027-10-29",
+      "dias": 338,
+      "tir": 6.3,
+      "ajuste": 4.6324249166,
+      "residuo_pb": 167.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMD8",
+      "tipo": "cer",
+      "precio": 95.45,
+      "volumen": 249000000,
+      "vol_ars": 237670500.0,
+      "vencimiento": "2028-12-15",
+      "dias": 751,
+      "tir": 7.55,
+      "ajuste": 7.1020114354,
+      "residuo_pb": 45.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ8",
+      "tipo": "cer",
+      "precio": 103.8,
+      "volumen": 144972951,
+      "vol_ars": 150481923.13799998,
+      "vencimiento": "2028-06-30",
+      "dias": 583,
+      "tir": 6.08,
+      "ajuste": 6.3187243226,
+      "residuo_pb": -24.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TXMJ0",
+      "tipo": "cer",
+      "precio": 83.75,
+      "volumen": 245995015,
+      "vol_ars": 206020825.0625,
+      "vencimiento": "2030-06-28",
+      "dias": 1311,
+      "tir": 8.13,
+      "ajuste": 8.8254262335,
+      "residuo_pb": -70.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXY7",
+      "tipo": "cer",
+      "precio": 130.0,
+      "volumen": 375578378,
+      "vol_ars": 488251891.4,
+      "vencimiento": "2027-05-31",
+      "dias": 187,
+      "tir": 1.66,
+      "ajuste": 2.8013702927,
+      "residuo_pb": -114.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TZXA7",
+      "tipo": "cer",
+      "precio": 131.35,
+      "volumen": 129025,
+      "vol_ars": 169474.3375,
+      "vencimiento": "2027-04-30",
+      "dias": 156,
+      "tir": 2.36,
+      "ajuste": 2.2406969902,
+      "residuo_pb": 12.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     },
+     {
+      "ticker": "X29E7",
+      "tipo": "cer",
+      "precio": 106.27,
+      "volumen": 4496980,
+      "vol_ars": 4778940.646,
+      "vencimiento": "2027-01-29",
+      "dias": 65,
+      "tir": -1.06,
+      "ajuste": -0.4674126989,
+      "residuo_pb": -59.0,
+      "liquido": false,
+      "apto": false,
+      "motivo_descarte": "poca liquidez"
+     }
+    ],
+    "hard_dollar": [
+     {
+      "ticker": "AL30",
+      "precio": 80390.0,
+      "vol_ars": 390716656723.8,
+      "tir": 20.61,
+      "precio_usd": 47.55,
+      "duration": 1.62,
+      "proximo_pago": "2027-01-09",
+      "md": 1.35,
+      "residual": 64.0,
+      "paridad": 74.3,
+      "monto_proximo_pago": 8.24,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "GD30",
+      "precio": 83000.0,
+      "vol_ars": 12138986550.0,
+      "tir": 18.12,
+      "precio_usd": 49.2,
+      "duration": 1.65,
+      "proximo_pago": "2027-01-09",
+      "md": 1.4,
+      "residual": 64.0,
+      "paridad": 76.9,
+      "monto_proximo_pago": 8.24,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "AL29",
+      "precio": 84130.0,
+      "vol_ars": 1564650581.3,
+      "tir": 17.41,
+      "precio_usd": 49.5,
+      "duration": 1.25,
+      "proximo_pago": "2027-01-09",
+      "md": 1.06,
+      "residual": 60.0,
+      "paridad": 82.5,
+      "monto_proximo_pago": 10.3,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "GD29",
+      "precio": 85000.0,
+      "vol_ars": 347863350.0,
+      "tir": 15.97,
+      "precio_usd": 50.27,
+      "duration": 1.26,
+      "proximo_pago": "2027-01-09",
+      "md": 1.08,
+      "residual": 60.0,
+      "paridad": 83.8,
+      "monto_proximo_pago": 10.3,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "AE38",
+      "precio": 106100.0,
+      "vol_ars": 5298649915.0,
+      "tir": 17.4,
+      "precio_usd": 62.78,
+      "duration": 3.87,
+      "proximo_pago": "2027-01-09",
+      "md": 3.29,
+      "residual": 100.0,
+      "paridad": 62.8,
+      "monto_proximo_pago": 2.5,
+      "apto": false,
+      "motivo_descarte": "duration > 3"
+     },
+     {
+      "ticker": "AL35",
+      "precio": 101190.0,
+      "vol_ars": 6090724254.3,
+      "tir": 16.15,
+      "precio_usd": 59.71,
+      "duration": 4.97,
+      "proximo_pago": "2027-01-09",
+      "md": 4.28,
+      "residual": 100.0,
+      "paridad": 59.7,
+      "monto_proximo_pago": 2.0625,
+      "apto": false,
+      "motivo_descarte": "duration > 3"
+     },
+     {
+      "ticker": "AL41",
+      "precio": 94950.0,
+      "vol_ars": 3533711422.5,
+      "tir": 15.7,
+      "precio_usd": 56.16,
+      "duration": 5.03,
+      "proximo_pago": "2027-01-09",
+      "md": 4.35,
+      "residual": 100.0,
+      "paridad": 56.2,
+      "monto_proximo_pago": 1.75,
+      "apto": false,
+      "motivo_descarte": "duration > 3"
+     },
+     {
+      "ticker": "GD38",
+      "precio": 116200.0,
+      "vol_ars": 1684679220.0,
+      "tir": 14.78,
+      "precio_usd": 68.65,
+      "duration": 4.06,
+      "proximo_pago": "2027-01-09",
+      "md": 3.54,
+      "residual": 100.0,
+      "paridad": 68.7,
+      "monto_proximo_pago": 2.5,
+      "apto": false,
+      "motivo_descarte": "duration > 3"
+     }
+    ],
+    "cedears_etf": [
+     {
+      "ticker": "IWM",
+      "precio": 48280.0,
+      "volumen": 329462720.0,
+      "balance": null,
+      "ret_1m": 0.0681415929,
+      "ret_3m": 0.0083542189,
+      "ret_6m": 0.163373494,
+      "vol_anual": 0.2583060156,
+      "rsi14": 57.3134328358,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0913621262,
+      "score": 0.3607666291,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "SPY",
+      "precio": 21550.0,
+      "volumen": 25591853350.0,
+      "balance": null,
+      "ret_1m": 0.0213270142,
+      "ret_3m": 0.056372549,
+      "ret_6m": 0.1680137668,
+      "vol_anual": 0.1820246351,
+      "rsi14": 57.7017114914,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0446511628,
+      "score": 0.3016664955,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "DIA",
+      "precio": 45080.0,
+      "volumen": 2029952400.0,
+      "balance": null,
+      "ret_1m": 0.0454545455,
+      "ret_3m": 0.0612052731,
+      "ret_6m": 0.211827957,
+      "vol_anual": 0.1973112667,
+      "rsi14": 61.6204690832,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0470219436,
+      "score": 0.3013856813,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "QQQ",
+      "precio": 57275.0,
+      "volumen": 7513334500.0,
+      "balance": null,
+      "ret_1m": -0.0361800589,
+      "ret_3m": 0.0074758135,
+      "ret_6m": 0.0806603774,
+      "vol_anual": 0.2703341513,
+      "rsi14": 49.7076023392,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1102490813,
+      "score": 0.2761809269,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "EEM",
+      "precio": 20450.0,
+      "volumen": 366239050.0,
+      "balance": null,
+      "ret_1m": -0.0177713737,
+      "ret_3m": -0.0443925234,
+      "ret_6m": 0.0535806285,
+      "vol_anual": 0.2764699546,
+      "rsi14": 52.0572450805,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1244925575,
+      "score": 0.2757330006,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "EWZ",
+      "precio": 26340.0,
+      "volumen": 3251014500.0,
+      "balance": null,
+      "ret_1m": -0.2422324511,
+      "ret_3m": -0.0538793103,
+      "ret_6m": -0.0351648352,
+      "vol_anual": 0.4968488734,
+      "rsi14": 44.8398576512,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.2723138147,
+      "score": 0.1090526316,
+      "apto": false,
+      "motivo_descarte": "debajo de SMA200, volatilidad alta"
+     }
+    ]
+   }
+  },
+  "riesgoso": {
+   "descripcion": "Busca retorno en renta variable; acepta caídas fuertes.",
+   "senales": {
+    "notas": [
+     "Inflación implícita 2.19% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
+     "Dollar linked: devaluación implícita 2.07% mensual vs 3.46% del último mes → cobertura barata.",
+     "Brecha MEP/oficial 8.9%.",
+     "Riesgo país 1035 pb."
+    ],
+    "prefiere": "tasa_fija",
+    "tasa_real_mensual": -0.49,
+    "tasa_real_negativa": true,
+    "dl": "barata",
+    "brecha": 0.0894,
+    "brecha_alta": false
+   },
+   "propuesta": {
+    "perfil": "riesgoso",
+    "monto": 200000,
+    "buckets": {
+     "tasa_fija": 0.15,
+     "cedears": 0.45,
+     "acciones_arg": 0.4
+    },
+    "posiciones": [
+     {
+      "bucket": "cedears",
+      "ticker": "XOM",
+      "monto": 30000.0,
+      "precio": 28420.0,
+      "score": 0.6456,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 1,
+      "unidad": "acciones",
+      "monto_bruto": 28420.0,
+      "costo": 177.48
+     },
+     {
+      "bucket": "cedears",
+      "ticker": "WMT",
+      "monto": 30000.0,
+      "precio": 13120.0,
+      "score": 0.5573,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 2,
+      "unidad": "acciones",
+      "monto_bruto": 26240.0,
+      "costo": 163.87
+     },
+     {
+      "bucket": "cedears",
+      "ticker": "PBR",
+      "monto": 30000.0,
+      "precio": 28100.0,
+      "score": 0.4955,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 1,
+      "unidad": "acciones",
+      "monto_bruto": 28100.0,
+      "costo": 175.48
+     },
+     {
+      "bucket": "tasa_fija",
+      "ticker": "T30A7",
+      "monto": 30000.0,
+      "precio": 139.65,
+      "score": null,
+      "tir": 31.95,
+      "vencimiento": "2027-04-30",
+      "cantidad": 21426,
+      "unidad": "VN",
+      "monto_bruto": 29921.41,
+      "costo": 78.24
+     },
+     {
+      "bucket": "acciones_arg",
+      "ticker": "GGAL",
+      "monto": 26666.666666666668,
+      "precio": 4617.5,
+      "score": 15843662967.5,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 5,
+      "unidad": "acciones",
+      "monto_bruto": 23087.5,
+      "costo": 144.18
+     },
+     {
+      "bucket": "acciones_arg",
+      "ticker": "YPFD",
+      "monto": 26666.666666666668,
+      "precio": 5735.0,
+      "score": 13312466245.0,
+      "tir": null,
+      "vencimiento": null,
+      "cantidad": 4,
+      "unidad": "acciones",
+      "monto_bruto": 22940.0,
+      "costo": 143.26
+     },
+     {
+      "bucket": "liquidez",
+      "ticker": "CAUCION/FCI MM",
+      "monto_bruto": 40408.57,
+      "cantidad": null,
+      "costo": 0
+     }
+    ],
+    "invertido": 158708.91,
+    "liquidez": 40408.57,
+    "costos": 882.52
+   },
+   "candidatos": {
+    "tasa_fija": [
+     {
+      "ticker": "T30A7",
+      "tipo": "tasa_fija",
+      "precio": 139.65,
+      "volumen": 14818788068,
+      "vol_ars": 20691292142.73,
+      "vencimiento": "2027-04-30",
+      "dias": 156,
+      "tea": 31.95,
+      "tem": 2.34,
+      "ajuste": 30.8003807441,
+      "residuo_pb": 115.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S26F7",
+      "tipo": "tasa_fija",
+      "precio": 101.36,
+      "volumen": 15563389658,
+      "vol_ars": 15781918673.48,
+      "vencimiento": "2027-02-26",
+      "dias": 93,
+      "tea": 29.64,
+      "tem": 2.19,
+      "ajuste": 30.1356043381,
+      "residuo_pb": -50.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T15E7",
+      "tipo": "tasa_fija",
+      "precio": 155.41,
+      "volumen": 24354177244,
+      "vol_ars": 37864544777.0,
+      "vencimiento": "2027-01-15",
+      "dias": 51,
+      "tea": 28.73,
+      "tem": 2.13,
+      "ajuste": 29.3634917077,
+      "residuo_pb": -63.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "S29E7",
+      "tipo": "tasa_fija",
+      "precio": 106.8,
+      "volumen": 17614970035,
+      "vol_ars": 18807754761.5,
+      "vencimiento": "2027-01-29",
+      "dias": 65,
+      "tea": 28.06,
+      "tem": 2.08,
+      "ajuste": 29.6752311425,
+      "residuo_pb": -162.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T31Y7",
+      "tipo": "tasa_fija",
+      "precio": 130.9,
+      "volumen": 29960560256,
+      "vol_ars": 39223692824.27,
+      "vencimiento": "2027-05-31",
+      "dias": 187,
+      "tea": 32.92,
+      "tem": 2.4,
+      "ajuste": 31.0333260142,
+      "residuo_pb": 189.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "T30J7",
+      "tipo": "tasa_fija",
+      "precio": 131.95,
+      "volumen": 4273331097,
+      "vol_ars": 5632898960.24,
+      "vencimiento": "2027-06-30",
+      "dias": 217,
+      "tea": 32.41,
+      "tem": 2.37,
+      "ajuste": 31.2245488193,
+      "residuo_pb": 119.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TY30P",
+      "tipo": "tasa_fija",
+      "precio": 113.6,
+      "volumen": 6051051408,
+      "vol_ars": 6874026449.1,
+      "vencimiento": "2030-05-30",
+      "dias": 1282,
+      "tea": 32.03,
+      "tem": 2.34,
+      "ajuste": 33.507417234,
+      "residuo_pb": -148.0,
+      "liquido": true,
+      "apto": true,
+      "motivo_descarte": ""
+     }
+    ],
+    "cedears": [
+     {
+      "ticker": "KO",
+      "precio": 35080.0,
+      "volumen": 2230772280.0,
+      "balance": null,
+      "ret_1m": 0.1577557756,
+      "ret_3m": 0.2054982818,
+      "ret_6m": 0.4495867769,
+      "vol_anual": 0.2089299291,
+      "rsi14": 82.6530612245,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0604209097,
+      "score": 0.6881616939,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "XOM",
+      "precio": 28420.0,
+      "volumen": 312023180.0,
+      "balance": null,
+      "ret_1m": -0.0213498623,
+      "ret_3m": 0.0781487102,
+      "ret_6m": 0.2228915663,
+      "vol_anual": 0.3056690837,
+      "rsi14": 34.2233009709,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1295938104,
+      "score": 0.6456282571,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "XLE",
+      "precio": 54350.0,
+      "volumen": 1844910750.0,
+      "balance": null,
+      "ret_1m": -0.0251121076,
+      "ret_3m": 0.0693556321,
+      "ret_6m": 0.2224471435,
+      "vol_anual": 0.2816153706,
+      "rsi14": 36.1623616236,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1259640103,
+      "score": 0.6383933048,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "AAPL",
+      "precio": 31920.0,
+      "volumen": 3338991600.0,
+      "balance": null,
+      "ret_1m": 0.1367521368,
+      "ret_3m": 0.2928311057,
+      "ret_6m": 0.422459893,
+      "vol_anual": 0.2446744827,
+      "rsi14": 71.6883116883,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1156963891,
+      "score": 0.6244274809,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "WMT",
+      "precio": 13120.0,
+      "volumen": 1101371520.0,
+      "balance": null,
+      "ret_1m": 0.2307692308,
+      "ret_3m": 0.4276387378,
+      "ret_6m": 0.2136910268,
+      "vol_anual": 0.2658680248,
+      "rsi14": 80.4195804196,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.1173913043,
+      "score": 0.5572700297,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "V",
+      "precio": 41540.0,
+      "volumen": 1013949860.0,
+      "balance": null,
+      "ret_1m": 0.1220961642,
+      "ret_3m": 0.2626139818,
+      "ret_6m": 0.5182748538,
+      "vol_anual": 0.2402681133,
+      "rsi14": 67.2690763052,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0595794393,
+      "score": 0.5050724638,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "PBR",
+      "precio": 28100.0,
+      "volumen": 781966800.0,
+      "balance": null,
+      "ret_1m": -0.3312708234,
+      "ret_3m": -0.0786885246,
+      "ret_6m": -0.0455163043,
+      "vol_anual": 0.5103379063,
+      "rsi14": 17.7541729894,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.351039261,
+      "score": 0.4954763172,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "IWM",
+      "precio": 48280.0,
+      "volumen": 329462720.0,
+      "balance": null,
+      "ret_1m": 0.0681415929,
+      "ret_3m": 0.0083542189,
+      "ret_6m": 0.163373494,
+      "vol_anual": 0.2583060156,
+      "rsi14": 57.3134328358,
+      "sobre_sma200": true,
+      "max_dd_6m": -0.0913621262,
+      "score": 0.3607666291,
+      "apto": true,
+      "motivo_descarte": ""
+     }
+    ],
+    "acciones_arg": [
+     {
+      "ticker": "GGAL",
+      "precio": 4617.5,
+      "volumen": 15843662967.5,
+      "balance": null,
+      "ret_1m": -0.2323358271,
+      "ret_3m": -0.3035444947,
+      "ret_6m": -0.2594226143,
+      "vol_anual": 0.3928057024,
+      "rsi14": 27.1889400922,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.4668621701,
+      "score": 15843662967.5,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "YPFD",
+      "precio": 5735.0,
+      "volumen": 13312466245.0,
+      "balance": null,
+      "ret_1m": -0.3040048544,
+      "ret_3m": -0.2963190184,
+      "ret_6m": -0.1585989051,
+      "vol_anual": 0.407891416,
+      "rsi14": 17.0418006431,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.3752723312,
+      "score": 13312466245.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "PAMP",
+      "precio": 4415.0,
+      "volumen": 5402370600.0,
+      "balance": null,
+      "ret_1m": -0.1343137255,
+      "ret_3m": -0.1309055118,
+      "ret_6m": -0.0685654008,
+      "vol_anual": 0.3154703638,
+      "rsi14": 35.674676525,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.2723649247,
+      "score": 5402370600.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "CEPU",
+      "precio": 1840.0,
+      "volumen": 1867780320.0,
+      "balance": null,
+      "ret_1m": -0.0776942356,
+      "ret_3m": -0.1123974916,
+      "ret_6m": -0.1136801541,
+      "vol_anual": 0.4159480219,
+      "rsi14": 58.7570621469,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.315942029,
+      "score": 1867780320.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "BBAR",
+      "precio": 5480.0,
+      "volumen": 1780786280.0,
+      "balance": null,
+      "ret_1m": -0.2103746398,
+      "ret_3m": -0.2698201199,
+      "ret_6m": -0.2554347826,
+      "vol_anual": 0.44094305,
+      "rsi14": 29.8672566372,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.5240471869,
+      "score": 1780786280.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TRAN",
+      "precio": 2089.0,
+      "volumen": 1676065281.0,
+      "balance": null,
+      "ret_1m": -0.134989648,
+      "ret_3m": -0.359202454,
+      "ret_6m": -0.4612508059,
+      "vol_anual": 0.5213492263,
+      "rsi14": 41.504178273,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.5457875458,
+      "score": 1676065281.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "TGSU2",
+      "precio": 7050.0,
+      "volumen": 1422126000.0,
+      "balance": null,
+      "ret_1m": -0.1764018692,
+      "ret_3m": -0.2140468227,
+      "ret_6m": -0.1715628672,
+      "vol_anual": 0.379355288,
+      "rsi14": 33.2618025751,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.3248756219,
+      "score": 1422126000.0,
+      "apto": true,
+      "motivo_descarte": ""
+     },
+     {
+      "ticker": "BYMA",
+      "precio": 190.0,
+      "volumen": 1380636330.0,
+      "balance": null,
+      "ret_1m": -0.2083333333,
+      "ret_3m": -0.2549019608,
+      "ret_6m": -0.3140794224,
+      "vol_anual": 0.3778086166,
+      "rsi14": 35.4166666667,
+      "sobre_sma200": false,
+      "max_dd_6m": -0.4204892966,
+      "score": 1380636330.0,
+      "apto": true,
+      "motivo_descarte": ""
+     }
+    ]
+   }
+  }
+ },
+ "monto": 200000,
+ "curvas": {
+  "tasa_fija": [
+   {
+    "ticker": "T15E7",
+    "tipo": "tasa_fija",
+    "precio": 155.41,
+    "volumen": 24354177244,
+    "vol_ars": 37864544777.0,
+    "vencimiento": "2027-01-15",
+    "dias": 51,
+    "tea": 28.73,
+    "tem": 2.13,
+    "ajuste": 29.3634917077,
+    "residuo_pb": -63.0,
+    "liquido": true
+   },
+   {
+    "ticker": "S29E7",
+    "tipo": "tasa_fija",
+    "precio": 106.8,
+    "volumen": 17614970035,
+    "vol_ars": 18807754761.5,
+    "vencimiento": "2027-01-29",
+    "dias": 65,
+    "tea": 28.06,
+    "tem": 2.08,
+    "ajuste": 29.6752311425,
+    "residuo_pb": -162.0,
+    "liquido": true
+   },
+   {
+    "ticker": "S26F7",
+    "tipo": "tasa_fija",
+    "precio": 101.36,
+    "volumen": 15563389658,
+    "vol_ars": 15781918673.48,
+    "vencimiento": "2027-02-26",
+    "dias": 93,
+    "tea": 29.64,
+    "tem": 2.19,
+    "ajuste": 30.1356043381,
+    "residuo_pb": -50.0,
+    "liquido": true
+   },
+   {
+    "ticker": "T30A7",
+    "tipo": "tasa_fija",
+    "precio": 139.65,
+    "volumen": 14818788068,
+    "vol_ars": 20691292142.73,
+    "vencimiento": "2027-04-30",
+    "dias": 156,
+    "tea": 31.95,
+    "tem": 2.34,
+    "ajuste": 30.8003807441,
+    "residuo_pb": 115.0,
+    "liquido": true
+   },
+   {
+    "ticker": "T31Y7",
+    "tipo": "tasa_fija",
+    "precio": 130.9,
+    "volumen": 29960560256,
+    "vol_ars": 39223692824.27,
+    "vencimiento": "2027-05-31",
+    "dias": 187,
+    "tea": 32.92,
+    "tem": 2.4,
+    "ajuste": 31.0333260142,
+    "residuo_pb": 189.0,
+    "liquido": true
+   },
+   {
+    "ticker": "T30J7",
+    "tipo": "tasa_fija",
+    "precio": 131.95,
+    "volumen": 4273331097,
+    "vol_ars": 5632898960.24,
+    "vencimiento": "2027-06-30",
+    "dias": 217,
+    "tea": 32.41,
+    "tem": 2.37,
+    "ajuste": 31.2245488193,
+    "residuo_pb": 119.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TY30P",
+    "tipo": "tasa_fija",
+    "precio": 113.6,
+    "volumen": 6051051408,
+    "vol_ars": 6874026449.1,
+    "vencimiento": "2030-05-30",
+    "dias": 1282,
+    "tea": 32.03,
+    "tem": 2.34,
+    "ajuste": 33.507417234,
+    "residuo_pb": -148.0,
+    "liquido": true
+   }
+  ],
+  "cer": [
+   {
+    "ticker": "X29E7",
+    "tipo": "cer",
+    "precio": 106.27,
+    "volumen": 4496980,
+    "vol_ars": 4778940.646,
+    "vencimiento": "2027-01-29",
+    "dias": 65,
+    "tir": -1.06,
+    "ajuste": -0.4674126989,
+    "residuo_pb": -59.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXM7",
+    "tipo": "cer",
+    "precio": 238.1,
+    "volumen": 174351704,
+    "vol_ars": 415131407.22400004,
+    "vencimiento": "2027-03-31",
+    "dias": 126,
+    "tir": 1.54,
+    "ajuste": 1.5800427992,
+    "residuo_pb": -4.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZXA7",
+    "tipo": "cer",
+    "precio": 131.35,
+    "volumen": 129025,
+    "vol_ars": 169474.3375,
+    "vencimiento": "2027-04-30",
+    "dias": 156,
+    "tir": 2.36,
+    "ajuste": 2.2406969902,
+    "residuo_pb": 12.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXY7",
+    "tipo": "cer",
+    "precio": 130.0,
+    "volumen": 375578378,
+    "vol_ars": 488251891.4,
+    "vencimiento": "2027-05-31",
+    "dias": 187,
+    "tir": 1.66,
+    "ajuste": 2.8013702927,
+    "residuo_pb": -114.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZX27",
+    "tipo": "cer",
+    "precio": 425.15,
+    "volumen": 1644227,
+    "vol_ars": 6990431.0905,
+    "vencimiento": "2027-06-30",
+    "dias": 217,
+    "tir": 2.56,
+    "ajuste": 3.2616222723,
+    "residuo_pb": -70.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXS7",
+    "tipo": "cer",
+    "precio": 113.9,
+    "volumen": 0,
+    "vol_ars": 0.0,
+    "vencimiento": "2027-09-30",
+    "dias": 309,
+    "tir": 5.94,
+    "ajuste": 4.3549393407,
+    "residuo_pb": 159.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXO7",
+    "tipo": "cer",
+    "precio": 103.25,
+    "volumen": 569431360,
+    "vol_ars": 587937879.2,
+    "vencimiento": "2027-10-29",
+    "dias": 338,
+    "tir": 6.3,
+    "ajuste": 4.6324249166,
+    "residuo_pb": 167.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZXD7",
+    "tipo": "cer",
+    "precio": 291.35,
+    "volumen": 3380343,
+    "vol_ars": 9848629.330500001,
+    "vencimiento": "2027-12-15",
+    "dias": 385,
+    "tir": 8.98,
+    "ajuste": 5.0351679621,
+    "residuo_pb": 394.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXM8",
+    "tipo": "cer",
+    "precio": 104.15,
+    "volumen": 4528085,
+    "vol_ars": 4716000.5275,
+    "vencimiento": "2028-03-31",
+    "dias": 492,
+    "tir": 10.55,
+    "ajuste": 5.7937608008,
+    "residuo_pb": 476.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMJ8",
+    "tipo": "cer",
+    "precio": 103.8,
+    "volumen": 144972951,
+    "vol_ars": 150481923.13799998,
+    "vencimiento": "2028-06-30",
+    "dias": 583,
+    "tir": 6.08,
+    "ajuste": 6.3187243226,
+    "residuo_pb": -24.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZX28",
+    "tipo": "cer",
+    "precio": 361.95,
+    "volumen": 2153457,
+    "vol_ars": 7794437.6115,
+    "vencimiento": "2028-06-30",
+    "dias": 583,
+    "tir": 11.63,
+    "ajuste": 6.3187243226,
+    "residuo_pb": 531.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXS8",
+    "tipo": "cer",
+    "precio": 98.21,
+    "volumen": 1800000,
+    "vol_ars": 1767780.0,
+    "vencimiento": "2028-09-30",
+    "dias": 675,
+    "tir": 11.23,
+    "ajuste": 6.7719753886,
+    "residuo_pb": 446.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TX28",
+    "tipo": "cer",
+    "precio": 1414.5,
+    "volumen": 11929,
+    "vol_ars": 168735.705,
+    "vencimiento": "2028-11-09",
+    "dias": 715,
+    "tir": 9.63,
+    "ajuste": 6.950057674,
+    "residuo_pb": 268.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMD8",
+    "tipo": "cer",
+    "precio": 95.45,
+    "volumen": 249000000,
+    "vol_ars": 237670500.0,
+    "vencimiento": "2028-12-15",
+    "dias": 751,
+    "tir": 7.55,
+    "ajuste": 7.1020114354,
+    "residuo_pb": 45.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TZXD8",
+    "tipo": "cer",
+    "precio": 88.15,
+    "volumen": 3532757,
+    "vol_ars": 3114125.2955,
+    "vencimiento": "2028-12-15",
+    "dias": 751,
+    "tir": 10.99,
+    "ajuste": 7.1020114354,
+    "residuo_pb": 389.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TZXM9",
+    "tipo": "cer",
+    "precio": 93.6,
+    "volumen": 0,
+    "vol_ars": 0.0,
+    "vencimiento": "2029-03-28",
+    "dias": 854,
+    "tir": 10.85,
+    "ajuste": 7.4995827601,
+    "residuo_pb": 335.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMJ9",
+    "tipo": "cer",
+    "precio": 92.75,
+    "volumen": 2000000,
+    "vol_ars": 1855000.0,
+    "vencimiento": "2029-06-29",
+    "dias": 947,
+    "tir": 8.95,
+    "ajuste": 7.8193333097,
+    "residuo_pb": 113.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMD9",
+    "tipo": "cer",
+    "precio": 86.7,
+    "volumen": 19990000,
+    "vol_ars": 17331330.0,
+    "vencimiento": "2029-12-14",
+    "dias": 1115,
+    "tir": 8.38,
+    "ajuste": 8.3245061093,
+    "residuo_pb": 6.0,
+    "liquido": false
+   },
+   {
+    "ticker": "TXMJ0",
+    "tipo": "cer",
+    "precio": 83.75,
+    "volumen": 245995015,
+    "vol_ars": 206020825.0625,
+    "vencimiento": "2030-06-28",
+    "dias": 1311,
+    "tir": 8.13,
+    "ajuste": 8.8254262335,
+    "residuo_pb": -70.0,
+    "liquido": true
+   },
+   {
+    "ticker": "TX31",
+    "tipo": "cer",
+    "precio": 1463.0,
+    "volumen": 25235,
+    "vol_ars": 369188.05,
+    "vencimiento": "2031-12-01",
+    "dias": 1832,
+    "tir": 12.84,
+    "ajuste": 9.860508785,
+    "residuo_pb": 298.0,
+    "liquido": false
+   },
+   {
+    "ticker": "DIP0",
+    "tipo": "cer",
+    "precio": 47800.0,
+    "volumen": 0,
+    "vol_ars": 0.0,
+    "vencimiento": "2033-12-31",
+    "dias": 2593,
+    "tir": 12.98,
+    "ajuste": 10.9351524283,
+    "residuo_pb": 204.0,
+    "liquido": false
+   },
+   {
+    "ticker": "DICP",
+    "tipo": "cer",
+    "precio": 48500.0,
+    "volumen": 2000,
+    "vol_ars": 970000.0,
+    "vencimiento": "2034-01-02",
+    "dias": 2595,
+    "tir": 12.4,
+    "ajuste": 10.9375374133,
+    "residuo_pb": 146.0,
+    "liquido": false
+   },
+   {
+    "ticker": "PAP0",
+    "tipo": "cer",
+    "precio": 32465.0,
+    "volumen": 4,
+    "vol_ars": 1298.6,
+    "vencimiento": "2038-12-31",
+    "dias": 4419,
+    "tir": 12.34,
+    "ajuste": 12.5841977679,
+    "residuo_pb": -24.0,
+    "liquido": false
+   },
+   {
+    "ticker": "PARP",
+    "tipo": "cer",
+    "precio": 31830.0,
+    "volumen": 18210,
+    "vol_ars": 5796243.0,
+    "vencimiento": "2038-12-31",
+    "dias": 4419,
+    "tir": 12.68,
+    "ajuste": 12.5841977679,
+    "residuo_pb": 10.0,
+    "liquido": false
+   },
+   {
+    "ticker": "CUAP",
+    "tipo": "cer",
+    "precio": 39150.0,
+    "volumen": 790,
+    "vol_ars": 309285.0,
+    "vencimiento": "2045-12-31",
+    "dias": 6976,
+    "tir": 11.18,
+    "ajuste": 13.9964934085,
+    "residuo_pb": -282.0,
+    "liquido": false
+   }
+  ],
+  "dollar_linked": [
+   {
+    "ticker": "D15E7",
+    "tipo": "dollar_linked",
+    "precio": 158350.0,
+    "var_dia": 0.48,
+    "volumen": 87639627.0,
+    "vol_ars": 138777349354.5,
+    "vencimiento": "2027-01-15",
+    "dias": 51.0,
+    "liquido": true,
+    "tea_fija_equiv": 28.73,
+    "a3500_breakeven": 1640.38,
+    "devaluacion_be_mensual": 1.78
+   },
+   {
+    "ticker": "D31M7",
+    "tipo": "dollar_linked",
+    "precio": 157600.0,
+    "var_dia": -0.1,
+    "volumen": 2756269.0,
+    "vol_ars": 4343879944.0,
+    "vencimiento": "2027-03-31",
+    "dias": 126.0,
+    "liquido": true,
+    "tea_fija_equiv": 31.0,
+    "a3500_breakeven": 1729.95,
+    "devaluacion_be_mensual": 2.0
+   },
+   {
+    "ticker": "D10Y7",
+    "tipo": "dollar_linked",
+    "precio": 160000.0,
+    "var_dia": 0.0,
+    "volumen": 100.0,
+    "vol_ars": 160000.0,
+    "vencimiento": "2027-05-10",
+    "dias": 166.0,
+    "liquido": false,
+    "tea_fija_equiv": 32.28,
+    "a3500_breakeven": 1817.1,
+    "devaluacion_be_mensual": 2.42
+   }
+  ],
+  "hard_dollar": [
+   {
+    "ticker": "AL30",
+    "precio": 80390.0,
+    "vol_ars": 390716656723.8,
+    "tir": 20.61,
+    "precio_usd": 47.55,
+    "duration": 1.62,
+    "proximo_pago": "2027-01-09",
+    "md": 1.35,
+    "residual": 64.0,
+    "paridad": 74.3,
+    "monto_proximo_pago": 8.24,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD30",
+    "precio": 83000.0,
+    "vol_ars": 12138986550.0,
+    "tir": 18.12,
+    "precio_usd": 49.2,
+    "duration": 1.65,
+    "proximo_pago": "2027-01-09",
+    "md": 1.4,
+    "residual": 64.0,
+    "paridad": 76.9,
+    "monto_proximo_pago": 8.24,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "AL29",
+    "precio": 84130.0,
+    "vol_ars": 1564650581.3,
+    "tir": 17.41,
+    "precio_usd": 49.5,
+    "duration": 1.25,
+    "proximo_pago": "2027-01-09",
+    "md": 1.06,
+    "residual": 60.0,
+    "paridad": 82.5,
+    "monto_proximo_pago": 10.3,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "GD29",
+    "precio": 85000.0,
+    "vol_ars": 347863350.0,
+    "tir": 15.97,
+    "precio_usd": 50.27,
+    "duration": 1.26,
+    "proximo_pago": "2027-01-09",
+    "md": 1.08,
+    "residual": 60.0,
+    "paridad": 83.8,
+    "monto_proximo_pago": 10.3,
+    "apto": true,
+    "motivo_descarte": ""
+   },
+   {
+    "ticker": "AE38",
+    "precio": 106100.0,
+    "vol_ars": 5298649915.0,
+    "tir": 17.4,
+    "precio_usd": 62.78,
+    "duration": 3.87,
+    "proximo_pago": "2027-01-09",
+    "md": 3.29,
+    "residual": 100.0,
+    "paridad": 62.8,
+    "monto_proximo_pago": 2.5,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   },
+   {
+    "ticker": "AL35",
+    "precio": 101190.0,
+    "vol_ars": 6090724254.3,
+    "tir": 16.15,
+    "precio_usd": 59.71,
+    "duration": 4.97,
+    "proximo_pago": "2027-01-09",
+    "md": 4.28,
+    "residual": 100.0,
+    "paridad": 59.7,
+    "monto_proximo_pago": 2.0625,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   },
+   {
+    "ticker": "AL41",
+    "precio": 94950.0,
+    "vol_ars": 3533711422.5,
+    "tir": 15.7,
+    "precio_usd": 56.16,
+    "duration": 5.03,
+    "proximo_pago": "2027-01-09",
+    "md": 4.35,
+    "residual": 100.0,
+    "paridad": 56.2,
+    "monto_proximo_pago": 1.75,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   },
+   {
+    "ticker": "GD38",
+    "precio": 116200.0,
+    "vol_ars": 1684679220.0,
+    "tir": 14.78,
+    "precio_usd": 68.65,
+    "duration": 4.06,
+    "proximo_pago": "2027-01-09",
+    "md": 3.54,
+    "residual": 100.0,
+    "paridad": 68.7,
+    "monto_proximo_pago": 2.5,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   },
+   {
+    "ticker": "GD35",
+    "precio": 108230.0,
+    "vol_ars": 13474342779.0,
+    "tir": 14.52,
+    "precio_usd": 64.1,
+    "duration": 5.04,
+    "proximo_pago": "2027-01-09",
+    "md": 4.4,
+    "residual": 100.0,
+    "paridad": 64.1,
+    "monto_proximo_pago": 2.0625,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   },
+   {
+    "ticker": "GD41",
+    "precio": 101030.0,
+    "vol_ars": 5324936684.7,
+    "tir": 13.75,
+    "precio_usd": 61.28,
+    "duration": 5.26,
+    "proximo_pago": "2027-01-09",
+    "md": 4.62,
+    "residual": 100.0,
+    "paridad": 61.3,
+    "monto_proximo_pago": 1.75,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   },
+   {
+    "ticker": "GD46",
+    "precio": 95490.0,
+    "vol_ars": 87603480.9,
+    "tir": 13.22,
+    "precio_usd": 56.74,
+    "duration": 5.47,
+    "proximo_pago": "2027-01-09",
+    "md": 4.83,
+    "residual": 90.91,
+    "paridad": 62.4,
+    "monto_proximo_pago": 4.1477,
+    "apto": false,
+    "motivo_descarte": "duration > 3"
+   }
+  ],
+  "breakevens": [
+   {
+    "dias": 93,
+    "fija": "S26F7",
+    "cer": "TZXM7",
+    "tea_fija": 29.64,
+    "tir_real_cer": 1.54,
+    "inflacion_be_anual": 27.67,
+    "inflacion_be_mensual": 2.06
+   },
+   {
+    "dias": 156,
+    "fija": "T30A7",
+    "cer": "TZXM7",
+    "tea_fija": 31.95,
+    "tir_real_cer": 1.54,
+    "inflacion_be_anual": 29.95,
+    "inflacion_be_mensual": 2.21
+   },
+   {
+    "dias": 187,
+    "fija": "T31Y7",
+    "cer": "TZXY7",
+    "tea_fija": 32.92,
+    "tir_real_cer": 1.66,
+    "inflacion_be_anual": 30.75,
+    "inflacion_be_mensual": 2.26
+   },
+   {
+    "dias": 217,
+    "fija": "T30J7",
+    "cer": "TZXY7",
+    "tea_fija": 32.41,
+    "tir_real_cer": 1.66,
+    "inflacion_be_anual": 30.25,
+    "inflacion_be_mensual": 2.23
+   },
+   {
+    "dias": 1282,
+    "fija": "TY30P",
+    "cer": "TXMJ0",
+    "tea_fija": 32.03,
+    "tir_real_cer": 8.13,
+    "inflacion_be_anual": 22.1,
+    "inflacion_be_mensual": 1.68
+   }
+  ],
+  "senales": {
+   "breakeven": {
+    "inflacion_implicita_mensual": 2.19,
+    "inflacion_esperada_mensual": 1.66,
+    "diferencia_pp": 0.53,
+    "prefiere": "tasa_fija"
+   },
+   "dl": {
+    "implicita_mensual": 2.07,
+    "reciente_mensual": 3.46,
+    "estado": "barata"
+   }
+  }
+ },
+ "backtest": {
+  "_variantes": [
+   {
+    "caso": "moderado_cedears_etf",
+    "variante": "actual (12m)",
+    "anual": 0.4478,
+    "vol": 0.228,
+    "max_dd": -0.1759,
+    "bench_anual": 0.4911,
+    "bench_dd": -0.1083,
+    "ratio": 1.96,
+    "bench_ratio": 1.68
+   },
+   {
+    "caso": "moderado_cedears_etf",
+    "variante": "v0.1 (3m+6m / vol, RSI)",
+    "anual": 0.3284,
+    "vol": 0.219,
+    "max_dd": -0.2739,
+    "bench_anual": 0.4911,
+    "bench_dd": -0.1083,
+    "ratio": 1.5,
+    "bench_ratio": 1.68
+   },
+   {
+    "caso": "moderado_cedears_etf",
+    "variante": "6m+12m / vol",
+    "anual": 0.411,
+    "vol": 0.221,
+    "max_dd": -0.1889,
+    "bench_anual": 0.4911,
+    "bench_dd": -0.1083,
+    "ratio": 1.86,
+    "bench_ratio": 1.68
+   },
+   {
+    "caso": "moderado_cedears_etf",
+    "variante": "actual, top 5",
+    "anual": 0.5988,
+    "vol": 0.2004,
+    "max_dd": -0.1362,
+    "bench_anual": 0.7537,
+    "bench_dd": -0.1083,
+    "ratio": 2.99,
+    "bench_ratio": 2.25
+   },
+   {
+    "caso": "moderado_cedears_etf",
+    "variante": "actual, sin filtros",
+    "anual": 0.4424,
+    "vol": 0.2442,
+    "max_dd": -0.1629,
+    "bench_anual": 0.4911,
+    "bench_dd": -0.1083,
+    "ratio": 1.81,
+    "bench_ratio": 1.68
+   },
+   {
+    "caso": "riesgoso_cedears",
+    "variante": "actual (12m)",
+    "anual": 0.816,
+    "vol": 0.4559,
+    "max_dd": -0.1757,
+    "bench_anual": 0.7537,
+    "bench_dd": -0.1083,
+    "ratio": 1.79,
+    "bench_ratio": 2.25
+   },
+   {
+    "caso": "riesgoso_cedears",
+    "variante": "v0.1 (3m+6m / vol, RSI)",
+    "anual": 0.4193,
+    "vol": 0.3961,
+    "max_dd": -0.2584,
+    "bench_anual": 0.7537,
+    "bench_dd": -0.1083,
+    "ratio": 1.06,
+    "bench_ratio": 2.25
+   },
+   {
+    "caso": "riesgoso_cedears",
+    "variante": "6m+12m / vol",
+    "anual": 0.6411,
+    "vol": 0.3425,
+    "max_dd": -0.1576,
+    "bench_anual": 0.7537,
+    "bench_dd": -0.1083,
+    "ratio": 1.87,
+    "bench_ratio": 2.25
+   },
+   {
+    "caso": "riesgoso_cedears",
+    "variante": "actual, top 5",
+    "anual": 0.7666,
+    "vol": 0.4458,
+    "max_dd": -0.1544,
+    "bench_anual": 0.7537,
+    "bench_dd": -0.1083,
+    "ratio": 1.72,
+    "bench_ratio": 2.25
+   },
+   {
+    "caso": "riesgoso_cedears",
+    "variante": "actual, sin filtros",
+    "anual": 0.8234,
+    "vol": 0.4604,
+    "max_dd": -0.1757,
+    "bench_anual": 0.7537,
+    "bench_dd": -0.1083,
+    "ratio": 1.79,
+    "bench_ratio": 2.25
+   },
+   {
+    "caso": "riesgoso_acciones_arg",
+    "variante": "actual (12m)",
+    "anual": 0.3538,
+    "vol": 0.6338,
+    "max_dd": -0.5732,
+    "bench_anual": 0.8869,
+    "bench_dd": -0.3584,
+    "ratio": 0.56,
+    "bench_ratio": 1.41
+   },
+   {
+    "caso": "riesgoso_acciones_arg",
+    "variante": "v0.1 (3m+6m / vol, RSI)",
+    "anual": 0.1823,
+    "vol": 0.5176,
+    "max_dd": -0.6502,
+    "bench_anual": 0.8869,
+    "bench_dd": -0.3584,
+    "ratio": 0.35,
+    "bench_ratio": 1.41
+   },
+   {
+    "caso": "riesgoso_acciones_arg",
+    "variante": "6m+12m / vol",
+    "anual": 0.3943,
+    "vol": 0.5361,
+    "max_dd": -0.5668,
+    "bench_anual": 0.8869,
+    "bench_dd": -0.3584,
+    "ratio": 0.74,
+    "bench_ratio": 1.41
+   },
+   {
+    "caso": "riesgoso_acciones_arg",
+    "variante": "actual, top 5",
+    "anual": 0.4727,
+    "vol": 0.5683,
+    "max_dd": -0.5914,
+    "bench_anual": 0.8869,
+    "bench_dd": -0.3584,
+    "ratio": 0.83,
+    "bench_ratio": 1.41
+   },
+   {
+    "caso": "riesgoso_acciones_arg",
+    "variante": "actual, sin filtros",
+    "anual": 0.3765,
+    "vol": 0.5784,
+    "max_dd": -0.5825,
+    "bench_anual": 0.8869,
+    "bench_dd": -0.3584,
+    "ratio": 0.65,
+    "bench_ratio": 1.41
+   }
+  ],
+  "moderado_cedears_etf": {
+   "desde": "2023-09-30",
+   "hasta": "2026-11-30",
+   "meses": 39,
+   "n": 2,
+   "benchmark": "SPY",
+   "estrategia": {
+    "total": 2.3286,
+    "anual": 0.4478,
+    "vol_anual": 0.228,
+    "max_drawdown": -0.1759
+   },
+   "bench": {
+    "total": 2.6633,
+    "anual": 0.4911,
+    "vol_anual": 0.2916,
+    "max_drawdown": -0.1083
+   },
+   "meses_le_gana": 20,
+   "serie": [
+    {
+     "fecha": "2023-09-30",
+     "estrategia": 1.0945,
+     "benchmark": 1.0007,
+     "ret_mes": 0.0945,
+     "ret_bench": 0.0007,
+     "cartera": []
+    },
+    {
+     "fecha": "2023-10-31",
+     "estrategia": 1.1984,
+     "benchmark": 1.028,
+     "ret_mes": 0.0949,
+     "ret_bench": 0.0273,
+     "cartera": []
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 1.3268,
+     "benchmark": 1.0864,
+     "ret_mes": 0.1071,
+     "ret_bench": 0.0568,
+     "cartera": []
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 1.4704,
+     "benchmark": 1.3182,
+     "ret_mes": 0.1082,
+     "ret_bench": 0.2134,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 1.6049,
+     "benchmark": 1.7273,
+     "ret_mes": 0.0915,
+     "ret_bench": 0.3103,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 1.7516,
+     "benchmark": 1.5503,
+     "ret_mes": 0.0914,
+     "ret_bench": -0.1025,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-03-31",
+     "estrategia": 1.9106,
+     "benchmark": 1.6183,
+     "ret_mes": 0.0908,
+     "ret_bench": 0.0439,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-04-30",
+     "estrategia": 2.0234,
+     "benchmark": 1.5662,
+     "ret_mes": 0.0591,
+     "ret_bench": -0.0322,
+     "cartera": []
+    },
+    {
+     "fecha": "2024-05-31",
+     "estrategia": 2.3625,
+     "benchmark": 1.877,
+     "ret_mes": 0.1824,
+     "ret_bench": 0.1984,
+     "cartera": [
+      "DIA",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-06-30",
+     "estrategia": 2.6629,
+     "benchmark": 2.1012,
+     "ret_mes": 0.1366,
+     "ret_bench": 0.1194,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-07-31",
+     "estrategia": 2.5179,
+     "benchmark": 2.0159,
+     "ret_mes": -0.0544,
+     "ret_bench": -0.0406,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-08-31",
+     "estrategia": 2.5663,
+     "benchmark": 2.08,
+     "ret_mes": 0.0278,
+     "ret_bench": 0.0318,
+     "cartera": [
+      "DIA",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-09-30",
+     "estrategia": 2.4828,
+     "benchmark": 2.0273,
+     "ret_mes": -0.0244,
+     "ret_bench": -0.0253,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-10-31",
+     "estrategia": 2.3013,
+     "benchmark": 1.8736,
+     "ret_mes": -0.0731,
+     "ret_bench": -0.0758,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-11-30",
+     "estrategia": 2.3904,
+     "benchmark": 1.9106,
+     "ret_mes": 0.0475,
+     "ret_bench": 0.0198,
+     "cartera": [
+      "IWM",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2024-12-31",
+     "estrategia": 2.4063,
+     "benchmark": 1.9974,
+     "ret_mes": 0.0066,
+     "ret_bench": 0.0455,
+     "cartera": [
+      "IWM",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-01-31",
+     "estrategia": 2.4134,
+     "benchmark": 2.0316,
+     "ret_mes": 0.0114,
+     "ret_bench": 0.0171,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-02-28",
+     "estrategia": 2.4285,
+     "benchmark": 2.0587,
+     "ret_mes": 0.0063,
+     "ret_bench": 0.0133,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-03-31",
+     "estrategia": 2.4491,
+     "benchmark": 2.0985,
+     "ret_mes": 0.0085,
+     "ret_bench": 0.0194,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-04-30",
+     "estrategia": 2.1946,
+     "benchmark": 1.8807,
+     "ret_mes": -0.0964,
+     "ret_bench": -0.1038,
+     "cartera": [
+      "EEM",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-05-31",
+     "estrategia": 2.2268,
+     "benchmark": 2.0216,
+     "ret_mes": 0.0275,
+     "ret_bench": 0.0749,
+     "cartera": []
+    },
+    {
+     "fecha": "2025-06-30",
+     "estrategia": 2.349,
+     "benchmark": 2.1298,
+     "ret_mes": 0.0682,
+     "ret_bench": 0.0535,
+     "cartera": [
+      "EEM"
+     ]
+    },
+    {
+     "fecha": "2025-07-31",
+     "estrategia": 2.6338,
+     "benchmark": 2.4544,
+     "ret_mes": 0.1213,
+     "ret_bench": 0.1524,
+     "cartera": [
+      "EEM"
+     ]
+    },
+    {
+     "fecha": "2025-08-31",
+     "estrategia": 2.6229,
+     "benchmark": 2.4943,
+     "ret_mes": 0.0084,
+     "ret_bench": 0.0162,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-09-30",
+     "estrategia": 3.1192,
+     "benchmark": 2.9271,
+     "ret_mes": 0.1892,
+     "ret_bench": 0.1735,
+     "cartera": [
+      "QQQ",
+      "SPY"
+     ]
+    },
+    {
+     "fecha": "2025-10-31",
+     "estrategia": 3.1443,
+     "benchmark": 2.9171,
+     "ret_mes": 0.0165,
+     "ret_bench": -0.0034,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2025-11-30",
+     "estrategia": 3.2013,
+     "benchmark": 2.9641,
+     "ret_mes": 0.031,
+     "ret_bench": 0.0161,
+     "cartera": []
+    },
+    {
+     "fecha": "2025-12-31",
+     "estrategia": 3.2811,
+     "benchmark": 2.9784,
+     "ret_mes": 0.0249,
+     "ret_bench": 0.0048,
+     "cartera": []
+    },
+    {
+     "fecha": "2026-01-31",
+     "estrategia": 3.3307,
+     "benchmark": 2.9599,
+     "ret_mes": 0.028,
+     "ret_bench": -0.0062,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-02-28",
+     "estrategia": 3.3626,
+     "benchmark": 2.8517,
+     "ret_mes": 0.018,
+     "ret_bench": -0.0366,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-03-31",
+     "estrategia": 3.2157,
+     "benchmark": 2.7312,
+     "ret_mes": -0.0437,
+     "ret_bench": -0.0422,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-04-30",
+     "estrategia": 3.5387,
+     "benchmark": 3.0652,
+     "ret_mes": 0.1004,
+     "ret_bench": 0.1223,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-05-31",
+     "estrategia": 3.4657,
+     "benchmark": 3.1891,
+     "ret_mes": -0.0206,
+     "ret_bench": 0.0404,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-06-30",
+     "estrategia": 3.6127,
+     "benchmark": 3.3234,
+     "ret_mes": 0.0512,
+     "ret_bench": 0.0421,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-07-31",
+     "estrategia": 3.4412,
+     "benchmark": 3.3438,
+     "ret_mes": -0.0395,
+     "ret_bench": 0.0061,
+     "cartera": [
+      "EEM",
+      "IWM"
+     ]
+    },
+    {
+     "fecha": "2026-08-31",
+     "estrategia": 3.4442,
+     "benchmark": 3.4781,
+     "ret_mes": 0.0093,
+     "ret_bench": 0.0402,
+     "cartera": [
+      "EWZ",
+      "IWM"
+     ]
+    },
+    {
+     "fecha": "2026-09-30",
+     "estrategia": 3.497,
+     "benchmark": 3.4985,
+     "ret_mes": 0.0238,
+     "ret_bench": 0.0059,
+     "cartera": [
+      "EEM",
+      "EWZ"
+     ]
+    },
+    {
+     "fecha": "2026-10-31",
+     "estrategia": 3.2898,
+     "benchmark": 3.5563,
+     "ret_mes": -0.0514,
+     "ret_bench": 0.0165,
+     "cartera": [
+      "EEM",
+      "QQQ"
+     ]
+    },
+    {
+     "fecha": "2026-11-30",
+     "estrategia": 3.3286,
+     "benchmark": 3.6633,
+     "ret_mes": 0.0203,
+     "ret_bench": 0.0301,
+     "cartera": [
+      "IWM",
+      "QQQ"
+     ]
+    }
+   ]
+  },
+  "riesgoso_cedears": {
+   "desde": "2023-02-28",
+   "hasta": "2026-11-30",
+   "meses": 46,
+   "n": 3,
+   "benchmark": "SPY",
+   "estrategia": {
+    "total": 8.8468,
+    "anual": 0.816,
+    "vol_anual": 0.4559,
+    "max_drawdown": -0.1757
+   },
+   "bench": {
+    "total": 7.6133,
+    "anual": 0.7537,
+    "vol_anual": 0.3351,
+    "max_drawdown": -0.1083
+   },
+   "meses_le_gana": 25,
+   "serie": [
+    {
+     "fecha": "2023-02-28",
+     "estrategia": 0.9732,
+     "benchmark": 0.9752,
+     "ret_mes": -0.0145,
+     "ret_bench": -0.0248,
+     "cartera": [
+      "KO",
+      "MELI",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2023-03-31",
+     "estrategia": 1.132,
+     "benchmark": 1.1127,
+     "ret_mes": 0.1631,
+     "ret_bench": 0.1411,
+     "cartera": [
+      "KO",
+      "MELI",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2023-04-30",
+     "estrategia": 1.2801,
+     "benchmark": 1.2657,
+     "ret_mes": 0.1309,
+     "ret_bench": 0.1375,
+     "cartera": [
+      "KO",
+      "MELI",
+      "V"
+     ]
+    },
+    {
+     "fecha": "2023-05-31",
+     "estrategia": 1.4355,
+     "benchmark": 1.3698,
+     "ret_mes": 0.1327,
+     "ret_bench": 0.0822,
+     "cartera": [
+      "MELI",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2023-06-30",
+     "estrategia": 1.5395,
+     "benchmark": 1.5217,
+     "ret_mes": 0.0725,
+     "ret_bench": 0.1109,
+     "cartera": [
+      "MELI",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2023-07-31",
+     "estrategia": 1.7385,
+     "benchmark": 1.692,
+     "ret_mes": 0.1363,
+     "ret_bench": 0.1119,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2023-08-31",
+     "estrategia": 2.4411,
+     "benchmark": 2.3512,
+     "ret_mes": 0.4041,
+     "ret_bench": 0.3896,
+     "cartera": [
+      "AAPL",
+      "MELI",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2023-09-30",
+     "estrategia": 2.4602,
+     "benchmark": 2.3528,
+     "ret_mes": 0.0142,
+     "ret_bench": 0.0007,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2023-10-31",
+     "estrategia": 2.4941,
+     "benchmark": 2.417,
+     "ret_mes": 0.0202,
+     "ret_bench": 0.0273,
+     "cartera": [
+      "AMD",
+      "GOOGL",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 2.7269,
+     "benchmark": 2.5543,
+     "ret_mes": 0.1002,
+     "ret_bench": 0.0568,
+     "cartera": [
+      "AMD",
+      "META",
+      "MSFT"
+     ]
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 3.2589,
+     "benchmark": 3.0994,
+     "ret_mes": 0.2072,
+     "ret_bench": 0.2134,
+     "cartera": [
+      "MELI",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 4.5659,
+     "benchmark": 4.0612,
+     "ret_mes": 0.4011,
+     "ret_bench": 0.3103,
+     "cartera": [
+      "MELI",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 4.32,
+     "benchmark": 3.645,
+     "ret_mes": -0.0479,
+     "ret_bench": -0.1025,
+     "cartera": [
+      "AMD",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-03-31",
+     "estrategia": 4.1678,
+     "benchmark": 3.805,
+     "ret_mes": -0.0352,
+     "ret_bench": 0.0439,
+     "cartera": [
+      "AMD",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-04-30",
+     "estrategia": 4.0604,
+     "benchmark": 3.6825,
+     "ret_mes": -0.0258,
+     "ret_bench": -0.0322,
+     "cartera": [
+      "AMD",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-05-31",
+     "estrategia": 4.6998,
+     "benchmark": 4.4132,
+     "ret_mes": 0.1575,
+     "ret_bench": 0.1984,
+     "cartera": [
+      "AMD",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-06-30",
+     "estrategia": 5.0833,
+     "benchmark": 4.9403,
+     "ret_mes": 0.0816,
+     "ret_bench": 0.1194,
+     "cartera": [
+      "AMD",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-07-31",
+     "estrategia": 4.6345,
+     "benchmark": 4.7399,
+     "ret_mes": -0.0826,
+     "ret_bench": -0.0406,
+     "cartera": [
+      "AMZN",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-08-31",
+     "estrategia": 4.8448,
+     "benchmark": 4.8905,
+     "ret_mes": 0.0454,
+     "ret_bench": 0.0318,
+     "cartera": [
+      "AMZN",
+      "META",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2024-09-30",
+     "estrategia": 4.8054,
+     "benchmark": 4.7667,
+     "ret_mes": 0.0019,
+     "ret_bench": -0.0253,
+     "cartera": [
+      "MELI",
+      "META",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2024-10-31",
+     "estrategia": 4.2852,
+     "benchmark": 4.4052,
+     "ret_mes": -0.1027,
+     "ret_bench": -0.0758,
+     "cartera": [
+      "AMD",
+      "META",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2024-11-30",
+     "estrategia": 4.2525,
+     "benchmark": 4.4922,
+     "ret_mes": -0.0014,
+     "ret_bench": 0.0198,
+     "cartera": [
+      "MELI",
+      "META",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2024-12-31",
+     "estrategia": 4.6229,
+     "benchmark": 4.6964,
+     "ret_mes": 0.0939,
+     "ret_bench": 0.0455,
+     "cartera": [
+      "AMZN",
+      "META",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-01-31",
+     "estrategia": 4.89,
+     "benchmark": 4.7767,
+     "ret_mes": 0.0644,
+     "ret_bench": 0.0171,
+     "cartera": [
+      "META",
+      "TSLA",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-02-28",
+     "estrategia": 4.5266,
+     "benchmark": 4.8403,
+     "ret_mes": -0.0743,
+     "ret_bench": 0.0133,
+     "cartera": [
+      "META",
+      "TSLA",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-03-31",
+     "estrategia": 4.4809,
+     "benchmark": 4.9341,
+     "ret_mes": -0.0039,
+     "ret_bench": 0.0194,
+     "cartera": [
+      "BABA",
+      "TSLA",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-04-30",
+     "estrategia": 4.1903,
+     "benchmark": 4.4219,
+     "ret_mes": -0.0649,
+     "ret_bench": -0.1038,
+     "cartera": [
+      "BABA",
+      "TSLA",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-05-31",
+     "estrategia": 4.3153,
+     "benchmark": 4.7533,
+     "ret_mes": 0.0363,
+     "ret_bench": 0.0749,
+     "cartera": [
+      "BABA",
+      "MELI",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-06-30",
+     "estrategia": 4.5377,
+     "benchmark": 5.0077,
+     "ret_mes": 0.0582,
+     "ret_bench": 0.0535,
+     "cartera": [
+      "MELI",
+      "META",
+      "WMT"
+     ]
+    },
+    {
+     "fecha": "2025-07-31",
+     "estrategia": 5.0819,
+     "benchmark": 5.7709,
+     "ret_mes": 0.127,
+     "ret_bench": 0.1524,
+     "cartera": [
+      "BABA",
+      "MELI",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2025-08-31",
+     "estrategia": 5.2721,
+     "benchmark": 5.8646,
+     "ret_mes": 0.0374,
+     "ret_bench": 0.0162,
+     "cartera": [
+      "BABA",
+      "MELI",
+      "META"
+     ]
+    },
+    {
+     "fecha": "2025-09-30",
+     "estrategia": 7.2394,
+     "benchmark": 6.8822,
+     "ret_mes": 0.3818,
+     "ret_bench": 0.1735,
+     "cartera": [
+      "BABA",
+      "META",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2025-10-31",
+     "estrategia": 7.3499,
+     "benchmark": 6.8588,
+     "ret_mes": 0.0217,
+     "ret_bench": -0.0034,
+     "cartera": [
+      "BABA",
+      "GOOGL",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2025-11-30",
+     "estrategia": 7.4468,
+     "benchmark": 6.9693,
+     "ret_mes": 0.0132,
+     "ret_bench": 0.0161,
+     "cartera": [
+      "BABA",
+      "GOOGL",
+      "TSLA"
+     ]
+    },
+    {
+     "fecha": "2025-12-31",
+     "estrategia": 7.1679,
+     "benchmark": 7.0027,
+     "ret_mes": -0.0314,
+     "ret_bench": 0.0048,
+     "cartera": [
+      "AMD",
+      "BABA",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-01-31",
+     "estrategia": 7.8723,
+     "benchmark": 6.9592,
+     "ret_mes": 0.0983,
+     "ret_bench": -0.0062,
+     "cartera": [
+      "AMD",
+      "BABA",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-02-28",
+     "estrategia": 6.6105,
+     "benchmark": 6.7048,
+     "ret_mes": -0.1603,
+     "ret_bench": -0.0366,
+     "cartera": [
+      "AMD",
+      "BABA",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-03-31",
+     "estrategia": 6.5086,
+     "benchmark": 6.4216,
+     "ret_mes": -0.0092,
+     "ret_bench": -0.0422,
+     "cartera": [
+      "AMD",
+      "EWZ",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-04-30",
+     "estrategia": 9.0658,
+     "benchmark": 7.2069,
+     "ret_mes": 0.4016,
+     "ret_bench": 0.1223,
+     "cartera": [
+      "AMD",
+      "GOOGL",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2026-05-31",
+     "estrategia": 9.8976,
+     "benchmark": 7.4982,
+     "ret_mes": 0.0918,
+     "ret_bench": 0.0404,
+     "cartera": [
+      "AMD",
+      "GOOGL",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2026-06-30",
+     "estrategia": 10.1643,
+     "benchmark": 7.8139,
+     "ret_mes": 0.027,
+     "ret_bench": 0.0421,
+     "cartera": [
+      "AMD",
+      "GOOGL",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2026-07-31",
+     "estrategia": 9.7865,
+     "benchmark": 7.8619,
+     "ret_mes": -0.0311,
+     "ret_bench": 0.0061,
+     "cartera": [
+      "AAPL",
+      "AMD",
+      "GOOGL"
+     ]
+    },
+    {
+     "fecha": "2026-08-31",
+     "estrategia": 9.7803,
+     "benchmark": 8.1776,
+     "ret_mes": 0.0056,
+     "ret_bench": 0.0402,
+     "cartera": [
+      "AAPL",
+      "GOOGL",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2026-09-30",
+     "estrategia": 11.1411,
+     "benchmark": 8.2256,
+     "ret_mes": 0.1463,
+     "ret_bench": 0.0059,
+     "cartera": [
+      "AMD",
+      "GOOGL",
+      "PBR"
+     ]
+    },
+    {
+     "fecha": "2026-10-31",
+     "estrategia": 11.4701,
+     "benchmark": 8.3615,
+     "ret_mes": 0.036,
+     "ret_bench": 0.0165,
+     "cartera": [
+      "AMD",
+      "PBR",
+      "XOM"
+     ]
+    },
+    {
+     "fecha": "2026-11-30",
+     "estrategia": 9.8468,
+     "benchmark": 8.6133,
+     "ret_mes": -0.1415,
+     "ret_bench": 0.0301,
+     "cartera": [
+      "AMD",
+      "PBR",
+      "XOM"
+     ]
+    }
+   ]
+  },
+  "riesgoso_acciones_arg": {
+   "desde": "2022-12-31",
+   "hasta": "2026-11-30",
+   "meses": 48,
+   "n": 2,
+   "benchmark": "igual peso del universo",
+   "estrategia": {
+    "total": 2.359,
+    "anual": 0.3538,
+    "vol_anual": 0.6338,
+    "max_drawdown": -0.5732
+   },
+   "bench": {
+    "total": 11.6764,
+    "anual": 0.8869,
+    "vol_anual": 0.6302,
+    "max_drawdown": -0.3584
+   },
+   "meses_le_gana": 18,
+   "serie": [
+    {
+     "fecha": "2022-12-31",
+     "estrategia": 1.1126,
+     "benchmark": 1.2212,
+     "ret_mes": 0.1266,
+     "ret_bench": 0.2212,
+     "cartera": [
+      "COME",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-01-31",
+     "estrategia": 1.3309,
+     "benchmark": 1.4916,
+     "ret_mes": 0.2063,
+     "ret_bench": 0.2214,
+     "cartera": [
+      "TGSU2",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-02-28",
+     "estrategia": 1.3458,
+     "benchmark": 1.4932,
+     "ret_mes": 0.0197,
+     "ret_bench": 0.0011,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-03-31",
+     "estrategia": 1.2543,
+     "benchmark": 1.4512,
+     "ret_mes": -0.068,
+     "ret_bench": -0.0281,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-04-30",
+     "estrategia": 1.6468,
+     "benchmark": 1.7576,
+     "ret_mes": 0.313,
+     "ret_bench": 0.2112,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-05-31",
+     "estrategia": 1.8858,
+     "benchmark": 1.9979,
+     "ret_mes": 0.1451,
+     "ret_bench": 0.1367,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-06-30",
+     "estrategia": 2.007,
+     "benchmark": 2.5086,
+     "ret_mes": 0.0732,
+     "ret_bench": 0.2556,
+     "cartera": [
+      "TGNO4",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2023-07-31",
+     "estrategia": 2.0769,
+     "benchmark": 2.6861,
+     "ret_mes": 0.0436,
+     "ret_bench": 0.0707,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-08-31",
+     "estrategia": 2.7118,
+     "benchmark": 3.887,
+     "ret_mes": 0.3057,
+     "ret_bench": 0.4471,
+     "cartera": [
+      "TGNO4",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2023-09-30",
+     "estrategia": 1.8409,
+     "benchmark": 3.3464,
+     "ret_mes": -0.3126,
+     "ret_bench": -0.1391,
+     "cartera": [
+      "BBAR",
+      "BMA"
+     ]
+    },
+    {
+     "fecha": "2023-10-31",
+     "estrategia": 1.9523,
+     "benchmark": 3.4759,
+     "ret_mes": 0.0739,
+     "ret_bench": 0.0387,
+     "cartera": [
+      "ALUA",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2023-11-30",
+     "estrategia": 3.0625,
+     "benchmark": 4.9756,
+     "ret_mes": 0.5818,
+     "ret_bench": 0.4315,
+     "cartera": [
+      "CEPU",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2023-12-31",
+     "estrategia": 3.4504,
+     "benchmark": 5.9461,
+     "ret_mes": 0.1409,
+     "ret_bench": 0.195,
+     "cartera": [
+      "COME",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-01-31",
+     "estrategia": 4.6088,
+     "benchmark": 7.9941,
+     "ret_mes": 0.3469,
+     "ret_bench": 0.3444,
+     "cartera": [
+      "COME",
+      "MIRG"
+     ]
+    },
+    {
+     "fecha": "2024-02-29",
+     "estrategia": 3.5941,
+     "benchmark": 6.3733,
+     "ret_mes": -0.2103,
+     "ret_bench": -0.2028,
+     "cartera": [
+      "GGAL",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2024-03-31",
+     "estrategia": 4.2386,
+     "benchmark": 7.6458,
+     "ret_mes": 0.1892,
+     "ret_bench": 0.1997,
+     "cartera": [
+      "BMA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2024-04-30",
+     "estrategia": 4.4448,
+     "benchmark": 8.2342,
+     "ret_mes": 0.0486,
+     "ret_bench": 0.077,
+     "cartera": [
+      "BMA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2024-05-31",
+     "estrategia": 5.8052,
+     "benchmark": 10.2521,
+     "ret_mes": 0.317,
+     "ret_bench": 0.2451,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-06-30",
+     "estrategia": 5.5879,
+     "benchmark": 10.227,
+     "ret_mes": -0.0293,
+     "ret_bench": -0.0024,
+     "cartera": [
+      "BMA",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2024-07-31",
+     "estrategia": 4.8115,
+     "benchmark": 9.4794,
+     "ret_mes": -0.139,
+     "ret_bench": -0.0731,
+     "cartera": [
+      "BMA",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2024-08-31",
+     "estrategia": 5.7652,
+     "benchmark": 10.6196,
+     "ret_mes": 0.2083,
+     "ret_bench": 0.1203,
+     "cartera": [
+      "COME",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2024-09-30",
+     "estrategia": 5.3294,
+     "benchmark": 10.6295,
+     "ret_mes": -0.0756,
+     "ret_bench": 0.0009,
+     "cartera": [
+      "COME",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2024-10-31",
+     "estrategia": 5.6679,
+     "benchmark": 11.5483,
+     "ret_mes": 0.0635,
+     "ret_bench": 0.0864,
+     "cartera": [
+      "COME",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2024-11-30",
+     "estrategia": 5.7584,
+     "benchmark": 13.8517,
+     "ret_mes": 0.0288,
+     "ret_bench": 0.1995,
+     "cartera": [
+      "BMA",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2024-12-31",
+     "estrategia": 7.1676,
+     "benchmark": 15.4831,
+     "ret_mes": 0.2552,
+     "ret_bench": 0.1178,
+     "cartera": [
+      "GGAL",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-01-31",
+     "estrategia": 7.8707,
+     "benchmark": 15.6017,
+     "ret_mes": 0.0981,
+     "ret_bench": 0.0077,
+     "cartera": [
+      "GGAL",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-02-28",
+     "estrategia": 6.518,
+     "benchmark": 13.3072,
+     "ret_mes": -0.1649,
+     "ret_bench": -0.1471,
+     "cartera": [
+      "BBAR",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-03-31",
+     "estrategia": 6.9001,
+     "benchmark": 14.0946,
+     "ret_mes": 0.0586,
+     "ret_bench": 0.0592,
+     "cartera": [
+      "BBAR",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-04-30",
+     "estrategia": 7.0001,
+     "benchmark": 12.7056,
+     "ret_mes": 0.0145,
+     "ret_bench": -0.0985,
+     "cartera": [
+      "BBAR",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-05-31",
+     "estrategia": 6.5795,
+     "benchmark": 13.9588,
+     "ret_mes": -0.0601,
+     "ret_bench": 0.0986,
+     "cartera": [
+      "BBAR",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-06-30",
+     "estrategia": 5.3053,
+     "benchmark": 11.9866,
+     "ret_mes": -0.1869,
+     "ret_bench": -0.1413,
+     "cartera": [
+      "EDN",
+      "SUPV"
+     ]
+    },
+    {
+     "fecha": "2025-07-31",
+     "estrategia": 6.0318,
+     "benchmark": 13.8915,
+     "ret_mes": 0.1465,
+     "ret_bench": 0.1589,
+     "cartera": [
+      "BBAR",
+      "EDN"
+     ]
+    },
+    {
+     "fecha": "2025-08-31",
+     "estrategia": 4.6199,
+     "benchmark": 11.7192,
+     "ret_mes": -0.2277,
+     "ret_bench": -0.1564,
+     "cartera": [
+      "BBAR",
+      "GGAL"
+     ]
+    },
+    {
+     "fecha": "2025-09-30",
+     "estrategia": 4.0656,
+     "benchmark": 10.0104,
+     "ret_mes": -0.1089,
+     "ret_bench": -0.1458,
+     "cartera": [
+      "TGSU2",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2025-10-31",
+     "estrategia": 5.9294,
+     "benchmark": 17.316,
+     "ret_mes": 0.4585,
+     "ret_bench": 0.7298,
+     "cartera": [
+      "TGSU2",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2025-11-30",
+     "estrategia": 5.9088,
+     "benchmark": 18.08,
+     "ret_mes": 0.0049,
+     "ret_bench": 0.0441,
+     "cartera": [
+      "BYMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2025-12-31",
+     "estrategia": 5.8833,
+     "benchmark": 18.1398,
+     "ret_mes": 0.0083,
+     "ret_bench": 0.0033,
+     "cartera": [
+      "LOMA",
+      "PAMP"
+     ]
+    },
+    {
+     "fecha": "2026-01-31",
+     "estrategia": 5.8044,
+     "benchmark": 18.6372,
+     "ret_mes": -0.0009,
+     "ret_bench": 0.0274,
+     "cartera": [
+      "CEPU",
+      "TGSU2"
+     ]
+    },
+    {
+     "fecha": "2026-02-28",
+     "estrategia": 5.4073,
+     "benchmark": 15.4022,
+     "ret_mes": -0.0606,
+     "ret_bench": -0.1736,
+     "cartera": [
+      "CEPU",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2026-03-31",
+     "estrategia": 5.9541,
+     "benchmark": 17.3932,
+     "ret_mes": 0.1011,
+     "ret_bench": 0.1293,
+     "cartera": [
+      "CEPU",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2026-04-30",
+     "estrategia": 5.3008,
+     "benchmark": 16.2757,
+     "ret_mes": -0.1097,
+     "ret_bench": -0.0643,
+     "cartera": [
+      "CEPU",
+      "TRAN"
+     ]
+    },
+    {
+     "fecha": "2026-05-31",
+     "estrategia": 5.7631,
+     "benchmark": 17.5916,
+     "ret_mes": 0.0963,
+     "ret_bench": 0.0809,
+     "cartera": [
+      "TRAN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-06-30",
+     "estrategia": 5.4026,
+     "benchmark": 17.4304,
+     "ret_mes": -0.0547,
+     "ret_bench": -0.0092,
+     "cartera": [
+      "CEPU",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-07-31",
+     "estrategia": 5.7912,
+     "benchmark": 17.7136,
+     "ret_mes": 0.0809,
+     "ret_bench": 0.0163,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-08-31",
+     "estrategia": 5.4863,
+     "benchmark": 16.4693,
+     "ret_mes": -0.0526,
+     "ret_bench": -0.0702,
+     "cartera": [
+      "BMA",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-09-30",
+     "estrategia": 5.1165,
+     "benchmark": 15.224,
+     "ret_mes": -0.0596,
+     "ret_bench": -0.0756,
+     "cartera": [
+      "CEPU",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-10-31",
+     "estrategia": 4.2492,
+     "benchmark": 13.9639,
+     "ret_mes": -0.1625,
+     "ret_bench": -0.0828,
+     "cartera": [
+      "TRAN",
+      "YPFD"
+     ]
+    },
+    {
+     "fecha": "2026-11-30",
+     "estrategia": 3.359,
+     "benchmark": 12.6764,
+     "ret_mes": -0.2029,
+     "ret_bench": -0.0922,
+     "cartera": [
+      "BBAR",
+      "YPFD"
+     ]
+    }
+   ]
+  }
+ }
+}
