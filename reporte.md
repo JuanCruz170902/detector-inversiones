@@ -27,24 +27,24 @@
 
 ## Soberanos en dólares
 
-- AL30: TIR 20.43% · duration 1.62 · paridad 74.5% · precio USD 47.67
-- AL29: TIR 18.32% · duration 1.24 · paridad 81.7% · precio USD 49.021
-- GD30: TIR 17.98% · duration 1.65 · paridad 77.0% · precio USD 49.302
-- AE38: TIR 17.59% · duration 3.85 · paridad 62.4% · precio USD 62.38
-- GD29: TIR 16.71% · duration 1.25 · paridad 83.1% · precio USD 49.868
-- AL35: TIR 16.18% · duration 4.97 · paridad 59.7% · precio USD 59.65
-- AL41: TIR 15.98% · duration 5.0 · paridad 55.5% · precio USD 55.49
-- GD38: TIR 14.82% · duration 4.06 · paridad 68.5% · precio USD 68.54
-- GD35: TIR 14.62% · duration 5.04 · paridad 63.8% · precio USD 63.82
+- AL30: TIR 20.37% · duration 1.63 · paridad 74.5% · precio USD 47.709
+- AL29: TIR 18.16% · duration 1.24 · paridad 81.8% · precio USD 49.106
+- GD30: TIR 17.83% · duration 1.65 · paridad 77.2% · precio USD 49.4
+- AE38: TIR 17.7% · duration 3.85 · paridad 62.2% · precio USD 62.16
+- GD29: TIR 16.72% · duration 1.25 · paridad 83.1% · precio USD 49.865
+- AL35: TIR 16.34% · duration 4.96 · paridad 59.2% · precio USD 59.23
+- AL41: TIR 15.84% · duration 5.02 · paridad 55.8% · precio USD 55.81
+- GD38: TIR 14.84% · duration 4.05 · paridad 68.5% · precio USD 68.51
+- GD35: TIR 14.61% · duration 5.04 · paridad 63.8% · precio USD 63.83
 - GD46: TIR 14.45% · duration 5.24 · paridad 58.9% · precio USD 53.55
-- GD41: TIR 14.27% · duration 5.2 · paridad 59.9% · precio USD 59.86
+- GD41: TIR 14.34% · duration 5.19 · paridad 59.7% · precio USD 59.65
 
 ## Perfil conservador
 
 Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
 
 - Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.30% mensual vs 3.46% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.28% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 5.0%.
 - Riesgo país 1094 pb.
 
@@ -53,18 +53,18 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 57350 VN | $ 79.791 | $ 209 |
-| dollar_linked | D15E7 | 37 VN | $ 58.948 | $ 154 |
+| dollar_linked | D15E7 | 37 VN | $ 58.930 | $ 154 |
 | cer | TZXA7 | 30489 VN | $ 39.895 | $ 104 |
-| liquidez | CAUCION/FCI MM |  | $ 20.899 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 20.917 | $ 0 |
 
-Paper trading: valor $ 200.242 sobre $ 200.000 aportados (+0.12%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 200.231 sobre $ 200.000 aportados (+0.12%); mismos aportes en MEP: $ 194.493.
 
 ## Perfil moderado
 
 Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
 
 - Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.30% mensual vs 3.46% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.28% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 5.0%.
 - Riesgo país 1094 pb.
 
@@ -73,20 +73,20 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 43012 VN | $ 59.843 | $ 156 |
-| hard_dollar | AL30 | 50 VN | $ 39.710 | $ 104 |
-| cedears_etf | SPY | 1 acciones | $ 20.650 | $ 129 |
-| cedears_etf | EEM | 1 acciones | $ 19.290 | $ 120 |
+| hard_dollar | AL30 | 50 VN | $ 39.725 | $ 104 |
+| cedears_etf | SPY | 1 acciones | $ 20.640 | $ 129 |
+| cedears_etf | EEM | 1 acciones | $ 19.260 | $ 120 |
 | cer | TZXA7 | 15244 VN | $ 19.947 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 39.999 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 40.024 | $ 0 |
 
-Paper trading: valor $ 198.438 sobre $ 200.000 aportados (-0.78%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 198.620 sobre $ 200.000 aportados (-0.69%); mismos aportes en MEP: $ 194.493.
 
 ## Perfil riesgoso
 
 Busca retorno en renta variable; acepta caídas fuertes.
 
 - Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.30% mensual vs 3.46% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.28% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 5.0%.
 - Riesgo país 1094 pb.
 
@@ -95,14 +95,14 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | cedears | XOM | 1 acciones | $ 28.160 | $ 176 |
-| cedears | WMT | 2 acciones | $ 25.840 | $ 161 |
-| cedears | PBR | 1 acciones | $ 27.920 | $ 174 |
+| cedears | WMT | 2 acciones | $ 25.940 | $ 162 |
+| cedears | PBR | 1 acciones | $ 27.960 | $ 175 |
 | tasa_fija | T30A7 | 21506 VN | $ 29.921 | $ 78 |
-| acciones_arg | GGAL | 5 acciones | $ 22.088 | $ 138 |
-| acciones_arg | YPFD | 4 acciones | $ 21.860 | $ 137 |
-| liquidez | CAUCION/FCI MM |  | $ 43.347 | $ 0 |
+| acciones_arg | GGAL | 6 acciones | $ 26.415 | $ 165 |
+| acciones_arg | YPFD | 4 acciones | $ 21.820 | $ 136 |
+| liquidez | CAUCION/FCI MM |  | $ 38.892 | $ 0 |
 
-Paper trading: valor $ 195.888 sobre $ 200.000 aportados (-2.06%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 196.082 sobre $ 200.000 aportados (-1.96%); mismos aportes en MEP: $ 194.493.
 
 ## Backtest de la regla de renta variable
 
