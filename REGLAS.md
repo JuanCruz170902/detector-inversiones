@@ -63,6 +63,23 @@ Filtros (descartan, no penalizan):
 
 **Balances.** Ninguna acción ni CEDEAR se propone si la empresa presenta resultados en los próximos 7 días hábiles (`dias_sin_balance`). El precio puede moverse ±10% en un día y no hay forma de anticiparlo. Fuente: calendario de Nasdaq (para acciones argentinas, el ADR); si falla, Alpha Vantage, siempre que haya clave cargada como secreto. Si no hay calendario, el informe avisa que el filtro quedó inactivo.
 
+**Calidad (balances).** Por cada empresa se leen sus balances presentados ante la SEC:
+- **Empresas de EE.UU.:** formularios 10-K y 10-Q, en USD.
+- **Argentinas con ADR:** formularios 20-F y 6-K, en pesos según IFRS.
+
+Se calculan, para los últimos 12 meses:
+- ventas y su crecimiento interanual (solo USD);
+- resultado neto y margen neto;
+- ROE;
+- pasivo/patrimonio;
+- flujo de caja libre;
+- P/E, con el precio en USD.
+
+- **Excluye:** empresas con **pérdidas en los últimos 12 meses** (`filtro_calidad.excluir_perdidas`).
+- **Solo marca como alerta:** caída de ventas > 10%, pasivo/patrimonio > 4, patrimonio negativo y balances viejos.
+- **Noticias:** los últimos titulares por empresa (Yahoo Finance para EE.UU., Google News para argentinas) se muestran en el tablero y el mail; no filtran automáticamente.
+- **Fuera de cobertura:** LinkedIn no tiene una API pública de noticias y su lectura automática no está permitida, así que no se usa.
+
 **Acciones argentinas: canasta por liquidez.** Las más operadas del panel líder con igual peso, sin intentar elegir ganadoras. Ver el porqué en §7.
 
 > En la v0.1 la regla era `0,5·ret 3m + 0,5·ret 6m`, ajustada por volatilidad y penalizada con RSI > 75. El backtest mostró que rendía peor (§7).
@@ -114,7 +131,8 @@ Conclusiones:
 
 ## 9. Próximas mejoras propuestas
 
-1. **Noticias con sentimiento** como filtro: hoy solo se avisa en el mail.
+1. **Noticias con sentimiento** como filtro: hoy solo se muestran y se comentan en el mail.
+1. **Balances de empresas argentinas sin ADR** (TXAR, ALUA, COME…) desde la CNV.
 2. **Rebalanceo y stop de pérdidas** en la cartera simulada, no solo aportes.
 3. **Duales y TAMAR** como bucket propio para el perfil conservador.
 4. **Comisiones de IEB** cuando migres (un parámetro).

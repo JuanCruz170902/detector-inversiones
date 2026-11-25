@@ -72,6 +72,15 @@ def falsos(monkeypatch=None):
         monkeypatch.setattr(BAL, "proximos", lambda dias=7: ({"AAPL": "2026-11-27", "GGAL": "2026-11-26"}, "test"))
     else:
         BAL.proximos = lambda dias=7: ({"AAPL": "2026-11-27", "GGAL": "2026-11-26"}, "test")
+    set_("usa_precios", lambda: {"AAPL": 270.0, "KO": 70.0})
+    from src import empresas as EMP
+    fake_emp = lambda tick, usa=None, nots=None: {"empresas": {  # noqa: E731
+        "SPY": {"ticker": "SPY", "resultado_ttm": -5.0, "alertas": ["pérdidas en los últimos 12 meses"]},
+        "YPFD": {"ticker": "YPFD", "resultado_ttm": 10.0, "alertas": [], "noticias": [{"titulo": "x"}]}}, "errores": []}
+    if monkeypatch:
+        monkeypatch.setattr(EMP, "relevar", fake_emp)
+    else:
+        EMP.relevar = fake_emp
     set_("historia", lambda tipo, t: barras(hash(t) % 1000, 0.002 if t in ("SPY", "AAPL", "GGAL") else -0.0005))
 
 
@@ -90,6 +99,10 @@ def test_punta_a_punta(monkeypatch):
     assert res["curvas"]["breakevens"], "debería haber breakevens"
     hd = {r["ticker"]: r for r in res["curvas"]["hard_dollar"]}
     assert 0 < hd["AL30"]["tir"] < 30, hd["AL30"]
+    # filtro de calidad: SPY "con pérdidas" (dato falso) no puede aparecer
+    for p in res["perfiles"].values():
+        assert not any(x["ticker"] == "SPY" and x["bucket"] != "cedears_etf" for x in p["propuesta"]["posiciones"])
+    assert res["empresas"]["YPFD"]["noticias"]
     # balances próximos: AAPL y GGAL no pueden aparecer en ninguna propuesta
     for p in res["perfiles"].values():
         assert not any(x["ticker"] in ("AAPL", "GGAL") for x in p["propuesta"]["posiciones"])
@@ -132,6 +145,18 @@ def test_splits():
     s = pd.Series([100, 101, 102, 10.3, 10.4], index=pd.date_range("2026-01-01", periods=5))
     a = M.ajustar_splits(s)
     assert abs(a.iloc[2] - a.iloc[3]) < 1e-9 and a.pct_change().min() > -0.05
+
+
+def test_ttm():
+    from src import empresas as EMP
+    e = [  # año fiscal calendario: FY2025 = 100; 9M 2025 = 70; 9M 2026 = 90  -> TTM = 100 + 90 - 70 = 120
+        {"start": "2025-01-01", "end": "2025-12-31", "val": 100, "filed": "2026-02-01", "form": "10-K"},
+        {"start": "2025-01-01", "end": "2025-09-30", "val": 70, "filed": "2025-11-01", "form": "10-Q"},
+        {"start": "2026-01-01", "end": "2026-09-30", "val": 90, "filed": "2026-11-01", "form": "10-Q"},
+        {"start": "2026-07-01", "end": "2026-09-30", "val": 32, "filed": "2026-11-01", "form": "10-Q"},
+    ]
+    assert EMP._ttm(e) == (120.0, "2026-09-30")
+    assert EMP._ttm(e[:1]) == (100.0, "2025-12-31")
 
 
 def test_vencimientos():

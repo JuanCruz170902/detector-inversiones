@@ -52,6 +52,16 @@ def panel(nombre: str) -> list[dict]:
     return _get(DATA912 + PANELES[nombre])
 
 
+def usa_precios() -> dict[str, float]:
+    """Precios en USD de acciones y ADRs en EE.UU. (para P/E)."""
+    out = {}
+    for ruta in ("/live/usa_stocks", "/live/usa_adrs"):
+        for f in _get(DATA912 + ruta):
+            if f.get("symbol") and f.get("c"):
+                out[str(f["symbol"]).upper()] = float(f["c"])
+    return out
+
+
 def mep() -> list[dict]:
     return _get(DATA912 + "/live/mep")
 

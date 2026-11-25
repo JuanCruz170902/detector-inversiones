@@ -20,6 +20,7 @@ import yaml
 from . import backtest as BT
 from . import balances as BAL
 from . import curva as C
+from . import empresas as EMP
 from . import fuentes as F
 from . import hard_dollar as HD
 from . import metricas as M
@@ -209,6 +210,19 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         reg.estado = {k: v for k, v in reg.estado.items() if not k.startswith("hist_")}
         reg.estado["data912_historia"] = "ok" if not fallas else f"fallaron {len(fallas)}: {', '.join(f[5:] for f in fallas[:8])}"
 
+    # ---- información por empresa: balances (SEC) y noticias ----
+    emp = {}
+    if con_historia:
+        usa = reg.tomar("data912_usa", F.usa_precios) or {}
+        tick = list(dict.fromkeys(universo["cedears"] + universo["acciones_arg"]))
+        rel = reg.tomar("sec_y_noticias", EMP.relevar, tick, usa, tick)
+        if rel:
+            emp = rel["empresas"]
+            con_bal = sum(1 for v in emp.values() if v.get("ultimo_balance"))
+            con_not = sum(1 for v in emp.values() if v.get("noticias"))
+            reg.estado["sec_y_noticias"] = f"ok ({con_bal} balances, {con_not} con noticias)" + (
+                f"; {len(rel['errores'])} errores" if rel["errores"] else "")
+
     # ---- por perfil ----
     resultado = {"generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                  "fuentes": reg.estado, "macro": macro, "perfiles": {}, "monto": monto,
@@ -228,8 +242,9 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
         }
         for k in rv:
             rv[k] = filtrar_balances(rv[k], balances)
+            rv[k] = filtrar_calidad(rv[k], emp, perfiles.get("filtro_calidad", {}))
         if perfiles.get("modo_por_bucket", {}).get("acciones_arg") == "liquidez":
-            rv["acciones_arg"] = por_liquidez(rv["acciones_arg"], cfg_s)
+            rv["acciones_arg"] = filtrar_calidad(por_liquidez(rv["acciones_arg"], cfg_s), emp, perfiles.get("filtro_calidad", {}))
         candidatos = {**rank_rf, "hard_dollar": hd, **rv}
         prop = motor.proponer(nombre, p, buckets, candidatos, monto, perfiles["broker"])
         resultado["perfiles"][nombre] = {
@@ -239,6 +254,7 @@ def correr(monto: float | None = None, solo_perfil: str | None = None, con_histo
             "candidatos": {k: tabla(v) for k, v in candidatos.items() if k in buckets},
         }
 
+    resultado["empresas"] = emp
     if con_historia and not solo_perfil:
         badlar = reg.tomar("bcra_badlar_serie", F.bcra_serie, 7, 1600)
         tasa = pd.Series({pd.Timestamp(x["fecha"]): x["valor"] for x in badlar}).sort_index() if badlar else None
@@ -259,6 +275,20 @@ def filtrar_balances(df: pd.DataFrame, balances: dict[str, str]) -> pd.DataFrame
     d.loc[hay, "apto"] = False
     d.loc[hay, "motivo_descarte"] = [", ".join(x for x in (m, f"balance el {f}") if x)
                                      for m, f in zip(d.loc[hay, "motivo_descarte"], fechas[hay])]
+    return d
+
+
+def filtrar_calidad(df: pd.DataFrame, emp: dict, cfg: dict) -> pd.DataFrame:
+    """Agrega las alertas de balance a cada papel y excluye según config (p. ej. pérdidas en 12 meses)."""
+    if df is None or df.empty or not emp:
+        return df
+    d = df.copy()
+    d["alertas"] = d["ticker"].map(lambda t: "; ".join(emp.get(t, {}).get("alertas", [])))
+    if cfg.get("excluir_perdidas"):
+        malo = d["ticker"].map(lambda t: (emp.get(t, {}).get("resultado_ttm") or 0) < 0)
+        d.loc[malo, "apto"] = False
+        d.loc[malo, "motivo_descarte"] = [", ".join(x for x in (m, "pérdidas en 12 meses") if x)
+                                          for m in d.loc[malo, "motivo_descarte"]]
     return d
 
 
@@ -325,7 +355,7 @@ def tabla(df: pd.DataFrame | None, n: int = 8) -> list[dict]:
     cols = [c for c in ("ticker", "tipo", "precio", "var_dia", "volumen", "vol_ars", "vencimiento", "dias", "tir",
                         "tea", "tem", "ajuste", "residuo_pb", "liquido", "precio_usd", "duration", "proximo_pago",
                         "tea_fija_equiv", "a3500_breakeven", "devaluacion_be_mensual", "md", "residual", "paridad",
-                        "monto_proximo_pago", "balance",
+                        "monto_proximo_pago", "balance", "alertas",
                         "fija", "cer", "tea_fija", "tir_real_cer", "inflacion_be_anual", "inflacion_be_mensual",
                         "ret_1m", "ret_3m", "ret_6m", "vol_anual", "rsi14", "sobre_sma200", "max_dd_6m",
                         "score", "apto", "motivo_descarte") if c in df.columns]
@@ -395,6 +425,17 @@ def reporte_md(res: dict, estado: dict) -> str:
             u = h[-1]
             L.append(f"\nPaper trading: valor {fmt_ars(u['valor'])} sobre {fmt_ars(u['aportado'])} aportados "
                      f"({u['rend']:+.2%}); mismos aportes en MEP: {fmt_ars(u['bench_mep'])}.")
+    E = res.get("empresas") or {}
+    en_prop = {x["ticker"] for p in res["perfiles"].values() for x in p["propuesta"]["posiciones"] if x.get("ticker") in E}
+    if en_prop:
+        L += ["", "## Empresas en las propuestas", "", "| Empresa | Último balance | Margen neto | ROE | P/E | Alertas |", "|---|---|---|---|---|---|"]
+        for t in sorted(en_prop):
+            e = E[t]
+            f = lambda k, d=0: "–" if e.get(k) is None else f"{e[k]:.{d}%}"  # noqa: E731
+            L.append(f"| {t} ({e.get('empresa', '')}) | {e.get('ultimo_balance', '–')} {e.get('formulario', '')} | {f('margen_neto', 1)} | {f('roe')} | {e.get('pe', '–')} | {'; '.join(e.get('alertas', [])) or '–'} |")
+        for t in sorted(en_prop):
+            for n in (E[t].get("noticias") or [])[:3]:
+                L.append(f"- {t}: {n['titulo']} ({n['fuente']}, {n.get('fecha')})")
     if res.get("backtest"):
         L += ["", "## Backtest de la regla de renta variable", "", "| Caso | Período | Estrategia (anual) | Benchmark (anual) | Máx. caída estrategia |", "|---|---|---|---|---|"]
         for k, b in res["backtest"].items():

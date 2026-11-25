@@ -52,6 +52,13 @@ details summary{cursor:pointer;color:var(--ink2);font-size:13px;margin-top:8px}
   <div class="tabs" role="tablist" id="tabs"></div>
   <div id="perfil"></div>
 
+  <h2>Empresas: balances y noticias</h2>
+  <div class="card">
+    <div class="sub">Balances presentados ante la SEC (últimos 12 meses). Empresas de EE.UU. en USD; argentinas con ADR en pesos (IFRS, ajustados por inflación). Se muestran las que están en alguna propuesta o entre los primeros candidatos.</div>
+    <div id="tablaEmp"></div>
+    <div id="noticiasEmp" style="margin-top:10px"></div>
+  </div>
+
   <h2>Curva en pesos</h2>
   <div class="tiles" id="tilesCurva"></div>
   <div class="card">
@@ -116,7 +123,7 @@ async function cargar() {
 
   document.getElementById("fuentes").innerHTML = Object.entries(d.fuentes).map(([k, v]) =>
     `<li class="${v === "ok" ? "ok" : "err"}">${k}: <span class="sub">${v}</span></li>`).join("");
-  curvas(d); backtest(d);
+  curvas(d); backtest(d); empresas(d);
   if (p) grafico(p);
 }
 
@@ -255,6 +262,31 @@ function prueba(ps) {
   };
   tabs.onclick = e => { const x = e.target.closest("button"); if (!x) return; tabs.querySelectorAll("button").forEach(y => y.setAttribute("aria-selected", y === x)); ver(x.dataset.p); };
   ver(nombres[0]);
+}
+
+function empresas(d) {
+  const E = d.empresas || {};
+  const interes = new Set();
+  Object.values(d.perfiles).forEach(p => {
+    p.propuesta.posiciones.forEach(x => x.ticker && interes.add(x.ticker));
+    ["cedears", "acciones_arg"].forEach(b => (p.candidatos[b] || []).slice(0, 6).forEach(r => interes.add(r.ticker)));
+  });
+  const filas = [...interes].map(t => E[t]).filter(e => e && e.ultimo_balance);
+  const big = (v, m) => v == null ? "–" : (m === "USD" ? "US$ " : "$ ") + (Math.abs(v) >= 1e12 ? num(v / 1e12, 1) + " B" : Math.abs(v) >= 1e9 ? num(v / 1e9, 1) + " mil M" : num(v / 1e6, 0) + " M");
+  document.getElementById("tablaEmp").innerHTML = filas.length ? tablaHTML([
+    ["Empresa", r => `<b>${r.ticker}</b> <span class="sub">${r.empresa || ""}</span>`],
+    ["Último balance", r => `${r.ultimo_balance} <span class="chip">${r.formulario || ""}</span>`],
+    ["Ventas 12m", r => big(r.ventas_ttm, r.moneda), "n"],
+    ["Crec. ventas", r => r.ventas_crec_interanual != null ? pct(r.ventas_crec_interanual, 0) : "–", "n"],
+    ["Margen neto", r => r.margen_neto != null ? pct(r.margen_neto, 1) : "–", "n"],
+    ["ROE", r => r.roe != null ? pct(r.roe, 0) : "–", "n"],
+    ["Pasivo/PN", r => r.deuda_patrimonio != null ? num(r.deuda_patrimonio, 1) : "–", "n"],
+    ["P/E", r => r.pe != null ? num(r.pe, 1) : "–", "n"],
+    ["Alertas", r => r.alertas && r.alertas.length ? `<span style="color:var(--bad)">▲</span> ${r.alertas.join("; ")}` : `<span class="ok"></span>`]
+  ], filas) : "<div class=sub>Sin datos todavía</div>";
+  const conNot = [...interes].map(t => E[t]).filter(e => e && e.noticias && e.noticias.length);
+  document.getElementById("noticiasEmp").innerHTML = conNot.map(e => `<details><summary><b>${e.ticker}</b> · ${e.noticias.length} titulares recientes</summary><ul style="margin:6px 0 4px 0;padding-left:18px">` +
+    e.noticias.map(n => `<li style="margin:3px 0"><a href="${n.link}" target="_blank" rel="noopener" style="color:var(--ink)">${n.titulo.replace(/</g, "&lt;")}</a> <span class="sub">· ${n.fuente}${n.fecha ? " · " + n.fecha : ""}</span></li>`).join("") + "</ul></details>").join("");
 }
 
 function grafico(p) {
