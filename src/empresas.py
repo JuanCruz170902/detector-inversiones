@@ -37,7 +37,8 @@ CONCEPTOS = {
     "capex": [("us-gaap", "PaymentsToAcquirePropertyPlantAndEquipment"), ("ifrs-full", "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities")],
     "bpa": [("us-gaap", "EarningsPerShareDiluted"), ("us-gaap", "EarningsPerShareBasic")],
 }
-STOCK = {"patrimonio", "pasivo"}            # saldos (a una fecha), no flujos
+STOCK = {"patrimonio", "pasivo"}
+FORMULARIOS = ("10-K", "10-Q", "20-F", "6-K", "40-F")            # saldos (a una fecha), no flujos
 FINANCIERAS = {"GGAL", "BMA", "BBAR", "SUPV", "JPM", "V", "BRK.B", "BYMA"}   # deuda/patrimonio no aplica igual
 NOMBRES_AR = {"GGAL": "Grupo Financiero Galicia", "YPF": "YPF", "PAM": "Pampa Energía", "BMA": "Banco Macro",
               "BBAR": "BBVA Argentina", "CEPU": "Central Puerto", "TGS": "Transportadora de Gas del Sur",
@@ -133,28 +134,41 @@ def fundamentals(ticker_local: str, precios_usd: dict[str, float] | None = None)
     out = {"ticker": ticker_local, "ticker_eeuu": t_us, "empresa": nombre.title(), "cik": cik}
     ultimo_filed, ultimo_form = "", ""
     for clave in CONCEPTOS:
-        s = _serie(facts, clave)
-        if not s:
+        candidatos = []
+        for tax, c in CONCEPTOS[clave]:
+            x = facts.get(tax, {}).get(c)
+            if not x:
+                continue
+            for unidad, entradas in x["units"].items():
+                if not entradas:
+                    continue
+                v = _saldo(entradas) if clave in STOCK else _ttm(entradas)
+                if v:
+                    candidatos.append((v[1], v[0], entradas, unidad, tax))
+        if not candidatos:
             continue
-        entradas, unidad, tax, _ = s
+        fin, valor, entradas, unidad, tax = max(candidatos, key=lambda c: c[0])   # el dato más reciente
         out.setdefault("moneda", unidad.split("/")[0])
         out.setdefault("norma", "US-GAAP" if tax == "us-gaap" else "IFRS")
         for e in entradas:
-            if e.get("filed", "") > ultimo_filed:
-                ultimo_filed, ultimo_form = e["filed"], e.get("form", "")
+            if e.get("form", "").startswith(FORMULARIOS) and e.get("filed", "") > ultimo_filed and e["end"] == fin:
+                ultimo_filed, ultimo_form = e["filed"], e["form"]
         if clave in STOCK:
-            v = _saldo(entradas)
-            if v:
-                out[clave] = v[0]
+            out[clave] = valor
         else:
-            v = _ttm(entradas)
+            out[clave + "_ttm"] = valor
+            out["periodo_hasta"] = max(out.get("periodo_hasta", ""), fin)
+            if clave == "ventas":
+                prev = _ttm_hace_un_anio(entradas, fin)
+                if prev:
+                    out["ventas_crec_interanual"] = round(valor / prev - 1, 4)
+    if out.get("pasivo") is None:
+        # algunas empresas no informan el pasivo total: pasivo = activo (= pasivo + PN) − PN
+        x = facts.get("us-gaap", {}).get("LiabilitiesAndStockholdersEquity")
+        if x and out.get("patrimonio") is not None:
+            v = _saldo(list(x["units"].values())[0])
             if v:
-                out[clave + "_ttm"] = v[0]
-                out.setdefault("periodo_hasta", v[1])
-                if clave == "ventas":
-                    prev = _ttm_hace_un_anio(entradas, v[1])
-                    if prev:
-                        out["ventas_crec_interanual"] = round(v[0] / prev - 1, 4)
+                out["pasivo"] = v[0] - out["patrimonio"]
     out["ultimo_balance"] = ultimo_filed
     out["formulario"] = ultimo_form
     # ratios
@@ -178,18 +192,23 @@ def fundamentals(ticker_local: str, precios_usd: dict[str, float] | None = None)
     return out
 
 
+def reciente(f: dict, meses: int = 15) -> bool:
+    """El último período informado tiene menos de `meses` (los 20-F de ADRs argentinos son anuales)."""
+    return bool(f.get("periodo_hasta")) and f["periodo_hasta"] >= (date.today() - timedelta(days=30 * meses)).isoformat()
+
+
 def alertas(f: dict) -> list[str]:
     a = []
     if f.get("resultado_ttm") is not None and f["resultado_ttm"] < 0:
-        a.append("pérdidas en los últimos 12 meses")
+        a.append("pérdidas en los últimos 12 meses" if reciente(f) else "pérdidas en el último ejercicio informado")
     if f.get("ventas_crec_interanual") is not None and f["ventas_crec_interanual"] < -0.10:
         a.append(f"ventas {f['ventas_crec_interanual']:.0%} interanual")
     if f.get("deuda_patrimonio") and f["deuda_patrimonio"] > 4:
         a.append(f"endeudamiento alto (pasivo/patrimonio {f['deuda_patrimonio']})")
     if f.get("patrimonio") is not None and f["patrimonio"] <= 0:
         a.append("patrimonio negativo")
-    if f.get("ultimo_balance") and f["ultimo_balance"] < (date.today() - timedelta(days=270)).isoformat():
-        a.append("sin balances recientes en la SEC")
+    if f.get("periodo_hasta") and not reciente(f):
+        a.append(f"último dato en la SEC: {f['periodo_hasta']}")
     return a
 
 

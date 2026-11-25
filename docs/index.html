@@ -271,11 +271,11 @@ function empresas(d) {
     p.propuesta.posiciones.forEach(x => x.ticker && interes.add(x.ticker));
     ["cedears", "acciones_arg"].forEach(b => (p.candidatos[b] || []).slice(0, 6).forEach(r => interes.add(r.ticker)));
   });
-  const filas = [...interes].map(t => E[t]).filter(e => e && e.ultimo_balance);
+  const filas = [...interes].map(t => E[t]).filter(e => e && e.periodo_hasta);
   const big = (v, m) => v == null ? "–" : (m === "USD" ? "US$ " : "$ ") + (Math.abs(v) >= 1e12 ? num(v / 1e12, 1) + " B" : Math.abs(v) >= 1e9 ? num(v / 1e9, 1) + " mil M" : num(v / 1e6, 0) + " M");
   document.getElementById("tablaEmp").innerHTML = filas.length ? tablaHTML([
     ["Empresa", r => `<b>${r.ticker}</b> <span class="sub">${r.empresa || ""}</span>`],
-    ["Último balance", r => `${r.ultimo_balance} <span class="chip">${r.formulario || ""}</span>`],
+    ["Datos hasta", r => `${r.periodo_hasta || "–"} <span class="chip">${r.formulario || ""}</span>`],
     ["Ventas 12m", r => big(r.ventas_ttm, r.moneda), "n"],
     ["Crec. ventas", r => r.ventas_crec_interanual != null ? pct(r.ventas_crec_interanual, 0) : "–", "n"],
     ["Margen neto", r => r.margen_neto != null ? pct(r.margen_neto, 1) : "–", "n"],

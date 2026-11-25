@@ -285,7 +285,8 @@ def filtrar_calidad(df: pd.DataFrame, emp: dict, cfg: dict) -> pd.DataFrame:
     d = df.copy()
     d["alertas"] = d["ticker"].map(lambda t: "; ".join(emp.get(t, {}).get("alertas", [])))
     if cfg.get("excluir_perdidas"):
-        malo = d["ticker"].map(lambda t: (emp.get(t, {}).get("resultado_ttm") or 0) < 0)
+        # solo con datos de menos de 15 meses: no se excluye por un balance viejo
+        malo = d["ticker"].map(lambda t: (emp.get(t, {}).get("resultado_ttm") or 0) < 0 and EMP.reciente(emp.get(t, {})))
         d.loc[malo, "apto"] = False
         d.loc[malo, "motivo_descarte"] = [", ".join(x for x in (m, "pérdidas en 12 meses") if x)
                                           for m in d.loc[malo, "motivo_descarte"]]
@@ -428,11 +429,11 @@ def reporte_md(res: dict, estado: dict) -> str:
     E = res.get("empresas") or {}
     en_prop = {x["ticker"] for p in res["perfiles"].values() for x in p["propuesta"]["posiciones"] if x.get("ticker") in E}
     if en_prop:
-        L += ["", "## Empresas en las propuestas", "", "| Empresa | Último balance | Margen neto | ROE | P/E | Alertas |", "|---|---|---|---|---|---|"]
+        L += ["", "## Empresas en las propuestas", "", "| Empresa | Datos hasta | Margen neto | ROE | P/E | Alertas |", "|---|---|---|---|---|---|"]
         for t in sorted(en_prop):
             e = E[t]
             f = lambda k, d=0: "–" if e.get(k) is None else f"{e[k]:.{d}%}"  # noqa: E731
-            L.append(f"| {t} ({e.get('empresa', '')}) | {e.get('ultimo_balance', '–')} {e.get('formulario', '')} | {f('margen_neto', 1)} | {f('roe')} | {e.get('pe', '–')} | {'; '.join(e.get('alertas', [])) or '–'} |")
+            L.append(f"| {t} ({e.get('empresa', '')}) | {e.get('periodo_hasta', '–')} {e.get('formulario', '')} | {f('margen_neto', 1)} | {f('roe')} | {e.get('pe', '–')} | {'; '.join(e.get('alertas', [])) or '–'} |")
         for t in sorted(en_prop):
             for n in (E[t].get("noticias") or [])[:3]:
                 L.append(f"- {t}: {n['titulo']} ({n['fuente']}, {n.get('fecha')})")
