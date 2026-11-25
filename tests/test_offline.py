@@ -155,6 +155,7 @@ def test_prueba_semanal(monkeypatch, tmp_path):
     monkeypatch.setattr(P, "RUTA", tmp_path / "prueba.json")
     monkeypatch.setattr(P, "ahora_art", lambda: datetime(2026, 11, 25, 11, 40, tzinfo=P.ART))
     est = P.entrar()
+    # con el precio de venta 1% arriba del último, no debe perder unidades si el presupuesto alcanza
     for n, c in est["carteras"].items():
         gastado = sum(p["monto"] + p["costo_compra"] for p in c["posiciones"])
         assert abs(gastado + c["liquidez_inicial"] - 200000) < 1, n

@@ -69,9 +69,9 @@ def guardar(est: dict):
     RUTA.write_text(json.dumps(est, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-def entrar(forzar: bool = False, tardia: bool = False) -> dict:
+def entrar(forzar: bool = False, tardia: bool = False, rehacer: bool = False) -> dict:
     est = cargar()
-    if est.get("entrada") and not (forzar and est["entrada"].get("tardia")):
+    if est.get("entrada") and not rehacer and not (forzar and est["entrada"].get("tardia")):
         # --forzar solo reemplaza una entrada de respaldo; una entrada en vivo no se pisa nunca
         print("La prueba ya tiene entrada:", est["entrada"]["fecha_hora"])
         return est
@@ -92,7 +92,8 @@ def entrar(forzar: bool = False, tardia: bool = False) -> dict:
             q = px.get(t, {})
             precio = q.get("ask") or q.get("ultimo") or pos["precio"]   # se compra en la punta vendedora
             unit = precio / 100 if es_bono else precio
-            presupuesto = pos["monto_bruto"] + pos["costo"]
+            # presupuesto = lo asignado a esa posición (no lo que gastó la propuesta con otro precio)
+            presupuesto = max(pos.get("monto") or 0, pos["monto_bruto"] + pos["costo"])
             costo_pct = motor.costo_operacion(1, es_bono, broker)
             cant = math.floor(presupuesto / (unit * (1 + costo_pct)))
             if cant <= 0:
@@ -110,7 +111,8 @@ def entrar(forzar: bool = False, tardia: bool = False) -> dict:
            "entrada": {"fecha_hora": ahora_art().isoformat(timespec="minutes"), "mep": mep, "tna_plazo_fijo": tna,
                        "tardia": tardia, "nota": "precios de cierre (la entrada a la apertura no corrió)" if tardia else
                        "precios en vivo, punta vendedora"},
-           "carteras": carteras, "dias": []}
+           "carteras": carteras, "dias": [],
+           "historial_entradas": (est.get("historial_entradas", []) + [est["entrada"]]) if est.get("entrada") else []}
     guardar(est)
     print(json.dumps(est, ensure_ascii=False, indent=1)[:3000])
     return est
@@ -185,6 +187,6 @@ if __name__ == "__main__":
         if hoy < INICIO and "--forzar" not in sys.argv:
             print("Todavía no empieza la prueba")
         else:
-            entrar(forzar="--forzar" in sys.argv)
+            entrar(forzar="--forzar" in sys.argv, rehacer="--rehacer" in sys.argv)
     else:
         valuar()

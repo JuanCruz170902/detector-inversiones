@@ -5,6 +5,11 @@ on:
     # 25-nov-2026, 11:40 hora Argentina (14:40 UTC): 40 minutos después de la apertura de BYMA
     - cron: "40 14 25 11 *"
   workflow_dispatch:
+    inputs:
+      rehacer:
+        description: "Rehacer la entrada aunque ya exista (solo para corregir errores)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -25,7 +30,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       # --forzar: reemplaza una entrada de respaldo (precios de cierre) si la corrida diaria ya la creó
-      - run: python -m src.prueba entrar --forzar
+      - run: python -m src.prueba entrar --forzar ${{ inputs.rehacer && '--rehacer' || '' }}
       - run: python -m src.prueba valuar
       - name: Guardar
         run: |
