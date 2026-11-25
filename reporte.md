@@ -27,16 +27,16 @@
 
 ## Soberanos en dólares
 
-- AL30: TIR 19.9% · duration 1.63 · paridad 75.0% · precio USD 48.01
-- GD30: TIR 17.4% · duration 1.66 · paridad 77.7% · precio USD 49.706
-- AL29: TIR 17.29% · duration 1.25 · paridad 82.6% · precio USD 49.562
-- GD29: TIR 16.02% · duration 1.26 · paridad 83.7% · precio USD 50.24
+- AL30: TIR 19.81% · duration 1.63 · paridad 75.1% · precio USD 48.07
+- GD30: TIR 17.33% · duration 1.66 · paridad 77.7% · precio USD 49.755
+- AL29: TIR 17.26% · duration 1.25 · paridad 82.6% · precio USD 49.576
+- GD29: TIR 15.78% · duration 1.26 · paridad 83.9% · precio USD 50.37
 - AE38: TIR 17.15% · duration 3.89 · paridad 63.3% · precio USD 63.3
-- AL35: TIR 15.82% · duration 4.99 · paridad 60.6% · precio USD 60.58
-- AL41: TIR 15.29% · duration 5.08 · paridad 57.2% · precio USD 57.17
-- GD38: TIR 14.47% · duration 4.08 · paridad 69.4% · precio USD 69.41
-- GD35: TIR 14.38% · duration 5.05 · paridad 64.5% · precio USD 64.5
-- GD41: TIR 13.88% · duration 5.24 · paridad 60.9% · precio USD 60.93
+- AL35: TIR 15.84% · duration 4.98 · paridad 60.5% · precio USD 60.52
+- AL41: TIR 15.44% · duration 5.06 · paridad 56.8% · precio USD 56.79
+- GD38: TIR 14.46% · duration 4.08 · paridad 69.4% · precio USD 69.43
+- GD35: TIR 14.32% · duration 5.05 · paridad 64.7% · precio USD 64.66
+- GD41: TIR 13.85% · duration 5.24 · paridad 61.0% · precio USD 61.02
 - GD46: TIR 13.22% · duration 5.47 · paridad 62.4% · precio USD 56.74
 
 ## Perfil conservador
@@ -44,7 +44,7 @@
 Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
 
 - Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.20% mensual vs 3.46% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.17% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 5.0%.
 - Riesgo país 1094 pb.
 
@@ -53,18 +53,18 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 57350 VN | $ 79.791 | $ 209 |
-| dollar_linked | D15E7 | 37 VN | $ 58.730 | $ 154 |
+| dollar_linked | D15E7 | 37 VN | $ 58.675 | $ 153 |
 | cer | TZXA7 | 30489 VN | $ 39.895 | $ 104 |
-| liquidez | CAUCION/FCI MM |  | $ 21.117 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 21.173 | $ 0 |
 
-Paper trading: valor $ 200.139 sobre $ 200.000 aportados (+0.07%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 200.092 sobre $ 200.000 aportados (+0.05%); mismos aportes en MEP: $ 194.493.
 
 ## Perfil moderado
 
 Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
 
 - Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.20% mensual vs 3.46% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.17% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 5.0%.
 - Riesgo país 1094 pb.
 
@@ -73,20 +73,20 @@ Propuesta para $ 200.000:
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
 | tasa_fija | T30A7 | 43012 VN | $ 59.843 | $ 156 |
-| hard_dollar | AL30 | 49 VN | $ 39.146 | $ 102 |
-| cedears_etf | SPY | 1 acciones | $ 20.940 | $ 131 |
-| cedears_etf | EEM | 1 acciones | $ 19.660 | $ 123 |
+| hard_dollar | AL30 | 49 VN | $ 39.239 | $ 103 |
+| cedears_etf | SPY | 1 acciones | $ 20.950 | $ 131 |
+| cedears_etf | EEM | 1 acciones | $ 19.640 | $ 123 |
 | cer | TZXA7 | 15244 VN | $ 19.947 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 39.900 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 39.817 | $ 0 |
 
-Paper trading: valor $ 199.564 sobre $ 200.000 aportados (-0.22%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 199.548 sobre $ 200.000 aportados (-0.23%); mismos aportes en MEP: $ 194.493.
 
 ## Perfil riesgoso
 
 Busca retorno en renta variable; acepta caídas fuertes.
 
 - Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.20% mensual vs 3.46% del último mes → cobertura barata.
+- Dollar linked: devaluación implícita 2.17% mensual vs 3.46% del último mes → cobertura barata.
 - Brecha MEP/oficial 5.0%.
 - Riesgo país 1094 pb.
 
@@ -94,15 +94,15 @@ Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| cedears | XOM | 1 acciones | $ 27.980 | $ 175 |
+| cedears | XOM | 1 acciones | $ 28.080 | $ 175 |
 | cedears | WMT | 2 acciones | $ 25.740 | $ 161 |
-| cedears | PBR | 1 acciones | $ 28.340 | $ 177 |
+| cedears | PBR | 1 acciones | $ 28.400 | $ 177 |
 | tasa_fija | T30A7 | 21506 VN | $ 29.921 | $ 78 |
-| acciones_arg | GGAL | 5 acciones | $ 22.862 | $ 143 |
-| acciones_arg | PAMP | 6 acciones | $ 26.130 | $ 163 |
-| liquidez | CAUCION/FCI MM |  | $ 38.130 | $ 0 |
+| acciones_arg | GGAL | 5 acciones | $ 22.988 | $ 144 |
+| acciones_arg | PAMP | 6 acciones | $ 26.160 | $ 163 |
+| liquidez | CAUCION/FCI MM |  | $ 37.813 | $ 0 |
 
-Paper trading: valor $ 195.087 sobre $ 200.000 aportados (-2.46%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 195.191 sobre $ 200.000 aportados (-2.40%); mismos aportes en MEP: $ 194.493.
 
 ## Empresas en las propuestas
 
@@ -112,7 +112,7 @@ Paper trading: valor $ 195.087 sobre $ 200.000 aportados (-2.46%); mismos aporte
 | PAMP (Pampa Energy Inc.) | 2024-12-31 20-F | 33.0% | 19% | – | último dato en la SEC: 2024-12-31 |
 | PBR (Petrobras - Petroleo Brasileiro Sa) | 2025-06-30 6-K/A | 16.0% | 19% | – | ventas -14% interanual; último dato en la SEC: 2025-06-30 |
 | WMT (Walmart Inc.) | 2026-07-31 10-Q | 3.0% | 22% | 47.7 | – |
-| XOM (Exxonmobil Holdings Corp) | – 10-Q | – | – | – | – |
+| XOM (Exxonmobil Holdings Corp) | 2026-09-30 10-Q | 10.2% | 15% | 16.4 | – |
 - GGAL: Grupo Financiero Galicia vuelve al verde: ¿Cuánto bajó la mora en el tercer trimestre? - Bloomberg Línea (Bloomberg Línea, 2026-11-24)
 - GGAL: Grupo Financiero Galicia S.A.: precio objetivo a 12 meses baja a $61.47; potencial subida del 131% - TradingView (TradingView, 2026-11-24)
 - GGAL: Grupo Galicia volvió a obtener ganancias y redujo la presión de la morosidad en su último balance - Forbes Argentina (Forbes Argentina, 2026-11-24)
@@ -173,5 +173,5 @@ Paper trading: valor $ 195.087 sobre $ 200.000 aportados (-2.46%); mismos aporte
 - data912_cedears: ok
 - data912_historia: ok
 - data912_usa: ok
-- sec_y_noticias: ok (30 balances, 27 con noticias)
+- sec_y_noticias: ok (30 balances, 28 con noticias)
 - bcra_badlar_serie: ok

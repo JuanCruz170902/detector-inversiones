@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-25T18:00:17+00:00",
+ "generado": "2026-11-25T18:04:03+00:00",
  "fuentes": {
   "argdatos_inflacion": "ok",
   "argdatos_plazo_fijo": "ok",
@@ -18,7 +18,7 @@
   "data912_cedears": "ok",
   "data912_historia": "ok",
   "data912_usa": "ok",
-  "sec_y_noticias": "ok (30 balances, 27 con noticias)",
+  "sec_y_noticias": "ok (30 balances, 28 con noticias)",
   "bcra_badlar_serie": "ok"
  },
  "macro": {
@@ -47,7 +47,7 @@
    "senales": {
     "notas": [
      "Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
-     "Dollar linked: devaluación implícita 2.20% mensual vs 3.46% del último mes → cobertura barata.",
+     "Dollar linked: devaluación implícita 2.17% mensual vs 3.46% del último mes → cobertura barata.",
      "Brecha MEP/oficial 5.0%.",
      "Riesgo país 1094 pb."
     ],
@@ -85,14 +85,14 @@
       "bucket": "dollar_linked",
       "ticker": "D15E7",
       "monto": 60000.0,
-      "precio": 158730.0,
+      "precio": 158580.0,
       "score": null,
       "tir": null,
       "vencimiento": "2027-01-15",
       "cantidad": 37,
       "unidad": "VN",
-      "monto_bruto": 58730.1,
-      "costo": 153.58
+      "monto_bruto": 58674.6,
+      "costo": 153.43
      },
      {
       "bucket": "cer",
@@ -110,14 +110,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 21117.43,
+      "monto_bruto": 21173.08,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 178416.01,
-    "liquidez": 21117.43,
-    "costos": 466.56
+    "invertido": 178360.51,
+    "liquidez": 21173.08,
+    "costos": 466.41
    },
    "candidatos": {
     "tasa_fija": [
@@ -360,32 +360,32 @@
      {
       "ticker": "D15E7",
       "tipo": "dollar_linked",
-      "precio": 158730.0,
-      "var_dia": 0.23,
-      "volumen": 87402493.0,
-      "vol_ars": 138733977138.9,
+      "precio": 158580.0,
+      "var_dia": 0.14,
+      "volumen": 87500411.0,
+      "vol_ars": 138758151763.8,
       "vencimiento": "2027-01-15",
       "dias": 51.0,
       "liquido": true,
       "tea_fija_equiv": 28.95,
-      "a3500_breakeven": 1644.7,
-      "devaluacion_be_mensual": 1.93,
+      "a3500_breakeven": 1643.15,
+      "devaluacion_be_mensual": 1.88,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "D31M7",
       "tipo": "dollar_linked",
-      "precio": 158300.0,
-      "var_dia": 0.44,
-      "volumen": 2596325.0,
-      "vol_ars": 4109982475.0,
+      "precio": 158000.0,
+      "var_dia": 0.25,
+      "volumen": 2600825.0,
+      "vol_ars": 4109303500.0,
       "vencimiento": "2027-03-31",
       "dias": 126.0,
       "liquido": true,
       "tea_fija_equiv": 32.15,
-      "a3500_breakeven": 1742.92,
-      "devaluacion_be_mensual": 2.18,
+      "a3500_breakeven": 1739.61,
+      "devaluacion_be_mensual": 2.13,
       "apto": true,
       "motivo_descarte": ""
      },
@@ -413,7 +413,7 @@
    "senales": {
     "notas": [
      "Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
-     "Dollar linked: devaluación implícita 2.20% mensual vs 3.46% del último mes → cobertura barata.",
+     "Dollar linked: devaluación implícita 2.17% mensual vs 3.46% del último mes → cobertura barata.",
      "Brecha MEP/oficial 5.0%.",
      "Riesgo país 1094 pb."
     ],
@@ -452,40 +452,40 @@
       "bucket": "hard_dollar",
       "ticker": "AL30",
       "monto": 40000.0,
-      "precio": 79890.0,
+      "precio": 80080.0,
       "score": null,
-      "tir": 19.9,
+      "tir": 19.81,
       "vencimiento": null,
       "cantidad": 49,
       "unidad": "VN",
-      "monto_bruto": 39146.1,
-      "costo": 102.37
+      "monto_bruto": 39239.2,
+      "costo": 102.61
      },
      {
       "bucket": "cedears_etf",
       "ticker": "SPY",
       "monto": 30000.0,
-      "precio": 20940.0,
+      "precio": 20950.0,
       "score": 0.3017,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 20940.0,
-      "costo": 130.77
+      "monto_bruto": 20950.0,
+      "costo": 130.83
      },
      {
       "bucket": "cedears_etf",
       "ticker": "EEM",
       "monto": 30000.0,
-      "precio": 19660.0,
+      "precio": 19640.0,
       "score": 0.2757,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 19660.0,
-      "costo": 122.78
+      "monto_bruto": 19640.0,
+      "costo": 122.65
      },
      {
       "bucket": "cer",
@@ -503,14 +503,14 @@
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 39899.97,
+      "monto_bruto": 39816.69,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 159535.47,
-    "liquidez": 39899.97,
-    "costos": 564.56
+    "invertido": 159618.57,
+    "liquidez": 39816.69,
+    "costos": 564.74
    },
    "candidatos": {
     "tasa_fija": [
@@ -752,25 +752,25 @@
     "hard_dollar": [
      {
       "ticker": "AL30",
-      "precio": 79890.0,
-      "vol_ars": 537388769043.0,
-      "tir": 19.9,
-      "precio_usd": 48.01,
+      "precio": 80080.0,
+      "vol_ars": 539911365593.6,
+      "tir": 19.81,
+      "precio_usd": 48.07,
       "duration": 1.63,
       "proximo_pago": "2027-01-09",
       "md": 1.36,
       "residual": 64.0,
-      "paridad": 75.0,
+      "paridad": 75.1,
       "monto_proximo_pago": 8.24,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "GD30",
-      "precio": 82780.0,
-      "vol_ars": 5749515528.6,
-      "tir": 17.4,
-      "precio_usd": 49.706,
+      "precio": 82850.0,
+      "vol_ars": 5762051800.0,
+      "tir": 17.33,
+      "precio_usd": 49.755,
       "duration": 1.66,
       "proximo_pago": "2027-01-09",
       "md": 1.41,
@@ -782,10 +782,10 @@
      },
      {
       "ticker": "AL29",
-      "precio": 82370.0,
-      "vol_ars": 756072582.6,
-      "tir": 17.29,
-      "precio_usd": 49.562,
+      "precio": 82530.0,
+      "vol_ars": 760414914.0,
+      "tir": 17.26,
+      "precio_usd": 49.576,
       "duration": 1.25,
       "proximo_pago": "2027-01-09",
       "md": 1.07,
@@ -797,23 +797,23 @@
      },
      {
       "ticker": "GD29",
-      "precio": 83650.0,
-      "vol_ars": 148006964.0,
-      "tir": 16.02,
-      "precio_usd": 50.24,
+      "precio": 83810.0,
+      "vol_ars": 148326099.9,
+      "tir": 15.78,
+      "precio_usd": 50.37,
       "duration": 1.26,
       "proximo_pago": "2027-01-09",
-      "md": 1.08,
+      "md": 1.09,
       "residual": 60.0,
-      "paridad": 83.7,
+      "paridad": 83.9,
       "monto_proximo_pago": 10.3,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "AE38",
-      "precio": 105300.0,
-      "vol_ars": 4088353581.0,
+      "precio": 105400.0,
+      "vol_ars": 4740779222.0,
       "tir": 17.15,
       "precio_usd": 63.3,
       "duration": 3.89,
@@ -827,30 +827,30 @@
      },
      {
       "ticker": "AL35",
-      "precio": 100940.0,
-      "vol_ars": 3367709671.2,
-      "tir": 15.82,
-      "precio_usd": 60.58,
-      "duration": 4.99,
+      "precio": 100900.0,
+      "vol_ars": 3375310836.0,
+      "tir": 15.84,
+      "precio_usd": 60.52,
+      "duration": 4.98,
       "proximo_pago": "2027-01-09",
       "md": 4.3,
       "residual": 100.0,
-      "paridad": 60.6,
+      "paridad": 60.5,
       "monto_proximo_pago": 2.0625,
       "apto": false,
       "motivo_descarte": "duration > 3"
      },
      {
       "ticker": "AL41",
-      "precio": 94950.0,
-      "vol_ars": 1542592831.5,
-      "tir": 15.29,
-      "precio_usd": 57.17,
-      "duration": 5.08,
+      "precio": 94700.0,
+      "vol_ars": 1576445331.0,
+      "tir": 15.44,
+      "precio_usd": 56.79,
+      "duration": 5.06,
       "proximo_pago": "2027-01-09",
-      "md": 4.41,
+      "md": 4.38,
       "residual": 100.0,
-      "paridad": 57.2,
+      "paridad": 56.8,
       "monto_proximo_pago": 1.75,
       "apto": false,
       "motivo_descarte": "duration > 3"
@@ -858,9 +858,9 @@
      {
       "ticker": "GD38",
       "precio": 115300.0,
-      "vol_ars": 837794013.0,
-      "tir": 14.47,
-      "precio_usd": 69.41,
+      "vol_ars": 844723543.0,
+      "tir": 14.46,
+      "precio_usd": 69.43,
       "duration": 4.08,
       "proximo_pago": "2027-01-09",
       "md": 3.57,
@@ -891,8 +891,8 @@
      },
      {
       "ticker": "SPY",
-      "precio": 20940.0,
-      "volumen": 25920620880.0,
+      "precio": 20950.0,
+      "volumen": 26060249700.0,
       "balance": null,
       "alertas": "",
       "ret_1m": 0.0213270142,
@@ -908,8 +908,8 @@
      },
      {
       "ticker": "DIA",
-      "precio": 44100.0,
-      "volumen": 3846843000.0,
+      "precio": 44040.0,
+      "volumen": 3842754240.0,
       "balance": null,
       "alertas": "",
       "ret_1m": 0.0454545455,
@@ -925,8 +925,8 @@
      },
      {
       "ticker": "QQQ",
-      "precio": 55175.0,
-      "volumen": 16155074475.0,
+      "precio": 55150.0,
+      "volumen": 16170476350.0,
       "balance": null,
       "alertas": "",
       "ret_1m": -0.0361800589,
@@ -942,8 +942,8 @@
      },
      {
       "ticker": "EEM",
-      "precio": 19660.0,
-      "volumen": 441347340.0,
+      "precio": 19640.0,
+      "volumen": 440937640.0,
       "balance": null,
       "alertas": "",
       "ret_1m": -0.0177713737,
@@ -960,7 +960,7 @@
      {
       "ticker": "EWZ",
       "precio": 26500.0,
-      "volumen": 4728792500.0,
+      "volumen": 4816958000.0,
       "balance": null,
       "alertas": "",
       "ret_1m": -0.2422324511,
@@ -982,7 +982,7 @@
    "senales": {
     "notas": [
      "Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.",
-     "Dollar linked: devaluación implícita 2.20% mensual vs 3.46% del último mes → cobertura barata.",
+     "Dollar linked: devaluación implícita 2.17% mensual vs 3.46% del último mes → cobertura barata.",
      "Brecha MEP/oficial 5.0%.",
      "Riesgo país 1094 pb."
     ],
@@ -1006,14 +1006,14 @@
       "bucket": "cedears",
       "ticker": "XOM",
       "monto": 30000.0,
-      "precio": 27980.0,
+      "precio": 28080.0,
       "score": 0.6456,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 27980.0,
-      "costo": 174.74
+      "monto_bruto": 28080.0,
+      "costo": 175.36
      },
      {
       "bucket": "cedears",
@@ -1032,14 +1032,14 @@
       "bucket": "cedears",
       "ticker": "PBR",
       "monto": 30000.0,
-      "precio": 28340.0,
+      "precio": 28400.0,
       "score": 0.4955,
       "tir": null,
       "vencimiento": null,
       "cantidad": 1,
       "unidad": "acciones",
-      "monto_bruto": 28340.0,
-      "costo": 176.98
+      "monto_bruto": 28400.0,
+      "costo": 177.36
      },
      {
       "bucket": "tasa_fija",
@@ -1058,39 +1058,39 @@
       "bucket": "acciones_arg",
       "ticker": "GGAL",
       "monto": 26666.666666666668,
-      "precio": 4572.5,
-      "score": 14087808485.0,
+      "precio": 4597.5,
+      "score": 14238370147.5,
       "tir": null,
       "vencimiento": null,
       "cantidad": 5,
       "unidad": "acciones",
-      "monto_bruto": 22862.5,
-      "costo": 142.78
+      "monto_bruto": 22987.5,
+      "costo": 143.56
      },
      {
       "bucket": "acciones_arg",
       "ticker": "PAMP",
       "monto": 26666.666666666668,
-      "precio": 4355.0,
-      "score": 3428264710.0,
+      "precio": 4360.0,
+      "score": 3456721360.0,
       "tir": null,
       "vencimiento": null,
       "cantidad": 6,
       "unidad": "acciones",
-      "monto_bruto": 26130.0,
-      "costo": 163.18
+      "monto_bruto": 26160.0,
+      "costo": 163.37
      },
      {
       "bucket": "liquidez",
       "ticker": "CAUCION/FCI MM",
-      "monto_bruto": 38129.54,
+      "monto_bruto": 37812.57,
       "cantidad": null,
       "costo": 0
      }
     ],
-    "invertido": 160973.8,
-    "liquidez": 38129.54,
-    "costos": 896.67
+    "invertido": 161288.8,
+    "liquidez": 37812.57,
+    "costos": 898.63
    },
    "candidatos": {
     "tasa_fija": [
@@ -1210,8 +1210,8 @@
     "cedears": [
      {
       "ticker": "KO",
-      "precio": 34760.0,
-      "volumen": 1767615520.0,
+      "precio": 34780.0,
+      "volumen": 1803551680.0,
       "balance": null,
       "alertas": "",
       "ret_1m": 0.1577557756,
@@ -1227,8 +1227,8 @@
      },
      {
       "ticker": "XOM",
-      "precio": 27980.0,
-      "volumen": 201651860.0,
+      "precio": 28080.0,
+      "volumen": 203804640.0,
       "balance": null,
       "alertas": "",
       "ret_1m": -0.0213498623,
@@ -1244,8 +1244,8 @@
      },
      {
       "ticker": "XLE",
-      "precio": 53825.0,
-      "volumen": 1718094000.0,
+      "precio": 53775.0,
+      "volumen": 1718702775.0,
       "balance": null,
       "alertas": "",
       "ret_1m": -0.0251121076,
@@ -1261,8 +1261,8 @@
      },
      {
       "ticker": "AAPL",
-      "precio": 31080.0,
-      "volumen": 5470950240.0,
+      "precio": 31140.0,
+      "volumen": 5484345660.0,
       "balance": null,
       "alertas": "",
       "ret_1m": 0.1367521368,
@@ -1279,7 +1279,7 @@
      {
       "ticker": "WMT",
       "precio": 12870.0,
-      "volumen": 1832070240.0,
+      "volumen": 1832198940.0,
       "balance": null,
       "alertas": "",
       "ret_1m": 0.2307692308,
@@ -1295,8 +1295,8 @@
      },
      {
       "ticker": "V",
-      "precio": 41400.0,
-      "volumen": 495268200.0,
+      "precio": 41520.0,
+      "volumen": 501727680.0,
       "balance": null,
       "alertas": "",
       "ret_1m": 0.1220961642,
@@ -1312,8 +1312,8 @@
      },
      {
       "ticker": "PBR",
-      "precio": 28340.0,
-      "volumen": 2357406220.0,
+      "precio": 28400.0,
+      "volumen": 2385827200.0,
       "balance": null,
       "alertas": "ventas -14% interanual; último dato en la SEC: 2025-06-30",
       "ret_1m": -0.3312708234,
@@ -1348,8 +1348,8 @@
     "acciones_arg": [
      {
       "ticker": "GGAL",
-      "precio": 4572.5,
-      "volumen": 14087808485.0,
+      "precio": 4597.5,
+      "volumen": 14238370147.5,
       "balance": null,
       "alertas": "último dato en la SEC: 2025-03-31",
       "ret_1m": -0.2323358271,
@@ -1359,14 +1359,14 @@
       "rsi14": 27.1889400922,
       "sobre_sma200": false,
       "max_dd_6m": -0.4668621701,
-      "score": 14087808485.0,
+      "score": 14238370147.5,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "YPFD",
-      "precio": 5550.0,
-      "volumen": 7912429650.0,
+      "precio": 5575.0,
+      "volumen": 7994644775.0,
       "balance": null,
       "alertas": "pérdidas en los últimos 12 meses",
       "ret_1m": -0.3040048544,
@@ -1376,14 +1376,14 @@
       "rsi14": 17.0418006431,
       "sobre_sma200": false,
       "max_dd_6m": -0.3752723312,
-      "score": 7912429650.0,
+      "score": 7994644775.0,
       "apto": false,
       "motivo_descarte": "pérdidas en 12 meses"
      },
      {
       "ticker": "PAMP",
-      "precio": 4355.0,
-      "volumen": 3428264710.0,
+      "precio": 4360.0,
+      "volumen": 3456721360.0,
       "balance": null,
       "alertas": "último dato en la SEC: 2024-12-31",
       "ret_1m": -0.1343137255,
@@ -1393,14 +1393,14 @@
       "rsi14": 35.674676525,
       "sobre_sma200": false,
       "max_dd_6m": -0.2723649247,
-      "score": 3428264710.0,
+      "score": 3456721360.0,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "BBAR",
-      "precio": 5080.0,
-      "volumen": 2780924080.0,
+      "precio": 5095.0,
+      "volumen": 2793272610.0,
       "balance": null,
       "alertas": "último dato en la SEC: 2024-12-31",
       "ret_1m": -0.2103746398,
@@ -1410,14 +1410,14 @@
       "rsi14": 29.8672566372,
       "sobre_sma200": false,
       "max_dd_6m": -0.5240471869,
-      "score": 2780924080.0,
+      "score": 2793272610.0,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "TRAN",
-      "precio": 2085.0,
-      "volumen": 1234853760.0,
+      "precio": 2079.0,
+      "volumen": 1233104796.0,
       "balance": null,
       "alertas": "",
       "ret_1m": -0.134989648,
@@ -1427,14 +1427,14 @@
       "rsi14": 41.504178273,
       "sobre_sma200": false,
       "max_dd_6m": -0.5457875458,
-      "score": 1234853760.0,
+      "score": 1233104796.0,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "TGSU2",
-      "precio": 6945.0,
-      "volumen": 885626400.0,
+      "precio": 6955.0,
+      "volumen": 908378640.0,
       "balance": null,
       "alertas": "último dato en la SEC: 2024-12-31",
       "ret_1m": -0.1764018692,
@@ -1444,14 +1444,14 @@
       "rsi14": 33.2618025751,
       "sobre_sma200": false,
       "max_dd_6m": -0.3248756219,
-      "score": 885626400.0,
+      "score": 908378640.0,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "CEPU",
-      "precio": 1796.0,
-      "volumen": 840666292.0,
+      "precio": 1802.0,
+      "volumen": 849799774.0,
       "balance": null,
       "alertas": "último dato en la SEC: 2024-12-31",
       "ret_1m": -0.0776942356,
@@ -1461,14 +1461,14 @@
       "rsi14": 58.7570621469,
       "sobre_sma200": false,
       "max_dd_6m": -0.315942029,
-      "score": 840666292.0,
+      "score": 849799774.0,
       "apto": true,
       "motivo_descarte": ""
      },
      {
       "ticker": "SUPV",
       "precio": 1619.0,
-      "volumen": 822060202.0,
+      "volumen": 823672726.0,
       "balance": null,
       "alertas": "último dato en la SEC: 2024-12-31",
       "ret_1m": -0.318219291,
@@ -1478,7 +1478,7 @@
       "rsi14": 22.519509476,
       "sobre_sma200": false,
       "max_dd_6m": -0.5296187683,
-      "score": 822060202.0,
+      "score": 823672726.0,
       "apto": true,
       "motivo_descarte": ""
      }
@@ -1919,30 +1919,30 @@
    {
     "ticker": "D15E7",
     "tipo": "dollar_linked",
-    "precio": 158730.0,
-    "var_dia": 0.23,
-    "volumen": 87402493.0,
-    "vol_ars": 138733977138.9,
+    "precio": 158580.0,
+    "var_dia": 0.14,
+    "volumen": 87500411.0,
+    "vol_ars": 138758151763.8,
     "vencimiento": "2027-01-15",
     "dias": 51.0,
     "liquido": true,
     "tea_fija_equiv": 28.95,
-    "a3500_breakeven": 1644.7,
-    "devaluacion_be_mensual": 1.93
+    "a3500_breakeven": 1643.15,
+    "devaluacion_be_mensual": 1.88
    },
    {
     "ticker": "D31M7",
     "tipo": "dollar_linked",
-    "precio": 158300.0,
-    "var_dia": 0.44,
-    "volumen": 2596325.0,
-    "vol_ars": 4109982475.0,
+    "precio": 158000.0,
+    "var_dia": 0.25,
+    "volumen": 2600825.0,
+    "vol_ars": 4109303500.0,
     "vencimiento": "2027-03-31",
     "dias": 126.0,
     "liquido": true,
     "tea_fija_equiv": 32.15,
-    "a3500_breakeven": 1742.92,
-    "devaluacion_be_mensual": 2.18
+    "a3500_breakeven": 1739.61,
+    "devaluacion_be_mensual": 2.13
    },
    {
     "ticker": "D10Y7",
@@ -1962,25 +1962,25 @@
   "hard_dollar": [
    {
     "ticker": "AL30",
-    "precio": 79890.0,
-    "vol_ars": 537388769043.0,
-    "tir": 19.9,
-    "precio_usd": 48.01,
+    "precio": 80080.0,
+    "vol_ars": 539911365593.6,
+    "tir": 19.81,
+    "precio_usd": 48.07,
     "duration": 1.63,
     "proximo_pago": "2027-01-09",
     "md": 1.36,
     "residual": 64.0,
-    "paridad": 75.0,
+    "paridad": 75.1,
     "monto_proximo_pago": 8.24,
     "apto": true,
     "motivo_descarte": ""
    },
    {
     "ticker": "GD30",
-    "precio": 82780.0,
-    "vol_ars": 5749515528.6,
-    "tir": 17.4,
-    "precio_usd": 49.706,
+    "precio": 82850.0,
+    "vol_ars": 5762051800.0,
+    "tir": 17.33,
+    "precio_usd": 49.755,
     "duration": 1.66,
     "proximo_pago": "2027-01-09",
     "md": 1.41,
@@ -1992,10 +1992,10 @@
    },
    {
     "ticker": "AL29",
-    "precio": 82370.0,
-    "vol_ars": 756072582.6,
-    "tir": 17.29,
-    "precio_usd": 49.562,
+    "precio": 82530.0,
+    "vol_ars": 760414914.0,
+    "tir": 17.26,
+    "precio_usd": 49.576,
     "duration": 1.25,
     "proximo_pago": "2027-01-09",
     "md": 1.07,
@@ -2007,23 +2007,23 @@
    },
    {
     "ticker": "GD29",
-    "precio": 83650.0,
-    "vol_ars": 148006964.0,
-    "tir": 16.02,
-    "precio_usd": 50.24,
+    "precio": 83810.0,
+    "vol_ars": 148326099.9,
+    "tir": 15.78,
+    "precio_usd": 50.37,
     "duration": 1.26,
     "proximo_pago": "2027-01-09",
-    "md": 1.08,
+    "md": 1.09,
     "residual": 60.0,
-    "paridad": 83.7,
+    "paridad": 83.9,
     "monto_proximo_pago": 10.3,
     "apto": true,
     "motivo_descarte": ""
    },
    {
     "ticker": "AE38",
-    "precio": 105300.0,
-    "vol_ars": 4088353581.0,
+    "precio": 105400.0,
+    "vol_ars": 4740779222.0,
     "tir": 17.15,
     "precio_usd": 63.3,
     "duration": 3.89,
@@ -2037,30 +2037,30 @@
    },
    {
     "ticker": "AL35",
-    "precio": 100940.0,
-    "vol_ars": 3367709671.2,
-    "tir": 15.82,
-    "precio_usd": 60.58,
-    "duration": 4.99,
+    "precio": 100900.0,
+    "vol_ars": 3375310836.0,
+    "tir": 15.84,
+    "precio_usd": 60.52,
+    "duration": 4.98,
     "proximo_pago": "2027-01-09",
     "md": 4.3,
     "residual": 100.0,
-    "paridad": 60.6,
+    "paridad": 60.5,
     "monto_proximo_pago": 2.0625,
     "apto": false,
     "motivo_descarte": "duration > 3"
    },
    {
     "ticker": "AL41",
-    "precio": 94950.0,
-    "vol_ars": 1542592831.5,
-    "tir": 15.29,
-    "precio_usd": 57.17,
-    "duration": 5.08,
+    "precio": 94700.0,
+    "vol_ars": 1576445331.0,
+    "tir": 15.44,
+    "precio_usd": 56.79,
+    "duration": 5.06,
     "proximo_pago": "2027-01-09",
-    "md": 4.41,
+    "md": 4.38,
     "residual": 100.0,
-    "paridad": 57.2,
+    "paridad": 56.8,
     "monto_proximo_pago": 1.75,
     "apto": false,
     "motivo_descarte": "duration > 3"
@@ -2068,9 +2068,9 @@
    {
     "ticker": "GD38",
     "precio": 115300.0,
-    "vol_ars": 837794013.0,
-    "tir": 14.47,
-    "precio_usd": 69.41,
+    "vol_ars": 844723543.0,
+    "tir": 14.46,
+    "precio_usd": 69.43,
     "duration": 4.08,
     "proximo_pago": "2027-01-09",
     "md": 3.57,
@@ -2082,38 +2082,38 @@
    },
    {
     "ticker": "GD35",
-    "precio": 107340.0,
-    "vol_ars": 25325159853.6,
-    "tir": 14.38,
-    "precio_usd": 64.5,
+    "precio": 107610.0,
+    "vol_ars": 25414952088.9,
+    "tir": 14.32,
+    "precio_usd": 64.66,
     "duration": 5.05,
     "proximo_pago": "2027-01-09",
-    "md": 4.41,
+    "md": 4.42,
     "residual": 100.0,
-    "paridad": 64.5,
+    "paridad": 64.7,
     "monto_proximo_pago": 2.0625,
     "apto": false,
     "motivo_descarte": "duration > 3"
    },
    {
     "ticker": "GD41",
-    "precio": 101440.0,
-    "vol_ars": 1472700848.0,
-    "tir": 13.88,
-    "precio_usd": 60.93,
+    "precio": 101690.0,
+    "vol_ars": 1486165792.3,
+    "tir": 13.85,
+    "precio_usd": 61.02,
     "duration": 5.24,
     "proximo_pago": "2027-01-09",
-    "md": 4.6,
+    "md": 4.61,
     "residual": 100.0,
-    "paridad": 60.9,
+    "paridad": 61.0,
     "monto_proximo_pago": 1.75,
     "apto": false,
     "motivo_descarte": "duration > 3"
    },
    {
     "ticker": "GD46",
-    "precio": 94480.0,
-    "vol_ars": 182227355.2,
+    "precio": 94860.0,
+    "vol_ars": 189587196.0,
     "tir": 13.22,
     "precio_usd": 56.74,
     "duration": 5.47,
@@ -2199,7 +2199,7 @@
     "prefiere": "tasa_fija"
    },
    "dl": {
-    "implicita_mensual": 2.2,
+    "implicita_mensual": 2.17,
     "reciente_mensual": 3.46,
     "estado": "barata"
    }
@@ -2228,7 +2228,7 @@
    "roe": 1.1792,
    "deuda_patrimonio": 2.61,
    "fcf_ttm": 136056000000.0,
-   "precio_usd": 353.34,
+   "precio_usd": 353.11,
    "pe": 39.3,
    "alertas": [],
    "noticias": [
@@ -2384,8 +2384,8 @@
    "roe": 0.2197,
    "deuda_patrimonio": 1.03,
    "fcf_ttm": 160883000000.0,
-   "precio_usd": 244.48,
-   "pe": 19.8,
+   "precio_usd": 244.295,
+   "pe": 19.7,
    "alertas": [],
    "noticias": [
     {
@@ -2436,7 +2436,7 @@
    "roe": 0.8423,
    "deuda_patrimonio": 0.4,
    "fcf_ttm": 134090265000.0,
-   "precio_usd": 145.92,
+   "precio_usd": 145.7,
    "pe": 18.4,
    "alertas": [],
    "noticias": [
@@ -2597,6 +2597,12 @@
    "alertas": [],
    "noticias": [
     {
+     "titulo": "Nvidia, AMD, and Micron stocks sink as investors flee AI trade",
+     "fuente": "Yahoo Finance",
+     "link": "https://finance.yahoo.com/markets/article/nvidia-amd-micron-stocks-sink-as-investors-flee-ai-trade-134518921.html?.tsrc=rss",
+     "fecha": "2026-11-25"
+    },
+    {
      "titulo": "AMD stock could reward patient investors enormously",
      "fuente": "Yahoo Finance",
      "link": "https://www.thestreet.com/investing/stocks/amd-stock-2027-data-center-growth?.tsrc=rss",
@@ -2612,12 +2618,6 @@
      "titulo": "AI Chip Stocks Extend Brutal Selloff as Nvidia, AMD and Broadcom Tumble Again",
      "fuente": "Yahoo Finance",
      "link": "https://finance.yahoo.com/technology/ai/articles/ai-chip-stocks-extend-brutal-170236621.html?.tsrc=rss",
-     "fecha": "2026-11-25"
-    },
-    {
-     "titulo": "Without an Anthropic Rally, “There Will Be No OpenAI.” AMD Is the Real Loser",
-     "fuente": "Yahoo Finance",
-     "link": "https://www.tikr.com/blog/without-an-anthropic-rally-there-will-be-no-openai-amd-is-the-real-loser?ref=yahoofinance&tlnk=yf-261125-334c8hfc&.tsrc=rss",
      "fecha": "2026-11-25"
     }
    ]
@@ -2644,7 +2644,7 @@
    "roe": 0.2305,
    "deuda_patrimonio": 5.98,
    "fcf_ttm": 13165000000.0,
-   "precio_usd": 1457.9,
+   "precio_usd": 1459.11,
    "pe": 39.1,
    "alertas": [
     "endeudamiento alto (pasivo/patrimonio 5.98)"
@@ -2936,11 +2936,23 @@
    "cik": 2115436,
    "moneda": "USD",
    "norma": "US-GAAP",
+   "ventas_ttm": 396627000000.0,
+   "periodo_hasta": "2026-09-30",
+   "ventas_crec_interanual": 0.1898,
+   "resultado_ttm": 40622000000.0,
    "patrimonio": 265789000000.0,
    "pasivo": 198397000000.0,
+   "flujo_operativo_ttm": 70589000000.0,
+   "capex_ttm": 27625000000.0,
+   "bpa_ttm": 9.719999999999999,
    "ultimo_balance": "2026-11-02",
    "formulario": "10-Q",
+   "margen_neto": 0.1024,
+   "roe": 0.1528,
    "deuda_patrimonio": 0.75,
+   "fcf_ttm": 42964000000.0,
+   "precio_usd": 159.13,
+   "pe": 16.4,
    "alertas": [],
    "noticias": [
     {
@@ -3215,12 +3227,6 @@
    ],
    "noticias": [
     {
-     "titulo": "Precio de acciones, noticias, cotización e historial de YPF Sociedad Anónima (YPFD.BA) - Yahoo",
-     "fuente": "Yahoo",
-     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB1MWZiV2VYcDJRczBYMkR4RzNndzR1bWp4X3pKa1hiV0VOT3JJaTV0bFJrYXVRazZuSmdiZnZIazFkVDhLUGlLaTRZT205MVMtaGZfM29B?oc=5",
-     "fecha": "2026-11-25"
-    },
-    {
      "titulo": "Juicio por YPF: Burford exige U$S 14.400 millones a la Argentina en una nueva demanda ante el Ciadi - La Voz del Interior",
      "fuente": "La Voz del Interior",
      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZjg5WXN2M2R2RTAzSHlhZzM5MzlvWlZnRE5qU1kwZ0xaUTFNbEY2OWNWd3VYdlBrSERoWWdQZ1RGQkxYaVZCQ2FEQzN1V2tHUHpnZC1XNml0TFl6OXptMFFpS0dhSU1QcFZiaFRTejBPSFNqTE9YenRCN1dkNVBTMHh3ZEhoVE9tVGlsN2ZTOG5mT1hqbFFiSEJITUNGaGQ3MEZHZnpESng2dTR6TEhMelkxMkg3OVkzZzd2YjRIdDk0dw?oc=5",
@@ -3231,6 +3237,12 @@
      "fuente": "Diario Río Negro",
      "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPaXYtYXV0SFRtYy1vX1N6c3VxTzZubWs2STdSXzVkQmtab1JHbHR4TFkyemVuZGVrNThpVEFzZXVHa3pQaGFNX3FpVWpfeHBvZjFKRHowUm4zVmlpNXlnN3ZCaXpCUXMwWlB2TDlBc2lHSXRnWEVHSUJKbUZhVE1iLXVnU0xYM1Z0TktNRWQtQ3B0Z0Y3dEVneXI1ZG1lc0o1STVSZW9semxjb1JEWlRISTJlSDduYVJwOWpWNmdwbmRzQnZqNENOaWNCMzl6Mk1NZlltcFFENUdhM0NnV2c2dDFKZHZYUdIB7gFBVV95cUxQTExtaFZhZml1N0FuMEw3NFpuYlJpWFRRTFNCdmxETXl3d0UtX1VObEN1aDRUQTl0Y29SZmx5R0cyc3F2VjF0U3JCb2haREZlb1Y4VUJQcjlRRzhpZmgzVUN0YlY5UVRNZ0RNWmJ3alkzLUR5a0JVNndlODRBOTZJR1RfQU5YZEEzTGlYZWdNMGVtN0VaM0d3RmhCQ0VqTl9wc1JCMUNlcTJ2YzJrLUVUSjlSVmxILWdPdk1QdEg1cTQ4U3R4RlVoV3pZNGFmSHlPUDJrSVRxa3BoX0hfbHh0ZmlrTWlCblhkM3NFaFFn?oc=5",
      "fecha": "2026-11-25"
+    },
+    {
+     "titulo": "Precios históricos de acciones y datos de YPF Nov 2026 39.000 call (YPF261120C00039000) - Yahoo Finanzas",
+     "fuente": "Yahoo Finanzas",
+     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5GUXpLM2ZDVHBIVmFfN1dmLWtXVmVzOFlCcmZoV2pnSWhBbW55WmFnU0JZQUFuWWc5MFlDWGtmSUZyWFZRMGpzTmx5YzBDNUVBOUw1RWZlSFloMWd2cGJSZXZoTF8yZGpsSkhiczFlWEFsSGtKdTFNckN3?oc=5",
+     "fecha": "2026-11-23"
     },
     {
      "titulo": "¿Es momento de comprar acciones argentinas? - Ambito",
@@ -3396,12 +3408,6 @@
     "último dato en la SEC: 2024-12-31"
    ],
    "noticias": [
-    {
-     "titulo": "Las acciones argentinas que cotizan en Wall Street se hunden hasta 61% en el año: por qué no encuentran piso - Infobae",
-     "fuente": "Infobae",
-     "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQaGdZVGJvVm82N0d3blNfUGtRWWYwQUpjTmdob2gwbXdTQlFJRG1mcWdEWENMRXZGNUwwUXBSX2p4cUs1NVJINU03bUdpcmZ6ajJZS1BJTFlFVlBjcS1TemFRdERXS1RTSEh3am9MTWFyWGRZX0JDU0NqYnhQVE54aUlxOXpkRkQxNHVxZHdKclhkUjJaYVVDYXM1SHJpam9kaENkWFkyZ3E2R1dHTzVWX2ZaRWhWZjZSdHphd2t4SkhQR3U5OTY4emU2d0hzdXpvT3Bmdl8zc1NLVUZFU2tlWXlvanBmUdIBgAJBVV95cUxNRkVzMTJYaktRSTloOWhZaVB1am9ON2pwcGV0WGNsUzVDa0hxeGhlMTMzYTh5TUlhcklsMnlMTnlqeGF1VERDRFdPVTliYTdqMEtOZ1ZRWTV3akQxQXhsYVdXdlQ1WnVSYXllZ2pGdkVNenlfbTh1ZjNwOUZDYUVoRzdOQ0h3MTlicnVzVXA1cEZRTFZoWFR6dTdudURnTGNNMkdINHE5bDN3NzZnR2tobHZDVGhmTTd0QmFVS1YyRVBpZGhNOUtTYVAweG5oZTkwNEcxTnEweVVDTi12YUlzZlRPMU9GVFhhWVBuSmN1STk3NDVZU1BDXzNBV0N1bFVf?oc=5",
-     "fecha": "2026-11-22"
-    },
     {
      "titulo": "Cae el riesgo país: Wall Street rebota con fuerza y contagia a las acciones argentinas que cotizan en Nueva York - qpasó",
      "fuente": "qpasó",
@@ -3590,6 +3596,18 @@
      "fuente": "Infobae",
      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQNm9LUnVlcUhpSVVMT0Z0VVNLY0VHQ1RYWkNlRTJmSlR4ZFRrOG1JM0I0bnZLZEMyaU1mU1lEV083UkVScnB4d3p3b2JNTm1XNWJ5SnFHZ1dpVXdLYnFTcTJrRmUyLUFPMlJQR1NRS2JLbjVkdkFOLXdtTENRT01HMUY1T3BhNW4xQXRFeHFNS09LT1FBOWpSSW1ZZ0VnOWRLdlhTMDhKaGdVOV9LM3JsU0Y0SUFON1pSNFdNcXpXSThKbzN0cG1WQXZ30gHkAUFVX3lxTE9DNDJ4ek9xa1JOZ0Z4YUFSOUJJLTRMSmJtWG9HLTllNUlyajh3TnFEakcyTXo3ZU9CN3lRUF9qUlotVzRrdmZVN3ZUQVdOWktvTExadjNvMjBJM3I3MFNDTWJTVXI0T3c0R3ptREdfeDlhbExQYndBUnp3S0lYQlFZWldXVGhJajNqanZnaEw1RV8wc1Z5ZGsyOFJ5WVJNM1BfSE9xdWZlcHBmUi14MDFDX2pCaEs2TmM0UzhWRU5qM3JRR3NrTVc1c19xUUw5UWpuSjF2MEY5dzVGVGxVM2dFQnFwRw?oc=5",
      "fecha": "2026-11-23"
+    },
+    {
+     "titulo": "La bacteria «come carne» deja 14 muertes en Florida y Luisiana: qué exposiciones elevan el riesgo - MundoNOW",
+     "fuente": "MundoNOW",
+     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBaSGZvdnlZNC1pZGMwQzJqMHRwVlRDQmZMYnhnYTV5S1AyX2hUWWpDTTlONlptN0cxbFhNSFhOejVkOWNwVWljdjBObHpjSVBwd2NyTEw5ampmM3kyX2RvUHBFSm5ZS3hkeVRqN19Edw?oc=5",
+     "fecha": "2026-11-23"
+    },
+    {
+     "titulo": "Bacteria «come carne» deja 14 muertos en Florida y Luisiana durante 2026 - CDN",
+     "fuente": "CDN",
+     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONi0yVHNsMEl6VS1aZDE1VVZqNU00T2R0R0FKVXYtNGRkc2wwdWV5TWVyazJvMGRlTXRZa3VUakZkclJCT1JkNGxzRzJTRFBPTy1SQmh6TGFTOFNnckdySlRmaEljU2E0ZzVmQnZMTUpQS1FoWm1BUXhXSXloRzE5a1h1QnNHUzBTR184RzJ5YnE5V3N5cUdTWDBGODN6RHR3ZnJOTURBcXI4b2xT0gG0AUFVX3lxTE4xS3ZpR3BsUlZod0lvSFRBU0RINDVhVzRGdUdISWlleXNPQzBhYWNuR2VXOTYweWxWczNTNUlXS04yMmgyS3o1N1U1TE9RMVNITWIzUEFQdnJYS2FMQXJ5QVkxU3lpdUVlcUlpb3ozb20xZXBnQzRqaWdZTmFhWDR5b2luVXJFQXZITGc0dm9GVGtqYVRhc0J5TWNtNTU4eFlqNkVaMXBSdGZvamU2MWplSlJTYw?oc=5",
+     "fecha": "2026-11-24"
     }
    ]
   },
@@ -3609,22 +3627,29 @@
      "fecha": "2026-11-23"
     },
     {
+     "titulo": "Las acciones de Nvidia se dispararon un 30% tras el regreso del multimillonario Jensen Huang como director ejecutivo. - Vietnam.vn",
+     "fuente": "Vietnam.vn",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZ0xmOHVfb2FRYTNqSkxkWHNQbUxtS2NzZnFsQXZYSzY1TXR2N1N1MHVGcVpVUUxyNmZsZnZZNVkzVG0wbUtybFNIUmxLanp1dDR0QzQxbk1kTzI1QmJoRXl1bF9sUFp6eWVyOFM0cHZhMUpQdnhjdnpUWXlwMTZ1SnljRjF6WlNxMFExdUI1VG81LVZ6MUs4NC1vWnk?oc=5",
+     "fecha": "2026-11-23"
+    },
+    {
      "titulo": "Presidente del Parlamento vietnamita insta a aplicar eficazmente las leyes y cumplir metas de crecimiento - Vietnam+ (VietnamPlus)",
      "fuente": "Vietnam+ (VietnamPlus)",
      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNX3BKSGxnUHFvSWdNNno1NFktaUxKQ0Z2TGtRc0dmbXZOZE9ManQtUUhESHBDTk1BM0U1WHZZMm9MVnVuQjNpbF9ldDluZEtCZDBodWlnX3lOT2xRNlV3UUY4VFUxV2RjczNjS215MG9ud3RocldfVmpCenZDV2NNTGMxLUw4THRmUlBOQjBpa0JVX1ZuN1Y4SFR5UWpKcVlGdTJfakFkc2tvMWNRS1Nldk9yV2w2MkZJdjNGYjFTb19BTzRLeUlpNDg0T2NaaVlJX3Y1cEdBa2ZObmZLM2tZ?oc=5",
      "fecha": "2026-11-23"
-    },
-    {
-     "titulo": "Los primeros resultados de búsqueda de Google ya no son el único \"campo de batalla\". - Vietnam.vn",
-     "fuente": "Vietnam.vn",
-     "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOM2RYLWZlc0RNZWxGZnRNSzhJaVNDSzY1SXVxb09hNzJQcE5EaWNNenFtbEstZlZOaTgtenBGcWVEczE4aDRRZWFyUXZkc05JVmh0YlpNdGJUeEdqekV4cmI0Y1g0aW40bTlNMlRIajB0Zkk2X0t2T29jU2FNamxZVXJn?oc=5",
-     "fecha": "2026-11-24"
     }
    ]
   },
   "VALO": {
    "ticker": "VALO",
-   "noticias": []
+   "noticias": [
+    {
+     "titulo": "Las acciones de Alphabet (GOOGL) cotizan por debajo de su valor razonable a pesar de la expansión en el sector de los chips de IA - Simply Wall St",
+     "fuente": "Simply Wall St",
+     "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOQTBYVmdmRThpVnFpNWw2NzNlV25IVnJLdnprMFBuejFBb3JVLWZmMk0yNWVqYVpuanFvUHh1VlU5TXdmSm40ZVY0cEdsOHE0QkhVNEllMFVkcTRNTmdjN1ZISG9FTG5IOUVvX2lWYWhZZ2dlQlBrbVlhMGdOSlhYb3F1NFJzTTY4ZmwycWpjc0pCVWxrbDlNSWczVjc3bXk5WXpGVW5kdXpFZXgyY1VOc0VJajRLeVlYOUVLVVVRTjJveTR4YWptZXdUQ1TSAcwBQVVfeXFMTkEwWFZnZkU4aVZxaTVsNjczZVduSFZyS3Z6azBQbnoxQW9yVS1mZjJNMjVlamFabmpxb1B4dVZVOU13ZkpuNGVWNHBHbDhxNEJIVTRJZTBVZHE0TU5nYzdWSEhvRUxuSDlFb19pVmFoWWdnZUJQa21ZYTBnTkpYWG9xdTRSc002OGZsMnFqY3NKQlVsa2w5TUlnM1Y3N215OVl6RlVuZHV6RWV4MmNVTnNFSWo0S3lZWDlFS1VVUU4yb3k0eGFqbWV3VENU?oc=5",
+     "fecha": "2026-11-23"
+    }
+   ]
   },
   "MIRG": {
    "ticker": "MIRG",
