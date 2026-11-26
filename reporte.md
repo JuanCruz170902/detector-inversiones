@@ -5,11 +5,11 @@
 ## Contexto macro
 
 - Inflación último mes (%): 2.2
-- TNA plazo fijo prom. (%): 20.46
-- Dólar oficial: 1615.0
-- Dólar MEP: 1695.1
-- Dólar CCL: 1797.1
-- Riesgo país (pb): 1094.0
+- TNA plazo fijo prom. (%): 20.56
+- Dólar oficial: 1630.0
+- Dólar MEP: 1688.7
+- Dólar CCL: 1767.9
+- Riesgo país (pb): 1067.0
 - Inflación esperada mensual (%): 1.66
 - Devaluación A3500 último mes (%): 4.42
 
@@ -17,13 +17,12 @@
 
 | Tasa fija | TEA | CER | TIR real | Inflación implícita mensual |
 |---|---|---|---|---|
-| T15E7 | 28.95% | X29E7 | -0.1% | 2.15% |
-| S29E7 | 28.82% | X29E7 | -0.1% | 2.14% |
-| S26F7 | 30.45% | X29E7 | -0.1% | 2.25% |
-| T30A7 | 33.35% | TZXA7 | 3.44% | 2.14% |
-| T31Y7 | 34.12% | TZXY7 | 3.26% | 2.2% |
-| T30J7 | 33.6% | TZX27 | 3.27% | 2.17% |
-| TY30P | 32.41% | TXMJ0 | 8.28% | 1.69% |
+| T15E7 | 28.69% | X29E7 | 1.44% | 2.0% |
+| S29E7 | 28.71% | X29E7 | 1.44% | 2.0% |
+| S26F7 | 30.6% | X29E7 | 1.44% | 2.13% |
+| T30A7 | 33.44% | TZXA7 | 4.35% | 2.07% |
+| T31Y7 | 33.73% | TZX27 | 4.42% | 2.08% |
+| T30J7 | 34.04% | TZX27 | 4.42% | 2.1% |
 
 ## Soberanos en dólares
 
@@ -43,52 +42,52 @@
 
 Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
 
-- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Inflación implícita 2.06% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
 - Dollar linked: devaluación implícita 1.86% mensual vs 4.42% del último mes → cobertura barata.
-- Brecha MEP/oficial 5.0%.
-- Riesgo país 1094 pb.
+- Brecha MEP/oficial 3.6%.
+- Riesgo país 1067 pb.
 
 Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| tasa_fija | T30A7 | 57350 VN | $ 79.791 | $ 209 |
+| tasa_fija | T30A7 | 57321 VN | $ 79.791 | $ 209 |
 | dollar_linked | D15E7 | 37 VN | $ 58.763 | $ 154 |
-| cer | TZXA7 | 30489 VN | $ 39.895 | $ 104 |
-| liquidez | CAUCION/FCI MM |  | $ 21.084 | $ 0 |
+| cer | TZXM7 | 16808 VN | $ 39.894 | $ 104 |
+| liquidez | CAUCION/FCI MM |  | $ 21.085 | $ 0 |
 
-Paper trading: valor $ 199.844 sobre $ 200.000 aportados (-0.08%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 199.844 sobre $ 200.000 aportados (-0.08%); mismos aportes en MEP: $ 193.758.
 
 ## Perfil moderado
 
 Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
 
-- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Inflación implícita 2.06% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
 - Dollar linked: devaluación implícita 1.86% mensual vs 4.42% del último mes → cobertura barata.
-- Brecha MEP/oficial 5.0%.
-- Riesgo país 1094 pb.
+- Brecha MEP/oficial 3.6%.
+- Riesgo país 1067 pb.
 
 Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| tasa_fija | T30A7 | 43012 VN | $ 59.843 | $ 156 |
+| tasa_fija | T30A7 | 42991 VN | $ 59.843 | $ 156 |
 | hard_dollar | AL30 | 48 VN | $ 39.264 | $ 103 |
 | cedears_etf | SPY | 1 acciones | $ 21.450 | $ 134 |
 | cedears_etf | EEM | 1 acciones | $ 19.980 | $ 125 |
-| cer | TZXA7 | 15244 VN | $ 19.947 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 38.947 | $ 0 |
+| cer | TZXM7 | 8404 VN | $ 19.947 | $ 52 |
+| liquidez | CAUCION/FCI MM |  | $ 38.946 | $ 0 |
 
-Paper trading: valor $ 200.365 sobre $ 200.000 aportados (+0.18%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 200.365 sobre $ 200.000 aportados (+0.18%); mismos aportes en MEP: $ 193.758.
 
 ## Perfil riesgoso
 
 Busca retorno en renta variable; acepta caídas fuertes.
 
-- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Inflación implícita 2.06% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
 - Dollar linked: devaluación implícita 1.86% mensual vs 4.42% del último mes → cobertura barata.
-- Brecha MEP/oficial 5.0%.
-- Riesgo país 1094 pb.
+- Brecha MEP/oficial 3.6%.
+- Riesgo país 1067 pb.
 
 Propuesta para $ 200.000:
 
@@ -97,12 +96,12 @@ Propuesta para $ 200.000:
 | cedears | XOM | 1 acciones | $ 28.260 | $ 176 |
 | cedears | WMT | 2 acciones | $ 26.080 | $ 163 |
 | cedears | PBR | 1 acciones | $ 28.600 | $ 179 |
-| tasa_fija | T30A7 | 21506 VN | $ 29.921 | $ 78 |
+| tasa_fija | T30A7 | 21495 VN | $ 29.921 | $ 78 |
 | acciones_arg | GGAL | 5 acciones | $ 23.738 | $ 148 |
 | acciones_arg | PAMP | 5 acciones | $ 22.200 | $ 139 |
 | liquidez | CAUCION/FCI MM |  | $ 40.318 | $ 0 |
 
-Paper trading: valor $ 198.044 sobre $ 200.000 aportados (-0.98%); mismos aportes en MEP: $ 194.493.
+Paper trading: valor $ 198.044 sobre $ 200.000 aportados (-0.98%); mismos aportes en MEP: $ 193.758.
 
 ## Empresas en las propuestas
 
@@ -113,11 +112,10 @@ Paper trading: valor $ 198.044 sobre $ 200.000 aportados (-0.98%); mismos aporte
 | PBR (Petrobras - Petroleo Brasileiro Sa) | 2025-06-30 6-K/A | 16.0% | 19% | – | ventas -14% interanual; último dato en la SEC: 2025-06-30 |
 | WMT (Walmart Inc.) | 2026-07-31 10-Q | 3.0% | 22% | 47.9 | – |
 | XOM (Exxonmobil Holdings Corp) | 2026-09-30 10-Q | 10.2% | 15% | 16.3 | – |
+- GGAL: Grupo Financiero Galicia Q3 2026 Earnings Call Is Live - TradingView (TradingView, 2026-11-25)
+- GGAL: Informe de resultados: Grupo Financiero Galicia SA ADR no alcanza el BPA del tercer trimestre de 2026 - Investing.com España (Investing.com España, 2026-11-25)
 - GGAL: Grupo Financiero Galicia vuelve al verde: ¿Cuánto bajó la mora en el tercer trimestre? - Bloomberg Línea (Bloomberg Línea, 2026-11-24)
-- GGAL: Grupo Galicia volvió a obtener ganancias y redujo la presión de la morosidad en su último balance - Forbes Argentina (Forbes Argentina, 2026-11-24)
-- GGAL: Grupo Galicia gana ARS$229.002M y baja la mora a 9,7% - El Ecosistema Startup (El Ecosistema Startup, 2026-11-24)
-- PAMP: Gráfico interactivo de acciones de Pampa Energia SA (9PAA.HA) - Yahoo Finanzas (Yahoo Finanzas, 2026-11-23)
-- PAMP: Pampa Energía busca ampliar su participación en tres centrales eléctricas que el Gobierno privatizará - Diario Neuquino (Diario Neuquino, 2026-11-22)
+- PAMP: La central de Timbúes entra en la estrategia de expansión eléctrica de Pampa Energía - IRE Somos Región (IRE Somos Región, 2026-11-23)
 - PBR: Petrobras Eyes Corn Ethanol Expansion: Can It Unlock New Value? (Yahoo Finance, 2026-11-25)
 - PBR: Petrobras Unveils $122 Billion Plan, Sees Potential for $10 Billion More in Dividends (Yahoo Finance, 2026-11-25)
 - PBR: Can Brazil's Fuel Crackdown Help UGP's Ipiranga Gain More Share? (Yahoo Finance, 2026-11-24)
@@ -175,5 +173,5 @@ Paper trading: valor $ 198.044 sobre $ 200.000 aportados (-0.98%); mismos aporte
 - data912_cedears: ok
 - data912_historia: ok
 - data912_usa: ok
-- sec_y_noticias: ok (30 balances, 28 con noticias)
+- sec_y_noticias: ok (30 balances, 29 con noticias)
 - bcra_badlar_serie: ok
