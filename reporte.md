@@ -5,9 +5,9 @@
 ## Contexto macro
 
 - Inflación último mes (%): 2.2
-- TNA plazo fijo prom. (%): 20.56
-- Dólar oficial: 1630.0
-- Dólar MEP: 1688.7
+- TNA plazo fijo prom. (%): 20.63
+- Dólar oficial: 1625.0
+- Dólar MEP: 1666.4
 - Dólar CCL: 1767.9
 - Riesgo país (pb): 1067.0
 - Inflación esperada mensual (%): 1.66
@@ -17,12 +17,13 @@
 
 | Tasa fija | TEA | CER | TIR real | Inflación implícita mensual |
 |---|---|---|---|---|
-| T15E7 | 28.69% | X29E7 | 1.44% | 2.0% |
-| S29E7 | 28.71% | X29E7 | 1.44% | 2.0% |
-| S26F7 | 30.6% | X29E7 | 1.44% | 2.13% |
-| T30A7 | 33.44% | TZXA7 | 4.35% | 2.07% |
-| T31Y7 | 33.73% | TZX27 | 4.42% | 2.08% |
-| T30J7 | 34.04% | TZX27 | 4.42% | 2.1% |
+| T15E7 | 27.33% | X29E7 | -1.18% | 2.13% |
+| S29E7 | 28.18% | X29E7 | -1.18% | 2.19% |
+| S26F7 | 29.77% | X29E7 | -1.18% | 2.3% |
+| T30A7 | 32.89% | TZXA7 | 2.57% | 2.18% |
+| T31Y7 | 33.33% | TZXY7 | 4.01% | 2.09% |
+| T30J7 | 33.86% | TZX27 | 4.19% | 2.11% |
+| TY30P | 32.26% | TXMJ0 | 8.35% | 1.68% |
 
 ## Soberanos en dólares
 
@@ -42,51 +43,51 @@
 
 Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
 
-- Inflación implícita 2.06% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.00% mensual vs 4.03% del último mes → cobertura barata.
-- Brecha MEP/oficial 3.6%.
+- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Dollar linked: devaluación implícita 1.95% mensual vs 4.03% del último mes → cobertura barata.
+- Brecha MEP/oficial 2.5%.
 - Riesgo país 1067 pb.
 
 Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| tasa_fija | T30A7 | 57321 VN | $ 79.791 | $ 209 |
+| tasa_fija | T30A7 | 57177 VN | $ 79.790 | $ 209 |
 | dollar_linked | D15E7 | 37 VN | $ 58.682 | $ 153 |
-| cer | TZXM7 | 16808 VN | $ 39.894 | $ 104 |
-| liquidez | CAUCION/FCI MM |  | $ 21.167 | $ 0 |
+| cer | TZXM7 | 16745 VN | $ 39.895 | $ 104 |
+| liquidez | CAUCION/FCI MM |  | $ 21.166 | $ 0 |
 
-Paper trading: valor $ 200.671 sobre $ 200.000 aportados (+0.34%); mismos aportes en MEP: $ 193.758.
+Paper trading: valor $ 200.671 sobre $ 200.000 aportados (+0.34%); mismos aportes en MEP: $ 191.200.
 
 ## Perfil moderado
 
 Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
 
-- Inflación implícita 2.06% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.00% mensual vs 4.03% del último mes → cobertura barata.
-- Brecha MEP/oficial 3.6%.
+- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Dollar linked: devaluación implícita 1.95% mensual vs 4.03% del último mes → cobertura barata.
+- Brecha MEP/oficial 2.5%.
 - Riesgo país 1067 pb.
 
 Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| tasa_fija | T30A7 | 42991 VN | $ 59.843 | $ 156 |
+| tasa_fija | T30A7 | 42883 VN | $ 59.843 | $ 156 |
 | hard_dollar | AL30 | 48 VN | $ 39.432 | $ 103 |
 | cedears_etf | SPY | 1 acciones | $ 21.600 | $ 135 |
 | cedears_etf | EEM | 1 acciones | $ 20.270 | $ 127 |
-| cer | TZXM7 | 8404 VN | $ 19.947 | $ 52 |
-| liquidez | CAUCION/FCI MM |  | $ 38.334 | $ 0 |
+| cer | TZXM7 | 8372 VN | $ 19.946 | $ 52 |
+| liquidez | CAUCION/FCI MM |  | $ 38.335 | $ 0 |
 
-Paper trading: valor $ 202.920 sobre $ 200.000 aportados (+1.46%); mismos aportes en MEP: $ 193.758.
+Paper trading: valor $ 202.920 sobre $ 200.000 aportados (+1.46%); mismos aportes en MEP: $ 191.200.
 
 ## Perfil riesgoso
 
 Busca retorno en renta variable; acepta caídas fuertes.
 
-- Inflación implícita 2.06% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 2.00% mensual vs 4.03% del último mes → cobertura barata.
-- Brecha MEP/oficial 3.6%.
+- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Dollar linked: devaluación implícita 1.95% mensual vs 4.03% del último mes → cobertura barata.
+- Brecha MEP/oficial 2.5%.
 - Riesgo país 1067 pb.
 
 Propuesta para $ 200.000:
@@ -96,12 +97,12 @@ Propuesta para $ 200.000:
 | cedears | XOM | 1 acciones | $ 28.780 | $ 180 |
 | cedears | WMT | 2 acciones | $ 25.840 | $ 161 |
 | cedears | PBR | 1 acciones | $ 29.500 | $ 184 |
-| tasa_fija | T30A7 | 21495 VN | $ 29.921 | $ 78 |
+| tasa_fija | T30A7 | 21441 VN | $ 29.921 | $ 78 |
 | acciones_arg | GGAL | 5 acciones | $ 24.450 | $ 153 |
 | acciones_arg | BMA | 2 acciones | $ 18.320 | $ 114 |
 | liquidez | CAUCION/FCI MM |  | $ 42.318 | $ 0 |
 
-Paper trading: valor $ 198.185 sobre $ 200.000 aportados (-0.91%); mismos aportes en MEP: $ 193.758.
+Paper trading: valor $ 198.185 sobre $ 200.000 aportados (-0.91%); mismos aportes en MEP: $ 191.200.
 
 ## Empresas en las propuestas
 
@@ -116,14 +117,14 @@ Paper trading: valor $ 198.185 sobre $ 200.000 aportados (-0.91%); mismos aporte
 - BMA: Banco Macro S.A.: precio objetivo a 12 meses baja a $106.43; potencial subida del 111% - TradingView (TradingView, 2026-11-26)
 - BMA: Banco Macro B ADR no alcanza por 0,16$ las previsiones de BPA en el tercer trimestre del año - Investing.com España (Investing.com España, 2026-11-26)
 - GGAL: Grupo Financiero Galicia vuelve al verde: ¿Cuánto bajó la mora en el tercer trimestre? - Bloomberg Línea (Bloomberg Línea, 2026-11-24)
-- GGAL: Grupo Galicia volvió a obtener ganancias y redujo la presión de la morosidad en su último balance - Forbes Argentina (Forbes Argentina, 2026-11-24)
-- GGAL: Grupo Galicia gana ARS$229.002M y baja la mora a 9,7% - El Ecosistema Startup (El Ecosistema Startup, 2026-11-24)
+- GGAL: Grupo Financiero Galicia S.A.: precio objetivo a 12 meses baja a $61.47; potencial subida del 131% - TradingView (TradingView, 2026-11-24)
+- GGAL: Informe de resultados: Grupo Financiero Galicia SA ADR no alcanza el BPA del tercer trimestre de 2026 - Investing.com España (Investing.com España, 2026-11-25)
 - PBR: Ultrapar Outperforms Petrobras YTD: Why PBR Still Has the Edge (Yahoo Finance, 2026-11-26)
 - PBR: Petrobras Eyes Corn Ethanol Expansion: Can It Unlock New Value? (Yahoo Finance, 2026-11-25)
 - PBR: Petrobras Unveils $122 Billion Plan, Sees Potential for $10 Billion More in Dividends (Yahoo Finance, 2026-11-25)
-- WMT: 3 big reasons why Black Friday will probably exceed retailer expectations (Yahoo Finance, 2026-11-26)
 - WMT: Forget Walmart: Nike Has More to Lose From Vietnam’s Proposed Tariff of Up to 35% (Yahoo Finance, 2026-11-27)
 - WMT: Walmart (WMT) Stock Gets Fair Value Boost After Q3 Price Target Increases (Yahoo Finance, 2026-11-27)
+- WMT: When Walmart, Target, Costco, and other major retailers open on Black Friday (Yahoo Finance, 2026-11-27)
 - XOM: ExxonMobil (XOM) Stock Looks Cheap Against Future Cash Flow Estimates (Yahoo Finance, 2026-11-25)
 - XOM: Bad News for Exxon and Chevron: Goldman Sees Brent Falling “Roughly $10” Next Year on a Supply Glut (Yahoo Finance, 2026-11-25)
 - XOM: Turn $100,000 Into Lifetime Paychecks With These “Forever” Passive Income Dividend Stocks (Yahoo Finance, 2026-11-25)
