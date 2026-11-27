@@ -22,7 +22,7 @@
      "costo_compra": 208.65,
      "tir_entrada": 33.35,
      "vencimiento": "2027-04-30",
-     "ultimo_precio": 139.1
+     "ultimo_precio": 139.54
     },
     {
      "ticker": "D15E7",
@@ -34,7 +34,7 @@
      "costo_compra": 154.13,
      "tir_entrada": null,
      "vencimiento": "2027-01-15",
-     "ultimo_precio": 158710.0
+     "ultimo_precio": 158580.0
     },
     {
      "ticker": "TZXA7",
@@ -46,7 +46,7 @@
      "costo_compra": 104.32,
      "tir_entrada": 3.44,
      "vencimiento": "2027-04-30",
-     "ultimo_precio": 130.85
+     "ultimo_precio": 131.3
     }
    ],
    "liquidez_inicial": 20907.21,
@@ -75,7 +75,7 @@
      "costo_compra": 156.49,
      "tir_entrada": 33.35,
      "vencimiento": "2027-04-30",
-     "ultimo_precio": 139.1
+     "ultimo_precio": 139.54
     },
     {
      "ticker": "AL30",
@@ -87,7 +87,7 @@
      "costo_compra": 103.88,
      "tir_entrada": 20.39,
      "vencimiento": null,
-     "ultimo_precio": 81700.0
+     "ultimo_precio": 82120.0
     },
     {
      "ticker": "SPY",
@@ -99,7 +99,7 @@
      "costo_compra": 129.02,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 21310.0
+     "ultimo_precio": 21600.0
     },
     {
      "ticker": "EEM",
@@ -111,7 +111,7 @@
      "costo_compra": 120.47,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 20060.0
+     "ultimo_precio": 20100.0
     },
     {
      "ticker": "TZXA7",
@@ -123,7 +123,7 @@
      "costo_compra": 52.16,
      "tir_entrada": 3.44,
      "vencimiento": "2027-04-30",
-     "ultimo_precio": 130.85
+     "ultimo_precio": 131.3
     }
    ],
    "liquidez_inicial": 39974.1,
@@ -153,7 +153,7 @@
      "costo_compra": 175.86,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 28260.0
+     "ultimo_precio": 28340.0
     },
     {
      "ticker": "WMT",
@@ -165,7 +165,7 @@
      "costo_compra": 161.87,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 13040.0
+     "ultimo_precio": 12920.0
     },
     {
      "ticker": "PBR",
@@ -177,7 +177,7 @@
      "costo_compra": 174.61,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 28600.0
+     "ultimo_precio": 29280.0
     },
     {
      "ticker": "T30A7",
@@ -189,7 +189,7 @@
      "costo_compra": 78.24,
      "tir_entrada": 33.35,
      "vencimiento": "2027-04-30",
-     "ultimo_precio": 139.1
+     "ultimo_precio": 139.54
     },
     {
      "ticker": "GGAL",
@@ -201,7 +201,7 @@
      "costo_compra": 164.87,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 4747.5
+     "ultimo_precio": 4885.0
     },
     {
      "ticker": "YPFD",
@@ -213,7 +213,7 @@
      "costo_compra": 136.39,
      "tir_entrada": null,
      "vencimiento": null,
-     "ultimo_precio": 5620.0
+     "ultimo_precio": 5930.0
     }
    ],
    "liquidez_inicial": 38907.71,
@@ -356,6 +356,134 @@
    "bench": {
     "mep": 199244.88,
     "plazo_fijo": 200000.0,
+    "mep_valor": 1688.7
+   }
+  },
+  {
+   "fecha": "2026-11-26",
+   "hora": "17:00",
+   "valuado": "2026-11-27T00:18-03:00",
+   "perfiles": {
+    "conservador": {
+     "valor": 199439.27,
+     "rend": -0.0028,
+     "detalle": [
+      {
+       "ticker": "T30A7",
+       "precio": 139.54,
+       "valor_neto": 80163.47,
+       "resultado": 164.65,
+       "var_precio": 0.0073
+      },
+      {
+       "ticker": "D15E7",
+       "precio": 158580.0,
+       "valor_neto": 58521.17,
+       "resultado": -573.96,
+       "var_precio": -0.0045
+      },
+      {
+       "ticker": "TZXA7",
+       "precio": 131.3,
+       "valor_neto": 39835.7,
+       "resultado": -163.14,
+       "var_precio": 0.0011
+      }
+     ]
+    },
+    "moderado": {
+     "valor": 202428.17,
+     "rend": 0.01214,
+     "detalle": [
+      {
+       "ticker": "T30A7",
+       "precio": 139.54,
+       "valor_neto": 60122.25,
+       "resultado": 123.48,
+       "var_precio": 0.0073
+      },
+      {
+       "ticker": "AL30",
+       "precio": 82120.0,
+       "valor_neto": 40952.63,
+       "resultado": 1123.75,
+       "var_precio": 0.0336
+      },
+      {
+       "ticker": "SPY",
+       "precio": 21600.0,
+       "valor_neto": 21465.11,
+       "resultado": 676.09,
+       "var_precio": 0.0455
+      },
+      {
+       "ticker": "EEM",
+       "precio": 20100.0,
+       "valor_neto": 19974.48,
+       "resultado": 564.01,
+       "var_precio": 0.042
+      },
+      {
+       "ticker": "TZXA7",
+       "precio": 131.3,
+       "valor_neto": 19917.2,
+       "resultado": -81.56,
+       "var_precio": 0.0011
+      }
+     ]
+    },
+    "riesgoso": {
+     "valor": 204627.57,
+     "rend": 0.02314,
+     "detalle": [
+      {
+       "ticker": "XOM",
+       "precio": 28340.0,
+       "valor_neto": 28163.02,
+       "resultado": -172.84,
+       "var_precio": 0.0064
+      },
+      {
+       "ticker": "WMT",
+       "precio": 12920.0,
+       "valor_neto": 25678.63,
+       "resultado": -403.24,
+       "var_precio": -0.0031
+      },
+      {
+       "ticker": "PBR",
+       "precio": 29280.0,
+       "valor_neto": 29097.15,
+       "resultado": 962.54,
+       "var_precio": 0.0472
+      },
+      {
+       "ticker": "T30A7",
+       "precio": 139.54,
+       "valor_neto": 30060.43,
+       "resultado": 61.74,
+       "var_precio": 0.0073
+      },
+      {
+       "ticker": "GGAL",
+       "precio": 4885.0,
+       "valor_neto": 29126.96,
+       "resultado": 2562.09,
+       "var_precio": 0.1102
+      },
+      {
+       "ticker": "YPFD",
+       "precio": 5930.0,
+       "valor_neto": 23571.87,
+       "resultado": 1595.48,
+       "var_precio": 0.0861
+      }
+     ]
+    }
+   },
+   "bench": {
+    "mep": 199244.88,
+    "plazo_fijo": 200112.11,
     "mep_valor": 1688.7
    }
   }
