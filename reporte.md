@@ -5,11 +5,11 @@
 ## Contexto macro
 
 - Inflación último mes (%): 2.2
-- TNA plazo fijo prom. (%): 20.63
+- TNA plazo fijo prom. (%): 20.62
 - Dólar oficial: 1625.0
-- Dólar MEP: 1666.4
-- Dólar CCL: 1767.9
-- Riesgo país (pb): 1067.0
+- Dólar MEP: 1661.9
+- Dólar CCL: 1751.3
+- Riesgo país (pb): 960.0
 - Inflación esperada mensual (%): 1.66
 - Devaluación A3500 último mes (%): 4.06
 
@@ -17,13 +17,13 @@
 
 | Tasa fija | TEA | CER | TIR real | Inflación implícita mensual |
 |---|---|---|---|---|
-| T15E7 | 27.33% | X29E7 | -1.18% | 2.13% |
-| S29E7 | 28.18% | X29E7 | -1.18% | 2.19% |
-| S26F7 | 29.77% | X29E7 | -1.18% | 2.3% |
-| T30A7 | 32.89% | TZXA7 | 2.57% | 2.18% |
-| T31Y7 | 33.33% | TZXY7 | 4.01% | 2.09% |
-| T30J7 | 33.86% | TZX27 | 4.19% | 2.11% |
-| TY30P | 32.26% | TXMJ0 | 8.35% | 1.68% |
+| T15E7 | 26.65% | X29E7 | -0.42% | 2.02% |
+| S29E7 | 27.81% | X29E7 | -0.42% | 2.1% |
+| S26F7 | 28.61% | X29E7 | -0.42% | 2.15% |
+| T30A7 | 32.0% | TZXA7 | 2.58% | 2.12% |
+| T31Y7 | 32.53% | TZXY7 | 3.8% | 2.06% |
+| T30J7 | 33.2% | TZX27 | 4.09% | 2.08% |
+| TY30P | 31.85% | TXMJ0 | 7.72% | 1.7% |
 
 ## Soberanos en dólares
 
@@ -43,52 +43,52 @@
 
 Preservar poder de compra en pesos con riesgo bajo. Sin acciones.
 
-- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 1.96% mensual vs 4.06% del último mes → cobertura barata.
-- Brecha MEP/oficial 2.5%.
-- Riesgo país 1067 pb.
+- Inflación implícita 2.09% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Dollar linked: devaluación implícita 1.91% mensual vs 4.06% del último mes → cobertura barata.
+- Brecha MEP/oficial 2.3%.
+- Riesgo país 960 pb.
 
 Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| tasa_fija | T30A7 | 57177 VN | $ 79.790 | $ 209 |
+| tasa_fija | T30A7 | 56884 VN | $ 79.791 | $ 209 |
 | dollar_linked | D15E7 | 37 VN | $ 58.749 | $ 154 |
-| cer | TZXM7 | 16745 VN | $ 39.895 | $ 104 |
-| liquidez | CAUCION/FCI MM |  | $ 21.099 | $ 0 |
+| cer | TZXM7 | 16699 VN | $ 39.894 | $ 104 |
+| liquidez | CAUCION/FCI MM |  | $ 21.100 | $ 0 |
 
-Paper trading: valor $ 200.890 sobre $ 200.000 aportados (+0.44%); mismos aportes en MEP: $ 191.200.
+Paper trading: valor $ 200.890 sobre $ 200.000 aportados (+0.44%); mismos aportes en MEP: $ 190.683.
 
 ## Perfil moderado
 
 Mayormente renta fija, con una parte en dólares y CEDEARs de índices.
 
-- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 1.96% mensual vs 4.06% del último mes → cobertura barata.
-- Brecha MEP/oficial 2.5%.
-- Riesgo país 1067 pb.
+- Inflación implícita 2.09% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Dollar linked: devaluación implícita 1.91% mensual vs 4.06% del último mes → cobertura barata.
+- Brecha MEP/oficial 2.3%.
+- Riesgo país 960 pb.
 
 Propuesta para $ 200.000:
 
 | Bucket | Instrumento | Cantidad | Monto | Costo |
 |---|---|---|---|---|
-| tasa_fija | T30A7 | 42883 VN | $ 59.843 | $ 156 |
+| tasa_fija | T30A7 | 42663 VN | $ 59.843 | $ 156 |
 | hard_dollar | AL30 | 48 VN | $ 39.456 | $ 103 |
 | cedears_etf | SPY | 1 acciones | $ 21.420 | $ 134 |
 | cedears_etf | EEM | 1 acciones | $ 20.540 | $ 128 |
-| cer | TZXM7 | 8372 VN | $ 19.946 | $ 52 |
+| cer | TZXM7 | 8349 VN | $ 19.946 | $ 52 |
 | liquidez | CAUCION/FCI MM |  | $ 38.221 | $ 0 |
 
-Paper trading: valor $ 201.505 sobre $ 200.000 aportados (+0.75%); mismos aportes en MEP: $ 191.200.
+Paper trading: valor $ 201.505 sobre $ 200.000 aportados (+0.75%); mismos aportes en MEP: $ 190.683.
 
 ## Perfil riesgoso
 
 Busca retorno en renta variable; acepta caídas fuertes.
 
-- Inflación implícita 2.17% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
-- Dollar linked: devaluación implícita 1.96% mensual vs 4.06% del último mes → cobertura barata.
-- Brecha MEP/oficial 2.5%.
-- Riesgo país 1067 pb.
+- Inflación implícita 2.09% mensual vs esperada 1.66%: el mercado descuenta MÁS inflación de la esperada → conviene tasa fija.
+- Dollar linked: devaluación implícita 1.91% mensual vs 4.06% del último mes → cobertura barata.
+- Brecha MEP/oficial 2.3%.
+- Riesgo país 960 pb.
 
 Propuesta para $ 200.000:
 
@@ -97,12 +97,12 @@ Propuesta para $ 200.000:
 | cedears | CVX | 1 acciones | $ 23.420 | $ 146 |
 | cedears | XOM | 1 acciones | $ 28.400 | $ 177 |
 | cedears | WMT | 2 acciones | $ 25.940 | $ 162 |
-| tasa_fija | T30A7 | 21441 VN | $ 29.921 | $ 78 |
+| tasa_fija | T30A7 | 21331 VN | $ 29.921 | $ 78 |
 | acciones_arg | GGAL | 5 acciones | $ 24.900 | $ 156 |
 | acciones_arg | BMA | 2 acciones | $ 18.440 | $ 115 |
-| liquidez | CAUCION/FCI MM |  | $ 48.145 | $ 0 |
+| liquidez | CAUCION/FCI MM |  | $ 48.144 | $ 0 |
 
-Paper trading: valor $ 198.303 sobre $ 200.000 aportados (-0.85%); mismos aportes en MEP: $ 191.200.
+Paper trading: valor $ 198.303 sobre $ 200.000 aportados (-0.85%); mismos aportes en MEP: $ 190.683.
 
 ## Empresas en las propuestas
 
@@ -176,5 +176,5 @@ Paper trading: valor $ 198.303 sobre $ 200.000 aportados (-0.85%); mismos aporte
 - data912_cedears: ok
 - data912_historia: ok
 - data912_usa: ok
-- sec_y_noticias: ok (30 balances, 29 con noticias)
+- sec_y_noticias: ok (30 balances, 28 con noticias)
 - bcra_badlar_serie: ok
